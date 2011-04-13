@@ -1,0 +1,66 @@
+<BOUCLE_principale(ARTICLES){id_article}>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<head>
+	<title>[(#TITRE|supprimer_numero|textebrut)] [- (#NOM_SITE_SPIP|textebrut)]</title>
+	<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr} />
+	
+	<style type="text/css"><!--
+	<INCLURE{fond=css/couleur}{couleur=dcdf03} />
+	
+	
+	.coloration_code {
+		font-size: 85%;
+		border: 1px solid #999;
+		padding: 5px;
+		background-color: #f0f0f0;
+	}
+	--></style>
+	
+
+	<script><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	$(document).ready(function() {
+		$(".formulaire_principal textarea").val("[(#ENV{ajouter}|addslashes|replace{'(\n|\r)+','\r'}|replace{'&quot;','\"'}|replace{'&amp;','&'})]");
+	});
+	
+	--></script>
+	
+</head>
+<body class="accueil plier">
+
+<INCLURE{fond=inc/entete}>
+
+<div id="principale">
+
+
+	<div id="centre">
+		<div id="tetiere">
+			<h1>[(#TITRE|supprimer_numero)]</h1>
+		</div>
+
+		<INCLURE{fond=noisettes/mots_lies_general} />
+
+
+		<div id="texte_article" style="padding: 40px;">
+		#TEXTE
+		</div>
+
+
+	</div>
+
+	<div id="droite">
+	
+			
+	</div>
+	
+	<INCLURE{fond=inc/footer} />
+	
+</div>
+</body>
+</html>
+</BOUCLE_principale>
+#FILTRE{mini_html}

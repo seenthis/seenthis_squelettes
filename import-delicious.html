@@ -1,0 +1,256 @@
+#CACHE{0}
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+
+<?php
+
+function creer_me($texte_message, $id_auteur, $id_parent, $ip, $date = "NOW()") {
+	
+	
+	$id_me = sql_insertq("spip_me",
+		array(
+			"date" => $date,
+			"id_auteur" => $id_auteur,
+			"id_parent" => $id_parent,
+			"texte" => $texte_message,
+			"ip" => $_SERVER["REMOTE_ADDR"],
+			"statut" => "publi"
+		)
+	);
+	
+	cache_auteur($id_auteur);
+	cache_me($id_me, $id_parent);
+	
+	
+	
+	// $deja_vu pour eviter les doublons
+	
+	$deja_vu = Array();
+	
+	// Ajouter auteur automatique (id_dest)
+	if ($id_dest > 0 && $id_dest != $id_auteur) {
+			if (!$deja_vu["people"][$nom]) {
+			
+				$query = sql_query("SELECT id_auteur FROM spip_auteurs WHERE id_auteur = '$id_dest'");
+				if ($row = sql_fetch($query)) {
+					$dest = $row["id_auteur"];
+					
+					sql_insertq("spip_me_auteur", array(
+						"id_me" => $id_me,
+						"id_auteur" => $dest
+					));
+					
+				}
+	
+				$deja_vu["people"][$nom] = true;
+	
+			}		
+	}
+	
+	
+	
+	// Extraire les people et fabriquer les liens
+	preg_match_all("/"._REG_PEOPLE."/", $texte_message, $regs);
+	if ($regs) {	
+		include_spip("base/abstract_sql");
+	
+		foreach ($regs[0] as $k=>$people) {
+			$nom = substr($people, 1, 1000);
+
+			if (!$deja_vu["people"][$nom]) {
+			
+				$query = sql_query("SELECT id_auteur FROM spip_auteurs WHERE login = '$nom'");
+				if ($row = sql_fetch($query)) {
+					$dest = $row["id_auteur"];
+					
+					sql_insertq("spip_me_auteur", array(
+						"id_me" => $id_me,
+						"id_auteur" => $dest
+					));
+					
+				}
+	
+				$deja_vu["people"][$nom] = true;
+	
+			}		
+		}
+	}
+
+
+	// Ajouter mot automatique (ze_mot)
+	if ($ze_mot > 0) {
+			
+				$query = sql_query("SELECT id_mot, titre FROM spip_mots WHERE id_mot='$ze_mot'");
+				if ($row = sql_fetch($query)) {
+					$id_mot = $row["id_mot"];			
+					$titre = $row["titre"];			
+					
+					sql_insertq("spip_me_mot", array(
+						"id_me" => $id_me,
+						"id_mot" => $id_mot
+					));
+					
+				}
+	
+				$deja_vu["mot"][$titre] = true;
+				cache_mot($id_mot);
+
+	}
+	
+
+	
+	// Extraire les tags et fabriquer des mots-clés
+
+	preg_match_all("/"._REG_HASH."/ui", $texte_message, $regs);
+	if ($regs) {
+		foreach ($regs[0] as $k=>$hash) {
+		
+			$hash = mb_substr(mb_strtolower($hash, "UTF-8"), 1, 10000);
+			
+			
+			if (!$deja_vu["mot"][$hash]) {
+
+				$query = sql_query("SELECT id_mot FROM spip_mots WHERE titre='$hash'");
+				if ($row = sql_fetch($query)) {
+					$id_mot = $row["id_mot"];			
+				} else {
+					$id_mot = sql_insertq ("spip_mots", 
+						array(
+							"titre" => $hash,
+							"id_groupe" => 1
+					));
+				}
+				// echo "<li>$id_mot - $hash</li>";
+				cache_mot($id_mot);
+
+				sql_insertq("spip_me_mot", array(
+					"id_me" => $id_me,
+					"id_mot" => $id_mot
+				));
+				
+				// Hierarchiser ce mot
+				hierarchiser_mot($id_mot, $hash);
+				
+				// Voir s'il y a des mots a re-hierarchiser
+				$query = sql_query("SELECT id_mot, titre FROM spip_mots WHERE titre LIKE '$hash%'");
+				while ($row = sql_fetch($query)) {
+					$id_mot = $row["id_mot"];
+					$titre = $row["titre"];
+					hierarchiser_mot($id_mot, $titre);
+				}
+				$deja_vu["mot"][$hash] = true;
+			}
+		}
+	}
+
+
+	// Extraire les liens et fabriquer des spip_syndic
+	preg_match_all("/"._REG_URL."/i", $texte_message, $regs);
+
+	if ($regs) {
+		foreach ($regs[0] as $k=>$url) {	
+			$url = ereg_replace("/$", "", $url);
+
+			if (!$deja_vu["url"][$url]) {
+
+
+				$query = sql_query("SELECT id_syndic FROM spip_syndic WHERE url_site='$url'");
+				if ($row = sql_fetch($query)) {
+					$id_syndic = $row["id_syndic"];			
+				} else {
+					$id_syndic = sql_insertq ("spip_syndic", 
+						array(
+							"id_rubrique" => 1,
+							"id_secteur" => 1,
+							"nom_site" => $url,
+							"url_site" => $url,
+							"statut" => "publie",
+							"date" => "NOW()"
+					));
+				}
+				// echo "<li>$id_syndic - $url</li>";
+				sql_insertq("spip_me_syndic", array(
+					"id_me" => $id_me,
+					"id_syndic" => $id_syndic
+				));
+				// Hierarchiser l'URL
+				hierarchier_url($id_syndic);
+				
+				$deja_vu["url"][$url] = true;
+			}
+		}
+	}
+}
+
+
+
+function importer_fichier_delicious($id_auteur) {
+	$fichier = "backup$id_auteur.xml";
+
+	echo "<h3>$id_auteur</h3>";
+
+	$import = join(file($fichier), "");
+	
+	//echo $import;
+	
+	$reg = '<post href="(.*)" hash=".*" description="(.*)" tag="(.*)" time="(.*)" extended="(.*)" meta=".*".*\/>';
+	  
+	preg_match_all($reg, $import, $resultats);
+	
+//	rsort($resultats[1]);
+	
+	foreach($resultats[1] as $key => $url) {
+	
+
+		$url = str_replace("&#039;", "'", $url);
+
+	
+		$description = $resultats[2][$key];
+		$description = html_entity_decode($description);
+		$description = str_replace("&#039;", "'", $description);
+		if (strlen($description) > 0) {
+			$description = $description."\n";
+		}
+
+		$tags = trim($resultats[3][$key]);
+		if (strlen($tags) > 0) {
+			$tags = str_replace("@", "", $tags);
+			$tags = "\n\n#" . preg_replace(", +,", " #", $tags)."\n";
+		}
+
+		$time = trim($resultats[4][$key]);
+		$time = str_replace("T", " ", $time);
+		$time = str_replace("Z", "", $time);
+		
+		$extended = $resultats[5][$key];
+		$extended = html_entity_decode($extended);
+		$extended = str_replace("&#039;", "'", $extended);
+
+		if (strlen($extended) > 0) {
+			$extended = "\n\n".$extended;
+		}
+		
+		$texte = $description.$url.$extended.$tags;
+	
+		echo "<hr>";
+		
+		echo "<pre>";
+		echo $texte;
+		echo "</pre>";
+		
+		//creer_me($texte, $id_auteur, 0, "", $time);
+				
+	}
+	
+	
+	
+}
+
+set_time_limit(0);
+importer_fichier_delicious(36);
+
+
+?>
+
+
+</html>

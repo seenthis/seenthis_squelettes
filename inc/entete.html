@@ -1,0 +1,41 @@
+<div id="fond_degrade"></div>
+<div id="entete" class="clear-fix">
+
+	<div class="seenthis"><a href="#URL_SITE_SPIP"><img src="[(#CHEMIN{rien.gif})]" alt="Seenthis" /></a></div>
+
+	<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}|sinon{0}}>
+		<div class="liens logout"><a href="#URL_LOGOUT"></a></div>
+		<div class="liens profile"><a href="index.php?page=profil"></a></div>
+		<div class="liens accueil"><a href="#URL_SITE_SPIP"></a></div>
+		<div class="liens perso">
+			<a href="#URL_AUTEUR">
+				[<img alt="@#LOGIN" src="(#LOGO_AUTEUR|sinon{[(#EMAIL|gravatar)]}|sinon{[(#CHEMIN{imgs/auteur-defaut.jpg})]}|image_passe_partout{24,24}|image_recadre{24,24}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{24})]})" style="width: 24px; height: 24px;" height="24" width="24" />]
+				<span class="nom_auteur">#LOGIN</span>
+			</a>
+		</div>
+		<div class="liens people"><a href="people"></a></div>
+		<div class="liens tags"><a href="tags"></a></div>
+		<!--<div class="urls"><a href="#">►<:seenthis:urls:></a></div>-->
+		
+		
+		#FORMULAIRE_RECHERCHE
+		
+	</BOUCLE_auteur>
+			<div class="liens accueil"><a href="#URL_SITE_SPIP"></a></div>
+			#FORMULAIRE_RECHERCHE
+	
+		<div id="interface_connexion"><INCLURE{fond=pave_connexion}{lang=fr} /></div>
+	<//B_auteur>
+
+<script type="text/javascript"><!--
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2985608-16']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+--></script>
+</div>

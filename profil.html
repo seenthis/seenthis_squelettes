@@ -1,0 +1,52 @@
+#CACHE{0}
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<head>
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	[(#ID_AUTEUR|microcache{noisettes/head_auteur})]
+
+	<script src="lib/farbtastic_1_3/farbtastic.js" type="text/javascript"></script>
+	<link rel='stylesheet' media='all' href='lib/farbtastic_1_3/farbtastic.css' type='text/css' />
+
+	<script type='text/javascript'><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	var auteur_page = "#ID_AUTEUR";
+	
+	$(document).ready(function() {
+		$("#farb").farbtastic("input[name=couleur]");
+	});
+	
+	--></script>
+	
+</head>
+<body class="people plier">
+
+<INCLURE{fond=inc/entete}>
+
+
+	[(#ID_AUTEUR|microcache{noisettes/entete_auteur})]
+
+<div id="principale">
+
+		[(#FORMULAIRE_PROFIL)]
+		
+
+	<div class="clear-left"></div>
+</div>
+</body>
+</html>
+</BOUCLE_auteur>
+	<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+	<head>
+	[<meta http-equiv="refresh" content="2;url=http://seenthis.net/index.php?page=profil&amp;id_auteur=(#SESSION{id_auteur})">]
+	</head>
+	<body>
+	
+	</body>
+	</html>
+<//B_auteur>
+
+#FILTRE{mini_html}

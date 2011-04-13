@@ -1,0 +1,77 @@
+#CACHE{0}
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)] - [(#NOM|textebrut)]</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr} />
+	<style type="text/css"><!--
+	<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
+
+	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+	
+	--></style>
+
+	<script><!--
+	var auteur_page = 0;
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	$(document).ready(function() {
+		$(".formulaire_principal textarea").val("[(#ENV{ajouter}|addslashes|replace{'(\n|\r)+','\r'}|replace{'&quot;','\"'}|replace{'&amp;','&'})]");
+	});
+	
+	--></script>
+	
+</head>
+<body class="people plier">
+
+<INCLURE{fond=inc/entete}>
+
+
+<div id="principale">
+
+		<div id="entete_people">
+
+			
+			<div id="lien_suggerer_auteurs">
+				<a class="bouton_suggerer" onclick="$(this).hide(); $('#suggerer_auteurs').load('index.php?page=suggerer_auteurs'); return false;" href="#">Me suggérer des contacts</a>
+			</div>
+
+
+			<h1 class="auteurs_vous_suivez">&nbsp;</h1>
+			
+			<div id="suggerer_auteurs"></div>
+			
+	
+		</div>
+
+	<div id="centre">
+		<div id="tous_messages">
+
+		[(#ENV{debut_messages}|>{10}|non)
+			[(#ID_AUTEUR|microcache{noisettes/contenu_page_people})]
+		]
+		[(#ENV{debut_messages}|>{10}|oui)
+			<INCLURE{fond=noisettes/contenu_page_people}{id=#ID_AUTEUR} />
+		]
+
+
+		</div>
+
+
+	</div>
+
+	<div id="droite">
+
+			[(#ID_AUTEUR|microcache{noisettes/auteur_follow_people_big})]
+			
+	</div>
+
+	<div class="clear-left"></div>
+</div>
+</body>
+</html>
+</BOUCLE_auteur>
+#FILTRE{mini_html}

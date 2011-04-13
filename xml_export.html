@@ -1,0 +1,33 @@
+#CACHE{0}
+[(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml 
+version="1.0"[ encoding="(#CHARSET)"]?>
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}><messages href="[(#URL_AUTEUR|url_absolue)]">
+		#SET{messages, #ARRAY{}}
+
+		<BOUCLE_share(spip_me_share){id_auteur}>[(#SET{messages, #GET{messages}|push{#ID_ME}})]</BOUCLE_share>
+		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{id_parent=0}>[(#ID_PARENT|>{0}|?{" ",""})[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]][(#ID_PARENT|>{0}|?{""," "})[(#SET{messages, #GET{messages}|push{#ID_ME}})]]</BOUCLE_messages_perso>
+		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{statut=publi}>
+		<thread href="#URL_SITE_SPIP/messages/#ID_ME">			
+			<message>
+				<BOUCLE_qui(AUTEURS){id_auteur}{tous}><author href="[(#URL_AUTEUR|url_absolue)]"><![CDATA[[(#NOM|interdire_scripts)]]]></author></BOUCLE_qui>
+				<text><![CDATA[[(#TEXTE*|interdire_scripts)]]]></text>
+				<B_mots><tags>
+				<BOUCLE_mots(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots>
+				</tags></B_mots>
+				<BOUCLE_liens(SITES spip_me_syndic){spip_me_syndic.id_me=#ID_ME}>
+				<url href="#URL_SITE_SPIP/sites/#ID_SYNDIC"><![CDATA[#URL_SITE]]></url>
+				</BOUCLE_liens>
+			</message>
+			<BOUCLE_reponses(ME){id_parent=#ID_ME}{par date}{statut=publi}>
+			<message>
+				<BOUCLE_qui2(AUTEURS){id_auteur}{tous}><author href="[(#URL_AUTEUR|url_absolue)]"><![CDATA[[(#NOM|interdire_scripts)]]]></author></BOUCLE_qui2>
+				<text><![CDATA[[(#TEXTE*|interdire_scripts)]]]></text>
+				<B_mots2><tags>
+				<BOUCLE_mots2(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots2>
+				</tags></B_mots2>
+			</message>
+			</BOUCLE_reponses>
+		</thread></BOUCLE_messages>
+</messages></BOUCLE_auteur>
+	<messages>Erreur</messages>
+<//B_auteur>

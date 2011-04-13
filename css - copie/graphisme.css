@@ -1,0 +1,232 @@
+body {
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100.1%;
+	
+	background-color: #b1aeae;
+	
+	img {
+		border: 0px;
+	}
+	
+	a {
+		color: #2d6dd6;
+	}
+	
+	form {
+		margin: 0px;
+		padding: 0px;
+	}
+}
+body.message {
+	#messages, .messages {
+		.texte {
+			font-size: 102%;
+		}
+		
+		ul.reponses {
+			.texte {
+				font-size: 95%;
+			}
+		}
+	}
+}	
+body.accueil {
+	.formulaire_principal {
+		.formulaire_poster_message {
+			textarea {
+				min-height: 100px;
+			}
+		}
+	}
+}
+#entete {
+	background-color: #333;
+	-spip-gradient: top, #444, #222;
+}
+#follow, #follow_mot {
+	a {
+		display: block;
+		float: left;
+		margin-top: 5px;
+		background-color: #ccc;
+		text-decoration: none;
+		padding: 2px 10px 2px 10px;
+		color: white;
+
+		-spip-border-radius: 6px;
+
+		. .no {
+			background-color: #555;
+			
+			. :hover {
+				background-color: red;
+			}
+		}
+		. .yes {
+			background-color: green;
+		}
+
+	}
+}
+
+#principale {
+	background: url(../../squelettes/imgs/fond-page.gif);
+	
+	#centre {
+		#tetiere {
+			background-color: #ced3db;	
+			border-bottom: 1px solid #ddd;
+		}
+	}
+}
+
+.lien_lien {
+	font-weight: bold;
+	.lien_lien_total {
+		font-weight: normal;
+		a {
+			font-family: Times, serif;
+			text-decoration: none;
+			padding-right: 2px;
+			font-size: 0.75em;
+		}
+	}
+	.debut_lien {
+		font-weight: normal;
+	}
+}
+.formulaire_poster_message {
+
+	textarea {
+		font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+		border: 1px solid #ddd;
+		background-color: white;
+
+		-spip-border-radius: 6px;
+				
+				
+		. :hover {
+			outline: none;
+			border: 1px solid #bbb;
+		}
+		. :focus {
+			-spip-box-shadow: 0px 0px 7px #6aaacf;
+			outline: none;
+			border: 1px solid #6aaacf;
+		}
+
+		
+	}
+	
+	p.boutons {
+		display: none;
+		margin-top: 5px;
+
+		text-align: right;
+
+		input {
+			background-color: #666;
+			color: white;
+			border: 0px;
+			padding: 3px 14px;
+			-spip-border-radius: 4px;
+			font-size: 0.8em;
+			
+		}
+
+		input[type=reset] {
+			float: left;
+			
+			background-color: #bbb;
+			color: #888;
+
+			. :hover {
+				background-color: #ddd;
+				color: #666;
+			}
+
+		}
+
+		input[type=submit] {
+			
+			background-color: #666;
+			
+			. :hover {
+				background-color: #555;
+			}
+		}
+	}
+	
+	.erreur_message {
+		margin-top: 3px;
+		color: #e70606;
+		font-size: 0.75em;
+		font-weight: bold;
+	}
+
+}
+.pagination {
+	background-color: black;
+	padding: 5px 40px;
+	font-size: 0.8em;
+	text-align: right;
+	
+	color: white;
+}
+
+#formulaire_login {
+	fieldset {
+		border: 0px;
+		padding: 0px;
+		
+		legend {
+			display: none;
+		}
+		
+		#spip_logo_auteur {
+			float: right;
+		}
+		
+		ul {
+			margin: 0px;
+			padding: 0px;
+			list-style-type: none;
+			color: #444;
+			
+			
+			li {
+				margin-bottom: 10px;
+				
+				label {
+					display: block;
+					font-size: 0.85em;
+				}
+				input[type=text], input[type=password] {
+					padding: 3px 5px;
+					font-size: 1.4em;
+					width: 380px;
+					
+					border: 1px solid #eee;
+					-spip-border-radius: 4px;
+				}
+				
+				.choix {
+					label {
+						display: inline;
+					}
+				}
+				.details {
+					font-size: 0.8em;
+					display: block;
+				}
+				
+			}
+		}
+	}	
+	p.boutons {
+		input[type=submit] {
+			font-size: 1em;
+			-spip-border-radius: 4px;
+		}
+	}	
+}

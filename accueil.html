@@ -1,0 +1,106 @@
+#CACHE{0}
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<head>
+
+	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#NOM|textebrut)]</title>
+	<!--[(#LANG|lang_select)]-->
+
+	<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr} />
+	
+	<style type="text/css"><!--
+	<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
+
+	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+
+
+	.auteurs_conseiller {
+		font-weight: normal;
+		font-size: 0.9em;
+		width: 580px;
+	}
+	.auteurs_conseiller p {
+		margin: 0.5em 0;
+	}
+	--></style>
+	
+
+	<script type="text/javascript"><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	$(document).ready(function() {
+		$(".formulaire_principal textarea").val("[(#ENV{ajouter}|replace{'@',' '}|decodeUchar|rawurldecode|addslashes|replace{'(\n|\r)+','\r'})\n]"[+"(#ENV*{url_site}|sucrer_utm|decodeUchar|rawurldecode|addslashes|replace{' ','+'}|replace{'&quot;','\"'}|replace{'&amp;','&'})\n"][+"\n❝(#ENV{extrait}|decodeUchar|rawurldecode|addslashes|replace{'(\n|\r)+','\r'}|replace{'&quot;','\"'}|replace{'&amp;','&'})❞\n"]);
+	});
+	
+	--></script>
+	
+</head>
+<body class="accueil plier">
+
+<INCLURE{fond=inc/entete}>
+
+<div id="principale">
+
+		<BOUCLE_test5(spip_me_follow){id_follow=#SESSION{id_auteur}}{5,1}>
+		</BOUCLE_test5>
+		
+		
+		<div id="entete_people">
+			<div id="lien_suggerer_auteurs">
+				<a class="bouton_suggerer" onclick="$(this).hide(); $('#suggerer_auteurs').load('index.php?page=suggerer_auteurs'); return false;" href="#">Me suggérer des contacts</a>
+			</div>
+
+			<h3 class="auteurs_conseiller">
+				<:seenthis:message_suggerer:>
+			</h3>
+			<div id="suggerer_auteurs"></div>
+		</div>
+		<//B_test5>
+
+
+	<div id="centre">
+		<div id="tetiere">
+			[<div class="formulaire_principal">(#FORMULAIRE_POSTER_MESSAGE)</div>]
+		</div>
+
+		<div id="tous_messages">
+		[(#ENV{debut_messages}|>{10}|non)
+			[(#ID_AUTEUR|microcache{noisettes/contenu_accueil})]
+		]
+		[(#ENV{debut_messages}|>{10}|oui)
+			<INCLURE{fond=noisettes/contenu_accueil}{id=#ID_AUTEUR} />
+		]
+		</div>
+	
+
+	</div>
+
+	<div id="droite">
+		<INCLURE{fond=inc/alire} />
+	
+		<div id="bookmarklet">
+		<strong class="bookmarklet_titre">&nbsp;</strong><br />
+		<a class="bkl" href="javascript:var%20titre=document.title;var%20txt%20=%20'';%20if%20(window.getSelection)%20{txt=window.getSelection();}%20else%20if%20(document.getSelection){txt%20=%20document.getSelection();}%20else%20if%20(document.selection){txt%20=%20document.selection.createRange().text;}%20%20var%20url=document.location;%20void%20(btw=window.open%20('http://seenthis.net/index.php?page=sommaire&ajouter='+(encodeURIComponent(titre))+'&url_site='+encodeURIComponent(url)+'&extrait='+(encodeURIComponent(txt))))">+&nbsp;Seenthis</a>
+		<br />
+		
+		<span class="bookmarklet_descriptif">&nbsp;</span>
+		
+		</div>
+
+
+	
+		<div id="alertes"></div>
+	
+	
+			
+	</div>
+
+	<div class="clear-left"></div>
+</div>
+</body>
+</html>
+</BOUCLE_auteur>
+#FILTRE{mini_html}

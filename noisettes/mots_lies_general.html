@@ -1,0 +1,23 @@
+#CACHE{30*60}
+
+
+	<BOUCLE_messages(ME){par date}{inverse}{id_parent=0}{0,500}{statut=publi}>
+		<BOUCLE_mots(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
+
+		<BOUCLE_enfants_me(ME){id_parent=#ID_ME}{statut=publi}>
+			<BOUCLE_mots2(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots2>
+		</BOUCLE_enfants_me>
+	</BOUCLE_messages>
+
+
+	<B_resultat>
+	<div id="scroller">
+		<ul id="scroll_tags">
+	<BOUCLE_resultat(MOTS){tout}{id_mot IN (#REM|retour_mots_lies)}{id_groupe=1}{doublons mots}{0,20}>
+			<li>#<a href="[(#URL_MOT)]*">#TITRE</a></li>
+	</BOUCLE_resultat>
+		</ul>
+	</div>
+	</B_resultat>
+
+#FILTRE{mini_html}

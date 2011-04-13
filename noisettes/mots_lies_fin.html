@@ -1,0 +1,44 @@
+#CACHE{60*60}
+
+
+<BOUCLE_principale(MOTS){id_mot=#ENV{id_mot}}{doublons mots}>
+	#SET{messages, #ARRAY{}}
+
+	<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
+		<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
+			[(#ID_PARENT|>{0}|?{" ",""})
+				[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+			]
+			[(#ID_PARENT|>{0}|?{""," "})
+				[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+			]
+		</BOUCLE_tous_liens>
+	</BOUCLE_tous_mots>
+	
+	
+	<BOUCLE_messages(ME){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{0,100}{statut=publi}>
+		<BOUCLE_mots(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
+		
+		<BOUCLE_enfants_me(ME){id_parent=#ID_ME}>
+			<BOUCLE_mots2(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots2>
+		</BOUCLE_enfants_me>
+	</BOUCLE_messages>
+
+	<B_resultat>
+	<div id="mots_lies">
+	<h3>Thèmes liés</h3>
+	<ul>
+	<BOUCLE_resultat(MOTS){tout}{id_mot IN (#REM|retour_mots_lies)}{doublons mots}{0,40}>
+	<li>
+		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>
+		<span class="groupe_mot">#TITRE:</span>
+		</BOUCLE_groupe>
+		[(#ID_GROUPE|=={1}|?{"#",""})]<a href="#URL_MOT">[(#ID_GROUPE|=={1}|?{"<strong>",""})][(#TITRE)][(#ID_GROUPE|=={1}|?{"</strong>",""})]</a>
+	</li>
+	</BOUCLE_resultat>
+	</ul>
+	</div>
+	</B_resultat>
+
+</BOUCLE_principale>
+#FILTRE{mini_html}

@@ -1,0 +1,77 @@
+#CACHE{0}
+<BOUCLE_me(spip_me){id_me=#ID}>
+		<a name="message#ID_ME"></a>
+		
+		[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur})]
+		
+		<div class="texte_reponse auteur#ID_AUTEUR">
+
+
+			<div class="stumble">[<a href="http://www.stumbleupon.com/submit?url=(#ID_ME|share_lien)" class="spip_out" rel="nofollow" title="StumbleUpon"><img src="squelettes/imgs/stumble.png" width="14" height="14" alt="StumbleUpon" /></a>]</div>
+			<div class="facebook">[<a href="(#ID_ME|share_fb{#TEXTE*})" class="spip_out" rel="nofollow" title="Facebook"><img src="squelettes/imgs/facebook.gif" width="14" height="14" alt="Facebook" /></a>]</div>
+			<div class="twitter">[<a href="http://twitter.com/home?status=(#ID_ME|share_tw{#TEXTE*}|rawurlencode)" class="spip_out" rel="nofollow" title="Twitter"><img src="squelettes/imgs/twitter.png" width="16" height="13" alt="Twitter" /></a>]</div>
+
+
+			<div class="auteur_date">
+				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
+
+				<span class="date"><a href="messages/[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]" title="[(#DATE|date_u)]" class="calcul_date">[(#DATE|affdate)]</a></span>
+
+				<div class="favori[(#ID_PARENT|=={0}|?{'','_off'})]">
+					[(#SET{total,""})]
+					
+					<B_people_share>
+						<div class="survol">
+						[(#SET{total,#TOTAL_BOUCLE})]
+	
+							<a class="activer_favori" onclick="$(this).parent('.favori').hide(); $('#message#ID_ME').load('index.php?action=favori&amp;id_me=#ID_ME&amp;x=' + (new Date()).getTime()); return false;" href="#"
+								rel="^(<BOUCLE_favoris2(spip_me_share){id_me=#ID_ME}{'|'}>#ID_AUTEUR</BOUCLE_favoris2>)$"	
+							>[<span class='total'>(#GET{total})</span>]<span class='intitule txt_favori'></span></a>
+						<div class="vignettes">
+						<BOUCLE_people_share(spip_me_share){id_me=#ID_ME}>
+							[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur_small_nofollow})]
+						</BOUCLE_people_share>
+						</div>
+						</div>
+					</B_people_share>
+				<a class="activer_favori" onclick="$(this).parent('.favori').hide(); $('#message#ID_ME').load('index.php?action=favori&amp;id_me=#ID_ME&amp;x=' + (new Date()).getTime()); return false;" href="#"
+					rel="^(<BOUCLE_favoris(spip_me_share){id_me=#ID_ME}{'|'}>#ID_AUTEUR</BOUCLE_favoris>)$"	
+				>[<span class='total'>(#GET{total})</span>]<span class='intitule txt_favori'></span></a>
+				</div>
+			</div>
+
+			
+			[(#ID_ME|microcache{noisettes/message_destinataires})]
+			<div  id="texte#ID">[(#ID_ME|microcache{noisettes/message_texte})]</div>
+		
+			<B_images>
+			<div class="images">
+				<BOUCLE_images(spip_syndic spip_me_syndic){spip_me_syndic.id_me=#ID_ME}{spip_syndic.url_site==\.(jpg|gif|png)$}>
+					[(#URL_SITE|afficher_miniature)]
+				</BOUCLE_images>
+			</div>
+			</B_images>
+
+
+			<div class="commandes">
+				<div class="supprimer"><a
+					onclick="$('#texte#ID').fadeOut().load('index.php?action=delete&amp;id_me=#ID_ME'); return false;"
+					href="#" 
+					rel="^(#ID_AUTEUR<BOUCLE_racine(spip_me){id_me=#ID_PARENT}>|#ID_AUTEUR</BOUCLE_racine>)$"></a>
+				</div>
+				<div class="modifier"><a
+					onclick="$('#texte#ID').load('index.php?page=modifier_me&amp;id_me=#ID_ME&amp;x=' + (new Date()).getTime() ); return false;"	
+					href="#" rel="#ID_AUTEUR"></a>
+				</div>
+				
+				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
+
+			</div>
+	
+		</div>	
+		<div class="clear-left"></div>
+		
+
+		
+</BOUCLE_me>
+#FILTRE{mini_html}

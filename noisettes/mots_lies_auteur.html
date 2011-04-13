@@ -1,0 +1,30 @@
+#CACHE{60*60}
+
+
+<BOUCLE_principale(AUTEURS){id_auteur}{tout}>
+	<BOUCLE_messages(ME){id_auteur=#ID_AUTEUR}{par date}{inverse}{id_parent=0}{0,100}{statut=publi}>
+		<BOUCLE_mots(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
+
+		<BOUCLE_enfants_me(ME){id_parent=#ID_ME}{statut=publi}>
+			<BOUCLE_mots2(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots2>
+		</BOUCLE_enfants_me>
+	</BOUCLE_messages>
+
+	<B_resultat>
+	<div id="mots_lies">
+	<h3>thèmes fréquemment utilisés</h3>
+	<ul>
+	<BOUCLE_resultat(MOTS){tout}{id_mot IN (#REM|retour_mots_lies)}{doublons mots}{0,60}>
+	<li>
+		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>
+		<span class="groupe_mot">#TITRE:</span>
+		</BOUCLE_groupe>
+		[(#ID_GROUPE|=={1}|?{"#",""})]<a href="#URL_MOT">[(#ID_GROUPE|=={1}|?{"<strong>",""})][(#TITRE)][(#ID_GROUPE|=={1}|?{"</strong>",""})]</a>
+	</li>
+	</BOUCLE_resultat>
+	</ul>
+	</div>
+	</B_resultat>
+
+</BOUCLE_principale>
+#FILTRE{mini_html}

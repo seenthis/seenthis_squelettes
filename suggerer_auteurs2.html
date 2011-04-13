@@ -1,0 +1,58 @@
+#CACHE{0}
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}{doublons}{lang_select}>
+
+
+	<BOUCLE_suivis(spip_me_follow){id_follow=#ID_AUTEUR}>
+		<BOUCLE_vus(AUTEURS){id_auteur}{tous}{doublons} />
+
+		<BOUCLE_quisuit(spip_me_follow){id_follow=#ID_AUTEUR}>
+		[(#ID_AUTEUR|compter_auteurs)]
+		</BOUCLE_quisuit>
+	</BOUCLE_suivis>
+
+
+	
+	<B_amis>
+	<h2><:seenthis:vous_connaissez:></h2>
+	<div class="clearfix suggestions">
+	<BOUCLE_amis(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{doublons}{0,12}>
+		<div id="suggerer_#ID_AUTEUR" class="logo_auteur "><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
+			<img src="[(#LOGO_AUTEUR||sinon{[(#EMAIL|gravatar)]}|sinon{[(#CHEMIN{imgs/auteur-defaut.jpg})]}|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="" />
+			<span class="nom">#NOM</span>
+			<span class="login">@#LOGIN</span>
+		</a>
+		<br /><a onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').hide();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a></div>
+	</BOUCLE_amis>
+	</div>
+	</B_amis>
+
+
+	<BOUCLE_pop(AUTEURS){tout}{statut!=nouveau}{doublons}{par troll}{inverse}{0,50}>
+		<BOUCLE_messages(ME){id_auteur=#ID_AUTEUR}{date>#VAL{7}|decaler_date}></BOUCLE_messages>
+			[(#ID_AUTEUR|stocker_auteur{#TROLL,#TOTAL_BOUCLE})]
+		<//B_messages>
+	</BOUCLE_pop>
+
+
+	<B_populaires>
+	<h2><:seenthis:suggestions:></h2>
+	<div class="clearfix suggestions">
+	<BOUCLE_populaires(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{0,20}>
+		
+		<div id="suggerer_#ID_AUTEUR" class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
+			<img src="[(#LOGO_AUTEUR||sinon{[(#EMAIL|gravatar)]}|sinon{[(#CHEMIN{imgs/auteur-defaut.jpg})]}|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="" />
+			<span class="nom">#NOM</span>
+			<span class="login">@#LOGIN</span>
+			<a onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').hide();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a>
+		</a>
+		<br /><a onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').hide();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a></div>
+		</div>
+	
+	</BOUCLE_populaires>
+	</div>
+	</B_populaires>
+
+&nbsp;
+</BOUCLE_auteur>
+
+#FILTRE{mini_html}

@@ -1,0 +1,41 @@
+#CACHE{0}
+
+<BOUCLE_principale(AUTEURS){id_auteur=#ENV{id}}{tout}>
+		#SET{messages, #ARRAY{}}
+
+		<BOUCLE_share(spip_me_share){id_auteur}>
+			[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+		</BOUCLE_share>
+
+
+		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{id_parent=0}>
+		
+				[(#ID_PARENT|>{0}|?{" ",""})
+					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+				]
+				[(#ID_PARENT|>{0}|?{""," "})
+					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+				]
+		</BOUCLE_messages_perso>
+		
+		<div id="messages_auteur">
+		<B_messages>
+		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+		<ul id="messages">
+		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
+			<li id="message#ID_ME">
+
+			[(#ID_ME|microcache{noisettes/afficher_message})]
+
+			</li>
+		</BOUCLE_messages>
+		</ul>
+		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+		</B_messages>
+		<ul id="messages">
+			<li>Pas encore de messages</li>
+		</ul>	
+		<//B_messages>
+		</div>
+</BOUCLE_principale>
+#FILTRE{mini_html}

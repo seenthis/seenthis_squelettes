@@ -1,0 +1,49 @@
+#CACHE{0}
+[(#REM)
+	[(#ENV{id}|OC_message)]
+]
+<B_mots>
+<div class="mots_lies">
+<h3>thèmes</h3>
+<ul>
+<BOUCLE_mots(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ENV{id}}{par titre}>
+	<li>#<a href="#URL_MOT"><strong>#TITRE</strong></a></li>
+</BOUCLE_mots>
+</ul>
+</div>
+</B_mots>
+
+
+<BOUCLE_sites_lies(spip_me_syndic){id_me=#ENV{id}}>
+	<BOUCLE_calais_site(MOTS spip_syndic_oc) {spip_syndic_oc.id_syndic=#ID_SYNDIC}{relevance>300}{par relevance}{inverse}>
+		[(#ID_MOT|compter_oc_lies{[(#RELEVANCE|mult{0.7}|floor)]})]
+	</BOUCLE_calais_site>
+	</B_calais_site>
+</BOUCLE_sites_lies>
+
+
+<BOUCLE_calais_me(MOTS spip_me_mot) {spip_mots.id_groupe!=1} {spip_me_mot.id_me=#ENV{id}}{spip_me_mot.relevance>300}{!par spip_me_mot.relevance}>
+		[(#ID_MOT|compter_oc_lies{#RELEVANCE})]
+</BOUCLE_calais_me>
+
+
+<B_calais>
+<div class="mots_lies">
+<h3>thèmes automatiques</h3>
+<ul>
+<BOUCLE_calais(MOTS){id_mot IN (#REM|retour_oc_lies)}>
+	<li>
+		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}>
+		<span class="groupe_mot">#TITRE:</span>
+		</BOUCLE_groupe>
+	
+		<a href="#URL_MOT">
+			<span class="mot">#TITRE</span>
+		</a>
+	</li>
+</BOUCLE_calais>
+</ul>
+<div class="explication">thématisation automatique par <a href="http://www.opencalais.com/">OpenCalais</a></div>
+</div>
+</B_calais>		
+#FILTRE{mini_html}

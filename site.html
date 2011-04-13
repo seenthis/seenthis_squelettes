@@ -1,0 +1,145 @@
+#CACHE{0}
+<BOUCLE_principale(SYNDIC){id_syndic}{tout}{doublons mots}>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<head>
+	<title>[(#TITRE|sinon{#URL_SITE}|textebrut)]</title>
+	<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<link rel="canonical" href="#URL_SITE_SPIP/sites/#ID_SYNDIC" />
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr} />
+
+	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
+		<style type="text/css"><!--
+		<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
+		[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+		--></style>
+	</BOUCLE_auteur_message>
+		<style type="text/css"><!--
+		<INCLURE{fond=css/couleur}{couleur=54dd24} />
+		--></style>
+	<//B_auteur_message>
+
+
+	<script><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	
+	--></script>
+	
+</head>
+<body class="site plier">
+
+<INCLURE{fond=inc/entete}>
+
+
+<div id="principale">
+
+	<div id="entete_people">
+
+
+	#SET{messages, #ARRAY{}}
+
+	<BOUCLE_tous_liens(spip_me_syndic){id_syndic=#ID_SYNDIC}>
+	 	<BOUCLE_test_message(spip_me){id_me=#ID_ME}{id_parent > 0}>
+		 	[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]
+	 	</BOUCLE_test_message>
+		 	[(#SET{messages, #GET{messages}|push{#ID_ME}})]
+	 	<//B_test_message>
+	 
+	</BOUCLE_tous_liens>
+
+
+	[(#SET{url_racine,""})]
+
+
+	<ul class="parents_url clearfix">
+	<BOUCLE_parent(SYNDIC){id_syndic=#ID_PARENT}>
+		<BOUCLE_parent2(BOUCLE_parent) />
+	
+		<li>
+			<!-- #ID_PARENT --> 
+				<a href="?page=site&amp;id_syndic=#ID_SYNDIC">[(#URL_SITE|replace{#GET{url_racine}})]</a>
+			[(#SET{url_racine,#URL_SITE})]
+		</li>
+	</BOUCLE_parent>
+	</ul>
+
+
+	<h1>[(#URL_SITE|replace{#GET{url_racine}}|mb_substr{0,40,utf-8})]</h1>
+	[(#SET{url_racine,#URL_SITE})]
+	
+	<B_enfants>
+		<ul style="padding-left: 40px;">
+	<BOUCLE_enfants(SYNDIC){id_parent=#ID_SYNDIC}>
+	
+		<BOUCLE_tous_liens_enfants(BOUCLE_tous_liens) />
+		<li><!-- #ID_PARENT --> <a href="?page=site&amp;id_syndic=#ID_SYNDIC">&#9658;</a><a href="#URL_SITE" class="spip_out" rel="nofollow">[(#URL_SITE|replace{#GET{url_racine}})]</a>
+
+		<BOUCLE_enfants2(BOUCLE_enfants) />
+
+		</li>
+		
+	</BOUCLE_enfants>
+		</ul>
+	</B_enfants>
+	
+	</div>
+
+
+	<div id="centre">
+
+	<B_messages>
+	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+	<ul id="messages">
+	<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
+		<li id="message#ID_ME">
+			<INCLURE{fond=inc_afficher_message}{id_me} />
+		</li>
+	</BOUCLE_messages>
+	</ul>
+	
+	
+	
+	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+	</B_messages>
+
+	</div>
+	
+	<div id="droite">
+
+		[(#SESSION{id_auteur}|?{""," "})
+			<script type="text/javascript"><!--
+			google_color_bg = "e0e0e0";
+			google_color_border = "e0e0e0";
+			google_color_link = "2d6dd6";
+			google_color_text = "666666";
+			google_color_url = "2d6dd6";
+			//-->
+			</script> 
+
+
+			<script type="text/javascript"><!--
+			google_ad_client = "ca-pub-6809236561140644";
+			/* 300x250 Seenthis */
+			google_ad_slot = "6804091877";
+			google_ad_width = 300;
+			google_ad_height = 250;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		]
+
+		[(#ID_SYNDIC|microcache{noisettes/oc_site})]
+
+		&nbsp;
+	</div>
+
+	<div class="clear-left"></div>
+</div>
+</body>
+</html>
+</BOUCLE_principale>
+#FILTRE{mini_html}

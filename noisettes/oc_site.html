@@ -1,0 +1,28 @@
+#CACHE{0}
+[(#REM)
+	[(#ENV{id}|OC_site)]
+]
+
+
+
+<B_calais>
+<div class="mots_lies">
+<h3>thèmes de ce site</h3>
+<ul>
+<BOUCLE_calais(MOTS spip_syndic_oc) {spip_syndic_oc.id_syndic=#ENV{id}}{relevance>300}{par relevance}{inverse}>
+	<li>
+		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}>
+		<span class="groupe_mot">#TITRE:</span>
+		</BOUCLE_groupe>
+	
+		<a href="#URL_MOT">
+			<span class="mot">#TITRE</span>
+		</a>
+	</li>
+</BOUCLE_calais>
+</ul>
+<div class="explication">thématisation automatique par <a href="http://www.opencalais.com/">OpenCalais</a></div>
+</div>
+</B_calais>
+		
+#FILTRE{mini_html}

@@ -1,0 +1,8 @@
+#CACHE{0}
+
+[(#SESSION{id_auteur}|>{0}|oui)
+	[(#INCLURE{fond=accueil}{id_auteur=#SESSION{id_auteur}}{env})]
+]
+[(#SESSION{id_auteur}|>{0}|non)
+	[(#INCLURE{fond=bonjour})]
+]

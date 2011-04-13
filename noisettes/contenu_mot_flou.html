@@ -1,0 +1,65 @@
+#CACHE{0}
+
+
+
+<BOUCLE_principale(MOTS){id_mot=#ENV{id}}{doublons mots}>
+
+			#SET{messages, #ARRAY{}}
+
+			<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
+				[(#ID_PARENT|>{0}|?{" ",""})
+					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+				]
+				[(#ID_PARENT|>{0}|?{""," "})
+					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+				]
+			</BOUCLE_tous_liens>
+			
+			[(#REM) OpenCalais sur les sites ]
+			
+			<BOUCLE_sites(spip_syndic_oc){id_mot=#ENV{id}}>
+				<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
+					[(#ID_PARENT|>{0}|?{" ",""})
+						[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+					]
+					[(#ID_PARENT|>{0}|?{""," "})
+						[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+					]
+				</BOUCLE_tous_liens_site>
+			</BOUCLE_sites>
+			
+			<BOUCLE_messages_compt(ME){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{0,300}{statut=publi}>
+				<BOUCLE_mots(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
+				
+				<BOUCLE_enfants_me(ME){id_parent=#ID_ME}>
+					<BOUCLE_mots2(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots2>
+				</BOUCLE_enfants_me>
+			</BOUCLE_messages_compt>
+
+			
+			#SET{messages, #ARRAY{}}
+			<BOUCLE_resultat(MOTS){tout}{id_mot IN (#REM|retour_mots_lies)}{0,10}>
+
+			<BOUCLE_tous_liens_res(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
+				[(#ID_PARENT|>{0}|?{" ",""})
+					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+				]
+				[(#ID_PARENT|>{0}|?{""," "})
+					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+				]
+			</BOUCLE_tous_liens_res>
+			</BOUCLE_resultat>
+					
+			<B_messages>
+			[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+			<ul id="messages">
+			<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
+				<li id="message#ID_ME">
+				[(#ID_ME|microcache{noisettes/afficher_message})]
+				</li>
+			</BOUCLE_messages>
+			</ul>
+			[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+			</B_messages>
+</BOUCLE_principale>
+#FILTRE{mini_html}

@@ -1,0 +1,538 @@
+ul#messages, ul.messages {
+	clear: both;
+	
+	li {
+		position: relative;
+		clear: left;
+
+		.logo_auteur {
+			padding-top: 23px;
+			padding-bottom: 10px;
+			margin-left: 40px;
+			width: 48px;
+			float: left;
+			zoom: 1;
+			
+			img {
+				width: 48px;
+				height: 48px;
+			}
+			
+			a:hover img {
+					border: 2px solid #eeeeee;
+					margin: -2px;
+					-spip-box-shadow: 0px 0px 3px #999999;
+			}
+		}
+		
+		.texte_message, .texte_reponse {
+			margin-left: 103px;
+			margin-right: 40px;
+			padding-top: 20px;
+			padding-bottom: 10px;
+			zoom: 1;
+			
+			.favori {
+				font-size: 0.7em;
+				margin-left: 10px;
+				
+				display: inline-block;
+				position: relative;
+				
+				a.activer_favori {
+					padding: 3px;
+					padding-left: 18px;
+					text-decoration: none;
+					
+					span.total {
+						font-size: 150%;
+						padding-right: 3px;
+						font-weight: bold;
+					}
+					span.intitule {
+						text-decoration: underline;
+						visibility: hidden;
+					}
+					
+					. :hover {
+						span.intitule {
+							visibility: visible;
+						}
+					}
+				}
+				
+				a.actif {
+					display: block;
+					background: url(../../squelettes/imgs/favori-on.png) left center no-repeat;
+					color: #cca630;
+				}
+				a.abonnes {
+					display: block;
+					background: url(../../squelettes/imgs/favori-off.png) left center no-repeat;
+					color: #999;
+				}
+				a.inactif {
+					display: none;
+					background: url(../../squelettes/imgs/favori-off.png) left center no-repeat;
+					color: #999;
+				}
+				div.survol {
+					display: none;
+					position: absolute;
+					top: -5px;
+					left: -5px;
+					background-color: #eeeeee;
+					padding: 5px;
+					-spip-border-radius: 4px;
+					
+					.vignettes {
+						padding-top: 5px;
+						min-width: 140px;
+						max-width: 280px;
+					}
+				}
+
+
+				.logo_auteur {
+					padding-top: 3px;
+					padding-bottom: 0px;
+					margin-left: 0px;
+					width: 27px;
+					float: left;
+					zoom: 1;
+					
+					img {
+						width: auto;
+						height: auto;
+					}
+					
+					a:hover img {
+							border: 1px solid white;
+							margin: -1px;
+							-spip-box-shadow: 0px 0px 3px #999999;
+					}
+				}
+
+
+				
+				. :hover {
+					div.survol {
+						display: block;
+					}
+				}
+			}
+			.favori_off {
+				display: none;
+			}
+			
+			.twitter, .facebook, .stumble {
+				float: right;
+				padding-left: 15px;
+				-spip-opacity: 0.3;
+				
+				. :hover {
+					-spip-opacity: 1;
+				}
+			}
+			.facebook, .stumble {
+				padding-left: 5px;
+			}
+			.stumble {
+				display: none;
+			}
+			
+			.modifier {
+				float: right;
+				padding-right: 1.5em;
+				padding-top: 2px;
+				font-size: 0.7em;
+				display: block;
+				
+				a {
+					display: none;
+					color: #999;
+					text-decoration: none;
+					-spip-opacity: 0.5;
+					background: url(../../squelettes/imgs/mini-modifier.png) left center no-repeat;
+					padding-left: 13px;
+					
+					. :hover {
+						text-decoration: underline;
+						-spip-opacity: 1;
+					}
+				}
+			}
+			.supprimer {
+				float: right;
+				padding-top: 2px;
+				font-size: 0.7em;
+				display: block;
+				
+				a {
+					display: none;
+					color: red;
+					text-decoration: none;
+					-spip-opacity: 0.5;
+					
+					background: url(../../squelettes/imgs/mini-poubelle.png) left center no-repeat;
+					padding-left: 13px;
+					
+					. :hover {
+						text-decoration: underline;
+						-spip-opacity: 1;
+					}
+				}
+			}
+		}
+		
+		.commandes {
+			margin-bottom: 0.5em;
+			margin-top: -0.3em;
+
+			.date, .auteur {
+				font-size: 0.8em;
+				a {
+					color: #bbb;
+					. :hover {
+						color: black;
+						text-decoration: underline;
+					}
+				}
+			}
+			.by_cc {
+				margin-left: 20px;
+				font-size: 80%;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				background: url(../../squelettes/imgs/by-cc-30.png) left center no-repeat;
+				padding-left: 19px;
+				
+				. :hover {
+					background: url(../../squelettes/imgs/by-cc.png) left center no-repeat;
+				}
+			}
+			.auteur {
+				strong {
+					display: none;
+				}
+				a {
+					text-decoration: none;
+				}
+			}
+
+		}
+		
+		.auteur_date {
+			color: #999;
+			font-size: 0.8em;
+
+			.date {
+				a {
+					color: #bbb;
+					. :hover {
+						color: black;
+					}
+				}
+			}
+
+			
+			.auteur {
+				padding-right: 1em;
+				font-weight: normal;
+				
+				.by_cc {
+					display: none;	
+				}
+			
+				a {
+					color: black;
+					text-decoration: none;
+					
+					span.login {
+						color: #999;
+						display: none;
+						
+					}
+					
+					. :hover {
+						strong {
+							text-decoration: underline;
+						}
+						
+					}
+				}
+			}
+		
+		}
+		.texte {
+			font-size: 0.85em;
+			line-height: 1.4em;
+			color: #333;
+			padding-right: 30px;
+			
+			p {
+				margin: 0.6em 0em 0.6em 0;
+				padding: 0;
+			}
+			.oembed-container {
+				margin: 0.7em 0 0.7em 0;
+				font-size: 90%;
+				
+				img, object {
+					border: 1px solid #ccc;
+					background-color: white;
+					padding: 3px;
+					
+					. :hover {
+						border: 1px solid #666;
+					}
+				}
+			}
+			.oembed-container-Soundcloud {
+				span {
+					display: block;
+				}
+			}
+			blockquote {
+				color: #666;
+				font-size: 0.93em;
+				line-height: 1.35em;
+				margin: 0.6em 0 0.6em 2em;
+				padding: 0px;
+				padding-left: 1em;
+				border-left: 1px dotted #ccc;
+				text-align: justify;
+				
+				hr {
+					border: 0;
+					color: #999;
+					background-color: #999;
+					height: 1px;				
+				}
+				
+				.traduire {
+					margin-top: -0.5em;
+					text-align: right;
+					font-size: 0.8em;
+					a {
+						color: #999;
+					}
+				}
+			}
+		}
+		.lien_tag {
+			color: #999;
+		}
+		.lien_people {
+			color: #999;
+			.inexistant {
+				color: red;
+				text-decoration: line-through;
+				
+			}
+		}
+		
+		.images {
+				img {
+					border: 1px solid #ccc;
+					background-color: white;
+					padding: 3px;
+					margin-bottom: 3px;
+				}
+			a:hover {
+				img {
+					border: 1px solid #666;
+				}
+			}
+		}
+		
+		.bouton_repondre {
+			clear: right;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			padding-right: 40px;
+			padding-left: 104px;
+			text-align: left;
+			font-size: 0.75em;
+			
+			a {
+				display: inline-block;
+				-spip-border-radius: 4px;
+				text-decoration: none;
+				padding: 2px 7px;
+				margin-right: 0;
+				color: white;
+				background-color: #ccc;
+
+				-spip-transition-property: background-color;
+				-spip-transition-duration: 0.1s;
+
+				
+				. :hover {
+					background-color: #999;
+				}
+			}
+		}
+		.conteneur_reponses + .bouton_repondre {
+			padding-top: 0px;
+			
+			a {
+				padding-top: 3px;
+				-spip-border-top-right-radius: 0px;
+				-spip-border-top-left-radius: 0px;
+			}
+
+		}
+		
+		.destinataires {
+			float: right;
+			padding-left: 20px;
+			padding-top: 0.5em;
+			padding-bottom: 5px;
+		}
+		
+		
+		div.conteneur_reponses {
+			background: url(../../squelettes/imgs/fond-bas-reponses.png) bottom left repeat-x;
+		}
+		ul.reponses {
+			background: url(../../squelettes/imgs/fond-haut-reponses.png) top left no-repeat;
+			clear: left;
+			list-style-type: none;
+			font-size: 95%;
+			padding-left: 0px;
+			
+			.twitter, .facebook, .stumble {
+				display: none;
+			}
+
+			textarea {
+				width: 441px;
+			}
+			
+			li.reponse {
+				clear: left;
+				position: relative;
+				border-bottom: 1px solid white;
+				
+				
+				. :last-child {
+					border-bottom: 0px;
+				}
+								
+				.destinataires {
+					padding-right: 0px;
+				}
+			
+
+				.logo_auteur {
+					margin-left: 103px;
+					position: relative;
+					float: left;
+					width: 32px;
+					padding-top: 17px;
+					
+					img {
+						width: 32px;
+						height: 32px;
+						-ms-interpolation-mode: bicubic;
+					}
+
+					a:hover img {
+							border: 1px solid white;
+							margin: -1px;
+							-spip-box-shadow: 0px 0px 3px #666666;
+					}
+
+				}
+				
+				.texte_reponse {
+					margin-left: 154px;
+					padding-top: 15px;
+					padding-bottom: 5px;
+				}
+				
+				.texte {
+					padding-right: 20px;
+					color: #555;
+				}
+				
+				
+				
+				. .yourmessage {
+					padding: 5px;
+					background-color: #e4caa5;
+					
+					div {
+						font-size: 0.8em;
+						border: 1px solid #aaa;
+						background-color: white;
+						
+						a {
+							padding: 3px 10px 3px 10px;
+							display: block;
+							color: #999;
+							
+							. :hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+				
+				. .masquer {
+					display: none;
+				}
+				. .lienshow {
+					padding-top: 13px;
+					padding-left: 103px;
+					color: black;
+					padding-bottom: 13px;
+					font-size: 0.8em;
+					cursor: pointer;
+					background: url(../../squelettes/imgs/fond-haut-reponses.png) top left no-repeat;
+					
+					. :hover {
+						color: white;
+					}
+				}
+			}
+		}
+		
+		.repondre {
+			display: none;
+			padding-left: 103px;
+			padding-right: 40px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid #ddd;
+		}
+		textarea {
+			width: 494px;
+		}
+		
+	}
+
+}
+
+ul#messages li .texte {
+	div, blockquote {
+		. :lang(ar) {
+			font-size: 105%;
+		}
+	}
+	blockquote {
+		. :lang(ar) {
+			border-left: 0;
+			border-right: 1px dotted #ccc;
+			margin-left: 0px;
+			margin-right: 2em;
+			padding-left: 0;
+			padding-right: 1em;
+			
+			div.traduire {
+				font-size: 95%;
+			}
+		}
+	}
+}
+

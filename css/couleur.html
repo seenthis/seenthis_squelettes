@@ -1,0 +1,302 @@
+body {
+	background-color: [#(#ENV{couleur}|couleur_luminance{0.5})];
+
+	a {
+		color: [#(#ENV{couleur}|couleur_luminance{0.7})];
+	}
+	#droite {
+		a {
+			color: [#(#ENV{couleur}|couleur_luminance{0.2})];
+		}
+	}
+	
+	ul.newsticker a {
+		color: [#(#ENV{couleur}|couleur_luminance{0.6})];
+	}
+	.lien_tag a {
+		text-decoration: none;
+		color: [#(#ENV{couleur}|couleur_luminance{0.65})];
+		border-bottom: 1px dotted [#(#ENV{couleur}|couleur_luminance{0.65})];
+		
+		. :hover {
+			border-bottom: 1px solid [#(#ENV{couleur}|couleur_luminance{0.65})];
+		}
+	}
+}
+
+#fond_degrade {
+	z-index: -1;
+	-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.7}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.5})];
+	width: 100%;
+	height: 400px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+#entete {
+	.seenthis {
+		height: 26px;
+		overflow: hidden;
+		img {
+			width: 120px;
+			height: 26px;
+			
+			background: url([(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#ENV{couleur}|couleur_luminance{0.45})]}|image_reduire{120}|extraire_attribut{src})]);
+		}
+	}
+}
+#entete_people {
+	.outils {
+		.rss {
+			a {
+				background: url([(#CHEMIN{imgs/rss.png}|image_sepia{aaaaaa}|extraire_attribut{src})]) 4px center no-repeat;
+			}
+			a:hover {
+				background: url([(#CHEMIN{imgs/rss.png}|image_sepia{999999}|extraire_attribut{src})]) 4px center no-repeat;
+				background-color: #[(#ENV{couleur}|couleur_luminance{0.15})];
+			}
+		}
+	}
+}
+#principale {
+	-spip-background-color: [(#ENV{couleur}|couleur_luminance{0.75}|couleur_rgba{0.75})];
+	
+
+	#centre {
+		
+		#tetiere {
+			background-color: [#(#ENV{couleur}|couleur_luminance{0.6})];
+			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.5})], [#(#ENV{couleur}|couleur_luminance{0.6}|couleur_chroma{1/36})]; 
+		}
+	}
+}
+.formulaire_poster_message, #formulaire_login, #formulaire_inscription {
+	p.boutons {
+		input[type=submit] {
+			-spip-transition-property: background-color, color;
+			-spip-transition-duration: 0.1s;
+
+			background-color: [#(#ENV{couleur}|couleur_luminance{0.25})];
+			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.18})], [#(#ENV{couleur}|couleur_luminance{0.32})];
+			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.30})];
+			color: [#(#ENV{couleur}|couleur_luminance{0.9})];
+			
+			. :hover {
+				background-color: [#(#ENV{couleur}|couleur_luminance{0.7})];
+				-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.63})], [#(#ENV{couleur}|couleur_luminance{0.77})];
+				-spip-box-shadow: 0px 0px 3px #333333;
+				color: #fff;
+			}
+		}
+	}
+}
+#tetiere .formulaire_poster_message {
+	label {
+		color: [#(#ENV{couleur}|couleur_luminance{0.8})];
+	}
+	p.boutons {
+		input[type=reset] {
+				background-color: [#(#ENV{couleur}|couleur_luminance{0.4})];
+				color: [#(#ENV{couleur}|couleur_luminance{0.85})];
+				
+				. :hover {
+					background-color: [#(#ENV{couleur}|couleur_luminance{0.1})];
+				}
+		}
+	}
+
+}
+ul#messages {
+	display: block;
+	
+	li {
+		display: block;
+		
+		div.conteneur_reponses {
+			background-color: [#(#ENV{couleur}|couleur_luminance{0.05})];
+		}
+	
+		ul.reponses {
+			display: block;
+		
+			. >li.reponse:first-child {
+			}
+			li.reponse {
+
+				. .lienshow {
+						-spip-transition-property: background-color, color;
+						-spip-transition-duration: 0.1s;
+				
+						background-color: [#(#ENV{couleur}|couleur_luminance{0.15})];
+
+					. :hover {
+						background-color: [#(#ENV{couleur}|couleur_luminance{0.8})];
+					}
+				}
+
+			}
+		}
+	}
+}
+#principale {
+	#entete_people {
+/*			border-bottom: 1px solid [#(#ENV{couleur}|couleur_luminance{0.1})]; */
+	}
+}
+#droite {
+	.following, .followed {
+		h3 {
+			strong {
+				color: [#(#ENV{couleur}|couleur_luminance{0.3})];
+			}
+		}
+	}
+}
+
+#pave_accueil {
+	margin: 40px 40px;
+	-spip-border-radius: 6px;
+	background-color: [#(#ENV{couleur}|couleur_luminance{0.55})];
+	-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.3}|couleur_chroma{1/36})], [#(#ENV{couleur}|couleur_luminance{0.55})];
+
+
+	padding: 20px;
+	color: #4f4848;
+	font-size: 1.4em;
+	line-height: 1.3em;
+	
+	.interne {
+		background: url(squelettes/imgs/guillemets-ouvrants.png) top left no-repeat;
+		padding-left: 90px;
+	}
+	
+}
+
+
+#interface_connexion {
+	position: absolute;
+	width: 300px;
+	z-index: 20;
+	top: 5px;
+	right: 10px;
+	font-size: 0.9em;
+	
+	.on, .off {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		width: 280px;
+		
+		.intitule {
+			cursor: pointer;
+			display: inline-block;
+			padding: 2px 5px;
+			background-color: [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
+			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.35}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
+			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.65})];
+			color: [#(#ENV{couleur}|couleur_luminance{0.85})];
+		}
+	}
+	.off {
+		.intitule {
+			-spip-border-radius: 4px;
+		}
+	}
+	.on {
+		display: none;
+		.intitule {
+			-spip-border-top-left-radius: 4px;
+			-spip-border-top-right-radius: 4px;
+			border-bottom: 0px;
+			margin-bottom: -1px;
+		}
+		.encadre {
+			padding: 10px;
+			background-color: [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
+			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.65})];
+			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.65})];
+			-spip-border-bottom-left-radius: 4px;
+			-spip-border-bottom-right-radius: 4px;
+			-spip-border-top-right-radius: 4px;
+			
+		}
+	}
+}
+
+.bouton_suggerer {
+
+			-spip-transition-property: background-color, color;
+			-spip-transition-duration: 0.1s;
+			-spip-border-radius: 4px;
+
+			background-color: [#(#ENV{couleur}|couleur_luminance{0.7})];
+			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.63})], [#(#ENV{couleur}|couleur_luminance{0.77})];
+			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.7})];
+			color: [#(#ENV{couleur}|couleur_luminance{0.2})];
+			
+			. :hover {
+				background-color: [#(#ENV{couleur}|couleur_luminance{0.9})];
+				-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.83})], [#(#ENV{couleur}|couleur_luminance{0.97})];
+				border: 1px solid black;
+				-spip-box-shadow: 0px 0px 3px #666666;
+				color: #fff;
+			}	
+}
+#alire {
+	color: white;
+	border-bottom: 1px solid [#(#ENV{couleur}|couleur_luminance{0.2})];
+	font-size: 90%;
+	padding: 20px;
+}
+
+#entete_people h2 {
+	margin-top: 20px;
+}
+.suggestions {
+}
+.suggestions .logo_auteur {
+	margin-top: 10px;
+	width: 220px;
+	float: left;
+	font-size: 0.9em;
+}
+
+.suggestions .logo_auteur a, .suggestions .logo_auteur a span {
+	color: black;
+	display: block;
+	text-decoration: none;
+}
+.suggestions .logo_auteur a.suivre {
+		float: left;
+		background-color: [#(#ENV{couleur}|couleur_luminance{0.3})];
+		color: white;
+		padding: 3px 5px;
+		font-size: 0.8em;
+		-spip-border-radius: 4px;
+}
+.suggestions .logo_auteur a.suivre:hover  {
+		background-color: [#(#ENV{couleur}|couleur_luminance{0.7})];
+}
+
+.suggestions .logo_auteur a img {
+	float: left;
+	margin-right: 10px;
+}
+.suggestions .logo_auteur a .nom {
+	font-weight: bold;
+}
+#lien_suggerer_auteurs {
+	float: right;
+	width: 260px;
+	padding-top: 10px;
+}
+.bouton_suggerer {
+	padding: 7px 15px;
+	font-size: 110%;
+	text-decoration: none;
+}
+
+
+#FILTRE{css_imbriques_decouper}
+#FILTRE{compacte_css}

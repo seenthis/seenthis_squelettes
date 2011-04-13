@@ -1,0 +1,40 @@
+#CACHE{0}
+
+		#SET{messages, #ARRAY{}}
+
+		
+	
+		#SET{auteurs_suivis, #ARRAY{}}
+		<BOUCLE_follow(spip_me_follow){id_follow=#ENV{id}}>
+			[(#SET{auteurs_suivis, #GET{auteurs_suivis}|push{#ID_AUTEUR}})]		
+		</BOUCLE_follow>
+		
+		<BOUCLE_messages_follow(ME){id_auteur IN #GET{auteurs_suivis}}{id_parent=0}{0,500}{par date}{inverse}>
+				[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+		</BOUCLE_messages_follow>
+
+		<BOUCLE_messages_follow_reponses(ME){id_auteur IN #GET{auteurs_suivis}}{id_parent>0}{0,100}{par date}{inverse}>
+				[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+		</BOUCLE_messages_follow_reponses>
+
+		<BOUCLE_share(spip_me_share){id_auteur IN #GET{auteurs_suivis}}>
+			[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+		</BOUCLE_share>
+	
+	
+	
+		<B_messages>
+		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+		<ul id="messages">
+		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
+			<li id="message#ID_ME">
+				[(#ID_ME|microcache{noisettes/afficher_message})]
+			</li>
+		</BOUCLE_messages>
+		</ul>
+		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+		</B_messages>
+		<ul id="messages">
+			<li>Pas encore de messages</li>
+		</ul>	
+		<//B_messages>

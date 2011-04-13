@@ -1,0 +1,11 @@
+#CACHE{0}
+<script type="text/javascript"><!--
+[(#ENV{id}|>{0}|oui)
+	[var langue_visiteur ="(#ENV{id}|langue_visiteur|sinon{en})"];
+
+]
+[(#ENV{id}|>{0}|non)
+	var langue_visiteur = false;
+]
+--></script>
+#FILTRE{mini_html}

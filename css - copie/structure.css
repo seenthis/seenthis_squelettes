@@ -1,0 +1,576 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+.clear-left {
+	clear: left;
+}
+#principale {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#centre {
+	float: left;
+	width: 660px;
+	
+	#tetiere {
+		padding: 20px 40px;
+	}
+}
+#droite {
+	float: left;
+	width: 300px;
+}
+#follow, #follow_mot {
+	width: 240px;
+	font-size: 0.9em;
+	float: right;
+}
+.following_big {
+	div.logo_auteur {
+		float: left;
+		width: 105px;
+		padding-right: 20px;
+		padding-bottom: 15px;
+		font-size: 0.8em;
+		line-height: 125%;
+		
+		. :nth-child(7n+1) {
+			clear: left;
+		}
+		
+		a {
+			display: block;
+			text-decoration: none;
+			color: black;
+			
+			img {
+				width: 48px;
+				height: 48px;
+			}
+			
+			.nom {
+				display: block;
+				font-weight: bold;
+			}
+			.login {
+				display: block;
+			}
+		}	
+		
+	}
+}
+#entete_people {
+	background-color: white;
+	padding: 20px 40px;
+	border-bottom: 1px solid #ddd;
+	
+	.logo {
+		float: left;
+	}
+	.texte {
+		margin-left: 120px;
+		margin-top: -5px;
+		
+		h1 {
+			margin: 0px;
+			padding: 0px;
+			padding-bottom: 5px;
+			
+			span.login {
+				font-size: 0.7em;
+				color: #999;
+			}
+		}
+	}
+}
+
+.formulaire_poster_message {
+
+	.envoi_message_ok {
+		display: none;
+	}
+
+	.bugajaxie {
+		display: none;
+	}
+	label {
+		display: block;
+		font-size: 0.9em;
+		padding-bottom: 4px;
+		color: #666;
+	}
+	textarea {
+		font-size: 1em;
+		line-height: 1.3em;
+		
+		font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+		border: 1px solid #ddd;
+		width: 558px;
+		padding: 10px;
+		
+		. :focus {
+			outline: none;
+		}
+
+		
+	}
+	.people {
+		font-size: 0.8em;
+		display: none;	
+		padding-top: 5px;
+	}
+	.tags {
+		font-size: 0.8em;
+		display: none;	
+		padding-top: 5px;
+	}
+	.titre_people, .titre_tags {
+		display: block;
+		float: left;
+		margin-top: 3px;
+		width: 5em;
+	}
+	.titre_links {
+		display: block;
+		float: left;
+		width: 5em;	
+	}
+	.hashtag, .nom {
+		display: block;
+		float: left;
+		margin-top: 2px;
+		margin-right: 2px;
+		padding: 1px 4px 2px 2px;
+		border: 1px solid #ccc;
+		background-color: #eee;
+		padding-right: 15px;
+		
+		. .verif_ok {
+			background: url(squelettes/imgs/verif_ok.png) right center no-repeat;
+			background-color: #eee;
+		}
+		. .verif_no {
+			background: url(squelettes/imgs/verif_no.png) right center no-repeat;
+			background-color: #eee;
+		}
+	}
+	.hashtag a, .nom a {
+		color: black;
+	}
+	.hashtag span.diese {
+		color: #777;
+	}
+	.nom span.diese {
+		color: #d8400b;
+	}
+	
+	.liens {
+		font-size: 0.8em;
+		padding-top: 5px;
+		color: #777;
+	
+	}
+	.lien {
+		padding-left: 5em;	
+		
+		 a {
+			font-weight: bold;
+			color: #555;
+			
+			 span {
+				font-weight: normal;
+				}
+		}		
+	}
+	
+	p.boutons {
+		margin: 0px;
+		display: none;
+		text-align: right;
+
+		input[type=reset] {
+			float: left;
+			font-size: 0.8em;
+			padding: 2px 10px 2px 10px;
+
+
+		}
+
+		input[type=submit] {
+			font-size: 0.8em;
+			padding: 2px 10px 2px 10px;
+		}
+	}
+	. .focus {
+		p.boutons {
+			display: block;
+		}
+	}
+	
+	.erreur_message {
+		margin-top: 3px;
+		color: #e70606;
+		font-size: 0.75em;
+		font-weight: bold;
+	}
+
+}
+ul#messages, ul.messages {
+	clear: both;
+	margin: 0px;
+	padding: 0px;
+	
+	background-color: #fff;
+	
+	list-style-type: none;
+
+	li {
+		position: relative;
+		clear: left;
+		
+		padding: 20px 40px;
+		
+		border-bottom: 1px solid #ddd;
+				
+		.logo_auteur {
+			width: 48px;
+			float: left;
+			padding-top: 3px;
+			
+			img {
+				width: 48px;
+				height: 48px;
+			}
+		}
+		
+		.texte_message, .texte_reponse {
+			margin-left: 63px;
+			zoom: 1;
+		
+			.supprimer {
+				float: right;
+				font-size: 0.7em;
+				display: block;
+				
+				a {
+					display: none;
+					
+					color: red;
+					text-decoration: none;
+					
+					. :hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+		
+		
+		.auteur_date {
+			color: #999;
+			font-size: 0.8em;
+			
+			.auteur {
+				padding-right: 1em;
+				font-weight: normal;
+				
+				a {
+					color: black;
+					text-decoration: none;
+					
+					span.login {
+						color: #999;
+						
+					}
+					
+					. :hover {
+						strong {
+							text-decoration: underline;
+						}
+						
+						span.login {
+							text-decoration: none;
+						}
+					}
+				}
+			}
+			
+			.date {
+				a {
+					color: #999;
+					. :hover {
+						color: black;
+					}
+				}
+			}
+		
+		}
+		.texte {
+			font-size: 0.85em;
+			line-height: 1.4em;
+			color: #333;
+			padding-right: 2em;
+			
+			p {
+				margin: 0.5em 0em 0.5em 0;
+				padding: 0;
+			}
+			.oembed-container {
+				margin: 0.7em 0 0.7em 0;
+				font-size: 90%;
+				
+				img, object {
+					border: 1px solid #ccc;
+					background-color: white;
+					padding: 3px;
+					
+					. :hover {
+						border: 1px solid #666;
+					}
+				}
+			}
+			blockquote {
+				color: #666;
+				font-size: 0.97em;
+				line-height: 1.3em;
+				margin: 0.5em 0 0.7em 2em;
+				padding: 0px;
+				padding-left: 1em;
+				border-left: 1px dotted #ccc;
+			}
+		}
+		.lien_tag {
+			color: #999;
+		}
+		.lien_people {
+			color: #999;
+			.inexistant {
+				color: red;
+				text-decoration: line-through;
+				
+			}
+		}
+		
+		.images {
+				img {
+					border: 1px solid #ccc;
+					background-color: white;
+					padding: 3px;
+					margin-bottom: 3px;
+				}
+			a:hover {
+				img {
+					border: 1px solid #666;
+				}
+			}
+		}
+		
+		.bouton_repondre {
+			clear: right;
+			padding-top: 5px;
+			padding-right: 0px;
+			text-align: right;
+			font-size: 0.75em;
+			
+			a {
+				margin-right: 0;
+				color: #999;
+				
+				. :hover {
+					color: black;
+				}
+			}
+		}
+		
+		.destinataires {
+			float: right;
+			padding-left: 20px;
+			padding-top: 0.5em;
+			padding-bottom: 5px;
+		}
+		
+		ul.reponses {
+			clear: left;
+			margin: 0px;
+			padding: 0px;
+			margin-top: 0.5em;
+			list-style-type: none;
+			font-size: 95%;
+			padding-left: 63px;
+			
+			. >li.reponse:first-child {
+					background: url(../../squelettes/imgs/triangle-haut.gif) 0px 0px no-repeat;
+					background-color: #f0f0f0;
+					padding-top: 18px;			
+			}
+			. >li.reponse:last-child {
+				-spip-border-bottom-left-radius: 6px;
+				-spip-border-bottom-right-radius: 6px;
+			}
+
+			li.reponse {
+				clear: left;
+				position: relative;
+				background-color: #f0f0f0;
+				margin: 0;
+				padding: 5px;
+				padding-left: 5px;
+				border: 0;
+				margin-bottom: 1px;
+				
+				
+				.destinataires {
+					padding-right: 0px;
+				}
+			
+
+				.logo_auteur {
+					position: relative;
+					float: left;
+					top: 0px;
+					padding-top: 2px;
+					padding-left: 4px;
+					left: 0px;
+					width: 32px;
+					
+					img {
+						width: 32px;
+						height: 32px;
+					}
+
+				}
+				
+				.texte_reponse {
+					margin-left: 45px;
+					margin-right: 10px;
+				}
+				
+				.texte {
+					padding-right: 20px;
+				}
+				
+				
+				
+				. .yourmessage {
+					padding: 5px;
+					background-color: #e4caa5;
+					
+					div {
+						font-size: 0.8em;
+						border: 1px solid #aaa;
+						background-color: white;
+						
+						a {
+							padding: 3px 10px 3px 10px;
+							display: block;
+							color: #999;
+							
+							. :hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+				
+				. .masquer {
+					display: none;
+				}
+				. .lienshow {
+					background: url(../../squelettes/imgs/triangle-haut.png) 0px 0px no-repeat;
+					padding-top: 18px;
+					padding-left: 5px;
+					color: black;
+					padding-bottom: 8px;
+					font-size: 0.8em;
+					cursor: pointer;
+					
+					. :hover {
+						background: url(../../squelettes/imgs/triangle-haut.png) 0px -60px no-repeat;
+						color: white;
+					}
+				}
+			}
+		}
+		
+		.repondre {
+			display: none;
+			margin-top: 5px;
+			margin-left: 63px;
+			
+			textarea {
+				width: 494px;
+			}
+		}
+		
+	}
+
+}
+
+#bookmarklet {
+	padding: 20px;
+	font-size: 0.8em;
+	
+	a.bkl {
+		display: inline-block;
+		margin-top: 6px;
+		margin-bottom: 8px;
+		padding: 3px 7px;
+		background-color: #666;
+		-spip-gradient: top, #777, #555;
+		-spip-border-radius: 4px;
+		color: white;
+		text-decoration: none;
+		
+	}
+}
+#entete {
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 35px;
+	font-size: 0.9em;
+	
+	div {
+		padding-left: 15px;
+		padding-right: 15px;
+		margin-top: 8px;
+		
+		a {
+			color: white;
+			display: block;
+			text-decoration: none;
+			
+			. :hover {
+				text-decoration: underline;
+			}
+		}
+		
+	}
+	.seenthis, .accueil, .perso, .people, .tags, .urls {
+		float: left;
+	}
+	.logout, .profile {
+		float: right;
+	}
+	.seenthis {
+		margin-top: 3px;
+	}
+}
+
+ul#messages li .texte {
+	div, blockquote {
+		. :lang(ar) {
+			font-size: 105%;
+		}
+	}
+}
+:link[hreflang]::after {
+    content: "「" attr(hreflang) "」";
+    font-size: x-small;
+    font-weight: normal;
+    vertical-align: top;
+	-spip-opacity: 0.8;
+}
+

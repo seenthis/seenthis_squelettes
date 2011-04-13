@@ -1,0 +1,58 @@
+#CACHE{0}
+
+
+		#SET{messages, #ARRAY{}}
+
+		<B_follow_mot>
+		<BOUCLE_follow_mot(spip_me_follow_mot){id_follow=#ENV{id}}>
+			<BOUCLE_le_mot(MOTS){id_mot=#ID_MOT}{doublons mots}>
+			<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
+				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
+			</BOUCLE_enfants>
+			</BOUCLE_le_mot>
+
+			<BOUCLE_sites(spip_syndic_oc){id_mot=#ID_MOT}>
+				<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
+					[(#ID_PARENT|>{0}|?{" ",""})
+						[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+					]
+					[(#ID_PARENT|>{0}|?{""," "})
+						[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+					]
+				</BOUCLE_tous_liens_site>
+			</BOUCLE_sites>
+		</BOUCLE_follow_mot>
+		</B_follow_mot>
+		
+		
+		
+		<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
+			<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
+				[(#ID_PARENT|>{0}|?{" ",""})
+					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+				]
+				[(#ID_PARENT|>{0}|?{""," "})
+					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+				]
+			</BOUCLE_tous_liens>
+		</BOUCLE_tous_mots>
+
+
+	
+		<B_messages>
+		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+		<ul id="messages">
+		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
+			<li id="message#ID_ME">
+				[(#ID_ME|microcache{noisettes/afficher_message})]
+			</li>
+		</BOUCLE_messages>
+		</ul>
+		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+		</B_messages>
+		<ul id="messages">
+			<li>Pas encore de messages</li>
+		</ul>	
+		<//B_messages>
+
+#FILTRE{mini_html}

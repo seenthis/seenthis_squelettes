@@ -1,0 +1,18 @@
+#CACHE{0}
+<BOUCLE_principale(AUTEURS){id_auteur=#ENV{id}}{tout}>
+	#SET{follow_people, #ARRAY{}}
+
+	<BOUCLE_follow(spip_me_follow){id_follow=#ID_AUTEUR}>
+		[(#SET{follow_people, #GET{follow_people}|push{#ID_AUTEUR}})]		
+	</BOUCLE_follow>
+	
+	<B_follow_people>
+	<div class="following following_people clearfix">
+	<h3><span class="vous_suivez"><:seenthis:vous_suivez:></span> <strong>#TOTAL_BOUCLE</strong></h3>
+	<BOUCLE_follow_people(spip_auteurs){id_auteur IN #GET{follow_people}}{tout}{par troll}{inverse}>
+		[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur})]
+	</BOUCLE_follow_people>
+	</div>
+	</B_follow_people>
+	
+</BOUCLE_principale>

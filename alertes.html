@@ -1,0 +1,89 @@
+#CACHE{60*5}
+[(#HTTP_HEADER{cache-control: no-cache})]
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}>
+
+		#SET{alertes, #ARRAY{}}
+		
+		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{doublons}{statut=publi}> 
+				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+			<BOUCLE_reponses(spip_me){id_parent}{statut=publi}{par date}{inverse}{0,25}> 
+				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+			</BOUCLE_reponses>
+		</BOUCLE_messages_perso>
+		
+		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur)
+			{spip_me_auteur.id_auteur=#ID_AUTEUR}{spip_me.statut=publi}{par date}{inverse}{doublons}{0,25}>
+				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+		</BOUCLE_liens_vers_moi>
+	
+		<BOUCLE_follow(spip_me_follow){id_follow=#ID_AUTEUR}>
+			<BOUCLE_messages_follow(spip_me){id_auteur}{par date}{inverse}{doublons}{statut=publi}{0,25}>
+				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+			</BOUCLE_messages_follow>
+		</BOUCLE_follow>
+	
+		[(#REM) Les mots qu'on suit ]
+		<BOUCLE_follow_mot(spip_me_follow_mot){id_follow=#ID_AUTEUR}>
+			<BOUCLE_le_mot(MOTS){id_mot=#ID_MOT}{doublons mots}>
+				<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
+					<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
+				</BOUCLE_enfants>
+			</BOUCLE_le_mot>
+		</BOUCLE_follow_mot>
+
+		<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
+			<BOUCLE_tous_liens(spip_me spip_me_mot){id_mot=#ID_MOT}{spip_me.statut=publi}{par date}{inverse}{0,25}>
+				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+			</BOUCLE_tous_liens>
+		</BOUCLE_tous_mots>
+		
+		
+		<ul>
+		<BOUCLE_alertes(spip_me){id_me IN #GET{alertes}}{par date}{inverse}{0,25}>
+			[(#SET{id_me,#ID_ME})]
+			<BOUCLE_parent(spip_me){id_me = #ID_PARENT}>
+				[(#SET{id_me,#ID_ME})]
+				[(#SET{auteur_parent,#ID_AUTEUR})]
+				
+				<BOUCLE_auteur_parent(AUTEURS){id_auteur}{tout}>
+					[(#SET{nom_auteur_parent,[(#NOM|typo)]})]
+				</BOUCLE_auteur_parent>
+				
+			</BOUCLE_parent>
+
+			<li>
+			<BOUCLE_auteur_me(AUTEURS){id_auteur}{tout}>
+			
+				[<div class="logo_auteur">(#ID_AUTEUR|microcache{noisettes/message_logo_auteur_small})</div>]
+				
+				<div class="texte_message">
+					<div class="date_message"><a href="messages/#GET{id_me}" title="[(#DATE|date_u)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)] - [(#DATE|heures)]h[(#DATE|minutes)]</a></div>
+				
+					<b>[(#NOM|typo)]</b>
+					<a href="messages/#GET{id_me}#message#ID_ME">
+					[(#ID_PARENT|=={0}|?{" ",""})
+						a posté un message
+					]
+					
+					[(#ID_PARENT|=={0}|?{""," "})
+						[(#ID_AUTEUR|=={#GET{auteur_parent}}|?{" ",""})
+							a commenté son propre message
+						]
+						[(#ID_AUTEUR|=={#GET{auteur_parent}}|?{""," "})
+							a répondu à [<b>(#GET{nom_auteur_parent})</b>]
+						]
+					]
+					</a>
+
+					[<div class="texte">(#TEXTE|couper{100}|typo)</div>]
+				</div>
+			</BOUCLE_auteur_me>
+						
+			</li>
+		</BOUCLE_alertes>
+		</ul>
+		
+</BOUCLE_auteur>
+	&nbsp;
+<//B_auteur>
+#FILTRE{mini_html}

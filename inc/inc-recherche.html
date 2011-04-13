@@ -1,0 +1,22 @@
+<B_messages>
+[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+<ul id="messages">
+<BOUCLE_messages(ME){pagination 20}{recherche}{par points}{date>(#ENV{age}|sinon{0})}{inverse}{statut=publi}>
+	[(#ID_PARENT|>{0}|non)
+	<li id="message#ID_ME"><a name="message#ID_ME"></a>
+		[(#ID_ME|microcache{noisettes/afficher_message})]
+	</li>
+	]
+	[(#ID_PARENT|>{0}|oui)
+	<li id="message#ID_PARENT"><a name="message#ID_PARENT"></a>
+		[(#ID_PARENTs|microcache{noisettes/afficher_message})]
+	</li>
+	]
+</BOUCLE_messages>
+</ul>
+[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+</B_messages>
+<ul id="messages">
+	<li>Pas encore de messages</li>
+</ul>	
+<//B_messages>

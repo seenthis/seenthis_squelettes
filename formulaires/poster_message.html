@@ -1,0 +1,87 @@
+#HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
+#HTTP_HEADER{"Pragma: no-cache"}
+
+			<BOUCLE_destinataire(AUTEURS){id_auteur=#ENV{id_dest}}{id_auteur!=#ENV{id_auteur}}{tout}>
+			[(#SET{dest,#LOGIN})]
+			</BOUCLE_destinataire>
+
+			<BOUCLE_mot(MOTS){id_mot=#ENV{ze_mot}}>
+			[(#SET{zemot,#TITRE})]
+			</BOUCLE_mot>
+
+
+<div class='formulaire_spip formulaire_poster_message ajax'>
+
+	
+	[(#EDITABLE|oui)
+	]
+	<div class="cadre">
+	
+		[(#REM) pour IE qui sinon se perd dans l'ajax !, ne pas retirer]<br class='bugajaxie' />
+	
+		<form method='post' action='#ENV{action}' enctype='multipart/form-data'>
+			#ACTION_FORMULAIRE{#ENV{action}}
+	
+			
+			[(#GET{dest}|non)
+				<div><label class="votre_message"><:seenthis:votre_message:>[ <b>@(#GET{dest})</b>][ <b>#(#GET{zemot})</b>]<:seenthis:insecable_typo:>:</label></div>
+			]
+			[(#GET{dest}|oui)
+				<div><label class="votre_message_public"><:seenthis:votre_message_public:>[ <b>@(#GET{dest})</b>][ <b>#(#GET{zemot})</b>]<:seenthis:insecable_typo:>:</label></div>
+			]
+			<div><textarea name="texte_message" rows="2" cols="60">[(#ENV**{texte_message})]</textarea></div>
+			[(#REM)
+				<div><textarea name="texte_message" rows="2" cols="60">[[(#ENV**{texte_message})](#ENV**{message_ok}|table_valeur{ok_me}|?{""," "})]</textarea></div>
+			]
+			[<div class="erreur_message">(#ENV**{erreurs}|table_valeur{texte_message})</div>]
+		
+			<div class="people"></div>
+			<div style="clear: left;"></div>
+			[<div class="erreur_message">(#ENV**{erreurs}|table_valeur{people})</div>]
+		
+			<div class="tags"></div>
+			<div style="clear: left;"></div>
+			<div class="liens"></div>
+			<div style="clear: left;"></div>
+		
+		
+			
+				<p class="boutons">
+					
+					<input type="reset" value="<:seenthis:annuler:>" />
+				
+					<input type="submit" value="<:seenthis:envoyer:>" />
+				</p>
+		</form>
+	</div>
+
+
+</div>
+
+	[<p class='envoi_message_ok'>(#ENV**{message_ok}|table_valeur{texte})</p>
+		<script type="text/javascript"><!--
+		
+		if ("[(#ENV**{message_ok}|table_valeur{maj})]" > 0) {
+			$("#message[(#ENV**{message_ok}|table_valeur{pave})]")
+				.html("<div class='loading_icone'><img src='squelettes/imgs/loading.gif' alt='chargement' /></div>")
+				.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{pave})]");
+		}
+		else if ("[(#ENV**{message_ok}|table_valeur{ok_parent})]" > 0) {
+		
+			$("#message[(#ENV**{message_ok}|table_valeur{ok_parent})]").find(".formulaire_poster_message").hide();
+			$("#message[(#ENV**{message_ok}|table_valeur{ok_parent})]")
+//				.html("<div class='loading_icone'><img src='squelettes/imgs/loading.gif' alt='chargement' /></div>")
+				.load("?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_parent})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]", function() {
+				afficher_oe_el($("#message[(#ENV**{message_ok}|table_valeur{ok_parent})] .texte a.spip_out"));
+			}).slideDown();
+		} else {
+			$(".formulaire_poster_message").removeClass("focus").find("textarea").hide();
+			$("#messages").prepend("<li id='message[(#ENV**{message_ok}|table_valeur{ok_me})]'></li>");
+			$("#message[(#ENV**{message_ok}|table_valeur{ok_me})]")
+				.html("<div class='loading_icone'><img src='squelettes/imgs/loading.gif' alt='chargement' /></div>")
+				.load("?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_me})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]",function() {
+				afficher_oe_el($("#message[(#ENV**{message_ok}|table_valeur{ok_me})] .texte a.spip_out"));
+			});
+		}
+		--></script>
+	]

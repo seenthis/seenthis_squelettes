@@ -1,0 +1,133 @@
+#CACHE{0}
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#NOM|textebrut)]</title>
+	<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	
+	
+	
+	<style type="text/css"><!--
+	
+	<INCLURE{fond=css/accueil} />	
+	
+	[(#SET{couleur,dcdf03})]
+	[(#SET{couleur,f11ec1})]
+	[(#REM)
+		<INCLURE{fond=css/couleur}{couleur=#GET{couleur}} />
+	]
+	--></style>
+	[(#VAL{3}|microcache{noisettes/head_auteur})]
+	
+
+	<script type="text/javascript"><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	$(document).ready(function() {
+		$(".formulaire_principal textarea").val("[(#ENV{ajouter}|addslashes|replace{'(\n|\r)+','\r'}|replace{'&quot;','\"'}|replace{'&amp;','&'})]");
+	});
+	
+	--></script>
+	
+	<style type="text/css">
+	<INCLURE{fond=css/inscription}{couleur=#GET{couleur}} />
+	
+	.formulaire_inscription {
+		display: block;
+	}
+	</style>
+	
+</head>
+<body class="accueil plier">
+
+<INCLURE{fond=inc/entete}>
+
+<div id="entete_accueil">
+
+	<div class="clearfix">
+		<div class="inscription beta_publique">
+			&nbsp;
+		</div>
+
+		<div class="logo">
+			[(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#GET{couleur}|couleur_luminance{0.57})]}|image_reduire{318})]
+		</div>
+	</div>
+
+
+
+
+	<INCLURE{fond=noisettes/mots_lies_general} />
+
+</div>
+
+
+<div id="principale">
+
+
+	<div id="centre">
+
+		<div id="pave_accueil"><div class="interne">
+			&nbsp; 
+		</div></div>
+
+
+		#SET{auteurs_vus, #ARRAY{}}
+		#SET{compteur,1}
+		#SET{id_auteur,1000000}
+		<ul id="messages">
+		<BOUCLE_recents(ME)
+			{par date}{inverse}
+			{id_auteur<#GET{id_auteur}}{id_auteur !IN #GET{auteurs_vus}}
+			{statut=publi}{id_parent=0}{0,1}
+			{date>#VAL{4}|decaler_date}>
+			<li id="message#ID_ME"><a name="message#ID_ME"></a>
+				[(#ID_ME|microcache{noisettes/afficher_message})]
+			</li>
+			
+		[(#SET{auteurs_vus, #GET{auteurs_vus}|push{#ID_AUTEUR}})]		
+		[(#SET{compteur,[(#GET{compteur}|plus{1})]})]
+		[(#GET{compteur}|>{30}|oui)
+			#SET{id_auteur,0}
+		]
+			<BOUCLE_suite(BOUCLE_recents) />
+		</BOUCLE_recents>
+		</ul>		
+		
+	</div>
+
+	<div id="droite">
+	
+	<div id="charger_pave_inscription"></div>
+
+	<INCLURE{fond=inc/alire} />
+
+
+	<BOUCLE_pop(AUTEURS){tout}{statut!=nouveau}{doublons}{par troll}{inverse}{0,200}>
+		<BOUCLE_messages(ME){id_auteur=#ID_AUTEUR}{date>#VAL{7}|decaler_date}></BOUCLE_messages>
+			[(#ID_AUTEUR|stocker_auteur{#TROLL,#TOTAL_BOUCLE})]
+		<//B_messages>
+	</BOUCLE_pop>
+
+	
+	<B_follow_people>
+	<div class="following following_big" style="padding: 20px;">
+	<BOUCLE_follow_people(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{0,50}>
+		<div class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
+			<img src="[(#LOGO_AUTEUR||sinon{[(#EMAIL|gravatar)]}|sinon{[(#CHEMIN{imgs/auteur-defaut.jpg})]}|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="" />
+			<span class="nom">#NOM</span>
+			<span class="login">@#LOGIN</span>
+		</a></div>
+	</BOUCLE_follow_people>
+	</div>
+	<div class="clear-left"></div>
+	</B_follow_people>
+			
+	</div>
+
+	<div class="clear-left"></div>
+</div>
+</body>
+</html>
+#FILTRE{mini_html}

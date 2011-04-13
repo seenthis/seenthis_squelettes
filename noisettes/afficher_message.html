@@ -1,0 +1,31 @@
+[(#HTTP_HEADER{Content-type: text/html})]
+#CACHE{0}
+
+<BOUCLE_principale(spip_me){id_me=#ENV{id}}{statut=publi}>
+<div class="auteur#ID_AUTEUR clearfix">
+	[(#ID_ME|microcache{noisettes/afficher_un_message})]
+
+
+	<B_reponses>
+	<div class="conteneur_reponses">
+	<ul class="reponses">
+	
+	<BOUCLE_reponses(spip_me){id_parent=#ID_ME}{par date}{statut=publi}>
+		<li class="reponse">
+		[(#ID_ME|microcache{noisettes/afficher_un_message})]
+		</li>
+	</BOUCLE_reponses>
+	</ul>
+	</div>
+	</B_reponses>
+
+			<div class="bouton_repondre"><a href="#" rel="#ID_ME"><:seenthis:ecrire_commentaire:></a></div>
+	
+	<a name="repondre#ID_ME"></a>
+	<div class="repondre" id="repondre#ID_ME">
+	[(#FORMULAIRE_POSTER_MESSAGE{0, #ID_ME})]
+	</div>
+
+</div>
+</BOUCLE_principale>
+#FILTRE{mini_html}

@@ -1,0 +1,28 @@
+#CACHE{0}<?xml 
+version="1.0"[ encoding="(#CHARSET)"]?>
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID}>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
+	<title>#NOM (@#LOGIN) - Seenthis</title>
+
+
+		#SET{messages, #ARRAY{}}
+		#SET{liens, #ARRAY{}}
+		
+		<BOUCLE_messages_perso(spip_me){id_auteur}{statut=publi}>[(#SET{messages, #GET{messages}|push{#ID_ME}})]</BOUCLE_messages_perso>
+		<BOUCLE_share(spip_me_share){id_auteur}>[(#SET{messages, #GET{messages}|push{#ID_ME}})]</BOUCLE_share>
+
+[(#ENV{debut_me}|>{0}|oui)
+	<link rel="first"
+		 href="https://seenthis.net/api/people/#LOGIN/messages" />
+]
+<BOUCLE_suivant(spip_me){id_me IN #GET{messages}}{debut_me,26}>[(#COMPTEUR_BOUCLE|=={26}|oui)
+       <link rel="next"
+             href="https://seenthis.net/api/people/#LOGIN/messages/[(#ENV{debut_me}|plus{25})]" />
+]</BOUCLE_suivant>
+
+
+<BOUCLE_me(spip_me){id_me IN #GET{messages}}{debut_me,25}{par date}{inverse}{statut=publi}>
+	[(#ID_ME|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
+</BOUCLE_me>
+</feed>
+</BOUCLE_auteur>

@@ -1,0 +1,564 @@
+* {
+	zoom: 1;
+}
+#spip-admin {
+	font-size: 0.7em;
+}
+.clear-left {
+	clear: left;
+	height: 1px; 
+	overflow: hidden;
+}
+#principale, .centrer {
+	z-index: 2;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#centre {
+	float: left;
+	width: 660px;
+	
+	#tetiere {
+		padding: 15px 40px 20px 40px;
+	}
+	.tetiere_auteur {
+		display: none;
+	}
+}
+#droite {
+	float: left;
+	width: 300px;
+	
+	h3 {
+		font-size: 0.8em;
+		margin-bottom: 5px;
+		font-weight: normal;
+		color: white;
+		
+		strong {
+			font-size: 1.1em;
+		}
+	}
+
+	.following {
+		margin: 10px 15px 10px 20px;
+		
+		color: white;
+		
+		.logo_auteur {
+			float: left;
+			position: relative;
+			width: 44px;
+			height: 44px;
+			
+			a {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				-spip-transition-property: top, left;
+				-spip-transition-duration: 0.1s;
+				
+				img {
+					width: 36px;
+					height: 36px;
+					-spip-transition-property: width, height;
+					-spip-transition-duration: 0.1s;
+
+					-ms-interpolation-mode: bicubic;
+				}
+			}
+		}
+		
+		.logo_auteur:hover {
+			a {
+				z-index: 10;
+				top: -6px;
+				left: -6px;
+				
+				img {
+					width: 48px;
+					height: 48px;
+					border: 2px solid white;
+					margin: -2px;
+					-spip-box-shadow: 0px 0px 3px #000000;
+				}
+			}
+		}
+	}
+	
+	.followed {
+		margin: 10px 15px 10px 20px;
+		color: white;
+		
+		.logo_auteur {
+			float: left;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			
+			. :hover {
+				a img {
+					border: 1px solid white;
+					margin: -1px;
+					-spip-box-shadow: 0px 0px 3px #000000;
+				}
+			}
+		}
+	}
+
+	.following_big {
+		.logo_auteur {
+			clear: left;
+			width: 250px;
+			
+			a {
+				-spip-transition-property: color;
+				-spip-transition-duration: 0.1s;
+
+				img {
+					float: left;
+					margin-bottom: 0px;
+					margin-top: 0px;
+					width: 48px;
+					height: 48px;
+				}
+				.nom, .login {
+					padding-left: 60px;
+				}
+			}
+		}
+		.logo_auteur:hover {
+			a {
+				color: white;
+				z-index: 10;
+				top: 0px;
+				left: 0px;
+			}
+		}
+	}
+
+}
+
+
+
+#mots_lies, .mots_lies {
+	margin: 10px 20px;
+	color: #aaa;
+		
+	ul {
+		font-size: 0.8em;
+		margin-bottom: 5px;
+		li {
+			padding-top: 2px;
+			color: #ccc;
+			
+			.groupe_mot {
+				font-size: 80%;
+				text-transform: lowercase;
+			}
+		}
+	}
+	
+	.explication {
+		font-size: 0.7em;
+	}
+}
+
+#follow, #follow_mot {
+	margin-top: 5px;
+	font-size: 0.9em;
+}
+#enfants_mots {
+	ul {
+		padding-left: 20px;
+		list-style-type: circle;
+	}
+}
+.following_big {
+	div.logo_auteur {
+		float: left;
+		width: 105px;
+		padding-right: 20px;
+		padding-bottom: 15px;
+		font-size: 0.8em;
+		line-height: 125%;
+		
+		. :nth-child(7n+1) {
+			clear: left;
+		}
+		
+		a {
+			display: block;
+			text-decoration: none;
+			color: black;
+			
+			img {
+				width: 48px;
+				height: 48px;
+			}
+			
+			.nom {
+				display: block;
+				font-weight: bold;
+			}
+			.login {
+				display: block;
+			}
+		}	
+		
+	}
+}
+#entete_people {
+	background-color: white;
+	padding: 20px 40px;
+	margin-bottom: 0px;
+	
+	.logo {
+		float: left;
+	}
+	.texte {
+		margin-left: 100px;
+		margin-top: -5px;
+		
+		h1 {
+			font-size: 1.4em;
+		}
+		div {
+			padding-bottom: 3px;
+			color: #999;
+			font-size: 0.95em;
+			
+			. .bio {
+				color: #333;
+			}
+		}
+	}
+	
+	.outils {
+		float: right;
+		width: 260px;
+		
+		.rss {
+			margin-bottom: 4px;
+			a {
+				padding: 2px 4px;
+				padding-left: 20px;
+				font-size: 0.75em;
+				text-decoration: none;
+				color: #aaa;
+				-spip-border-radius: 4px;
+			}
+			a:hover {
+				color: black;
+			}
+		}
+		
+		.messager, .page_auteur {
+			display: none;
+			font-size: 0.75em;
+			text-decoration: none;
+			padding-top: 10px;
+		}
+		
+	}
+}
+
+#tetiere .formulaire_poster_message { 
+	label {
+		color: black;
+	}
+}
+
+.formulaire_poster_message {
+	margin-bottom: 0.5em;
+
+	.envoi_message_ok {
+		display: none;
+	}
+
+	.bugajaxie {
+		display: none;
+	}
+	label {
+		display: block;
+		font-size: 0.9em;
+		padding-bottom: 4px;
+		color: #666;
+	}
+	textarea {
+		font-size: 1em;
+		line-height: 1.3em;
+		max-height: 400px;
+		
+		font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
+		border: 1px solid #ddd;
+		width: 558px;
+		padding: 10px;
+		
+		. :focus {
+			outline: none;
+		}
+
+		
+	}
+	.people {
+		font-size: 0.8em;
+		display: none;	
+		padding-top: 5px;
+	}
+	.tags {
+		font-size: 0.8em;
+		display: none;	
+		padding-top: 5px;
+	}
+	.titre_people, .titre_tags {
+		display: block;
+		float: left;
+		margin-top: 3px;
+		width: 5em;
+	}
+	.titre_links {
+		display: block;
+		float: left;
+		width: 5em;	
+	}
+	.hashtag, .nom {
+		display: block;
+		float: left;
+		margin-top: 2px;
+		margin-right: 2px;
+		padding: 1px 4px 2px 2px;
+		border: 1px solid #ccc;
+		background-color: #eee;
+		
+	}
+	.hashtag a, .nom a {
+		color: black;
+	}
+	.hashtag span.diese {
+		color: #777;
+	}
+	.nom span.diese {
+		color: #d8400b;
+	}
+	
+	.liens {
+		font-size: 0.8em;
+		padding-top: 5px;
+		color: #777;
+	
+	}
+	.lien {
+		padding-left: 5em;	
+		
+		 a {
+			font-weight: bold;
+			color: #555;
+			
+			 span {
+				font-weight: normal;
+				}
+		}		
+	}
+	
+	p.boutons {
+		display: none;
+		text-align: right;
+
+		input[type=reset] {
+			float: left;
+			font-size: 0.8em;
+			padding: 2px 10px 2px 10px;
+
+
+		}
+
+		input[type=submit] {
+			font-size: 0.8em;
+			padding: 2px 10px 2px 10px;
+		}
+	}
+	. .focus {
+		p.boutons {
+			display: block;
+		}
+	}
+	
+	.erreur_message {
+		margin-top: 3px;
+		color: #e70606;
+		font-size: 0.75em;
+		font-weight: bold;
+	}
+
+}
+
+#bookmarklet {
+	padding: 20px;
+	font-size: 0.8em;
+	color: white;
+	
+	a.bkl {
+		display: inline-block;
+		margin-top: 6px;
+		margin-bottom: 8px;
+		padding: 3px 7px;
+		background-color: #666;
+		-spip-gradient: top, #777, #555;
+		-spip-border-radius: 4px;
+		color: white;
+		text-decoration: none;
+		
+	}
+}
+#entete {
+	z-index: 2;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 35px;
+	font-size: 0.9em;
+	position: relative;
+	
+	div.liens {
+		margin-left: 15px;
+		margin-right: 15px;
+		margin-top: 8px;
+		position: relative;
+		
+		a {
+			color: white;
+			display: block;
+			text-decoration: none;
+			
+			. :hover {
+				text-decoration: underline;
+			}
+		}
+		
+	}
+	.seenthis, .accueil, .perso, .people, .tags, .urls {
+		float: left;
+	}
+	div.perso {
+		a {
+			img {
+				position: absolute;
+				top: -3px;
+				left: 0px;
+			}
+			span.nom_auteur {
+				margin-left: 30px;
+			}
+		}
+		a:hover {
+			text-decoration: none;
+			img {
+				-spip-box-shadow: 0px 0px 3px #000000;
+				border: 1px solid #aaa;
+				margin: -1px;
+			}
+			span.nom_auteur {
+				text-decoration: underline;
+			}
+		}
+	}
+	.logout, .profile {
+		float: right;
+		font-size: 85%;
+		margin-top: 10px;
+	}
+	.seenthis {
+		margin-left: 15px;
+		margin-top: 3px;
+	}
+}
+
+:link[hreflang]::after {
+    content: "「" attr(hreflang) "」";
+    font-size: x-small;
+    font-weight: normal;
+    vertical-align: top;
+	-spip-opacity: 0.8;
+}
+#alertes {
+	display: none;
+	font-size: 0.8em;
+	
+	ul {
+		list-style-type: none;
+		color: white;
+		
+		li {
+			margin: 8px 20px 10px 10px;
+			
+			.logo_auteur {
+				float: left;
+				padding-top: 2px;
+				
+				a:hover img {
+					-spip-box-shadow: 0px 0px 3px #000000;
+					border: 1px solid white;
+					margin: -1px;
+				}
+			}
+			.texte_message {
+				padding-left: 35px;
+				
+				a.calcul_date {
+					color: #aaa;
+					
+					. :hover {
+						color: black;
+					}
+				}
+				.texte {
+					color: #ddd;
+					font-size: 95%;
+					line-height: 1.25em;
+				}
+			}
+		}
+	}
+}
+
+#entete_people h2 {
+	margin-top: 20px;
+}
+.suggestions {
+	.logo_auteur {
+		margin-top: 10px;
+		width: 220px;
+		float: left;
+		font-size: 0.9em;
+
+		a, a span {
+			color: black;
+			display: block;
+			text-decoration: none;
+		}
+		a img {
+			float: left;
+			margin-right: 10px;
+		}
+		a .nom {
+			font-weight: bold;
+		}
+
+	}
+}
+
+.oembed-container {
+	img, object {
+		max-width: 440px;
+		max-height: 440px;
+	}
+}
+
+#bandeau_auteur {
+	display: none;
+}
+.loading_icone {
+	padding: 20px;
+	text-align: center;
+}
