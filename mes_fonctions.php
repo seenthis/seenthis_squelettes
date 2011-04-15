@@ -1,5 +1,8 @@
 <?php
 
+defined('_HOST')||define('_HOST', $_SERVER['HTTP_HOST']);
+defined('_STATIC_HOST')||define('_STATIC_HOST', _HOST);
+
 include_spip("php/traduire_texte");
 
 function unichr($u) {
@@ -39,7 +42,7 @@ function share_fb($id_me, $texte) {
 
 	$texte = preg_replace(",([\t\r\n\ ]+),", " ", $texte);
 	
-	$me = "http://seenthis.net/messages/$id_me";
+	$me = "http://"._HOST."/messages/$id_me";
 	
 	$l = strlen($me) + 4;
 	
@@ -60,7 +63,7 @@ function share_fb($id_me, $texte) {
 function share_lien($id_me) {
 
 	
-	$me = "http://seenthis.net/messages/$id_me";
+	$me = "http://"._HOST."/messages/$id_me";
 	
 	$me = rawurlencode($me);
 	
@@ -74,7 +77,7 @@ function filtrer_rediriger_images($reg) {
 	if ( ! preg_match(",^http,", $lien)) {
 		$code = substr(md5($lien), 0, 1);
 		$code = hexdec($code) % 4;		
-		$lien = "http://static$code.seenthis.net/$lien";
+		$lien = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
 	}
 	return " src='$lien'" ;
 }
@@ -85,7 +88,7 @@ function filtrer_rediriger_css($reg) {
 	if ( ! preg_match(",^http,", $lien)) {
 		$code = substr(md5($lien), 0, 1);
 		$code = hexdec($code) % 4;		
-		$lien = "http://static$code.seenthis.net/$lien";
+		$lien = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
 	}
 	return "<link rel='stylesheet'  media='$media' href='$lien'" ;
 }
@@ -95,8 +98,8 @@ function filtrer_rediriger_background($reg) {
 	
 	if ( ! preg_match(",^http,", $lien)) {
 		$code = substr(md5($lien), 0, 1);
-		$code = hexdec($code) % 4;		
-		$lien = "http://static$code.seenthis.net/$lien";
+		$code = hexdec($code) % 4;
+		$lien = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
 	}
 	return "url($lien)" ;
 }

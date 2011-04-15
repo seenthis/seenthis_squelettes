@@ -25,10 +25,8 @@ function traduire_texte( $text, $destLang = 'fr', $srcLang = 'en' ) {
 	$text = rawurlencode( $text );
 	$destLang = urlencode( $destLang );
 	$srcLang = urlencode( $srcLang );
-	$key = "AIzaSyAWeaiTeH9QYP4qF_swOvqFQZ2wMy6nQ98";
-		
-	//$trans = translate_requestCurl( "https://www.googleapis.com/language/translate/v2?key=AIzaSyAWeaiTeH9QYP4qF_swOvqFQZ2wMy6nQ98&q=$text&source=$srcLang&target=$destLang" );
-	$trans = translate_requestCurl( "https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&key=AIzaSyAWeaiTeH9QYP4qF_swOvqFQZ2wMy6nQ98&q=$text&langpair=$srcLang%7C$destLang" );
+	$key = _GOOGLETRANSLATE_APIKEY;
+	$trans = translate_requestCurl( "https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&key="._GOOGLETRANSLATE_APIKEY."&q=$text&langpair=$srcLang%7C$destLang" );
 	//https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=Hello,%20my%20friend!&langpair=en%7Ces
 	
 	$json = json_decode( $trans, true );

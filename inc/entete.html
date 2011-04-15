@@ -27,15 +27,11 @@
 		<div id="interface_connexion"><INCLURE{fond=pave_connexion}{lang=fr} /></div>
 	<//B_auteur>
 
-<script type="text/javascript"><!--
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-2985608-16']);
-  _gaq.push(['_trackPageview']);
+	[(#REM)
+		Pour inclure un google analytics definir _ANALYTICS dans mes_options
+		NB: serait mieux de faire un plugin google analytics :-)
+	][(#VAL{_ANALYTICS}|defined|and{#EVAL{_ANALYTICS}}|oui)
+		<INCLURE{fond=analytics} />
+	]
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
---></script>
 </div>

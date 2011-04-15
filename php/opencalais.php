@@ -2,7 +2,7 @@
 
 
 function getOpenCalais($content) {
-	$apiKey = "3avj84hqb9n9fp6j7brrvpc2";
+	$apiKey = _OPENCALAIS_APIKEY;
 	
 	
 	//$content = "<h1>Ceci est un essai de texte réalisé avec OpenCalais de Reuters, basé en Californie. Le Liban est un pays intéessant, et <b>Jacques Chirac</b> ne s'y est pas trompé.</h1> Je dis ça, parce que #Saad_Hariri lui a ravi la plame d'or à Cannes.";
