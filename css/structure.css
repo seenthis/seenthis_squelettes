@@ -425,6 +425,8 @@
 		margin-right: 15px;
 		margin-top: 8px;
 		position: relative;
+		-spip-transition-property: margin-left, margin-right;
+		-spip-transition-duration: 0.2s;
 		
 		a {
 			color: white;
@@ -470,7 +472,77 @@
 	}
 	.seenthis {
 		margin-left: 15px;
+		margin-right: 25px;
 		margin-top: 3px;
+	}
+
+	.formulaire_recherche {
+		margin-top: 5px;
+		margin-left: 25px;
+		float: left;
+		form {
+			position: relative;
+			margin: 0px;
+			padding: 0px;
+			
+			div {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			label {
+				display: none;
+			}
+			input.text {
+				display: block;
+				font: normal normal normal 13px/normal Arial, sans-serif;
+				padding: 6px 6px 4px;
+				border: 0;
+				padding: 5px 25px 4px 6px;
+				-spip-border-radius: 4px;
+				width: 50px;
+				-spip-transition-property: background-color, color, width;
+				-spip-transition-duration: 0.2s;
+				
+				background-color: #7c7474;
+				-spip-gradient: top, #7f7878, #7a7272;
+				
+				
+				color: #ccc;
+				
+				. :hover {
+					background: #9d9393;
+				}
+				
+				. :focus {
+					background: white;
+					color: #625f5f;
+					outline: none;
+
+				}
+			}
+			input.submit {
+				position: absolute;
+				top: 6px;
+				right: 5px;
+				
+			}
+		}
+	}
+
+	
+	. .rechercher {
+		div.liens {
+			margin-left: 5px;
+			margin-right: 5px;
+		}
+		.formulaire_recherche {
+			form {
+				input.text {
+					width: 160px;
+				}
+			}
+		}
 	}
 }
 

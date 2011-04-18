@@ -204,6 +204,14 @@ function switch_comments(id_me) {
 		//$('textarea').autoResize();
 
 
+		$("#recherche").focus(function() {
+			$("#entete").addClass("rechercher");
+		});
+
+		$("#recherche").focusout(function() {
+			$("#entete").removeClass("rechercher");
+		});
+
 
 		$('textarea').live("keydown", function(e) {
 			var area = $(this);

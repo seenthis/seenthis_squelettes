@@ -323,60 +323,6 @@ body.accueil {
 		}
 	}	
 }
-#entete{
-	.formulaire_recherche {
-		margin-top: 5px;
-		float: left;
-		form {
-			position: relative;
-			margin: 0px;
-			padding: 0px;
-			
-			div {
-				margin: 0px;
-				padding: 0px;
-			}
-			
-			label {
-				display: none;
-			}
-			input.text {
-				display: block;
-				font: normal normal normal 13px/normal Arial, sans-serif;
-				padding: 6px 6px 4px;
-				border: 0;
-				padding: 5px 25px 4px 6px;
-				-spip-border-radius: 4px;
-				width: 130px;
-				-spip-transition-property: background-color, color;
-				-spip-transition-duration: 0.1s;
-				
-				background-color: #7c7474;
-				-spip-gradient: top, #7f7878, #7a7272;
-				
-				
-				color: #ccc;
-				
-				. :hover {
-					background: #9d9393;
-				}
-				
-				. :focus {
-					background: white;
-					color: #625f5f;
-					outline: none;
-
-				}
-			}
-			input.submit {
-				position: absolute;
-				top: 6px;
-				right: 5px;
-				
-			}
-		}
-	}
-}
 
 .onglets {
 	background-color: #9d9393;
