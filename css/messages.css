@@ -517,7 +517,8 @@ ul#messages, ul.messages {
 ul#messages li .texte {
 	div, blockquote {
 		. :lang(ar) {
-			font-size: 105%;
+			font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
+			font-size: 110%;
 		}
 	}
 	blockquote {
@@ -530,7 +531,7 @@ ul#messages li .texte {
 			padding-right: 1em;
 			
 			div.traduire {
-				font-size: 95%;
+				font-size: 91%;
 			}
 		}
 	}
