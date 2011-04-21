@@ -1,0 +1,19 @@
+<plugin>
+	<nom>Squelettes Seenthis</nom>
+	<auteur>ARNO*</auteur>
+	<version>1.0</version>
+	<etat>stable</etat>
+	<description>
+		Squelettes de Seenthis
+	</description>
+	<prefix>seenthissq</prefix>
+
+	<necessite id="seenthis" />
+
+	<necessite id="SPIP" version="[2.1.0;]" />
+	<necessite id="microcache" />
+
+	<utilise id="gravatar" />
+
+</plugin>
+
