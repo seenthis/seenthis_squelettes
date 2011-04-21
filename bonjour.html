@@ -115,7 +115,7 @@
 	<div class="following following_big" style="padding: 20px;">
 	<BOUCLE_follow_people(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{0,50}>
 		<div class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-			<img src="[(#LOGO_AUTEUR||sinon{[(#EMAIL|gravatar)]}|sinon{[(#CHEMIN{imgs/auteur-defaut.jpg})]}|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="" />
+			<img src="[(#LOGO_AUTEUR|sinon{[(#CHEMIN{imgs/auteur-defaut.jpg})]}|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="" />
 			<span class="nom">#NOM</span>
 			<span class="login">@#LOGIN</span>
 		</a></div>

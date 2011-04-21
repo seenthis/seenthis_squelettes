@@ -16,7 +16,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 
 [	<image>
 		<title>[(#TITRE|mb_strtolower{UTF-8}|texte_backend)]</title>
-		<url>(#LOGO_AUTEUR||sinon{[(#EMAIL|gravatar)]}|image_passe_partout{80,80}|extraire_attribut{src}|url_absolue|texte_backend)</url>
+		<url>(#LOGO_AUTEUR|image_passe_partout{80,80}|extraire_attribut{src}|url_absolue|texte_backend)</url>
 	<link>[(#URL_MOT|url_absolue)]</link>
 	</image>
 ]
