@@ -14,6 +14,11 @@ body {
 	
 }
 body.message {
+
+	#bandeau_auteur {
+		display: none;
+	}
+	
 	#messages, .messages {
 		.texte {
 			font-size: 102%;
