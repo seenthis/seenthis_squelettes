@@ -60,6 +60,16 @@ function share_fb($id_me, $texte) {
 
 }
 
+
+function mot_chemin($rien) {
+
+	$url = parse_url($_SERVER["REQUEST_URI"]);
+	$url = $url["path"];
+	$url = substr($url, strrpos($url, "/")+1, 1000);	
+	
+	return $url;
+}
+
 function share_lien($id_me) {
 
 	
