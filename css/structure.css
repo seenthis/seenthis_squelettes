@@ -108,10 +108,14 @@
 
 	.following_big {
 		.logo_auteur {
-			clear: left;
 			width: 250px;
+			height: auto;
+			width; auto;
+			-spip-clear:fix;
+			float: none;
 			
 			a {
+				position: relative;
 				-spip-transition-property: color;
 				-spip-transition-duration: 0.1s;
 
