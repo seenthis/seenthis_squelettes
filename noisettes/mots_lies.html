@@ -32,7 +32,7 @@
 	<div id="mots_lies">
 	<h3>Thèmes liés</h3>
 	<ul>
-	<BOUCLE_resultat(MOTS){tout}{id_mot IN (#REM|retour_mots_lies)}{doublons mots}{0,40}>
+	<BOUCLE_resultat(MOTS){par titre}{tout}{id_mot IN (#REM|retour_mots_lies)}{doublons mots}{0,40}>
 	<li>
 		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>
 		<span class="groupe_mot">#TITRE:</span>

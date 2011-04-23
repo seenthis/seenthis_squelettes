@@ -18,12 +18,12 @@
 		<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
 		--></style>
 	</BOUCLE_auteur_message>
-		[(#SET{couleur,dcdf03})]
+		[(#SET{couleur,dc2400})]
 		<style type="text/css"><!--
-		<INCLURE{fond=css/couleur}{couleur=dcdf03} />
+		<INCLURE{fond=css/couleur}{couleur=dc2400} />
 		--></style>
 	<//B_auteur_message>
-	[(#SET{couleur,dcdf04})]
+	[(#SET{couleur,dc2400})]
 	
 	<script><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
@@ -46,23 +46,23 @@
 
 		
 
-		<h1>[(#REM|mot_chemin)]</h1>
+		<h1>Oopsie daisy! 404 error  [- searching for (#REM|mot_chemin)]</h1>
 	
 	
 		<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{1}|decaler_date)]">Depuis hier</a>
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{1}|decaler_date)]">Depuis hier</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{7}|decaler_date)]">Depuis une semaine</a>
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{7}|decaler_date)]">Depuis une semaine</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{31}|decaler_date)]">Depuis un mois</a>
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{31}|decaler_date)]">Depuis un mois</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{92}|decaler_date)]">Depuis trois mois</a>
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{92}|decaler_date)]">Depuis trois mois</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{183}|decaler_date)]">Depuis six mois</a>
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{183}|decaler_date)]">Depuis six mois</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{365}|decaler_date)]">Depuis un an</a>
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{365}|decaler_date)]">Depuis un an</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=0000-00-00">Sans limite</a>
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=0000-00-00">Sans limite</a>
 		</div>
 		
 		[(#REM)

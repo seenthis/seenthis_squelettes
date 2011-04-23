@@ -174,8 +174,31 @@
 }
 #enfants_mots {
 	ul {
-		padding-left: 20px;
-		list-style-type: circle;
+		padding-top: 10px;
+		list-style-type: none;
+		font-size: 0.9em;
+		
+		li {
+			display: inline;
+			white-space:nowrap;
+			padding-right: 10px;
+			
+			a {
+				text-decoration: none;
+				color: #444;
+				
+				
+				. :hover {
+					text-decoration: underline;
+				}
+			}
+			
+			ul {
+				display: none;
+			}
+			
+		}
+		
 	}
 }
 .following_big {
