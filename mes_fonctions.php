@@ -20,7 +20,7 @@ function decodeUchar ($text) {
 function share_tw($id_me, $texte) {
 	$texte = preg_replace(",([\t\r\n\ ]+),", " ", $texte);
 	
-	$me = "http://seen.li/".base_convert($id_me, 10,36);
+	$me = "http://"._SHORT_HOST."/".base_convert($id_me, 10,36);
 	
 	$l = strlen($me) + 4;
 	

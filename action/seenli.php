@@ -2,12 +2,10 @@
 
 
 function action_seenli() {
-	$me = _request("me");
-	
-	$id_me = intval("$me", 36);
+	$id_me = intval(_request("me"), 36);
 
 	header("HTTP/1.1 303 See Other");
-	header("Location:http://seenthis.net/messages/$id_me");
+	header("Location: http://"._HOST."/messages/$id_me");
 	exit();
 
 }
