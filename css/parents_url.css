@@ -20,14 +20,14 @@
 		a {
 			display: block;
 			text-decoration: none;
-			background: url(../../squelettes/imgs/fleches-hierarchie-sites-clair.png) left center;
+			background: url(../imgs/fleches-hierarchie-sites-clair.png) left center;
 			padding: 3px 14px 3px 15px;
 			margin-left: -15px;
 			color: #444444;
 			white-space: no-wrap;
 			
 			. :hover {
-				background: url(../../squelettes/imgs/fleches-hierarchie-sites.png) left center;
+				background: url(../imgs/fleches-hierarchie-sites.png) left center;
 				color: white;
 			}
 		}
@@ -35,7 +35,7 @@
 		. :first-child {
 			a {
 				font-weight: bold;
-				background: url(../../squelettes/imgs/fleches-hierarchie-sites-noir.png) left center;
+				background: url(../imgs/fleches-hierarchie-sites-noir.png) left center;
 				color: white;
 			}
 		}

@@ -102,7 +102,7 @@ body.accueil {
 	div {
 		color: #666;
 		padding-left: 30px;
-		background: url(../../squelettes/imgs/bouton-follow-vert.png) 2px center no-repeat;			
+		background: url(../imgs/bouton-follow-vert.png) 2px center no-repeat;			
 	}
 	a {
 		display: block;
@@ -115,20 +115,20 @@ body.accueil {
 		margin-top: 2px;
 
 		. .no {
-			background: url(../../squelettes/imgs/bouton-nofollow-gris.png) 2px center no-repeat;
+			background: url(../imgs/bouton-nofollow-gris.png) 2px center no-repeat;
 			
 			. :hover {
-				background: url(../../squelettes/imgs/bouton-nofollow-blanc.png) 2px center no-repeat;
+				background: url(../imgs/bouton-nofollow-blanc.png) 2px center no-repeat;
 				background-color: red;
 				color: white;
 			}
 		}
 		. .yes {
-			background: url(../../squelettes/imgs/bouton-follow-gris.png) 2px center no-repeat;
+			background: url(../imgs/bouton-follow-gris.png) 2px center no-repeat;
 
 			
 			. :hover {
-				background: url(../../squelettes/imgs/bouton-follow-blanc.png) 2px center no-repeat;
+				background: url(../imgs/bouton-follow-blanc.png) 2px center no-repeat;
 				background-color: green;
 				color: white;
 			}
