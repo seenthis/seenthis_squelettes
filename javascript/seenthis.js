@@ -125,7 +125,7 @@ function switch_comments(id_me) {
 				me.append("<div class='traduire'><a href='#'>"+traduire_avec_google+"</a></div>");
 				me.find(".traduire").bind("click", function() {
 					me.attr("lang", "").find(".traduire").remove();
-						me.html("<div class='loading_icone'><img src='squelettes/imgs/loading.gif' alt='chargement' /></div>");
+						me.html("<div class='loading_icone'></div>");
 						$.post("index.php?page=translate", { contenu: contenu+" ", dest: language, source: langue }, function (data) {
 						me.html(data);
 					});

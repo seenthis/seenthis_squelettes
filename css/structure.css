@@ -658,6 +658,7 @@
 	display: none;
 }
 .loading_icone {
-	padding: 20px;
-	text-align: center;
+	width: 100%;
+	height: 59px;
+	background: url(../imgs/loading.gif) top center no-repeat;
 }
