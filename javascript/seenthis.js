@@ -215,7 +215,7 @@ function switch_comments(id_me) {
 
 		$('textarea').live("keydown", function(e) {
 			var area = $(this);
-			var keyCode = e.keyCode || window.event.keyCode;
+			var keyCode = e.keyCode || 0;
 
 			// shift + enter (valider)
 			if (keyCode == 13 && isCtrl) {
