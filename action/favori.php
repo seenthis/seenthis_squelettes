@@ -9,7 +9,7 @@ function action_favori_dist() {
 
 
 	if ($auteur_session < 1) exit;
-	cache_me($id_me);
+	#cache_me($id_me);
 
 	$query = sql_select("*", "spip_me_share", "id_me=$id_me AND id_auteur=$auteur_session");
 	if (sql_fetch($query)) {

@@ -6,7 +6,12 @@ function action_api_auteur() {
 
 	$xml = false;
 
-	if ($_SERVER['SERVER_PORT'] != 443) erreur_405("Please use https");
+	if (!defined('_API_HTTPS')
+	OR _API_HTTPS) {
+		if ($_SERVER['SERVER_PORT'] != 443)
+			erreur_405("Please use https");
+	}
+
 	$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
 	if ($id_auteur < 1) erreur_405("Unknown user", 401);
 	$method = $_SERVER["REQUEST_METHOD"];
@@ -26,7 +31,7 @@ function action_api_auteur() {
 				$id_auteur = $row["id_auteur"];
 				
 
-				header("Content-type:application/atom+xml; charset=utf-8");	
+				header("Content-type: application/atom+xml; charset=utf-8");	
 				if ($debut < 1) echo microcache($id_auteur, "noisettes/atom_messages_auteur");
 				else {
 					$contenu = recuperer_fond("noisettes/atom_messages_auteur", 

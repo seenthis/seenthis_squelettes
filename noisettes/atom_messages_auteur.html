@@ -2,7 +2,7 @@
 version="1.0"[ encoding="(#CHARSET)"]?>
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID}>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
-	<title>#NOM (@#LOGIN) - Seenthis</title>
+	<title>#NOM (@#LOGIN) - #NOM_SITE_SPIP</title>
 
 
 		#SET{messages, #ARRAY{}}
@@ -13,11 +13,11 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 
 [(#ENV{debut_me}|>{0}|oui)
 	<link rel="first"
-		 href="https://seenthis.net/api/people/#LOGIN/messages" />
+		 href="https://#EVAL{_HOST}/api/people/#LOGIN/messages" />
 ]
 <BOUCLE_suivant(spip_me){id_me IN #GET{messages}}{debut_me,26}>[(#COMPTEUR_BOUCLE|=={26}|oui)
        <link rel="next"
-             href="https://seenthis.net/api/people/#LOGIN/messages/[(#ENV{debut_me}|plus{25})]" />
+             href="https://#EVAL{_HOST}/api/people/#LOGIN/messages/[(#ENV{debut_me}|plus{25})]" />
 ]</BOUCLE_suivant>
 
 
