@@ -63,17 +63,17 @@ ul#messages, ul.messages {
 				
 				a.actif {
 					display: block;
-					background: url(../../squelettes/imgs/favori-on.png) left center no-repeat;
+					background: url(../imgs/favori-on.png) left center no-repeat;
 					color: #cca630;
 				}
 				a.abonnes {
 					display: block;
-					background: url(../../squelettes/imgs/favori-off.png) left center no-repeat;
+					background: url(../imgs/favori-off.png) left center no-repeat;
 					color: #999;
 				}
 				a.inactif {
 					display: none;
-					background: url(../../squelettes/imgs/favori-off.png) left center no-repeat;
+					background: url(../imgs/favori-off.png) left center no-repeat;
 					color: #999;
 				}
 				div.survol {
@@ -153,7 +153,7 @@ ul#messages, ul.messages {
 					color: #999;
 					text-decoration: none;
 					-spip-opacity: 0.5;
-					background: url(../../squelettes/imgs/mini-modifier.png) left center no-repeat;
+					background: url(../imgs/mini-modifier.png) left center no-repeat;
 					padding-left: 13px;
 					
 					. :hover {
@@ -174,7 +174,7 @@ ul#messages, ul.messages {
 					text-decoration: none;
 					-spip-opacity: 0.5;
 					
-					background: url(../../squelettes/imgs/mini-poubelle.png) left center no-repeat;
+					background: url(../imgs/mini-poubelle.png) left center no-repeat;
 					padding-left: 13px;
 					
 					. :hover {
@@ -204,11 +204,11 @@ ul#messages, ul.messages {
 				font-size: 80%;
 				padding-top: 3px;
 				padding-bottom: 3px;
-				background: url(../../squelettes/imgs/by-cc-30.png) left center no-repeat;
+				background: url(../imgs/by-cc-30.png) left center no-repeat;
 				padding-left: 19px;
 				
 				. :hover {
-					background: url(../../squelettes/imgs/by-cc.png) left center no-repeat;
+					background: url(../imgs/by-cc.png) left center no-repeat;
 				}
 			}
 			.auteur {
@@ -393,10 +393,10 @@ ul#messages, ul.messages {
 		
 		
 		div.conteneur_reponses {
-			background: url(../../squelettes/imgs/fond-bas-reponses.png) bottom left repeat-x;
+			background: url(../imgs/fond-bas-reponses.png) bottom left repeat-x;
 		}
 		ul.reponses {
-			background: url(../../squelettes/imgs/fond-haut-reponses.png) top left no-repeat;
+			background: url(../imgs/fond-haut-reponses.png) top left no-repeat;
 			clear: left;
 			list-style-type: none;
 			font-size: 95%;
@@ -490,7 +490,7 @@ ul#messages, ul.messages {
 					padding-bottom: 13px;
 					font-size: 0.8em;
 					cursor: pointer;
-					background: url(../../squelettes/imgs/fond-haut-reponses.png) top left no-repeat;
+					background: url(../imgs/fond-haut-reponses.png) top left no-repeat;
 					
 					. :hover {
 						color: white;
