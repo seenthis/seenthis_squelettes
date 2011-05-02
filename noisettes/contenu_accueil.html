@@ -4,7 +4,7 @@
 		#SET{messages, #ARRAY{}}
 		#SET{off, #ARRAY{}}
 
-		<BOUCLE_share(spip_me_share){id_auteur}{0,100}>
+		<BOUCLE_share(spip_me_share){id_auteur}{0,100}{par date}{inverse}>
 			[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
 		</BOUCLE_share>
 
