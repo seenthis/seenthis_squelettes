@@ -583,7 +583,8 @@
 #alertes {
 	display: none;
 	font-size: 0.8em;
-	
+	word-wrap: break-word;
+
 	ul {
 		list-style-type: none;
 		color: white;
