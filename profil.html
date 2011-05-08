@@ -37,15 +37,10 @@
 </body>
 </html>
 </BOUCLE_auteur>
-	<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
-	<head>
-	[<meta http-equiv="refresh" content="2;url=http://[(#EVAL{_HOST})]/index.php?page=profil&amp;id_auteur=(#SESSION{id_auteur})">]
-	</head>
-	<body>
-	
-	</body>
-	</html>
+<?php
+	include_spip('inc/headers');
+	redirige_par_entete('http://'._HOST.'/');
+?>
 <//B_auteur>
 
 #FILTRE{mini_html}
