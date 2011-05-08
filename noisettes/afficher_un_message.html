@@ -15,7 +15,7 @@
 			<div class="auteur_date">
 				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
 
-				<span class="date"><a href="messages/[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]" title="[(#DATE|date_u)]" class="calcul_date">[(#DATE|affdate)]</a></span>
+				<span class="date"><a href="#URL_ME" title="[(#DATE|date_u)]" class="calcul_date">[(#DATE|affdate)]</a></span>
 
 				<div class="favori[(#ID_PARENT|=={0}|?{'','_off'})]">
 					[(#SET{total,""})]
