@@ -6,34 +6,15 @@ function formulaires_profil_charger () {
 	$id_auteur = $GLOBALS["auteur_session"]["id_auteur"];
 	
 	if ($id_auteur > 0) {
-		$query = sql_select("*", "spip_auteurs", "id_auteur=$id_auteur");
-		if ($row = sql_fetch($query)) {
-			$nom = $row["nom"];
-			$lang = $row["lang"];
-			$bio = $row["bio"];
-			$couleur = $row["couleur"];
-			$url_site = $row["url_site"];
-			$copyright = $row["copyright"];
-			$mail_nouv_billet = $row["mail_nouv_billet"];
-			$mail_rep_moi = $row["mail_rep_moi"];
-			$mail_rep_billet = $row["mail_rep_billet"];
-			$mail_rep_conv = $row["mail_rep_conv"];
-		}
-	}
+		$row = sql_fetsel("*", "spip_auteurs", "id_auteur=$id_auteur");
 
-	$valeurs = Array(
-		"nom"=> "$nom",
-		"lang"=> "$lang",
-		"bio" => "$bio",
-		"couleur" => "$couleur",
-		"url_site" => "$url_site",
-		"copyright" => "$copyright",
-		"mail_nouv_billet" => "$mail_nouv_billet",
-		"mail_rep_moi" => "$mail_rep_moi",
-		"mail_rep_billet" => "$mail_rep_billet",
-		"mail_rep_conv" => "$mail_rep_conv"
-	);
-	
+		$valeurs = array_merge(
+			array(
+				'champ' => 'valeur par defaut',
+			),
+			$row
+		);
+	}
 
 	return $valeurs;
 
@@ -45,6 +26,21 @@ function formulaires_profil_charger () {
 function formulaires_profil_verifier (){
 	$id_auteur = $GLOBALS["auteur_session"]["id_auteur"];
 	$errors = Array();
+
+	$nom_bandeau = $_FILES['image_bandeau']['name'];
+	if (strlen($nom_bandeau) > 0) {
+		if (!preg_match(",\.(jpe?g|png|gif)$,i", $nom_bandeau))
+			$errors["image_bandeau"] = "Mauvais format.";
+	}
+
+	return $errors;
+}
+
+
+################### TRAITER
+
+function formulaires_profil_traiter (){
+	$id_auteur = $GLOBALS["auteur_session"]["id_auteur"];
 
 
 	$query = sql_select("*", "spip_auteurs", "id_auteur=$id_auteur");
@@ -74,8 +70,9 @@ function formulaires_profil_verifier (){
 	$nom = strip_tags($nom);
 	$bio = strip_tags($bio);
 
-	sql_updateq("spip_auteurs",
-		array (
+	include_spip('inc/modifier');
+	revision_auteur($id_auteur,
+		array(
 			"nom" => $nom,
 			"lang" => $lang,
 			"bio" => $bio,
@@ -85,9 +82,8 @@ function formulaires_profil_verifier (){
 			"mail_nouv_billet" => $mail_nouv_billet,
 			"mail_rep_moi" => $mail_rep_moi,
 			"mail_rep_billet" => $mail_rep_billet,
-			"mail_rep_conv" => $mail_rep_conv
-		),
-		"id_auteur=$id_auteur"
+			"mail_rep_conv" => $mail_rep_conv,
+		)
 	);
 
 	if ($lang != $lang_ancien) {
@@ -123,26 +119,22 @@ function formulaires_profil_verifier (){
 
 	$nom_bandeau = $_FILES['image_bandeau']['name'];
 	if (strlen($nom_bandeau) > 0) {
-		if (!preg_match(",\.(jpe?g|png|gif)$,i", $nom_bandeau))	$errors["image_bandeau"] = "Mauvais format.";
-		else {
-			include_spip("inc/filtres_images") ;
-			$size = getimagesize($_FILES['image_bandeau']['tmp_name']);
-			
-			$largeur = $size[0];
-			$hauteur = $size[1];
-			$type = $size[2];
-						
-			if ($type == IMG_JPG) $term = ".jpg";
-			else if ($type == 3) $term = ".png";
-			else if ($type == IMG_GIF) $term = ".gif";
-			
-			if ($f = fichier_bandeau($id_auteur)) @unlink($f);
-			
-			nettoyer_graphisme_auteur($id_auteur);
-			
-			@copy($_FILES['image_bandeau']['tmp_name'], racine_bandeau($id_auteur).$term);
-		}
+		include_spip("inc/filtres_images") ;
+		$size = getimagesize($_FILES['image_bandeau']['tmp_name']);
 
+		$largeur = $size[0];
+		$hauteur = $size[1];
+		$type = $size[2];
+
+		if ($type == IMG_JPG) $term = ".jpg";
+		else if ($type == 3) $term = ".png";
+		else if ($type == IMG_GIF) $term = ".gif";
+
+		if ($f = fichier_bandeau($id_auteur)) @unlink($f);
+		
+		nettoyer_graphisme_auteur($id_auteur);
+		
+		@copy($_FILES['image_bandeau']['tmp_name'], racine_bandeau($id_auteur).$term);
 	}
 	$supprimer_bandeau = _request("supprimer_bandeau");
 	if ($supprimer_bandeau) {
@@ -214,19 +206,6 @@ function formulaires_profil_verifier (){
 		nettoyer_graphisme_auteur($id_auteur);
 			nettoyer_logo_auteur($id_auteur);
 	}
-	
-	
-
-
-	return $errors;
-}
-
-
-################### TRAITER
-
-function formulaires_profil_traiter (){
-	$id_auteur = $GLOBALS["auteur_session"]["id_auteur"];
-	
 
 }
 

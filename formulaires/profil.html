@@ -2,7 +2,6 @@
 #HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
 #HTTP_HEADER{"Pragma: no-cache"}
 
-
 <div class='formulaire_spip formulaire_profil'>
 
 	
@@ -20,7 +19,7 @@
 				<li>
 					<label><multi>
 						Votre nom<br />ou pseudonyme<br /> en clair
-						[en]Your name
+						[en]Your name<br />or pseudo
 					</multi></label>
 					<input type="text" class="text" name="nom" value="[(#ENV**{nom})]" />
 				</li>
@@ -61,7 +60,7 @@
 			
 			<ul>
 				<li><label><multi>
-					M'expédier un courrier<br /> électronique quand...
+					M’expédier un courrier<br /> électronique quand...
 					[en] Send me an email when...
 				</multi></label>
 				<input type="checkbox" name="mail_nouv_billet" [(#ENV**{mail_nouv_billet}|=={1}|oui)checked="checked"] value="1" /> 
@@ -78,13 +77,13 @@
 					
 				<br /><input type="checkbox" name="mail_rep_conv" [(#ENV**{mail_rep_conv}|=={1}|oui)checked="checked"] value="1" /> 
 				<multi>
-					<b>conversations</b> / quelqu’un répond à un billet auquel j'ai moi-même répondu
+					<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu
 					[en] <b>conversations</b> / someone answers to a post I have already answered to
 				</multi>
 
 				<br /><input type="checkbox" name="mail_rep_billet" [(#ENV**{mail_rep_billet}|=={1}|oui)checked="checked"] value="1" /> 
 				<multi>
-					<b>nolife</b> / un auteur que je suis répond à n'importe quel billet
+					<b>nolife</b> / un auteur que je suis répond à n’importe quel billet
 					[en] <b>no life</b> / someone that I follow answers to any post
 				</multi>
 				</li>
@@ -97,11 +96,11 @@
 			
 				<li><label><multi>
 						Licence<br /> de vos messages
-						[en] Licence<br .> of your messages
+						[en] Licence<br /> of your messages
 					</multi></label>
 					<input type="radio" value="C" [(#ENV**{copyright}|=={C}|oui)checked="checked"] name="copyright" /> 
 					<multi>
-						Pas de licence spécifique (droits d'auteur par défaut)
+						Pas de licence spécifique (droits d’auteur par défaut)
 						[en] No specific licence (exclusive copyright)
 					</multi>
 
@@ -132,8 +131,8 @@
 			
 				<li>
 					<label><multi>
-						Logo de l'auteur<br />(carré)
-						[en] Author's picture <br />(square)
+						Logo de l’auteur<br />(carré)
+						[en] Author’s picture <br />(square)
 					</multi></label>
 					[(#SESSION{id_auteur}|fichier_logo_auteur|image_reduire{150})
 						<div><input type="submit" value="<:supprimer:>" name="supprimer_logo" /></div>					
@@ -143,7 +142,7 @@
 			
 
 			
-				<li>
+				<li[ class="(#ENV**{erreurs}|table_valeur{image_bandeau}|?{erreur})"]>
 					<label><multi>
 						Bandeau supérieur<br /> (960px de large au maximum)
 						[en] Header<br /> (width: 960px max.)
@@ -151,6 +150,7 @@
 					[(#SESSION{id_auteur}|fichier_bandeau|image_reduire{150})
 						<div><input type="submit" value="<:supprimer:>" name="supprimer_bandeau" /></div>
 					]
+					[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{image_bandeau})</span>]
 					<input type="file" name="image_bandeau" />
 				</li>
 			
@@ -171,9 +171,6 @@
 			</ul>
 			
 	
-			
-		
-			
 				<p class="boutons">
 					<input type="submit" value="<:enregistrer:>" />
 				</p>
