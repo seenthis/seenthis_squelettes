@@ -7,19 +7,18 @@
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	[(#ID_AUTEUR|microcache{noisettes/head_auteur})]
 
-	<script src="lib/farbtastic_1_3/farbtastic.js" type="text/javascript"></script>
-	<link rel='stylesheet' media='all' href='lib/farbtastic_1_3/farbtastic.css' type='text/css' />
+	[<script src="(#CHEMIN{lib/farbtastic_1_3/farbtastic.js})" type="text/javascript"></script>]
+	[<link rel='stylesheet' media='all' href='(#CHEMIN{lib/farbtastic_1_3/farbtastic.css})' type='text/css' />]
 
 	<script type='text/javascript'><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
 	var auteur_page = "#ID_AUTEUR";
 	
-	$(document).ready(function() {
-		$("#farb").farbtastic("input[name=couleur]");
+	$(function() {
+		if ($("#farb").farbtastic) $("#farb").farbtastic("input[name=couleur]");
 	});
 	
 	--></script>
-	
 </head>
 <body class="people plier">
 
