@@ -30,7 +30,8 @@
 					</multi></label>
 					<input type="text" class="text" name="bio" value="[(#ENV**{bio})]" />
 				</li>
-			
+
+
 				<li>
 					<label><multi>
 						URL de votre site
@@ -39,7 +40,43 @@
 					<input type="text" class="text" name="url_site" value="[(#ENV**{url_site})]" />
 				</li>
 			</ul>
-			
+
+			<h3><multi>Connexion[en]Connection</multi></h3>
+			<ul>
+				<li id="login">
+					<label><multi>
+						Votre identifiant
+						[en] Your identifier
+					</multi></label>
+					<input type="text" class="text" name="login" value="#ENV{login}" disabled="disabled" />
+				</li>
+				<li id="password">
+					<label><multi>
+						Nouveau mot de passe
+						[en] New password
+					</multi></label>
+					<input type="password" class="text" name="password" value="" />
+				</li>
+				<script type="text/javascript">
+				$(function() {
+				
+					$("#password input").hide();
+					$("#password label").one('click', function() {
+						$("#password input").show();
+					});
+				});
+				</script>
+
+			[(#PLUGIN{OPENID}|oui)
+				<li>
+					<label>OpenID</multi></label>
+					<input type="text" class="text" name="openid" value="#ENV**{openid}" />
+				</li>
+			]
+
+			</ul>
+
+
 			<h3><multi>
 				Langue
 				[en]Language

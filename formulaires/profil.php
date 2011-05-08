@@ -64,27 +64,41 @@ function formulaires_profil_traiter (){
 	$mail_rep_moi = _request("mail_rep_moi");
 	$mail_rep_billet = _request("mail_rep_billet");
 	$mail_rep_conv = _request("mail_rep_conv");
-	
+
 	$url_site = _request("url_site");
 	
 	$nom = strip_tags($nom);
 	$bio = strip_tags($bio);
 
-	include_spip('inc/modifier');
-	revision_auteur($id_auteur,
-		array(
-			"nom" => $nom,
-			"lang" => $lang,
-			"bio" => $bio,
-			"couleur" => $couleur,
-			"url_site" => $url_site,
-			"copyright" => $copyright,
-			"mail_nouv_billet" => $mail_nouv_billet,
-			"mail_rep_moi" => $mail_rep_moi,
-			"mail_rep_billet" => $mail_rep_billet,
-			"mail_rep_conv" => $mail_rep_conv,
-		)
+	$profil = array(
+		"nom" => $nom,
+		"lang" => $lang,
+		"bio" => $bio,
+		"couleur" => $couleur,
+		"url_site" => $url_site,
+		"copyright" => $copyright,
+		"mail_nouv_billet" => $mail_nouv_billet,
+		"mail_rep_moi" => $mail_rep_moi,
+		"mail_rep_billet" => $mail_rep_billet,
+		"mail_rep_conv" => $mail_rep_conv,
 	);
+
+	// compat plugin OpenID
+	if (($openid = _request('openid')) !== null)
+		$profil['openid'] = $openid;
+
+	if ($pass = _request('password')) {
+		$pass = unicode2charset(utf_8_to_unicode($pass), 'iso-8859-1');
+		include_spip('auth/sha256.inc');
+		include_spip('inc/acces');
+		$profil['htpass'] = generer_htpass($pass);
+		$profil['alea_actuel'] = creer_uniqid();
+		$profil['alea_futur'] = creer_uniqid();
+		$profil['pass'] = _nano_sha256($profil['alea_actuel'].$pass);
+	};
+
+	include_spip('inc/modifier');
+	revision_auteur($id_auteur, $profil);
 
 	if ($lang != $lang_ancien) {
 		include_spip("inc/session");
