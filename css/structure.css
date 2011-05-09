@@ -1,6 +1,9 @@
 * {
 	zoom: 1;
 }
+body {
+	word-wrap: break-word;
+}
 #spip-admin {
 	font-size: 0.7em;
 }
@@ -583,7 +586,6 @@
 #alertes {
 	display: none;
 	font-size: 0.8em;
-	word-wrap: break-word;
 
 	ul {
 		list-style-type: none;
