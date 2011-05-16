@@ -76,13 +76,9 @@ function formulaires_profil_traiter (){
 		"bio" => $bio,
 		"couleur" => $couleur,
 		"url_site" => $url_site,
-		"copyright" => $copyright,
-		"mail_nouv_billet" => $mail_nouv_billet,
-		"mail_rep_moi" => $mail_rep_moi,
-		"mail_rep_billet" => $mail_rep_billet,
-		"mail_rep_conv" => $mail_rep_conv,
+		"copyright" => $copyright
 	);
-
+	
 	// compat plugin OpenID
 	if (($openid = _request('openid')) !== null)
 		$profil['openid'] = $openid;
@@ -99,6 +95,20 @@ function formulaires_profil_traiter (){
 
 	include_spip('inc/modifier');
 	revision_auteur($id_auteur, $profil);
+
+	// correction d'urgence: 
+	// il faut pouvoir desactiver les alertes 
+	// (les checkbox décochées semblent ne pas être prises en compte par revision_auteur)
+	sql_updateq("spip_auteurs",
+		array(
+		"mail_nouv_billet" => $mail_nouv_billet,
+		"mail_rep_moi" => $mail_rep_moi,
+		"mail_rep_billet" => $mail_rep_billet,
+		"mail_rep_conv" => $mail_rep_conv		
+		),
+		"id_auteur=$id_auteur");
+
+
 
 	if ($lang != $lang_ancien) {
 		include_spip("inc/session");
