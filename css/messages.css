@@ -302,6 +302,8 @@ ul#messages, ul.messages {
 				padding-left: 1em;
 				border-left: 1px dotted #ccc;
 				text-align: justify;
+				-ms-text-justify:newspaper;
+				text-justify:newspaper;
 				
 				hr {
 					border: 0;
@@ -519,6 +521,10 @@ ul#messages li .texte {
 		. :lang(ar) {
 			font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
 			font-size: 110%;
+				
+			-ms-text-justify:kashida;
+			text-justify:kashida;
+
 		}
 	}
 	blockquote {
