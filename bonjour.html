@@ -24,10 +24,6 @@
 
 	<script type="text/javascript"><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	$(document).ready(function() {
-		$(".formulaire_principal textarea").val("[(#ENV{ajouter}|addslashes|replace{'(\n|\r)+','\r'}|replace{'&quot;','\"'}|replace{'&amp;','&'})]");
-	});
-	
 	--></script>
 	
 	<style type="text/css">

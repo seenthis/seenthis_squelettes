@@ -33,12 +33,6 @@
 	<script><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
 	var id_mot = "#ID_MOT";
-
-
-	$(document).ready(function() {
-		$(".formulaire_principal textarea").val("[(#ENV{ajouter}|addslashes|replace{'(\n|\r)+','\r'}|replace{'&quot;','\"'}|replace{'&amp;','&'})]");
-	});
-	
 	--></script>
 	
 </head>

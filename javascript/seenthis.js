@@ -135,8 +135,37 @@ function switch_comments(id_me) {
 		});
 	}
 
-	
-	$(document).ready(function(){
+
+
+	function sucrer_utm(u) {
+		u = u.replace(/(http:\/\/twitter.com\/)#!/, "$1");
+		u = u.replace(/([\?\&]|\&amp;)utm\_.*/, "");
+		return u;
+	}
+
+	$(function(){
+
+		var vals = {};
+		$.each([ 'ajouter', 'url_site', 'extrait' ], function () {
+			var r;
+			var re = new RegExp ('[#?&]'+ this +'=([^&]*)');
+			if (r = window.location.href.match(re)) {
+				vals[this] = $.trim(decodeURIComponent(r[1]));
+			}
+		});
+		var content = "";
+		if (vals['ajouter']) {
+			content += vals['ajouter'].replace(/@/, ' ')+"\n";
+		}
+		if (vals['url_site']) {
+			content += sucrer_utm(vals['url_site'])+"\n";
+		}
+		if (vals['extrait']) {
+			content += "\n❝" + vals['extrait'] + "❞\n";
+		}
+
+		$(".formulaire_principal textarea").val(content);
+
 
 		$.ajaxSetup({ cache: true });
 		if (langue_visiteur && langue_visiteur != "fr") {

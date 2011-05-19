@@ -17,10 +17,6 @@
 
 	<script type="text/javascript"><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	$(document).ready(function() {
-		$(".formulaire_principal textarea").val("[(#ENV{ajouter}|decodeUchar|rawurldecode|addslashes|replace{'(\n|\r)+','\r'})\n]"[+"(#ENV*{url_site}|sucrer_utm|decodeUchar|rawurldecode|addslashes|replace{' ','+'}|replace{'&quot;','\"'}|replace{'&amp;','&'})\n"][+"\n❝(#ENV{extrait}|decodeUchar|rawurldecode|addslashes|replace{'(\n|\r)+','\r'}|replace{'&quot;','\"'}|replace{'&amp;','&'})❞\n"]);
-	});
-	
 	--></script>
 	
 </head>
