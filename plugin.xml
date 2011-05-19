@@ -8,6 +8,8 @@
 	</description>
 	<prefix>seenthissq</prefix>
 
+	<fonctions>seenthis_fonctions.php</fonctions>
+
 	<necessite id="seenthis" />
 
 	<necessite id="SPIP" version="[2.1.0;]" />
