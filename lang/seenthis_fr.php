@@ -42,7 +42,7 @@
 		
 		"montrer_messages" => "montrer les @total@ messages",
 		
-		"traduire_avec_google" => "traduire avec Google",
+		"traduire_avec_google" => "traduire",
 		
 		"bookmarklet_titre" => "Faites glisser ce bookmarklet dans votre barre d’onglets&nbsp;:",
 		"bookmarklet_descriptif" => "Pour l’utiliser : lorsque vous visitez la page d’un article que vous souhaitez référencer, sélectionnez l’extrait du texte à citer, et cliquez sur votre bookmarklet. Votre interface Seenthis s’ouvre alors, et votre message est pré-rempli avec le titre de la page, l’URL et la citation.",

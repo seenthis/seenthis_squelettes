@@ -40,7 +40,7 @@
 		"vous_connaissez" => "You might know:",
 		"suggestions" => "Suggestions:",
 
-		"traduire_avec_google" => "translate with Google",
+		"traduire_avec_google" => "translate",
 
 		"montrer_messages" => "show the @total@ messages",
 

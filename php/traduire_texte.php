@@ -1,9 +1,11 @@
 <?
-function translate_requestCurl($url)
+
+function translate_requestCurl($parameters)
 {
-	$url_page = "https://ajax.googleapis.com/ajax/services/language/translate";
+	$url_page = "https://ajax.googleapis.com/ajax/services/language/translate?";
+
 	
-	$parameters = str_replace("$url_page?", "", $url);
+	
 	$parameters_explode = explode("&", $parameters);
 	$nombre_param = count($parameters_explode);
 	
@@ -17,29 +19,61 @@ function translate_requestCurl($url)
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		$body = curl_exec($ch);
 		curl_close($ch);
-		return $body;
+		
+		$json = json_decode( $body, true );
+	
+		
+		if (isset($json["error"])) return false;
+	//	return urldecode($json["data"]["translations"][0]["translatedText"]);
+		return urldecode($json["responseData"]["translatedText"]);
+
 }
+
+function translate_requestCurl_bing($apikey, $text, $srcLang, $destLang) {
+	// Bon sang, si tu n'utilises pas .NET, ce truc est documenté par les corbeaux
+	// attaquer le machin en SOAP (la méthode HTTP ne convient que pour des textes très courts (GET, pas POST)
+
+	$client = new SoapClient("http://api.microsofttranslator.com/V2/Soap.svc");
+
+	$params = array(
+		'appId' => $apikey, 
+		'text' => $text, 
+		'from' => $srcLang, 
+		'to' => $destLang);
+	
+	$translation = $client->translate($params);
+	
+	return $translation->TranslateResult;
+	
+
+}	
+
 
 function traduire_texte( $text, $destLang = 'fr', $srcLang = 'en' ) {
 
-	$text = rawurlencode( $text );
+	//$text = rawurlencode( $text );
 	$destLang = urlencode( $destLang );
 	$srcLang = urlencode( $srcLang );
-	$key = _GOOGLETRANSLATE_APIKEY;
-	$trans = translate_requestCurl( "https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&key="._GOOGLETRANSLATE_APIKEY."&q=$text&langpair=$srcLang%7C$destLang" );
-	//https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=Hello,%20my%20friend!&langpair=en%7Ces
-	
-	$json = json_decode( $trans, true );
 
+	if (defined("_BING_APIKEY")) {
+		//echo "BING";
+		$trans = translate_requestCurl_bing(_BING_APIKEY, $text, $srcLang, $destLang);
+	} else {
+		//echo "GOOGLE";
+		$trans = translate_requestCurl( "v=1.0&key="._GOOGLETRANSLATE_APIKEY."&q=".rawurlencode($text)."&langpair=$srcLang%7C$destLang" );
+	}
+
+	$ltr = lang_dir($destLang, 'ltr','rtl');
 	
-	if (isset($json["error"])) return false;
-//	return urldecode($json["data"]["translations"][0]["translatedText"]);
-	return urldecode($json["responseData"]["translatedText"]);
-	
+	return "<div dir='$ltr' lang='$destLang'>$trans</div>";
 }
 
 function traduire($text, $destLang = 'fr', $srcLang = 'en') {
-	$text = mb_substr($text, 0, 4500, "UTF-8");
+	if (defined("_BING_APIKEY")) {
+		$text = mb_substr($text, 0, 10000, "UTF-8");
+	} else {
+		$text = mb_substr($text, 0, 4500, "UTF-8");
+	}
 	
 	$hash = md5($text);
 	
