@@ -487,6 +487,7 @@ body {
 			text-decoration: none;
 			img {
 				-spip-box-shadow: 0px 0px 3px #000000;
+				position: absolute;
 				border: 1px solid #aaa;
 				margin: -1px;
 			}
