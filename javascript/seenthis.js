@@ -302,7 +302,8 @@ function switch_comments(id_me) {
 		});
 		
 		$("textarea").live("focus", function() {
-			$(this).removeAttr("rows").removeAttr("cols");
+			// $(this).removeAttr("rows").removeAttr("cols");
+			
 			$(this).elastic();
 		});
 		
