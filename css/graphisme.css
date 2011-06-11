@@ -341,6 +341,14 @@ body.accueil {
 			margin: 2px 0px;
 			padding-left: 10px;
 			
+			a {
+				text-decoration: none;
+				
+				. :hover {
+					text-decoration: underline;
+				}
+			}
+			
 		}
 	}
 	
