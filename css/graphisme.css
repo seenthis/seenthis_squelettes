@@ -329,6 +329,23 @@ body.accueil {
 	}	
 }
 
+#alire {
+	color: white;
+	font-size: 80%;
+	padding: 20px;
+	
+	ul {
+		li {
+			background: url(../imgs/carre-blanc.gif) left center no-repeat;
+			padding: 0px;
+			margin: 2px 0px;
+			padding-left: 10px;
+			
+		}
+	}
+	
+}
+
 .onglets {
 	background-color: #9d9393;
 	

@@ -16,7 +16,7 @@
 	[(#ID_PARENT|>{0}|non)<link href="[(#ID_ME|share_tw_url)]" />]
 	[(#ID_PARENT|>{0}|oui)<thr:in-reply-to ref="[message:(#ID_PARENT)]" />]
 	<link rel="edit" href="https://#EVAL{_HOST}/api/messages/#ID_ME"/>
-	<content>[(#ID_ME|share_tw{#TEXTE*}|liens_absolus{http://#EVAL{_HOST}/}|texte_backend)]</content>
+	<content>[(#TEXTE*|extraire_titre|texte_backend)][ (#ID_ME|share_tw_url)]</content>
 	<BOUCLE_liens(SITES spip_me_syndic) {spip_me_syndic.id_me=#ID_ME}>
 	<link rel="related" href="#URL_SITE"[ title="(#TITRE|replace{'"', "'"}|texte_backend)"][ hreflang="(#LANG)"]/>
 	</BOUCLE_liens>
