@@ -17,19 +17,30 @@ function decodeUchar ($text) {
 
 
 
-function share_tw($id_me, $texte) {
-	$texte = preg_replace(",([\t\r\n\ ]+),", " ", $texte);
-	
+function share_tw_url($id_me) {
 	$me = "http://"._SHORT_HOST."/".base_convert($id_me, 10,36);
-	
-	$l = strlen($me) + 4;
-	
+	return $me;
+}
+
+function share_tw_texte ($texte, $l=0) {
+	$texte = preg_replace(",([\t\r\n\ ]+),", " ", $texte);
+
 	$texte = mb_substr($texte, 0, 140-$l, "utf-8");
 	$pos = mb_strrpos($texte, " ", "utf-8");
 	
 	if ($pos > 40) {
 		$texte = mb_substr($texte, 0, $pos, "utf-8")."...";
 	}
+	
+	return $texte;
+}
+
+function share_tw($id_me, $texte) {
+	
+	$me = share_tw_url($id_me);
+	$l = strlen($me) + 4;
+	
+	$texte = share_tw_texte ($texte, $l);
 	
 	$texte .= " ".$me;
 
@@ -183,19 +194,19 @@ function couleur_chroma ($coul, $num) {
 }
 
 function afficher_miniature($img) {
-	list($width, $height) = @getimagesize($img);
+	$vignette = copie_locale($img);
+	list($width, $height) = @getimagesize($vignette);
 	
 	if (($width * $height) < 300) return;
 	
+	include_spip("inc/filtres_images_mini");
+	$vignette = image_reduire($vignette, 240);
+	
 	$max = 240;
 	
-	if ($width <= $max && $height <= $max) return "<img src='$img' alt='' width='$width' height='$height'  />";
+	if ($width <= $max && $height <= $max) return "$vignette";
 
-	$rapport = $max / max($width, $height);
-	
-	$width = floor($width * $rapport);
-	$height = floor($height * $rapport);
-	 return "<a rel='shadowbox[Portfolio]' href='$img' class='display_box'><img src='$img' alt='' width='$width' height='$height'  /></a>";
+	 return "<a rel='shadowbox[Portfolio]' href='$img' class='display_box'>$vignette</a>";
 }
 
 
