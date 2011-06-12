@@ -1,0 +1,26 @@
+#CACHE{0}
+<BOUCLE_auteur(AUTEURS){id_auteur=19}{tous}>
+<h1>#NOM @#LOGIN</h1>
+
+<ul>
+<BOUCLE_messages(ME){id_auteur}{0,1}{par date}{doublons}>
+<li>
+	#ID_ME
+	
+	<BOUCLE_doublon(ME){id_auteur}{texte=#TEXTE*}{doublons}>
+	- <b>#ID_ME</b>
+	<?php
+		sql_query("DELETE FROM spip_me WHERE id_me=#ID_ME");
+	
+	?>
+	</BOUCLE_doublon>
+	
+</li>
+
+	<BOUCLE_suiste(BOUCLE_messages) />
+
+</BOUCLE_messages>
+</ul>
+
+
+</BOUCLE_auteur>
