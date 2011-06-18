@@ -5,7 +5,9 @@
 	<title>[(#ENV{recherche}|mb_strtolower{UTF-8}|textebrut)]</title>
 	<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
 	
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT" />
+	[(#REM)
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT" />
+	]
 	
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr} />
@@ -45,29 +47,32 @@
 		<h1>[(#ENV{recherche}|mb_strtolower{UTF-8})]</h1>
 	
 	
-		<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
-		<a href="[(#SELF|parametre_url{age,[(#VAL{1}|decaler_date)]})]">Depuis hier</a>
+		<div class="limite_date">
+		<a href="[(#SELF|parametre_url{age,[(#VAL{1}|decaler_date)]})]"[(#ENV{age}|=={1}|oui)class="actif"]>Depuis hier</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{7}|decaler_date)]})]">Depuis une semaine</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{7}|decaler_date)]})]"[(#ENV{age}|=={7}|oui)class="actif"]>Depuis une semaine</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{31}|decaler_date)]})]">Depuis un mois</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{31}|decaler_date)]})]"[(#ENV{age}|=={31}|oui)class="actif"]>Depuis un mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{92}|decaler_date)]})]">Depuis trois mois</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{92}|decaler_date)]})]"[(#ENV{age}|=={92}|oui)class="actif"]>Depuis trois mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{183}|decaler_date)]})]">Depuis six mois</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{183}|decaler_date)]})]"[(#ENV{age}|=={183}|oui)class="actif"]>Depuis six mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{366}|decaler_date)]})]">Depuis un an</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{366}|decaler_date)]})]"[(#ENV{age}|=={366}|oui)class="actif"]>Depuis un an</a>
 		|
-		<a href="[(#SELF|parametre_url{age,''})]">Sans limite</a>
+		<a href="[(#SELF|parametre_url{age,''})]"[(#ENV{age}|non)class="actif"]>Sans limite</a>
 		</div>
 
-		<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
-		<a href="[(#SELF|parametre_url{follow,me})]">Mes messages</a>
+
+		[(#SESSION{id_auteur}|oui)
+		<div class="limite_date">
+		<a href="[(#SELF|parametre_url{follow,me})]"[(#ENV{follow}|=={me}|oui)class="actif"]>Mes messages</a>
 		|
-		<a href="[(#SELF|parametre_url{follow,''})]">Messages de mon r&#233;seau</a>
+		<a href="[(#SELF|parametre_url{follow,''})]"[(#ENV{follow}|non)class="actif"]>Messages de mon r&#233;seau</a>
 		|
-		<a href="[(#SELF|parametre_url{follow,all})]">Tous les messages</a>
+		<a href="[(#SELF|parametre_url{follow,all})]"[(#ENV{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
 		</div>
+		]
 
 		[(#REM)
 			<div class="rss"><a href="index.php?page=backend_mot&recherche=[(#ENV{recherche}|rawurlencode)]">flux RSS de [(#RECHERCHE|mb_strtolower{UTF-8})]</a></div>
@@ -75,9 +80,17 @@
 
 	</div>
 
+
+	[(#SET{follow,#ENV{follow}})]
+	[(#SESSION{id_auteur}|non)
+		[(#SET{follow,all})]
+	]
+	
+	
+
 	<div id="centre">
 		
-		[(#INCLURE{fond=inc/inc-recherche}{ajax}{env})]
+		[(#INCLURE{fond=inc/inc-recherche}{follow=#GET{follow}}{ajax}{env})]
 
 	</div>
 	

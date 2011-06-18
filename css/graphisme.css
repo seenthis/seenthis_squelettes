@@ -370,6 +370,17 @@ body.accueil {
 	}
 }
 
+.limite_date {
+	padding-top: 10px;
+	font-size: 0.8em;
+	
+	.actif {
+		color: black;
+		font-weight: bold;
+		text-decoration: none;
+	}
+}
+
 #texte_article {
 	padding: 40px;
 	line-height: 140%;
