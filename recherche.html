@@ -46,30 +46,38 @@
 	
 	
 		<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{1}|decaler_date)]">Depuis hier</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{1}|decaler_date)]})]">Depuis hier</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{7}|decaler_date)]">Depuis une semaine</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{7}|decaler_date)]})]">Depuis une semaine</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{31}|decaler_date)]">Depuis un mois</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{31}|decaler_date)]})]">Depuis un mois</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{92}|decaler_date)]">Depuis trois mois</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{92}|decaler_date)]})]">Depuis trois mois</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{183}|decaler_date)]">Depuis six mois</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{183}|decaler_date)]})]">Depuis six mois</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=[(#VAL{365}|decaler_date)]">Depuis un an</a>
+		<a href="[(#SELF|parametre_url{age,[(#VAL{366}|decaler_date)]})]">Depuis un an</a>
 		|
-		<a href="index.php?page=recherche&amp;recherche=[(#ENV{recherche}|rawurlencode)]&amp;age=0000-00-00">Sans limite</a>
+		<a href="[(#SELF|parametre_url{age,''})]">Sans limite</a>
 		</div>
-		
+
+		<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
+		<a href="[(#SELF|parametre_url{follow,me})]">Mes messages</a>
+		|
+		<a href="[(#SELF|parametre_url{follow,''})]">Messages de mon r&#233;seau</a>
+		|
+		<a href="[(#SELF|parametre_url{follow,all})]">Tous les messages</a>
+		</div>
+
 		[(#REM)
-			<div class="rss"><a href="index.php?page=backend_mot&id_mot=#ID_MOT">flux RSS de [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
+			<div class="rss"><a href="index.php?page=backend_mot&recherche=[(#ENV{recherche}|rawurlencode)]">flux RSS de [(#RECHERCHE|mb_strtolower{UTF-8})]</a></div>
 		]
 
 	</div>
 
 	<div id="centre">
 		
-		[(#INCLURE{fond=inc/inc-recherche}{recherche=#ENV{recherche}}{ajax}{env})]
+		[(#INCLURE{fond=inc/inc-recherche}{ajax}{env})]
 
 	</div>
 	

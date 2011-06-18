@@ -353,6 +353,72 @@ function detecter_langue_visiteur($rien) {
 }
 
 
+// follow implique #SESSION
+function critere_follow_dist($idb, &$boucles, $crit) {
+	$boucle = &$boucles[$idb];
+	$quoi = calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent);
 
+	$env_follow = (calculer_argument_precedent($idb, 'follow', $boucles));
+
+	$boucle->where[] = 'liste_me_follow('.$quoi.', '.$env_follow.')';
+}
+
+//
+// critere {follow} ou {follow xxx}
+// {follow} ou {follow follow} :
+// - mes messages,
+// - mes favoris
+// - les msgs des auteurs que je suis
+// - les favoris des auteurs que je suis
+// {follow me} : mes message + mes favoris
+// {follow all} : tous les messages de la base
+function liste_me_follow($quoi, $env_follow) {
+
+	// si le mode n'est pas precisé explicitement dans le critere,
+	// se baser sur l'env
+	if (!$quoi) $quoi = $env_follow;
+
+	switch ($quoi) {
+		case 'all':
+			return;
+		case 'me':
+			$me = $GLOBALS['visiteur_session']['id_auteur'];
+			if ($me > 0) {
+				return '(id_auteur='.$me.' OR '.sql_in('id_me', array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', 'id_auteur='.$me))).')';
+			} else
+				return '0=1';
+		case 'follow':
+		default:
+			$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
+			if ($id_auteur > 0) {
+				$suivi = liste_follow($id_auteur);
+				$suivi[] = $id_auteur;
+				$auteurs = sql_in('id_auteur',$suivi);
+
+				return $auteurs
+					.' OR '.sql_in('id_me',
+						array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', $auteurs))
+					);
+			} else
+				return '0=1';
+	}
+}
+
+// liste des auteurs que je follow ;
+// avec un static car ca peut revenir souvent sur une meme page
+function liste_follow($id_auteur) {
+	static $cache = array();
+	
+	if (!isset($cache[$id_auteur])) {
+		$suivi = sql_allfetsel('id_auteur', 'spip_me_follow', 'id_follow='.$id_auteur);
+		if (is_array($suivi))
+			$suivi = array_map('array_pop', $suivi);
+		else
+			$suivi = array();
+		$cache[$id_auteur] = $suivi;
+	}
+
+	return $cache[$id_auteur];
+}
 
 ?>
