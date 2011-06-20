@@ -48,17 +48,17 @@
 	
 	
 		<div class="limite_date">
-		<a href="[(#SELF|parametre_url{age,[(#VAL{1}|decaler_date)]})]"[(#ENV{age}|=={1}|oui)class="actif"]>Depuis hier</a>
+		<a href="[(#SELF|parametre_url{age,1})]"[(#ENV{age}|=={1}|oui)class="actif"]>Depuis hier</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{7}|decaler_date)]})]"[(#ENV{age}|=={7}|oui)class="actif"]>Depuis une semaine</a>
+		<a href="[(#SELF|parametre_url{age,7})]"[(#ENV{age}|=={7}|oui)class="actif"]>Depuis une semaine</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{31}|decaler_date)]})]"[(#ENV{age}|=={31}|oui)class="actif"]>Depuis un mois</a>
+		<a href="[(#SELF|parametre_url{age,31})]"[(#ENV{age}|=={31}|oui)class="actif"]>Depuis un mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{92}|decaler_date)]})]"[(#ENV{age}|=={92}|oui)class="actif"]>Depuis trois mois</a>
+		<a href="[(#SELF|parametre_url{age,92})]"[(#ENV{age}|=={92}|oui)class="actif"]>Depuis trois mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{183}|decaler_date)]})]"[(#ENV{age}|=={183}|oui)class="actif"]>Depuis six mois</a>
+		<a href="[(#SELF|parametre_url{age,183})]"[(#ENV{age}|=={183}|oui)class="actif"]>Depuis six mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,[(#VAL{366}|decaler_date)]})]"[(#ENV{age}|=={366}|oui)class="actif"]>Depuis un an</a>
+		<a href="[(#SELF|parametre_url{age,366})]"[(#ENV{age}|=={366}|oui)class="actif"]>Depuis un an</a>
 		|
 		<a href="[(#SELF|parametre_url{age,''})]"[(#ENV{age}|non)class="actif"]>Sans limite</a>
 		</div>
@@ -86,11 +86,15 @@
 		[(#SET{follow,all})]
 	]
 	
+	[(#ENV{age}|oui)
+		[(#SET{age,[(#ENV{age}|decaler_date)]})]
+	]
+	
 	
 
 	<div id="centre">
 		
-		[(#INCLURE{fond=inc/inc-recherche}{follow=#GET{follow}}{ajax}{env})]
+		[(#INCLURE{fond=inc/inc-recherche}{follow=#GET{follow}}{age=#GET{age}}{ajax}{env})]
 
 	</div>
 	

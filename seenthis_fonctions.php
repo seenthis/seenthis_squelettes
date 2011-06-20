@@ -284,7 +284,7 @@ function decaler_date ($age) {
 	$thePHPDate['mday'] = $thePHPDate['mday'] - $age;
 	$timeStamp = mktime($thePHPDate['hours'], $thePHPDate['minutes'], $thePHPDate['seconds'], $thePHPDate['mon'], $thePHPDate['mday'], $thePHPDate['year']);
 	
-	$date = date("Y-m-d H-i-s",$timeStamp);
+	$date = date("Y-m-d H:i:s",$timeStamp);
 	$stocker_date["$age"] = $date;
 	
 	return $date;
