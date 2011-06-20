@@ -395,10 +395,10 @@ function liste_me_follow($quoi, $env_follow) {
 				$suivi[] = $id_auteur;
 				$auteurs = sql_in('id_auteur',$suivi);
 
-				return $auteurs
+				return '('.$auteurs
 					.' OR '.sql_in('id_me',
 						array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', $auteurs))
-					);
+					).')';
 			} else
 				return '0=1';
 	}
