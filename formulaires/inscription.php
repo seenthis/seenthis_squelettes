@@ -208,7 +208,7 @@ function test_login($nom, $mail) {
 	if (strlen($login_base) > 10) {
 		$login_base = preg_replace("/^(.{4,}(_.{1,7})?)_.*/",
 			'\1', $login_base);
-		$login_base = substr($login_base, 0,13);
+		$login_base = substr($login_base, 0,20);
 	}
 
 	$login = $login_base;
