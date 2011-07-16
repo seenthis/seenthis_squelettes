@@ -61,7 +61,7 @@
 				<p>Cliquez sur le bouton «&nbsp;Me suggérer des contacts&nbsp;» ci-contre, et 
 				visitez les pages des auteurs proposés. Si un auteur vous intéresse, suivez-le en cliquant, 
 				en haut de page, sur «&nbsp;Suivre cet auteur&nbsp;».
-				Puis revenez sur cette page, recommencez l'opération, les propositions d'affineront au fur et
+				Puis revenez sur cette page, recommencez l'opération, les propositions s'affineront au fur et
 				à mesure de votre propre sélection d'auteurs.</p>
 				<p>Ce message disparaîtra lorsque vous suivrez cinq auteurs. 
 				Rendez-vous ensuite  sur l'onglet «&nbsp;@auteurs&nbsp;» pour obtenir des suggestions d'auteurs.</p>",

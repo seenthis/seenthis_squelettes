@@ -30,6 +30,9 @@ function action_bouton_follow_people() {
 				"id_auteur" => $id_auteur,
 				"date" => "NOW()"
 			));
+			job_queue_add('notifier_suivre_moi', "notifier_suivre_moi $id_auteur - $id_follow", array($id_auteur, $id_follow));
+			//notifier_suivre_moi($id_auteur, $id_follow);
+			
 		}
 		
 		job_queue_add('calculer_troll', 'Troll auteur '.$id_auteur, array($id_auteur, true));		

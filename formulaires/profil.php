@@ -64,6 +64,7 @@ function formulaires_profil_traiter (){
 	$mail_rep_moi = _request("mail_rep_moi");
 	$mail_rep_billet = _request("mail_rep_billet");
 	$mail_rep_conv = _request("mail_rep_conv");
+	$mail_suivre_moi = _request("mail_suivre_moi");
 
 	$url_site = _request("url_site");
 	
@@ -104,7 +105,8 @@ function formulaires_profil_traiter (){
 		"mail_nouv_billet" => $mail_nouv_billet,
 		"mail_rep_moi" => $mail_rep_moi,
 		"mail_rep_billet" => $mail_rep_billet,
-		"mail_rep_conv" => $mail_rep_conv		
+		"mail_rep_conv" => $mail_rep_conv,	
+		"mail_suivre_moi" => $mail_suivre_moi		
 		),
 		"id_auteur=$id_auteur");
 
