@@ -195,13 +195,15 @@ function couleur_chroma ($coul, $num) {
 
 function afficher_miniature($img) {
 	$vignette = copie_locale($img);
+	
 	list($width, $height) = @getimagesize($vignette);
 	
 	if (($width * $height) < 300) return;
 	
+	
 	include_spip("inc/filtres_images_mini");
 	$vignette = image_reduire($vignette, 240);
-	
+
 	$max = 240;
 	
 	if ($width <= $max && $height <= $max) return "$vignette";
