@@ -150,6 +150,9 @@ body.accueil {
 
 .lien_lien {
 	white-space: nowrap;
+	padding-left: 20px;
+	background-repeat: no-repeat;
+	background-position: left center;
 
 	.lien_lien_total {
 		font-weight: normal;
