@@ -516,6 +516,19 @@ ul#messages, ul.messages {
 
 }
 
+.masquer_texte {
+	display: inline-block;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	padding-left: 1px;
+	margin-right: -2px;
+	font-size: 1px;
+	line-height: 1px;
+}
+
+
+
 ul#messages li .texte {
 	div, blockquote {
 		. :lang(ar) {

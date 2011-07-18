@@ -12,6 +12,8 @@ body {
 		color: #2d6dd6;
 	}
 	
+	
+	
 }
 body.message {
 
@@ -383,6 +385,7 @@ body.accueil {
 		text-decoration: none;
 	}
 }
+
 
 #texte_article {
 	padding: 40px;
