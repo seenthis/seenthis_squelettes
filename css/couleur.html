@@ -33,6 +33,25 @@ body {
 	top: 0px;
 	left: 0px;
 }
+:link[hreflang]::after {
+    content: "" attr(hreflang) "";
+    font-size: 50%;
+    font-weight: bold;
+    vertical-align: top;
+	-spip-opacity: 0.8;
+	margin-left: 3px;
+	padding: 1px 2px;
+	text-decoration: none;
+	background-color: [#(#ENV{couleur}|couleur_luminance{0.7})];
+	color: white;
+}
+div.traduire a {
+	background-color: [#(#ENV{couleur}|couleur_saturation{0.4})];
+	
+	. :hover {
+		background-color: [#(#ENV{couleur}|couleur_luminance{0.8})];
+	}
+}
 
 #entete {
 	.seenthis {

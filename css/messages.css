@@ -317,7 +317,10 @@ ul#messages, ul.messages {
 					text-align: right;
 					font-size: 0.8em;
 					a {
-						color: #999;
+						text-decoration: none;
+						color: white;
+						padding: 2px 5px;
+						-spip-border-radius: 4px;
 					}
 				}
 			}
@@ -550,7 +553,8 @@ ul#messages li .texte {
 			padding-right: 1em;
 			
 			div.traduire {
-				font-size: 91%;
+				font-size: 0.7em;
+				text-align: left;
 			}
 		}
 	}

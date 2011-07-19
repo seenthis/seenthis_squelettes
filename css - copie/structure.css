@@ -566,11 +566,3 @@ ul#messages li .texte {
 		}
 	}
 }
-:link[hreflang]::after {
-    content: "「" attr(hreflang) "」";
-    font-size: x-small;
-    font-weight: normal;
-    vertical-align: top;
-	-spip-opacity: 0.8;
-}
-

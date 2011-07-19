@@ -577,13 +577,6 @@ body {
 	}
 }
 
-:link[hreflang]::after {
-    content: "「" attr(hreflang) "」";
-    font-size: x-small;
-    font-weight: normal;
-    vertical-align: top;
-	-spip-opacity: 0.8;
-}
 #alertes {
 	display: none;
 	font-size: 0.8em;
