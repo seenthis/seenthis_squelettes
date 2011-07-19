@@ -45,6 +45,7 @@
 		"suggestions" => "Suggestions&nbsp;:",
 		
 		"montrer_messages" => "montrer les @total@ messages",
+		"themes_automatiques" => "thèmes automatiques",
 		
 		"traduire_avec_google" => "traduire",
 		

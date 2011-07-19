@@ -23,10 +23,10 @@
 			#ACTION_FORMULAIRE{#ENV{action}}
 	
 			<div class="raccourcis">
-				<a class="raccourci_quote" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection('\n❝' + ths.getSelection().text.trim() + '❞\n', true); return false;" href="#"></a>
-				<a class="raccourci_italic" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' _' + ths.getSelection().text.trim() + '_ ', true); return false;" href="#"></a>
-				<a class="raccourci_bold" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' *' + ths.getSelection().text.trim() + '* ', true); return false;" href="#"></a>
-				<a class="raccourci_strike" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' -' + ths.getSelection().text.trim() + '- ', true); return false;" href="#"></a>
+				<a class="raccourci_quote" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection('\n❝' + jQuery.trim(ths.getSelection().text) + '❞\n', true); return false;" href="#"></a>
+				<a class="raccourci_italic" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' _' + jQuery.trim(ths.getSelection().text) + '_ ', true); return false;" href="#"></a>
+				<a class="raccourci_bold" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' *' + jQuery.trim(ths.getSelection().text) + '* ', true); return false;" href="#"></a>
+				<a class="raccourci_strike" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' -' + jQuery.trim(ths.getSelection().text) + '- ', true); return false;" href="#"></a>
 			</div>
 			
 			[(#GET{dest}|non)

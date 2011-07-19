@@ -47,6 +47,7 @@
 		"traduire_avec_google" => "translate",
 
 		"montrer_messages" => "show the @total@ messages",
+		"themes_automatiques" => "automatic themes",
 
 		"bookmarklet_titre" => "Drag and drop this bookmarklet on your bookmarks bar:",
 		"bookmarklet_descriptif" => "How to use : when you visit the web page of an article you wish to link, select the text abstract you want to quote, and click on the bookmarklet.",

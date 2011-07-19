@@ -213,6 +213,11 @@ function afficher_miniature($img) {
 
 
 $GLOBALS["oc_lies"] = array();
+
+function reset_oc_lies($rien) {
+	$GLOBALS["oc_lies"] = array();
+}
+
 function compter_oc_lies($id_mot, $relevance) {
 	if ($relevance > 300 && $relevance > $GLOBALS["oc_lies"]["$id_mot"]) $GLOBALS["oc_lies"]["$id_mot"] = $relevance;	
 }

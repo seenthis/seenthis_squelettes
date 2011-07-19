@@ -53,6 +53,32 @@
 			</B_images>
 
 
+			[(#VAL{rien}|reset_oc_lies)]
+
+			<BOUCLE_sites_lies(spip_me_syndic){id_me=#ENV{id}}>
+				<BOUCLE_calais_site(MOTS spip_syndic_oc) {spip_syndic_oc.id_syndic=#ID_SYNDIC}{relevance>300}{par relevance}{inverse}>
+					[(#ID_MOT|compter_oc_lies{[(#RELEVANCE|mult{0.7}|floor)]})]
+				</BOUCLE_calais_site>
+				</B_calais_site>
+			</BOUCLE_sites_lies>
+			
+			
+			<BOUCLE_calais_me(MOTS spip_me_mot) {spip_mots.id_groupe!=1} {spip_me_mot.id_me=#ENV{id}}{spip_me_mot.relevance>300}{!par spip_me_mot.relevance}>
+					[(#ID_MOT|compter_oc_lies{#RELEVANCE})]
+			</BOUCLE_calais_me>
+
+
+			<B_calais>
+			<ul class="mots_lies" id="mots_lies_#ID_ME">
+				<li><span class="texte_afficher_themes"></span></li>
+			<BOUCLE_calais(MOTS spip_me_mot) {id_mot IN (#REM|retour_oc_lies)}>
+				<li>#<a href="#URL_MOT">#TITRE</a></li>
+			</BOUCLE_calais>
+			</ul>
+			[(#SET{afficher_themes,oui})]
+			</B_calais>
+
+
 			<div class="commandes">
 				<div class="supprimer"><a
 					onclick="$('#texte#ID').fadeOut().load('index.php?action=delete&amp;id_me=#ID_ME'); return false;"
@@ -65,6 +91,12 @@
 				</div>
 				
 				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
+				
+				[(#REM)
+					[(#GET{afficher_themes}|=={oui}|oui)
+						<span class="afficher_themes"><a onclick="$(this).hide(); $('#mots_lies_#ID_ME').slideDown(); return false;" href="#" class="texte_afficher_themes"></a></span>
+					]
+				]
 
 			</div>
 	

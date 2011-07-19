@@ -189,15 +189,20 @@ ul#messages, ul.messages {
 			margin-bottom: 0.5em;
 			margin-top: -0.3em;
 
-			.date, .auteur {
+			.date, .auteur, .afficher_themes {
 				font-size: 0.8em;
 				a {
 					color: #bbb;
+					text-decoration: none;
+					
 					. :hover {
 						color: black;
 						text-decoration: underline;
 					}
 				}
+			}
+			.afficher_themes {
+				margin-left: 20px;
 			}
 			.by_cc {
 				margin-left: 20px;
@@ -397,6 +402,7 @@ ul#messages, ul.messages {
 		}
 		
 		
+
 		div.conteneur_reponses {
 			background: url(../imgs/fond-bas-reponses.png) bottom left repeat-x;
 		}
@@ -514,7 +520,34 @@ ul#messages, ul.messages {
 		textarea {
 			width: 494px;
 		}
-		
+		.mots_lies {
+			-spip-clear: fix;
+			margin: 0px;
+			font-size: 0.75em;
+			padding-bottom: 20px;
+			
+			li {
+				clear: none;
+				float: left;
+				padding-right: 10px;
+				color: #ddd;
+
+				a {
+					color: #aaa;				
+					text-decoration: none;
+					
+					. :hover {
+						color: #666;
+						text-decoration: underline;
+					}
+				}
+				
+				span.texte_afficher_themes {
+					color: #999;
+				}
+
+			}
+		}
 	}
 
 }
