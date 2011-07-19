@@ -2,6 +2,9 @@
 [(#REM)
 	[(#ENV{id}|OC_message)]
 ]
+
+
+
 <B_mots>
 <div class="mots_lies">
 <h3>thèmes</h3>
@@ -29,9 +32,9 @@
 
 <B_calais>
 <div class="mots_lies">
-<h3>thèmes automatiques</h3>
+<h3 class="texte_afficher_themes"></h3>
 <ul>
-<BOUCLE_calais(MOTS){id_mot IN (#REM|retour_oc_lies)}>
+<BOUCLE_calais(MOTS){id_mot IN (#REM|retour_oc_lies)}{id_groupe !IN #EVAL{_EXCLUDE_GROUPE}>
 	<li>
 		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}>
 		<span class="groupe_mot">#TITRE:</span>
