@@ -22,6 +22,12 @@
 		<form method='post' action='#ENV{action}' enctype='multipart/form-data'>
 			#ACTION_FORMULAIRE{#ENV{action}}
 	
+			<div class="raccourcis">
+				<a class="raccourci_quote" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection('\n❝' + ths.getSelection().text.trim() + '❞\n', true); return false;" href="#"></a>
+				<a class="raccourci_italic" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' _' + ths.getSelection().text.trim() + '_ ', true); return false;" href="#"></a>
+				<a class="raccourci_bold" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' *' + ths.getSelection().text.trim() + '* ', true); return false;" href="#"></a>
+				<a class="raccourci_strike" onclick="var ths = $(this).parents('form').find('textarea'); ths.replaceSelection(' -' + ths.getSelection().text.trim() + '- ', true); return false;" href="#"></a>
+			</div>
 			
 			[(#GET{dest}|non)
 				<div><label class="votre_message"><:seenthis:votre_message:>[ <b>@(#GET{dest})</b>][ <b>#(#GET{zemot})</b>]<:seenthis:insecable_typo:>:</label></div>

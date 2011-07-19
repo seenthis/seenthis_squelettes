@@ -76,12 +76,23 @@ function afficher_textes_traduits() {
 	$(".formulaire_poster_message input[type=submit]").attr("value", envoyer_message);		
 	$(".formulaire_poster_message input[type=reset]").attr("value", reset_message);		
 	$(".message_inscription").html(message_inscription);
+
+	$(".raccourci_quote").html(raccourci_quote);
+	$(".raccourci_italic").html(raccourci_italic);
+	$(".raccourci_bold").html(raccourci_bold);
+	$(".raccourci_strike").html(raccourci_strike);
+
 }
 
 var texte_modifier = '<:seenthis:modifier:>';
 var texte_effacer = '<:seenthis:effacer:>';
 var texte_favori = '<:seenthis:favori:>';
 var texte_bouton_reponse = '<:seenthis:ecrire_commentaire:>';
+
+var raccourci_quote = '<:seenthis:raccourci_quote:>';
+var raccourci_italic = '<:seenthis:raccourci_italic:>';
+var raccourci_bold = '<:seenthis:raccourci_bold:>';
+var raccourci_strike = '<:seenthis:raccourci_strike:>';
 
 var envoyer_message = '<:seenthis:envoyer:>';
 var reset_message = '<:seenthis:annuler:>';

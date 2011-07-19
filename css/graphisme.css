@@ -3,6 +3,11 @@ body {
 	font-size: 100.1%;
 	
 	background-color: #b1aeae;
+
+	strong, em, b, i {
+		font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+	}
+
 	
 	img {
 		border: 0px;
@@ -194,6 +199,21 @@ body.accueil {
 		}
 
 		
+	}
+	.raccourcis {
+		padding-top: 2px;
+		float: right; 
+		clear: right;
+		font-size: 70%;
+		
+		a {
+			text-decoration: none;
+			margin-left: 10px;
+			
+			. :hover {
+				color: black;
+			}
+		}
 	}
 	
 	p.boutons {
