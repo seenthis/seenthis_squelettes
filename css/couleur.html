@@ -15,13 +15,12 @@ body {
 	}
 	.lien_tag a {
 		text-decoration: none;
-		color: [#(#ENV{couleur}|couleur_luminance{0.65})];
-		border-bottom: 1px dotted [#(#ENV{couleur}|couleur_luminance{0.65})];
-		-spip-opacity: 0.7;
+		color: [#(#ENV{couleur}|couleur_luminance{0.6})];
+		border-bottom: 1px dotted [#(#ENV{couleur}|couleur_luminance{0.4})];
 		
 		. :hover {
-			border-bottom: 1px solid [#(#ENV{couleur}|couleur_luminance{0.65})];
-			-spip-opacity: 1;
+			color: [#(#ENV{couleur}|couleur_luminance{0.7})];
+			border-bottom: 1px solid [#(#ENV{couleur}|couleur_luminance{0.7})];
 		}
 	}
 }
@@ -36,7 +35,7 @@ body {
 	left: 0px;
 }
 div.traduire a {
-	background-color: [#(#ENV{couleur}|couleur_saturation{0.4})];
+	background-color: [#(#ENV{couleur}|couleur_saturation{0.45})];
 	
 	. :hover {
 		background-color: [#(#ENV{couleur}|couleur_luminance{0.8})];
@@ -123,7 +122,7 @@ ul#messages {
 		display: block;
 		
 		div.conteneur_reponses {
-			background-color: [#(#ENV{couleur}|couleur_luminance{0.05})];
+			background-color: [#(#ENV{couleur}|couleur_luminance{0.03})];
 		}
 	
 		ul.reponses {
