@@ -309,6 +309,9 @@ ul#messages, ul.messages {
 				text-align: justify;
 				-ms-text-justify:newspaper;
 				text-justify:newspaper;
+				-webkit-hyphens: auto;
+				-moz-hyphens: auto;
+				hyphens: auto;
 				
 				hr {
 					border: 0;
