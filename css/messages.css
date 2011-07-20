@@ -345,6 +345,7 @@ ul#messages, ul.messages {
 		.images {
 				img {
 					border: 1px solid #ccc;
+
 					background-color: white;
 					padding: 3px;
 					margin-bottom: 3px;
@@ -542,10 +543,21 @@ ul#messages, ul.messages {
 					}
 				}
 				
+
+			}
+			li.afficher_themes {
+				-spip-opacity: 0;
+				
+				float: none;
 				span.texte_afficher_themes {
 					color: #999;
 				}
-
+			}
+			
+			. :hover {
+				li.afficher_themes {
+					-spip-opacity: 1;
+				}
 			}
 		}
 	}
@@ -563,6 +575,13 @@ ul#messages, ul.messages {
 	line-height: 1px;
 }
 
+:link[hreflang]:after {
+    content: "[" attr(hreflang) "]";
+    font-size: 75%;
+    font-weight: bold;
+	margin-left: 3px;
+	text-decoration: none;
+}
 
 
 ul#messages li .texte {

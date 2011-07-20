@@ -159,6 +159,19 @@ body.accueil {
 	padding-left: 20px;
 	background-repeat: no-repeat;
 	background-position: left center;
+	
+	
+	a {
+		text-decoration: none;
+	
+		. :hover {
+			text-decoration: underline;
+		}
+		
+		.lien_host {
+			text-decoration: underline;
+		}
+	}
 
 	.lien_lien_total {
 		font-weight: normal;
