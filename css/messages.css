@@ -1,6 +1,7 @@
 ul#messages, ul.messages {
 	clear: both;
 	
+	
 	li {
 		position: relative;
 		clear: left;
@@ -287,6 +288,8 @@ ul#messages, ul.messages {
 					border: 1px solid #ccc;
 					background-color: white;
 					padding: 3px;
+					display: block;
+					-spip-border-radius: 4px;
 					
 					. :hover {
 						border: 1px solid #666;
@@ -352,6 +355,7 @@ ul#messages, ul.messages {
 					background-color: white;
 					padding: 3px;
 					margin-bottom: 3px;
+					-spip-border-radius: 4px;
 				}
 			a:hover {
 				img {
