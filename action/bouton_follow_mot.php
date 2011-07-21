@@ -4,6 +4,10 @@ function action_bouton_follow_mot() {
 	$id_mot = _request("id_mot");
 	$id_follow = $GLOBALS['auteur_session']['id_auteur'];
 
+	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
+
+
 	$query = sql_select("lang", "spip_auteurs", "id_auteur=$id_follow");
 	if ($row = sql_fetch($query)) {
 		lang_select($row["lang"]);

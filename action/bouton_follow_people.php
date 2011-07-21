@@ -4,6 +4,9 @@ function action_bouton_follow_people() {
 	$id_auteur = _request("id_auteur");
 	$id_follow = $GLOBALS['auteur_session']['id_auteur'];
 
+	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
+
 	$query = sql_select("lang", "spip_auteurs", "id_auteur=$id_follow");
 	if ($row = sql_fetch($query)) {
 		lang_select($row["lang"]);
@@ -13,6 +16,7 @@ function action_bouton_follow_people() {
 	$follow = _request("follow");
 	if ($follow == "non" OR $follow == "oui") {
 		$statut_session = $GLOBALS["auteur_session"]["statut"];
+		
 		if ($id_follow < 1) die();
 	
 		$id_auteur = floor(_request("id_auteur"));
