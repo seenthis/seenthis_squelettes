@@ -407,6 +407,10 @@ ul#messages, ul.messages {
 			padding-left: 20px;
 			padding-top: 0.5em;
 			padding-bottom: 5px;
+			
+			a {
+				text-decoration: none;
+			}
 		}
 		
 		
