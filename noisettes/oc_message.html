@@ -1,8 +1,6 @@
 #CACHE{0}
-[(#REM)
-	[(#ENV{id}|OC_message)]
-]
 
+[(#ENV{id}|OC_message)]
 
 
 <B_mots>
@@ -18,14 +16,14 @@
 
 
 <BOUCLE_sites_lies(spip_me_syndic){id_me=#ENV{id}}>
-	<BOUCLE_calais_site(MOTS spip_syndic_oc) {spip_syndic_oc.id_syndic=#ID_SYNDIC}{relevance>300}{par relevance}{inverse}>
+	<BOUCLE_calais_site(MOTS spip_syndic_oc) {spip_syndic_oc.id_syndic=#ID_SYNDIC}{relevance>300}{par relevance}{inverse}{spip_syndic_oc.off!=oui}>
 		[(#ID_MOT|compter_oc_lies{[(#RELEVANCE|mult{0.7}|floor)]})]
 	</BOUCLE_calais_site>
 	</B_calais_site>
 </BOUCLE_sites_lies>
 
 
-<BOUCLE_calais_me(MOTS spip_me_mot) {spip_mots.id_groupe!=1} {spip_me_mot.id_me=#ENV{id}}{spip_me_mot.relevance>300}{!par spip_me_mot.relevance}>
+<BOUCLE_calais_me(MOTS spip_me_mot) {spip_mots.id_groupe!=1} {spip_me_mot.id_me=#ENV{id}}{spip_me_mot.relevance>300}{!par spip_me_mot.relevance}{spip_me_mot.off!=oui}>
 		[(#ID_MOT|compter_oc_lies{#RELEVANCE})]
 </BOUCLE_calais_me>
 

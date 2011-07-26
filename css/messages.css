@@ -536,7 +536,7 @@ ul#messages, ul.messages {
 			-spip-clear: fix;
 			margin: 0px;
 			font-size: 0.75em;
-			padding-bottom: 20px;
+			margin-bottom: 20px;
 			
 			li {
 				clear: none;
@@ -556,21 +556,58 @@ ul#messages, ul.messages {
 				
 
 			}
+			li.off {
+				display: none;
+			}
 			li.afficher_themes {
-				-spip-opacity: 0;
+				visibility: hidden;
 				
 				float: none;
 				span.texte_afficher_themes {
 					color: #999;
 				}
+				
+				.modifier_themes {
+					display: none;
+					margin-left: 20px;
+					color: red;
+					-spip-opacity: 0.5;
+					font-size: 0.95em;
+					
+					. :hover {
+						-spip-opacity: 1;
+					}
+				}
 			}
 			
 			. :hover {
 				li.afficher_themes {
-					-spip-opacity: 1;
+					visibility: visible;
+				}
+			}
+			
+		}
+
+		.mots_lies.edition {
+			background-color: #ffeeee;
+			padding: 10px;
+		
+			li.afficher_themes {
+				.modifier_themes {
+					display: none;
+				}
+			}
+			li.off {
+				display: block;
+				
+				a {
+					color: red;
+					text-decoration: line-through;
 				}
 			}
 		}
+
+
 	}
 
 }

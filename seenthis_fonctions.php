@@ -142,6 +142,7 @@ function filtrer_images_page($flux) {
 }
 
 function mini_html($texte) {
+//	return $texte;
 	$texte = filtrer_images_page($texte);
 	$texte = preg_replace(",\n[\t\ ]*,", "\n", $texte);
 	$texte = preg_replace(",\n+,", "\n", $texte);
@@ -232,6 +233,19 @@ function retour_oc_lies($rien) {
 	return $ret;
 }
 
+
+function stocker_rel($id_mot, $lien, $off) {
+	$GLOBALS["oc_rel"]["$id_mot"] = "mot$id_mot-$lien";
+	if ($off == "oui") $GLOBALS["oc_off"]["$id_mot"] = "off";
+}
+
+function afficher_rel_mot($id_mot) {
+	return $GLOBALS["oc_rel"]["$id_mot"];
+}
+
+function afficher_off_mot($id_mot) {
+	return $GLOBALS["oc_off"]["$id_mot"];
+}
 
 $GLOBALS["mots_lies"] = array();
 function compter_mots_lies($id_mot) {

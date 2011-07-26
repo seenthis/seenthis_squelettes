@@ -256,6 +256,20 @@ function switch_comments(id_me) {
 		$("#recherche").focusout(function() {
 			$("#entete").removeClass("rechercher");
 		});
+		
+		$(".edition li.oc_mot").live("click", function() {
+			var relation = $(this).find("a").attr("rel");
+			if ($(this).hasClass("off")) {
+				var statut_relation = "activer";
+				$(this).removeClass("off");
+			}
+			else { 
+				var statut_relation = "desactiver";
+				$(this).addClass("off");
+			}
+			$.get("index.php?action=lien_mot&statut="+statut_relation+"&relation="+relation+"&date="+ (new Date()).getTime());
+			return false;
+		});
 
 
 		$('textarea').live("keydown", function(e) {
@@ -316,6 +330,7 @@ function switch_comments(id_me) {
 			var rel = $(this).find(".modifier").children("a").attr("rel");
 			if (auteur_connecte == rel) {
 				$(this).find(".modifier").children("a").show();
+				$(this).find(".modifier_themes").show();
 			}
 			
 			var rel = $(this).find(".supprimer").children("a").attr("rel");

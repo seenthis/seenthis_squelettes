@@ -57,6 +57,16 @@ function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 	// Effacer les liens entre le mot et l'objet
 	// uniquement avec relevance > 0
 	// pour ne pas effacer les spip_me_mot des hashtags (qui n'ont pas de pondération)
+	
+	
+	$off = array();
+	$query = sql_select("*", "$lien", "off = 'oui' && $id_tag=".sql_quote($id));
+	while($row = sql_fetch($query)) {
+		$id_mot = $row["id_mot"];
+		$off["$id_mot"] = "oui";
+	}
+	
+	
 	sql_delete("$lien", "relevance > 0 && $id_tag=".sql_quote($id));
 
 
@@ -100,12 +110,13 @@ function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 					);
 				}
 				
-				//echo "<li>$lien - $nom - $id_mot - $id_tag - $id";
+				//echo "<li>$lien - $nom - $id_mot - $id_tag - $id - ".$off["$id_mot"];
 				sql_insertq($lien,
 					array(
 						"id_mot" => $id_mot,
 						"$id_tag" => $id,
-						"relevance" => round($relevance * 1000)
+						"relevance" => round($relevance * 1000),
+						"off" => $off["$id_mot"]
 					)
 				);
 				cache_mot($id_mot);
