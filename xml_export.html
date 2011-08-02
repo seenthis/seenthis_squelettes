@@ -10,6 +10,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 		<thread href="#URL_SITE_SPIP/messages/#ID_ME">			
 			<message>
 				<BOUCLE_qui(AUTEURS){id_auteur}{tous}><author href="[(#URL_AUTEUR|url_absolue)]"><![CDATA[[(#NOM|interdire_scripts)]]]></author></BOUCLE_qui>
+				<date>[(#DATE|date_iso)]</date>
 				<text><![CDATA[[(#TEXTE*|interdire_scripts)]]]></text>
 				<B_mots><tags>
 				<BOUCLE_mots(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots>
@@ -21,6 +22,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 			<BOUCLE_reponses(ME){id_parent=#ID_ME}{par date}{statut=publi}>
 			<message>
 				<BOUCLE_qui2(AUTEURS){id_auteur}{tous}><author href="[(#URL_AUTEUR|url_absolue)]"><![CDATA[[(#NOM|interdire_scripts)]]]></author></BOUCLE_qui2>
+				<date>[(#DATE|date_iso)]</date>
 				<text><![CDATA[[(#TEXTE*|interdire_scripts)]]]></text>
 				<B_mots2><tags>
 				<BOUCLE_mots2(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots2>
