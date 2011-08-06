@@ -1,4 +1,4 @@
-<?
+<?php
 
 function action_bouton_follow_people() {
 	$id_auteur = _request("id_auteur");

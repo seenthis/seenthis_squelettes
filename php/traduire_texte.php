@@ -1,4 +1,4 @@
-<?
+<?php
 
 function translate_requestCurl($parameters)
 {

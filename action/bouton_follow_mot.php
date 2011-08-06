@@ -1,4 +1,4 @@
-<?
+<?php
 
 function action_bouton_follow_mot() {
 	$id_mot = _request("id_mot");
