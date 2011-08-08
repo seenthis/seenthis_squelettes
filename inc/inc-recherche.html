@@ -1,24 +1,16 @@
 <B_messages>
 [<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 <ul id="messages">
-<BOUCLE_messages(ME)
+<BOUCLE_messages(ME_RECHERCHE)
 	{recherche}
 	{!par #ENV{tri,points}}
 	{date>(#ENV{age}|sinon{0})}
-	{statut=publi}
 	{follow}
 	{pagination 20}
 >
-	[(#ID_PARENT|>{0}|non)
 	<li id="message#ID_ME"><a name="message#ID_ME"></a>
 		[(#ID_ME|microcache{noisettes/afficher_message})]
 	</li>
-	]
-	[(#ID_PARENT|>{0}|oui)
-	<li id="message#ID_PARENT"><a name="message#ID_PARENT"></a>
-		[(#ID_PARENT|microcache{noisettes/afficher_message})]
-	</li>
-	]
 </BOUCLE_messages>
 
 </ul>
