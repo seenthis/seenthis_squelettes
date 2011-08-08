@@ -5,15 +5,14 @@
 
 		#SET{alertes, #ARRAY{}}
 		
-		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{doublons}{statut=publi}> 
+		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{doublons}{statut=publi}{0,25}> 
 				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
 			<BOUCLE_reponses(spip_me){id_parent}{statut=publi}{par date}{inverse}{0,25}> 
 				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
 			</BOUCLE_reponses>
 		</BOUCLE_messages_perso>
 		
-		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur)
-			{spip_me_auteur.id_auteur=#ID_AUTEUR}{spip_me.statut=publi}{par date}{inverse}{doublons}{0,25}>
+		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur){spip_me_auteur.id_auteur=#ID_AUTEUR}{spip_me.statut=publi}{par date}{inverse}{doublons}{0,25}>
 				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
 		</BOUCLE_liens_vers_moi>
 	
