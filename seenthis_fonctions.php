@@ -234,6 +234,14 @@ function retour_oc_lies($rien) {
 }
 
 
+function stocker_id_me($id_me) {
+	$GLOBALS["liste_id_me"][$id_me] = $id_me;
+}
+
+function retour_id_me($rien) {
+	return $GLOBALS["liste_id_me"];
+}
+
 function stocker_rel($id_mot, $lien, $off) {
 	$GLOBALS["oc_rel"]["$id_mot"] = "mot$id_mot-$lien";
 	if ($off == "oui") $GLOBALS["oc_off"]["$id_mot"] = "off";
