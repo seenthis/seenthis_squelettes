@@ -148,7 +148,8 @@
         new OEmbedProvider("vids.myspace.com", "vids.myspace.com", "http://vids.myspace.com/index.cfm?fuseaction=oembed"),
 		new OEmbedProvider("screenr", "screenr.com", "http://screenr.com/api/oembed.json"),
 		/* Crado pour forcer format=js */
-        new OEmbedProvider("soundcloud", "soundcloud", "http://soundcloud.com/oembed", "format=js&callback")
+        new OEmbedProvider("soundcloud", "soundcloud", "http://soundcloud.com/oembed", "format=js&callback"),
+        new OEmbedProvider("bliptv", "blip.tv", "http://blip.tv/oembed")
     ];
 
     function OEmbedProvider(name, urlPattern, oEmbedUrl, callbackparameter) {
