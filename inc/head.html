@@ -24,8 +24,10 @@
 	var time_verif_hash = 0;
 	var auteur_page = 0;
 	
-	var reghash = new RegExp("#EVAL{_REG_HASH}", "gi");
-	var url_match = /#EVAL{_REG_URL}/gi;
+	
+	
+	var reghash = new RegExp("[(#EVAL{_REG_HASH}|replace{'\\pN\\pL\\pM','\u0080-\uFFFFFF'})]", "gi");
+	var url_match = /[(#EVAL{_REG_URL}|replace{'\\pN\\pL\\pM','\u0080-\uFFFFFF'})]/gi;
 	var racine_url_match = new RegExp("#EVAL{_REG_DEBUT_URL}", "gi");
 	var fin_url_match = new RegExp("#EVAL{_REG_FIN_URL}", "gi");
 	var reg_people = /#EVAL{_REG_PEOPLE}/g;
