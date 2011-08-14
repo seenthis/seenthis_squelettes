@@ -65,6 +65,7 @@ body {
 				img {
 					width: 36px;
 					height: 36px;
+					-spip-border-radius: 4px;
 					-spip-transition-property: width, height;
 					-spip-transition-duration: 0.1s;
 
@@ -104,6 +105,7 @@ body {
 					border: 1px solid white;
 					margin: -1px;
 					-spip-box-shadow: 0px 0px 3px #000000;
+					-spip-border-radius: 3px;
 				}
 			}
 		}
@@ -245,6 +247,10 @@ body {
 	
 	.logo {
 		float: left;
+		
+		img {
+			-spip-border-radius: 4px;
+		}
 	}
 	.texte {
 		margin-left: 100px;
@@ -478,6 +484,7 @@ body {
 				position: absolute;
 				top: -3px;
 				left: 0px;
+				-spip-border-radius: 3px;
 			}
 			span.nom_auteur {
 				margin-left: 30px;

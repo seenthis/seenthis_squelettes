@@ -17,6 +17,7 @@ ul#messages, ul.messages {
 			img {
 				width: 48px;
 				height: 48px;
+				-spip-border-radius: 4px;
 			}
 			
 			a:hover img {
