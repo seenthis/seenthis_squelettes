@@ -327,6 +327,12 @@ function afficher_cc($cc) {
 		
 		return "<a href='http://creativecommons.org/licenses/$lien/3.0/' class='spip_out by_cc'>CC $cc</a>";
 	}
+	else if (preg_match("/^CC0/", $cc)) {
+		$lien = strtolower($cc);
+		
+		
+		return "<a href='http://creativecommons.org/publicdomain/zero/1.0/' class='spip_out by_cc'>CC0</a>";
+	}
 }
 
 
