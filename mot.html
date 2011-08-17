@@ -105,11 +105,14 @@
 
 	<div id="centre">
 
-		[(#SESSION{id_auteur}|?{" ",""})
-			[(#ID_GROUPE|=={1}|oui)
-			<div id="tetiere">
-				[<div class="formulaire_principal">(#FORMULAIRE_POSTER_MESSAGE{0, 0, 0,#ID_MOT})</div>]
-			</div>
+
+		[(#REM)
+			[(#SESSION{id_auteur}|?{" ",""})
+				[(#ID_GROUPE|=={1}|oui)
+				<div id="tetiere">
+					[<div class="formulaire_principal">(#FORMULAIRE_POSTER_MESSAGE{0, 0, 0,#ID_MOT})</div>]
+				</div>
+				]
 			]
 		]
 		<div id="tous_messages">

@@ -331,7 +331,7 @@ function afficher_cc($cc) {
 		$lien = strtolower($cc);
 		
 		
-		return "<a href='http://creativecommons.org/publicdomain/zero/1.0/' class='spip_out by_cc'>CC0</a>";
+		return "<a href='http://creativecommons.org/publicdomain/zero/1.0/' class='spip_out by_cc'>CC PUBLIC DOMAIN</a>";
 	}
 }
 
@@ -371,8 +371,8 @@ function detecter_langue_visiteur($rien) {
 	while ($i < count($langues) && !$choix) {
 	
 		$langue = $langues[$i];	
-		if (preg_match("/fr/", $langue) > 0) $choix = "fr";
-		if (preg_match("/en/", $langue) > 0) $choix = "en";
+		if (preg_match("/^fr/", $langue) > 0) $choix = "fr";
+		if (preg_match("/^en/", $langue) > 0) $choix = "en";
 //		if (preg_match("/it/", $langue) > 0) $choix = "it";
 //		if (preg_match("/ar/", $langue) > 0) $choix = "ar";
 //		if (preg_match("/es/", $langue) > 0) $choix = "es";
