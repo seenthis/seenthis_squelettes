@@ -246,6 +246,7 @@ body {
 	background-color: white;
 	padding: 20px 40px;
 	margin-bottom: 0px;
+	spip-clear: fix;
 	
 	.logo {
 		float: left;
@@ -257,6 +258,8 @@ body {
 	.texte {
 		margin-left: 100px;
 		margin-top: -5px;
+		width: 480px;
+
 		
 		h1 {
 			font-size: 1.4em;
@@ -268,6 +271,12 @@ body {
 			
 			. .bio {
 				color: #333;
+				margin-top: 0.5em;
+				font-size: 0.8em;
+				line-height: 130%;
+			}
+			. .url_site {
+				font-size: 0.8em;
 			}
 		}
 	}
@@ -466,7 +475,6 @@ body {
 		
 		a {
 			color: white;
-			display: block;
 			text-decoration: none;
 			
 			. :hover {
@@ -599,8 +607,13 @@ body {
 				float: left;
 				padding-top: 2px;
 				
+				a img {
+					-spip-border-radius: 3px;				
+				}
+				
 				a:hover img {
 					-spip-box-shadow: 0px 0px 3px #000000;
+					-spip-border-radius: 3px;
 					border: 1px solid white;
 					margin: -1px;
 				}

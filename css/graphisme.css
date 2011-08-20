@@ -81,6 +81,8 @@ body.accueil {
 #entete {
 	-spip-gradient: top, #4c4646, #403b3b;
 	-spip-box-shadow: 0px 0px 5px #000000;	
+	
+	color: #7c7474;
 }
 
 #footer {
@@ -312,7 +314,7 @@ body.accueil {
 		
 		ul {
 			list-style-type: none;
-			color: #black;
+			color: black;
 			
 			
 			li {
@@ -333,14 +335,25 @@ body.accueil {
 				input[type=text], input[type=password] {
 					font: normal normal normal 15px/normal Arial, sans-serif;
 					padding: 3px 5px;
-					width: 240px;
+					width: 100px;
 					
-					border: 1px solid #eee;
+					border: 0px solid #eee;
 					-spip-border-radius: 4px;
+					background-color: #ccc;
+					-spip-transition-property: background-color, width;
+					-spip-transition-duration: 0.1s;
+					
+					. :focus {
+						width: 240px;
+						background-color: white;
+					}
 				}
 				input[type=password] {
-					width: 225px;
 					margin-right: 3px;
+					
+					. :focus {
+						width: 225px;
+					}
 				}
 				
 				.choix {

@@ -4,21 +4,22 @@
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}>
 
 		#SET{alertes, #ARRAY{}}
-		
+
+
 		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{doublons}{statut=publi}{0,25}> 
-				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
-			<BOUCLE_reponses(spip_me){id_parent}{statut=publi}{par date}{inverse}{0,25}> 
-				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+			<BOUCLE_reponses(spip_me){id_parent=#ID_ME}{id_auteur!=#SESSION{id_auteur}}{statut=publi}{par date}{inverse}{0,25}> 
+				[(#ID_ME|stocker_id_me)]		
 			</BOUCLE_reponses>
 		</BOUCLE_messages_perso>
-		
+
+				
 		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur){spip_me_auteur.id_auteur=#ID_AUTEUR}{spip_me.statut=publi}{par date}{inverse}{doublons}{0,25}>
-				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+				[(#ID_ME|stocker_id_me)]	
 		</BOUCLE_liens_vers_moi>
 	
 		<BOUCLE_follow(spip_me_follow){id_follow=#ID_AUTEUR}>
 			<BOUCLE_messages_follow(spip_me){id_auteur}{par date}{inverse}{doublons}{statut=publi}{0,25}>
-				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+				[(#ID_ME|stocker_id_me)]	
 			</BOUCLE_messages_follow>
 		</BOUCLE_follow>
 	
@@ -33,13 +34,13 @@
 
 		<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
 			<BOUCLE_tous_liens(spip_me spip_me_mot){id_mot=#ID_MOT}{spip_me.statut=publi}{par date}{inverse}{0,25}>
-				[(#SET{alertes, #GET{alertes}|push{#ID_ME}})]		
+				[(#ID_ME|stocker_id_me)]		
 			</BOUCLE_tous_liens>
 		</BOUCLE_tous_mots>
 		
 		
 		<ul>
-		<BOUCLE_alertes(spip_me){id_me IN #GET{alertes}}{par date}{inverse}{0,25}>
+		<BOUCLE_alertes(spip_me){id_me IN (#VAL|retour_id_me)}{par date}{inverse}{0,25}>
 			[(#SET{id_me,#ID_ME})]
 			<BOUCLE_parent(spip_me){id_me = #ID_PARENT}>
 				[(#SET{id_me,#ID_ME})]

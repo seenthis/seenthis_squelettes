@@ -50,13 +50,17 @@
 				margin-top: 3px;
 				font: normal normal normal 13px/normal Arial, sans-serif;
 				padding: 3px 5px;
-				width: 270px;
 				background-color: [#(#ENV{couleur}|couleur_luminance{0.3})];
 				
 				border: 0px;
 				-spip-border-radius: 4px;
+				width: 100px;
+				-spip-transition-property: background-color, width;
+				-spip-transition-duration: 0.1s;
+				
 				
 				. :focus {
+					width: 270px;
 					background-color: white;
 				}
 			}

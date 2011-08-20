@@ -327,11 +327,13 @@ function afficher_cc($cc) {
 		
 		return "<a href='http://creativecommons.org/licenses/$lien/3.0/' class='spip_out by_cc'>CC $cc</a>";
 	}
-	else if (preg_match("/^CC0/", $cc)) {
+	else if ($cc == "CC0") {
 		$lien = strtolower($cc);
-		
-		
-		return "<a href='http://creativecommons.org/publicdomain/zero/1.0/' class='spip_out by_cc'>CC PUBLIC DOMAIN</a>";
+		return "<a href='http://creativecommons.org/publicdomain/zero/1.0/' class='spip_out by_cc by_zero'>PUBLIC DOMAIN</a>";
+	}
+	else if ($cc == "LAL") {
+		$lien = strtolower($cc);
+		return "<a href='http://artlibre.org/licence/lal' class='spip_out by_cc by_lal'>ART LIBRE</a>";
 	}
 }
 

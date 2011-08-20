@@ -2,6 +2,11 @@ ul#messages, ul.messages {
 	clear: both;
 	
 	
+	. > li {
+		margin-bottom: 0.5em;
+		spip-clear: fix;
+	}
+	
 	li {
 		position: relative;
 		clear: left;
@@ -194,7 +199,7 @@ ul#messages, ul.messages {
 			.date, .auteur, .afficher_themes {
 				font-size: 0.8em;
 				a {
-					color: #bbb;
+					color: #ccc;
 					text-decoration: none;
 					
 					. :hover {
@@ -218,6 +223,20 @@ ul#messages, ul.messages {
 					background: url(../imgs/by-cc.png) left center no-repeat;
 				}
 			}
+			.by_lal {
+				background: url(../imgs/by-lal-30.png) left center no-repeat;
+				. :hover {
+					background: url(../imgs/by-lal.png) left center no-repeat;
+				}
+			}
+			.by_zero {
+				background: url(../imgs/by-zero-30.png) left center no-repeat;
+				. :hover {
+					background: url(../imgs/by-zero.png) left center no-repeat;
+				}
+			}
+			
+			
 			.auteur {
 				strong {
 					display: none;
@@ -338,10 +357,14 @@ ul#messages, ul.messages {
 			}
 		}
 		.lien_tag {
-			color: #999;
+			color: #bbb;
+			
+			a {
+				text-decoration: none;
+			}
 		}
 		.lien_people {
-			color: #999;
+			color: #aaa;
 			.inexistant {
 				color: red;
 				text-decoration: line-through;
@@ -528,7 +551,7 @@ ul#messages, ul.messages {
 			padding-left: 103px;
 			padding-right: 40px;
 			padding-bottom: 20px;
-			border-bottom: 1px solid #ddd;
+			border-bottom: 1px solid #ccc;
 		}
 		textarea {
 			width: 494px;
@@ -537,7 +560,7 @@ ul#messages, ul.messages {
 			-spip-clear: fix;
 			margin: 0px;
 			font-size: 0.75em;
-			margin-bottom: 10px;
+			margin-bottom: 5px;
 			
 			li {
 				clear: none;

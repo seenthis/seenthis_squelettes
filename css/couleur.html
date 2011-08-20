@@ -14,13 +14,11 @@ body {
 		color: [#(#ENV{couleur}|couleur_luminance{0.6})];
 	}
 	.lien_tag a {
-		text-decoration: none;
 		color: [#(#ENV{couleur}|couleur_luminance{0.6})];
-		border-bottom: 1px dotted [#(#ENV{couleur}|couleur_luminance{0.4})];
 		
 		. :hover {
 			color: [#(#ENV{couleur}|couleur_luminance{0.7})];
-			border-bottom: 1px solid [#(#ENV{couleur}|couleur_luminance{0.7})];
+			border-bottom: 1px dotted [#(#ENV{couleur}|couleur_luminance{0.7})];
 		}
 	}
 }
@@ -35,7 +33,7 @@ body {
 	left: 0px;
 }
 div.traduire a {
-	background-color: [#(#ENV{couleur}|couleur_saturation{0.45})];
+	background-color: [#(#ENV{couleur}|couleur_luminance{0.07})];
 	
 	. :hover {
 		background-color: [#(#ENV{couleur}|couleur_luminance{0.8})];
