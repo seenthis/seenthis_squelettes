@@ -71,9 +71,11 @@ function action_api_dist() {
 		if (strlen($texte_message) < 1) die ("No text");
 		
 		$reply = $res->xpath("thr:in-reply-to/@ref");
-		if ($reply) $reply = $reply[0];
-		if (preg_match("/message\:([0-9]+)/", $reply, $regs)) {
-			$id_parent = $regs[1];
+		if ($reply) {
+			$reply = $reply[0];
+			if (preg_match("/message\:([0-9]+)/", $reply, $regs)) {
+				$id_parent = $regs[1];
+			}
 		}
 		if (preg_match("/message\:([0-9]+)/", $id_me, $regs)) {
 			$id_me = $regs[1];
