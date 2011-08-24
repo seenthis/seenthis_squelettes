@@ -185,7 +185,7 @@ ul#messages {
 	width: 300px;
 	z-index: 20;
 	top: 5px;
-	right: 10px;
+	right: 25px;
 	font-size: 0.9em;
 	
 	.on, .off {
@@ -196,9 +196,8 @@ ul#messages {
 		
 		.intitule {
 			cursor: pointer;
-			display: inline-block;
-			*display: inline; /* IE < 8 */ 
-			*zoom : 1; /* IE < 8 : à tester pas forcement nécessaire */ 
+			display: block;
+			float: right;
 			padding: 2px 5px;
 			background-color: [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
 			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.35}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
@@ -220,13 +219,14 @@ ul#messages {
 			margin-bottom: -1px;
 		}
 		.encadre {
+			margin-top: 1.6em;
 			padding: 10px;
 			background-color: [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
 			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.65})];
 			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.65})];
 			-spip-border-bottom-left-radius: 4px;
 			-spip-border-bottom-right-radius: 4px;
-			-spip-border-top-right-radius: 4px;
+			-spip-border-top-left-radius: 4px;
 			
 		}
 	}

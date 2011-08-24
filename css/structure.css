@@ -179,24 +179,33 @@ body {
 	margin-top: 5px;
 	font-size: 0.9em;
 }
+
+.theme_manu_auto {
+	color: #666;
+	font-size: 0.9em;
+}
 #enfants_mots {
 	ul {
 		padding-top: 10px;
 		list-style-type: none;
-		font-size: 0.9em;
+		font-size: 0.75em;
+		width: 580px;
 		
 		li {
 			display: inline;
 			white-space:nowrap;
 			padding-right: 10px;
+			color: #ddd;
+			
 			
 			a {
 				text-decoration: none;
-				color: #444;
+				color: #aaa;
 				
 				
 				. :hover {
 					text-decoration: underline;
+					color: #999;
 				}
 			}
 			

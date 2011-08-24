@@ -59,6 +59,9 @@
 		"slogan_texte" => "<strong>Participez à la discussion&nbsp;!</strong> Sur Seenthis, vous pouvez référencer des articles, les commenter, écrire des billets, discuter avec vos amis, suivre les auteurs qui vous intéressent...",
 		"slogan_lien" => "Inscrivez-vous, c’est gratuit et rapide&nbsp;!",
 		"message_inscription" => "<strong>Inscription gratuite et immédiate</strong><br />Dès l’enregistrement, votre mot de passe vous est expédié par email.",
+		
+		"theme_manuellement" => "Ce <b>thème</b> est attribué <b>manuellement</b> par les auteurs des messages.",
+		"theme_automatiquement" => "Ce <b>thème</b> a été généré <b>automatiquement</b>.",
 
 
 		"message_suggerer" => "

@@ -29,10 +29,12 @@
 
 	<div id="centre">
 
-		[(#SESSION{id_auteur}|?{" ",""})
-		<div id="tetiere" class="tetiere_auteur">
-			[<div class="formulaire_principal">(#FORMULAIRE_POSTER_MESSAGE{0, 0, #ID_AUTEUR})</div>]
-		</div>
+		[(#REM)
+			[(#SESSION{id_auteur}|?{" ",""})
+			<div id="tetiere" class="tetiere_auteur">
+				[<div class="formulaire_principal">(#FORMULAIRE_POSTER_MESSAGE{0, 0, #ID_AUTEUR})</div>]
+			</div>
+			]
 		]
 
 		<div id="tous_messages">

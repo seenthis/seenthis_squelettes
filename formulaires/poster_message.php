@@ -6,7 +6,7 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 	$texte_message = "";
 
 	if ($id_me > 0) {
-		$query = sql_select("*", "spip_me", "id_me=$id_me");
+		$query = sql_select("*", "spip_me_texte", "id_me=$id_me");
 		if ($row = sql_fetch($query)) {
 			$texte_message = $row["texte"];
 		}

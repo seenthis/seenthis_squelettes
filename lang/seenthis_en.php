@@ -60,6 +60,8 @@
 		"slogan_lien" => "Sign up, it’s free!",
 		"message_inscription" => "<strong>Free sign-up</strong><br />Your password will be immediately sent to your email address.",
 
+		"theme_manuellement" => "This <b>theme</b> is attributed <b>manually</b> by the authors of the messages.",
+		"theme_automatiquement" => "This <b>theme</b> is <b>automatically</b> generated.",
 
 		"message_suggerer" => "
 				<strong>New to Seenthis? You should begin by following some people.</strong>

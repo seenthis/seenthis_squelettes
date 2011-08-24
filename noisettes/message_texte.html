@@ -1,5 +1,5 @@
 #CACHE{0}
 <BOUCLE_me(spip_me){id_me=#ID}{statut=publi}>
-			<div class="texte">[(#TEXTE*|traiter_texte|liens_troll{#ID_AUTEUR})]</div>
+			<div class="texte">[(#ID_ME|texte_de_me|traiter_texte|liens_troll{#ID_AUTEUR})]</div>
 </BOUCLE_me>
 #FILTRE{mini_html}

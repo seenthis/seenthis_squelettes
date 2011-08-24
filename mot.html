@@ -70,14 +70,10 @@
 		</div>
 	
 		[(#ID_GROUPE|=={1}|oui)
-			<div>
-				Ce <b>thème</b> est attribué <b>manuellement</b> par les auteurs des messages.
-			</div>
+			<div id="theme_manuellement" class="theme_manu_auto"></div>
 		]
 		[(#ID_GROUPE|=={1}|non)
-			<div>
-				Ce <b>thème</b> a été généré <b>automatiquement</b>.  
-			</div>
+			<div id="theme_automatiquement" class="theme_manu_auto"></div>
 		]
 		<h1>[#(#TITRE|mb_strtolower{UTF-8})]</h1>
 
@@ -88,7 +84,7 @@
 		<B_enfants>
 		<ul>
 			<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{par titre}{tout}{doublons mots}>
-			<li><a href="#URL_MOT">#[(#TITRE)]</a>
+			<li>#<a href="#URL_MOT">[(#TITRE)]</a>
 			
 				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
 			</li>

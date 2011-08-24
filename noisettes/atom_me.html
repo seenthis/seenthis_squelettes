@@ -5,7 +5,7 @@
 	xmlns:thr='http://purl.org/syndication/thread/1.0' 
 	xmlns:docs='http://schemas.google.com/docs/2007'>
 	<id>message:#ID_ME</id>
-	<title>[(#TEXTE*|extraire_titre|texte_backend)]</title>
+	<title>[(#ID|texte_de_me|extraire_titre|texte_backend)]</title>
 	<author><BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID_AUTEUR}>
 		<name>#NOM [(@(#LOGIN))]</name>
 		<uri>[(#URL_AUTEUR|url_absolue{http://#EVAL{_HOST}/})]</uri>
@@ -18,8 +18,8 @@
 	[(#ID_PARENT|>{0}|non)<link href="http://#EVAL{_HOST}/messages/#ID_ME" />]
 	[(#ID_PARENT|>{0}|oui)<thr:in-reply-to ref="[message:(#ID_PARENT)]" />]
 	<link rel="edit" href="https://#EVAL{_HOST}/api/messages/#ID_ME"/>
-	<summary><![CDATA[[(#TEXTE*|message_texte|replace{"]]>","]]~>"})]]]></summary>
-	<content type="html">[(#TEXTE*|traiter_texte|liens_troll{#ID_AUTEUR}|liens_absolus{http://#EVAL{_HOST}/}|texte_backend)]</content>
+	<summary><![CDATA[[(#ID|texte_de_me|message_texte|replace{"]]>","]]~>"})]]]></summary>
+	<content type="html">[(#ID|texte_de_me|traiter_texte|liens_troll{#ID_AUTEUR}|liens_absolus{http://#EVAL{_HOST}/}|texte_backend)]</content>
 	<BOUCLE_liens(SITES spip_me_syndic) {spip_me_syndic.id_me=#ID_ME}>
 	<link rel="related" href="#URL_SITE"[ title="(#TITRE|replace{'"', "'"}|texte_backend)"][ hreflang="(#LANG)"]/>
 	</BOUCLE_liens>
