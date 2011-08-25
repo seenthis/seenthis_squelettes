@@ -155,7 +155,7 @@
     function OEmbedProvider(name, urlPattern, oEmbedUrl, callbackparameter) {
         this.name = name;
         this.urlPattern = urlPattern;
-        this.oEmbedUrl = (oEmbedUrl != null) ? oEmbedUrl : "http://oohembed.com/oohembed/";
+        this.oEmbedUrl = (oEmbedUrl != null) ? oEmbedUrl : "http://noembed.com/embed/";
         this.callbackparameter = (callbackparameter != null) ? callbackparameter : "callback";
         this.maxWidth = 500;
         this.maxHeight = 400;
