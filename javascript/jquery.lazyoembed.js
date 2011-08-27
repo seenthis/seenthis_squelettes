@@ -156,51 +156,19 @@
     
 })(jQuery);
 
+function afficher_oe_el (el) {
+	url = el[0];
 
-function oembed_redim(el) {
-			el.parent(".lien_lien").find(".oembed-container").hide().each (function(){
-				if (
-					$(this).hasClass("oembed-container-YouTube")
-					|| $(this).hasClass("oembed-container-Vimeo")
-					|| $(this).hasClass("oembed-container-Flickr")
-					|| $(this).hasClass("oembed-container-Dailymotion")
-					|| $(this).hasClass("oembed-container-screenr")
-					) {
-						var largeur = $(this).children("object").attr("width");
-						var hauteur = $(this).children("object").attr("height");
-						
-						
-						if (largeur > 440) {
-							$(this).children("object").attr("width", 440);
-							$(this).children("object").children("embed").attr("width", 440);
-							
-							hauteur = Math.round(hauteur / largeur * 440);
-							$(this).children("object").attr("height", hauteur);
-							$(this).children("object").children("embed").attr("height", hauteur);
-						}
-					} else if ($(this).hasClass("oembed-container-TwitPic")) {
-						$(this).find("img").hide().css("max-width", "440px");
-					}else {
-						$(this).remove();
-					}
-				
-			});
-
+	$.ajax({
+	  url: "autoembed/?url="+url,
+	  context: el,
+	  success: function(data){
+		$(this).after(data);
+	  }
+	});
 }
 
-	function afficher_oe_el (el) {
-		el.oembed(null,
-			{
-				embedMethod: "append",
-				maxWidth: 440,
-				maxHeight: 350,
-				autoplay: false
-			}
-		);
-
-	}
-
-	function afficher_oe() {
-		$(".texte a.spip_out").lazyload({ threshold : 200 });
-		//afficher_oe_el($(".texte a.spip_out"));
-	}
+function afficher_oe() {
+	$(".texte a.spip_out").lazyload({ threshold : 200 });
+	//afficher_oe_el($(".texte a.spip_out"));
+}

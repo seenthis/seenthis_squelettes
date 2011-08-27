@@ -152,10 +152,13 @@
         new OEmbedProvider("bliptv", "blip.tv", "http://blip.tv/oembed")
     ];
 
+
+	//fda46a26d01511e0b6354040d3dc5c07
     function OEmbedProvider(name, urlPattern, oEmbedUrl, callbackparameter) {
         this.name = name;
         this.urlPattern = urlPattern;
-        this.oEmbedUrl = (oEmbedUrl != null) ? oEmbedUrl : "http://noembed.com/embed/";
+        //this.oEmbedUrl = (oEmbedUrl != null) ? oEmbedUrl : "http://noembed.com/embed/";
+        this.oEmbedUrl = (oEmbedUrl != null) ? oEmbedUrl : "http://api.embed.ly/1/oembed?key=fda46a26d01511e0b6354040d3dc5c07";
         this.callbackparameter = (callbackparameter != null) ? callbackparameter : "callback";
         this.maxWidth = 500;
         this.maxHeight = 400;
