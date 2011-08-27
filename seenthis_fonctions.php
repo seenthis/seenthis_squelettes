@@ -93,7 +93,6 @@ function share_lien($id_me) {
 }
 
 function filtrer_rediriger_images($reg) {
-	return $reg[0];
 	$lien = $reg[1];
 	
 	if ( ! preg_match(",^http,", $lien)) {
