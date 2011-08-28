@@ -160,10 +160,11 @@ function afficher_oe_el (el) {
 	url = el[0];
 
 	$.ajax({
-	  url: "autoembed/?url="+url,
+	  url: "autoembed/?url="+encodeURIComponent(url),
 	  context: el,
+	  dataType: "html",
 	  success: function(data){
-		$(this).after(data);
+		$(this).parents("p").append(data);
 	  }
 	});
 }

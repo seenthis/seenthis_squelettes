@@ -303,6 +303,7 @@ ul#messages, ul.messages {
 			.oembed-container {
 				margin: 0.7em 0 0 0;
 				font-size: 90%;
+				white-space: normal;
 				
 				img, object {
 					border: 1px solid #ccc;
@@ -313,6 +314,20 @@ ul#messages, ul.messages {
 					
 					. :hover {
 						border: 1px solid #666;
+					}
+				}
+			}
+			.oembed-code {
+				max-height: 450px;
+				overflow: auto;
+				font-size: 100%;
+
+				ol {
+					list-style-type: decimal;
+					padding-left: 0;
+					
+					li {
+						padding: 3px 7px;
 					}
 				}
 			}
