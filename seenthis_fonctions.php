@@ -93,7 +93,7 @@ function share_lien($id_me) {
 }
 
 function filtrer_rediriger_images($reg) {
-	return $reg[0];
+	//return $reg[0];
 	$lien = $reg[1];
 	
 	if ( ! preg_match(",^http,", $lien)) {
@@ -205,6 +205,7 @@ function afficher_miniature($img) {
 	
 	include_spip("inc/filtres_images_mini");
 	$vignette = image_reduire($vignette, 240);
+	$vignette = inserer_attribut($vignette, "alt", "");
 
 	$max = 240;
 	

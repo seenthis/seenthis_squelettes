@@ -387,22 +387,23 @@ ul#messages, ul.messages {
 			}
 		}
 		
-		.images {
-				img {
-					border: 1px solid #ccc;
+		.display_box, .images {
+			margin-right: 0.5em;
+			
+			img {
+				border: 1px solid #ccc;
 
-					background-color: white;
-					padding: 3px;
-					margin-bottom: 3px;
-					-spip-border-radius: 4px;
-				}
-			a:hover {
+				background-color: white;
+				padding: 3px;
+				margin-bottom: 3px;
+				-spip-border-radius: 4px;
+			}
+			. :hover {
 				img {
 					border: 1px solid #666;
 				}
 			}
 		}
-		
 		.bouton_repondre {
 			clear: right;
 			padding-top: 5px;
