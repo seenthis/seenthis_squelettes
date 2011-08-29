@@ -164,12 +164,12 @@ function afficher_oe_el (el) {
 	  context: el,
 	  dataType: "html",
 	  success: function(data){
-		$(this).parents("p").append(data);
+			if (data.length > 10) $(this).parents("p").append(data);
 	  }
 	});
 }
 
 function afficher_oe() {
-	$(".texte a.spip_out").lazyload({ threshold : 200 });
+	$(".texte a.spip_out").lazyload({ threshold : 600 });
 	//afficher_oe_el($(".texte a.spip_out"));
 }

@@ -321,6 +321,9 @@ ul#messages, ul.messages {
 				max-height: 450px;
 				overflow: auto;
 				font-size: 100%;
+				line-height: 125%;
+				background-color: white;
+				border: 1px solid #eee;
 
 				ol {
 					list-style-type: decimal;
@@ -328,6 +331,15 @@ ul#messages, ul.messages {
 					
 					li {
 						padding: 3px 7px;
+					}
+				}
+				pre {
+					.line {
+						padding: 3px 7px;
+					}
+					
+					.line:nth-child(2n) {
+						background-color: #f8f8f8;
 					}
 				}
 			}
