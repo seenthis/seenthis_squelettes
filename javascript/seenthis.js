@@ -346,7 +346,7 @@ function switch_comments(id_me) {
 			$(this).find(".favori a.inactif").hide();
 		});
 			
-		afficher_oe();		
+		//afficher_oe();		
 	});
 	/* Activer quand on charge un element de page en Ajax 
 	   pour les trucs qui ne fonctionnent pas en mode live */

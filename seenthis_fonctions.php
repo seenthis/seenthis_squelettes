@@ -214,7 +214,6 @@ function afficher_miniature($img) {
 	 return "<a rel='shadowbox[Portfolio]' href='$img' class='display_box'>$vignette</a>";
 }
 
-
 $GLOBALS["oc_lies"] = array();
 
 function reset_oc_lies($rien) {

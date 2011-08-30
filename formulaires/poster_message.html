@@ -85,7 +85,7 @@
 			$("#message[(#ENV**{message_ok}|table_valeur{ok_parent})]")
 //				.html("<div class='loading_icone'></div>")
 				.load("?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_parent})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]", function() {
-				afficher_oe_el($("#message[(#ENV**{message_ok}|table_valeur{ok_parent})] .texte a.spip_out"));
+//				afficher_oe_el($("#message[(#ENV**{message_ok}|table_valeur{ok_parent})] .texte a.spip_out"));
 			}).slideDown();
 		} else {
 			$(".formulaire_poster_message").removeClass("focus").find("textarea").hide();
@@ -93,7 +93,7 @@
 			$("#message[(#ENV**{message_ok}|table_valeur{ok_me})]")
 				.html("<div class='loading_icone'></div>")
 				.load("?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_me})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]",function() {
-				afficher_oe_el($("#message[(#ENV**{message_ok}|table_valeur{ok_me})] .texte a.spip_out"));
+//				afficher_oe_el($("#message[(#ENV**{message_ok}|table_valeur{ok_me})] .texte a.spip_out"));
 			});
 		}
 		--></script>
