@@ -32,7 +32,7 @@
 		"raccourci_italic" => "_<i>italique</i>_",
 		"raccourci_bold" => "*<b>gras</b>*",
 		"raccourci_strike" => "-<del>barré</del>-",
-		"favori" => "favori",
+		"favori" => "partager",
 		"insecable_typo" => "&nbsp;",
 		"suivre_people" => "Suivre @people@",
 		"auteur_vous_suivez" => "Vous suivez @people@",

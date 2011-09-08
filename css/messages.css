@@ -40,7 +40,7 @@ ul#messages, ul.messages {
 			zoom: 1;
 			
 			.favori {
-				font-size: 0.7em;
+				font-size: 0.8em;
 				margin-left: 10px;
 				
 				display: inline-block;
@@ -52,7 +52,7 @@ ul#messages, ul.messages {
 					text-decoration: none;
 					
 					span.total {
-						font-size: 150%;
+						font-size: 130%;
 						padding-right: 3px;
 						font-weight: bold;
 					}
