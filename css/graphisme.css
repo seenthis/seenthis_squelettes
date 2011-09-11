@@ -79,6 +79,7 @@ body.accueil {
 	}
 }
 #entete {
+	background-color: #4c4646;
 	-spip-gradient: top, #4c4646, #403b3b;
 	-spip-box-shadow: 0px 0px 5px #000000;	
 	

@@ -66,15 +66,16 @@
 
 			<B_calais>
 			<ul class="mots_lies" id="mots_lies_#ID_ME">
-				<li class="afficher_themes">
-					<span class="texte_afficher_themes"></span>
-					<a onclick="$(this).parents('.mots_lies').addClass('edition'); return false;" 
-						href="#" class="modifier_themes"></a>
-				</li>
 			<BOUCLE_calais(MOTS spip_me_mot) {id_mot IN (#REM|retour_oc_lies)}{id_groupe !IN #EVAL{_EXCLUDE_GROUPE}}>
 				
 				<li class="oc_mot[ (#ID_MOT|afficher_off_mot)]">#<a href="#URL_MOT"[ rel="(#ID_MOT|afficher_rel_mot)"]>#TITRE</a></li>
 			</BOUCLE_calais>
+
+				<li>
+					<a onclick="$(this).parents('.mots_lies').addClass('edition'); return false;" 
+						href="#" class="modifier_themes"></a>
+				</li>
+
 			</ul>
 			[(#SET{afficher_themes,oui})]
 			</B_calais>
