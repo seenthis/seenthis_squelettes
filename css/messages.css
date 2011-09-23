@@ -594,9 +594,13 @@ ul#messages, ul.messages {
 			.modifier_themes {
 				visibility: hidden;
 				margin-left: 0px;
-				color: red;
+				color: #c79524;
 				-spip-opacity: 0.5;
 				font-size: 0.95em;
+
+				background: url(../imgs/mini-editer.png) left center no-repeat;
+				padding-left: 13px;
+
 				
 				. :hover {
 					-spip-opacity: 1;
@@ -642,7 +646,6 @@ ul#messages, ul.messages {
 			}
 			.modifier_themes {
 				display: none;
-				color: red;
 				-spip-opacity: 0.5;
 				font-size: 0.95em;
 				
