@@ -13,7 +13,7 @@
 		</BOUCLE_auteur>
 	</author>
 	<published>[(#DATE|date_iso)]</published>
-	<updated>[(#DATE|date_iso)]</updated>
+	<updated>[(#DATE_MODIF|date_iso)]</updated>
 	[(#ID_PARENT|>{0}|oui)<link href="http://#EVAL{_HOST}/messages/#ID_PARENT#message#ID_ME" />]
 	[(#ID_PARENT|>{0}|non)<link href="http://#EVAL{_HOST}/messages/#ID_ME" />]
 	[(#ID_PARENT|>{0}|oui)<thr:in-reply-to ref="[message:(#ID_PARENT)]" />]

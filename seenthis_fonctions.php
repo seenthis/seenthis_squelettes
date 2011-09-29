@@ -243,6 +243,17 @@ function retour_id_me($rien) {
 	return $GLOBALS["liste_id_me"];
 }
 
+function stocker_id_me_date($id_me, $date) {
+	$GLOBALS["liste_id_me"][$date] = $id_me;
+}
+
+function retour_id_me_date($rien) {
+	if ($GLOBALS["liste_id_me"]) {
+		krsort($GLOBALS["liste_id_me"]);
+		return $GLOBALS["liste_id_me"];
+	} else return 0;
+}
+
 function stocker_rel($id_mot, $lien, $off) {
 	$GLOBALS["oc_rel"]["$id_mot"] = "mot$id_mot-$lien";
 	if ($off == "oui") $GLOBALS["oc_off"]["$id_mot"] = "off";

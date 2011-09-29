@@ -1,29 +1,27 @@
 #CACHE{0}
 
 <BOUCLE_principale(AUTEURS){tout}{id_auteur=#ENV{id}}>
-		#SET{messages, #ARRAY{}}
-		#SET{off, #ARRAY{}}
 
 		<BOUCLE_share(spip_me_share){id_auteur}{0,100}{par date}{inverse}>
-			[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+			[(#ID_ME|stocker_id_me_date{#DATE})]
 		</BOUCLE_share>
 
 	
 		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{doublons}{statut=publi}> 
 				[(#ID_PARENT|>{0}|?{" ",""})
-					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+					[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
 				]
 				[(#ID_PARENT|>{0}|?{""," "})
-					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+					[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
 				]
 		</BOUCLE_messages_perso>
 		
 		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur){spip_me_auteur.id_auteur=#ID_AUTEUR}{spip_me.statut=publi}{par date}{inverse}{doublons}{0,100}>
 				[(#ID_PARENT|>{0}|?{" ",""})
-					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+					[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
 				]
 				[(#ID_PARENT|>{0}|?{""," "})
-					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+					[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
 				]
 		</BOUCLE_liens_vers_moi>
 	
@@ -34,15 +32,15 @@
 		</BOUCLE_follow>
 		
 		<BOUCLE_messages_follow(ME){id_auteur IN #GET{auteurs_suivis}}{id_parent=0}{0,200}{par date}{inverse}>
-				[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+					[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
 		</BOUCLE_messages_follow>
 
 		<BOUCLE_messages_follow_reponses(ME){id_auteur IN #GET{auteurs_suivis}}{id_parent>0}{0,50}{par date}{inverse}>
-				[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+					[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
 		</BOUCLE_messages_follow_reponses>
 
 		<BOUCLE_share_follow(spip_me_share){id_auteur IN #GET{auteurs_suivis}}{0,100}>
-			[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+					[(#ID_ME|stocker_id_me_date{#DATE})]
 		</BOUCLE_share_follow>
 	
 
@@ -59,10 +57,10 @@
 			<BOUCLE_sites(spip_syndic_oc){id_mot=#ID_MOT}>
 				<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
 					[(#ID_PARENT|>{0}|?{" ",""})
-						[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
 					]
 					[(#ID_PARENT|>{0}|?{""," "})
-						[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
 					]
 				</BOUCLE_tous_liens_site>
 			</BOUCLE_sites>
@@ -71,10 +69,10 @@
 		<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
 			<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}{spip_me.statut=publi}>
 				[(#ID_PARENT|>{0}|?{" ",""})
-					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+					[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
 				]
 				[(#ID_PARENT|>{0}|?{""," "})
-					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+					[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
 				]
 			</BOUCLE_tous_liens>
 		</BOUCLE_tous_mots>
@@ -83,7 +81,7 @@
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
+		<BOUCLE_messages(spip_me){id_me IN #REM|retour_id_me_date}{id_parent=0}{pagination 25}{statut=publi}>
 			<li id="message#ID_ME">
 				[(#ID_ME|microcache{noisettes/afficher_message})]
 			</li>

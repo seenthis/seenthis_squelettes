@@ -1,7 +1,6 @@
 #CACHE{0}
 
 
-		#SET{messages, #ARRAY{}}
 
 		<B_follow_mot>
 		<BOUCLE_follow_mot(spip_me_follow_mot){id_follow=#ENV{id}}>
@@ -14,10 +13,10 @@
 			<BOUCLE_sites(spip_syndic_oc){id_mot=#ID_MOT}>
 				<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
 					[(#ID_PARENT|>{0}|?{" ",""})
-						[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
 					]
 					[(#ID_PARENT|>{0}|?{""," "})
-						[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
 					]
 				</BOUCLE_tous_liens_site>
 			</BOUCLE_sites>
@@ -28,12 +27,12 @@
 		
 		<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
 			<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
-				[(#ID_PARENT|>{0}|?{" ",""})
-					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
-				]
-				[(#ID_PARENT|>{0}|?{""," "})
-					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
-				]
+					[(#ID_PARENT|>{0}|?{" ",""})
+						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
+					]
+					[(#ID_PARENT|>{0}|?{""," "})
+						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
+					]
 			</BOUCLE_tous_liens>
 		</BOUCLE_tous_mots>
 
@@ -42,7 +41,7 @@
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
+		<BOUCLE_messages(spip_me){id_me IN #REM|retour_id_me_date}{id_parent=0}{pagination 25}{statut=publi}>
 			<li id="message#ID_ME">
 				[(#ID_ME|microcache{noisettes/afficher_message})]
 			</li>
