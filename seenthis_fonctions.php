@@ -244,7 +244,7 @@ function retour_id_me($rien) {
 }
 
 function stocker_id_me_date($id_me, $date) {
-	$GLOBALS["liste_id_me"][$date] = $id_me;
+	$GLOBALS["liste_id_me"][$date][] = $id_me;
 }
 
 function retour_id_me_date($rien) {
