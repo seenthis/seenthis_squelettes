@@ -244,13 +244,13 @@ function retour_id_me($rien) {
 }
 
 function stocker_id_me_date($id_me, $date) {
-	$GLOBALS["liste_id_me"][$date][] = $id_me;
+	if (!$GLOBALS["liste_id_me"][$id_me]) $GLOBALS["liste_id_me"][$id_me] = $date;
 }
 
 function retour_id_me_date($rien) {
 	if ($GLOBALS["liste_id_me"]) {
-		krsort($GLOBALS["liste_id_me"]);
-		return $GLOBALS["liste_id_me"];
+		arsort($GLOBALS["liste_id_me"]);
+		return array_flip($GLOBALS["liste_id_me"]);
 	} else return 0;
 }
 
