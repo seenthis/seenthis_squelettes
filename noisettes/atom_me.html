@@ -18,8 +18,8 @@
 	[(#ID_PARENT|>{0}|non)<link href="http://#EVAL{_HOST}/messages/#ID_ME" />]
 	[(#ID_PARENT|>{0}|oui)<thr:in-reply-to ref="[message:(#ID_PARENT)]" />]
 	<link rel="edit" href="https://#EVAL{_HOST}/api/messages/#ID_ME"/>
-	<summary><![CDATA[[(#ID|texte_de_me|message_texte|replace{"]]>","]]~>"})]]]></summary>
-	<content type="html">[(#ID|texte_de_me|traiter_texte|liens_troll{#ID_AUTEUR}|liens_absolus{http://#EVAL{_HOST}/}|texte_backend)]</content>
+	<summary><![CDATA[[(#ID|texte_de_me|message_texte|replace{"]]>","]]~>"}|supprimer_background_favicon)]]]></summary>
+	<content type="html">[(#ID|texte_de_me|traiter_texte|liens_troll{#ID_AUTEUR}|liens_absolus{http://#EVAL{_HOST}/}|supprimer_background_favicon|texte_backend)]</content>
 	<BOUCLE_liens(SITES spip_me_syndic) {spip_me_syndic.id_me=#ID_ME}>
 	<link rel="related" href="#URL_SITE"[ title="(#TITRE|replace{'"', "'"}|texte_backend)"][ hreflang="(#LANG)"]/>
 	</BOUCLE_liens>

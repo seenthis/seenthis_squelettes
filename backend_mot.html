@@ -1,25 +1,9 @@
 #CACHE{60*5}
 [(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml 
 version="1.0"[ encoding="(#CHARSET)"]?>
-<BOUCLE_principale(MOTS){id_mot}{tout}{doublons mots}>
-
-<rss version="2.0" [(#REM) rss 2.0.9)]
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
->
-
-<channel[ xml:lang="(#LANG)"]>
-	<title>#[(#TITRE|mb_strtolower{UTF-8})]</title>
-	<link>[(#URL_MOT|url_absolue)]</link>
-	<language>#LANG</language>
-	<generator>SPIP - www.spip.net</generator>
-
-[	<image>
-		<title>[(#TITRE|mb_strtolower{UTF-8}|texte_backend)]</title>
-		<url>(#LOGO_AUTEUR|image_passe_partout{80,80}|extraire_attribut{src}|url_absolue|texte_backend)</url>
-	<link>[(#URL_MOT|url_absolue)]</link>
-	</image>
-]
+<BOUCLE_principale(MOTS){id_mot}{tout}{doublons mots}><feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
+	<title>#[(#TITRE)] - Seenthis</title>
+	<link href="[(#URL_MOT|url_absolue)]"/>
 
 		<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
 			<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
@@ -41,12 +25,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 		</BOUCLE_tous_mots>
 	
 		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 40}{statut=publi}>
-		<INCLURE{fond=inc/rss-item}{id_me} />
+		[(#ID_ME|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
 		</BOUCLE_messages>
-
-
-
-</channel>
-
-</rss>
+</feed>
 </BOUCLE_principale>
