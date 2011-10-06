@@ -248,9 +248,25 @@ function stocker_id_me_date($id_me, $date) {
 }
 
 function retour_id_me_date($rien) {
-	if ($GLOBALS["liste_id_me"]) {
-		arsort($GLOBALS["liste_id_me"]);
-		return array_flip($GLOBALS["liste_id_me"]);
+	if ($ret = $GLOBALS["liste_id_me"]) {
+	
+		// Un peu complexe, car plusieurs messages peuvent avoir exactement la meme date
+		
+		// 1. On partout le tableau pour refaire une liste inversée, avec potentiellement plusieurs id_me par date
+		foreach($ret as $id=>$date) {
+			$liste[$date][] = $id;
+		}
+		// 2. On inverse le tableau selon la date
+		krsort($liste);
+		
+		// 3. On recolle les id_me 
+		foreach($liste as $date => $arr) {
+			foreach ($arr as $val) {
+				$l[] = $val;
+			}
+		}
+		
+		return($l);
 	} else return 0;
 }
 

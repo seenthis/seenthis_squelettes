@@ -8,15 +8,14 @@
 		</BOUCLE_share>
 
 
-		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{id_parent=0}>
-					[(#ID_PARENT|>{0}|?{" ",""})
+		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{id_parent=0}{statut=publi}>
+					[(#ID_PARENT|>{0}|oui)
 						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
 					]
-					[(#ID_PARENT|>{0}|?{""," "})
+					[(#ID_PARENT|>{0}|non)
 						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
 					]
 		</BOUCLE_messages_perso>
-		
 		<div id="messages_auteur">
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
