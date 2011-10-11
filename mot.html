@@ -94,11 +94,31 @@
 		</div>
 
 
+	[(#SET{follow,#ENV{follow}})]
+	[(#ENV{follow}|non)
+		[(#SET{follow,all})]
+	]
+	[(#SESSION{id_auteur}|non)
+		[(#SET{follow,all})]
+	]
+	
+
+		[(#SESSION{id_auteur}|oui)
+		<div class="limite_date">
+		<a href="[(#SELF|parametre_url{follow,me})]"[(#GET{follow}|=={me}|oui)class="actif"]>Mes messages</a>
+		|
+		<a href="[(#SELF|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
+		|
+		<a href="[(#SELF|parametre_url{follow,''})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+		</div>
+		]
+
 
 
 	</div>
 
 
+	
 	<div id="centre">
 
 
@@ -113,10 +133,15 @@
 		]
 		<div id="tous_messages">
 		[(#ENV{debut_messages}|>{10}|non)
-			[(#ID_MOT|microcache{noisettes/contenu_mot})]
+			[(#GET{follow}|=={all}|oui)
+				[(#ID_MOT|microcache{noisettes/contenu_mot})]
+			]
+			[(#GET{follow}|=={all}|non)
+				<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}} />
+			]
 		]
 		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT} />
+			<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}} />
 		]
 
 		</div>
