@@ -51,7 +51,7 @@
 		
 		"traduire_avec_google" => "traduire",
 		
-		"bookmarklet_titre" => "Faites glisser ce bookmarklet dans votre barre d’onglets&nbsp;:",
+		"bookmarklet_titre" => "Faites glisser ce bookmarklet dans votre barre de favoris&nbsp;:",
 		"bookmarklet_descriptif" => "Pour l’utiliser : lorsque vous visitez la page d’un article que vous souhaitez référencer, sélectionnez l’extrait du texte à citer, et cliquez sur votre bookmarklet. Votre interface Seenthis s’ouvre alors, et votre message est pré-rempli avec le titre de la page, l’URL et la citation.",
 		
 		"beta_publique" => "<strong>Seenthis est en beta publique.</strong><br />Vous pouvez vous inscrire et participer, merci pour votre patience et votre bonne volonté durant cette phase.",
