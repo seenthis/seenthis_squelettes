@@ -22,7 +22,6 @@ function translate_requestCurl($parameters)
 		
 		$json = json_decode( $body, true );
 	
-		
 		if (isset($json["error"])) return false;
 	//	return urldecode($json["data"]["translations"][0]["translatedText"]);
 		return urldecode($json["responseData"]["translatedText"]);
@@ -74,6 +73,8 @@ function traduire($text, $destLang = 'fr', $srcLang = 'en') {
 	} else {
 		$text = mb_substr($text, 0, 4500, "UTF-8");
 	}
+	
+	
 	
 	$hash = md5($text);
 	
