@@ -11,9 +11,13 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 		<B_mots><tags>
 		<BOUCLE_mots(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots>
 		</tags></B_mots>
+		<B_liens>
+		<urls>
 		<BOUCLE_liens(SITES spip_me_syndic){spip_me_syndic.id_me=#ID_ME}>
 		<url href="#URL_SITE_SPIP/sites/#ID_SYNDIC"><![CDATA[#URL_SITE]]></url>
 		</BOUCLE_liens>
+		</urls>
+		</B_liens>
 	</message>
 	<BOUCLE_reponses(ME){id_parent=#ID_ME}{par date}{statut=publi}>
 	<message>
@@ -23,9 +27,13 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 		<B_mots2><tags>
 		<BOUCLE_mots2(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots2>
 		</tags></B_mots2>
+		<B_liens2>
+		<urls>
 		<BOUCLE_liens2(SITES spip_me_syndic){spip_me_syndic.id_me=#ID_ME}>
 		<url href="#URL_SITE_SPIP/sites/#ID_SYNDIC"><![CDATA[#URL_SITE]]></url>
 		</BOUCLE_liens2>
+		</urls>
+		</B_liens2>
 	</message>
 	</BOUCLE_reponses>
 	</thread></BOUCLE_messages>

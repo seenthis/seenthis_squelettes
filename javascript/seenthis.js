@@ -10,6 +10,21 @@ else language = "fr";
 
 var traduire_avec_google = "traduire avec Google";
 
+$('#messages li').live('mouseover', function() {
+	var me=$(this),r,id_me;
+	if (!(r = me.attr('id').match(/message(\d+)/))
+	|| me.hasClass('cooked'))
+		return;
+	id_me = r[1];
+	me.addClass('cooking').addClass('cooked');
+
+	console.log(me);
+
+	me.removeClass('cooking');
+});
+
+
+
 function switch_comments(id_me) {
 	$('.yourmessage').show(); 
 	
@@ -203,12 +218,24 @@ function switch_comments(id_me) {
 		}
 
 
+		function charger_alertes() {
+			$.get('index.php?page=alertes', function(e) {
+				$.each($('li', e), function(i,j) {
+					var id = $(j).attr('id');
+					if (id && !$("#"+id).is('div'))
+						$('#alertes ul')
+						.prepend($(j).addClass('nouvelle_alerte'));
+				});
+			});
+		}
+
 		var time_alert = $.timeout ( function () {
 				$("#alertes").load("index.php?page=alertes", function() {
 					$("#alertes").slideDown();
+					// charger les nouvelles alertes de temps en temps (3min)
+//					setInterval(charger_alertes, 180000);
 				});
 			}, 500);
-				
 
 		if (auteur_connecte > 0) {
 			$(".bouton_repondre a").live("click", function() {
@@ -345,9 +372,9 @@ function switch_comments(id_me) {
 			$(this).find(".modifier").children("a").hide();
 			$(this).find(".favori a.inactif").hide();
 		});
-			
 		//afficher_oe();		
 	});
+
 	/* Activer quand on charge un element de page en Ajax 
 	   pour les trucs qui ne fonctionnent pas en mode live */
 	$(document).ajaxComplete(function(){
