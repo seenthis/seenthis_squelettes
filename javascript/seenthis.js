@@ -222,7 +222,7 @@ function switch_comments(id_me) {
 			$.get('index.php?page=alertes', function(e) {
 				$.each($('li', e), function(i,j) {
 					var id = $(j).attr('id');
-					if (id && !$("#"+id).is('div'))
+					if (id && !$("#"+id).is('li'))
 						$('#alertes ul')
 						.prepend($(j).addClass('nouvelle_alerte'));
 				});
