@@ -48,8 +48,8 @@ function calculer_enfants_syndic($id_syndic, $url_racine="", $afficher_url="", $
 	$total = sql_count($query);
 	
 	if ($afficher_url) {
-		if ($total > 0) $GLOBALS["afficher_enfants_syndic"] .= "<li><span class='lien_lien'><span class='lien_lien_total'><a href='site$id_syndic'>►</a></span><a href='site$id_syndic'><strong>$afficher_url</strong></a></span>";
-		else  $GLOBALS["afficher_enfants_syndic"] .= "<li><span class='lien_lien'><span class='lien_lien_total'><a href='site$id_syndic'>►</a></span><a href='site$id_syndic'>$afficher_url</a></span>";
+		if ($total > 0) $GLOBALS["afficher_enfants_syndic"] .= "<li><span class='lien_lien'><span class='lien_lien_total'><a href='sites/$id_syndic'>►</a></span><a href='sites/$id_syndic'><strong>$afficher_url</strong></a></span>";
+		else  $GLOBALS["afficher_enfants_syndic"] .= "<li><span class='lien_lien'><span class='lien_lien_total'><a href='sites/$id_syndic'>►</a></span><a href='sites/$id_syndic'>$afficher_url</a></span>";
 	}
 
 	if ($total > 0) {
