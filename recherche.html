@@ -110,6 +110,17 @@
 		</BOUCLE_auteurs>
 		</div>
 		
+		
+		<B_syndic>
+			<ul>
+		<BOUCLE_syndic(SYNDIC){tous}{recherche}{par points}{inverse}{id_parent=0}{doublons}>
+			<li>
+			<span class="lien_lien"><span class="lien_lien_total"><a href="site#ID_SYNDIC">►</a></span><a href="site#ID_SYNDIC">[(#URL_SITE|lien_court)]</a></span>
+			</li>
+		</BOUCLE_syndic>
+			</ul>
+		</B_syndic>
+		
 
 
 		[(#SESSION{id_auteur}|?{""," "})

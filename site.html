@@ -27,6 +27,23 @@
 	
 	--></script>
 	
+	<style>
+	#enfants_sites {
+		margin-top: 20px;
+		margin-left: -20px;
+		font-size: 90%;
+		max-height: 400px;
+		overflow: auto;
+	}
+	#enfants_sites ul li ul {
+		margin-left: 20px;
+		display: none;
+	}
+	#enfants_sites ul li:hover>ul {
+		display: block;
+	}
+	</style>
+	
 </head>
 <body class="site plier">
 
@@ -40,14 +57,6 @@
 
 	#SET{messages, #ARRAY{}}
 
-	<BOUCLE_tous_liens(spip_me_syndic){id_syndic=#ID_SYNDIC}>
-	 	<BOUCLE_test_message(spip_me){id_me=#ID_ME}{id_parent > 0}>
-		 	[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]
-	 	</BOUCLE_test_message>
-		 	[(#SET{messages, #GET{messages}|push{#ID_ME}})]
-	 	<//B_test_message>
-	 
-	</BOUCLE_tous_liens>
 
 
 	[(#SET{url_racine,""})]
@@ -67,43 +76,53 @@
 
 
 	<h1>[(#URL_SITE|replace{#GET{url_racine}}|mb_substr{0,40,utf-8})]</h1>
-	[(#SET{url_racine,#URL_SITE})]
-	
-	<B_enfants>
-		<ul style="padding-left: 40px;">
-	<BOUCLE_enfants(SYNDIC){id_parent=#ID_SYNDIC}>
-	
-		<BOUCLE_tous_liens_enfants(BOUCLE_tous_liens) />
-		<li><!-- #ID_PARENT --> <a href="?page=site&amp;id_syndic=#ID_SYNDIC">&#9658;</a><a href="#URL_SITE" class="spip_out" rel="nofollow">[(#URL_SITE|replace{#GET{url_racine}})]</a>
 
-		<BOUCLE_enfants2(BOUCLE_enfants) />
+	[(#ID_SYNDIC|microcache{noisettes/afficher_enfants_site})]
 
-		</li>
-		
-	</BOUCLE_enfants>
-		</ul>
-	</B_enfants>
+
+	[(#SET{follow,#ENV{follow}})]
+	[(#ENV{follow}|non)
+		[(#SET{follow,all})]
+	]
+	[(#SESSION{id_auteur}|non)
+		[(#SET{follow,all})]
+	]
+	
+
+		[(#SESSION{id_auteur}|oui)
+		<div class="limite_date">
+		<a href="[(#SELF|parametre_url{follow,me})]"[(#GET{follow}|=={me}|oui)class="actif"]>Mes messages</a>
+		|
+		<a href="[(#SELF|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
+		|
+		<a href="[(#SELF|parametre_url{follow,''})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+		</div>
+		]
+
+
 	
 	</div>
 
 
+	
+
 	<div id="centre">
 
-	<B_messages>
-	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
-	<ul id="messages">
-	<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
-		<li id="message#ID_ME">
-			<INCLURE{fond=inc_afficher_message}{id_me} />
-		</li>
-	</BOUCLE_messages>
-	</ul>
-	
-	
-	
-	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
-	</B_messages>
+		<div id="tous_messages">
+		[(#ENV{debut_messages}|>{10}|non)
+			[(#GET{follow}|=={all}|oui)
+				[(#ID_SYNDIC|microcache{noisettes/contenu_site})]
+			]
+			[(#GET{follow}|=={all}|non)
+				<INCLURE{fond=noisettes/contenu_site}{id=#ID_SYNDIC}{follow=#GET{follow}} />
+			]
+		]
+		[(#ENV{debut_messages}|>{10}|oui)
+				<INCLURE{fond=noisettes/contenu_site}{id=#ID_SYNDIC}{follow=#GET{follow}} />
+		]
 
+		</div>
+	
 	</div>
 	
 	<div id="droite">

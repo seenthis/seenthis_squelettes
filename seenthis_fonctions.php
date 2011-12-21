@@ -35,6 +35,47 @@ function share_tw_texte ($texte, $l=0) {
 	return $texte;
 }
 
+
+
+function calculer_enfants_syndic($id_syndic, $url_racine="", $afficher_url="", $ret="") {
+	
+	$ret[] = $id_syndic;
+//	if (!$afficher_url) $afficher_url = $url_racine;
+	
+		
+	
+	$query = sql_select("*", "spip_syndic", "id_parent=$id_syndic");
+	$total = sql_count($query);
+	
+	if ($afficher_url) {
+		if ($total > 0) $GLOBALS["afficher_enfants_syndic"] .= "<li><span class='lien_lien'><span class='lien_lien_total'><a href='site$id_syndic'>►</a></span><a href='site$id_syndic'><strong>$afficher_url</strong></a></span>";
+		else  $GLOBALS["afficher_enfants_syndic"] .= "<li><span class='lien_lien'><span class='lien_lien_total'><a href='site$id_syndic'>►</a></span><a href='site$id_syndic'>$afficher_url</a></span>";
+	}
+
+	if ($total > 0) {
+		$GLOBALS["afficher_enfants_syndic"] .= "<ul>";
+		while ($row = sql_fetch($query)) {
+			$url_site = $row["url_site"];
+			$id_enfant = $row["id_syndic"];
+			
+			$afficher_url = substr($url_site, strlen($url_racine), 10000);
+			
+			
+			$ret = calculer_enfants_syndic($id_enfant, $url_site, $afficher_url, $ret);
+			
+		}
+		$GLOBALS["afficher_enfants_syndic"] .= "</ul>";
+	}
+	$GLOBALS["afficher_enfants_syndic"] .= "</li>";
+	
+	return $ret;
+}
+
+function afficher_enfants_syndic($rien) {
+	return $GLOBALS["afficher_enfants_syndic"];
+}
+
+
 function share_tw($id_me, $texte) {
 	
 	$me = share_tw_url($id_me);
