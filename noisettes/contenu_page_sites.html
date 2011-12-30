@@ -1,0 +1,42 @@
+#CACHE{0}
+
+		<B_follow_mot>
+		<BOUCLE_follow_mot(spip_me_follow_url){id_follow=#ENV{id}}>
+			<BOUCLE_le_site(SYNDIC){id_syndic=#ID_SYNDIC}{doublons sites}>
+			<BOUCLE_enfants(SYNDIC){id_parent=#ID_SYNDIC}{tout}{doublons sites}>
+				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons sites} />
+			</BOUCLE_enfants>
+			</BOUCLE_le_site>
+		</BOUCLE_follow_mot>
+		</B_follow_mot>
+		
+		<BOUCLE_tous_sites(SYNDIC){tout}{!doublons sites}>
+			<BOUCLE_tous_liens(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
+					[(#ID_PARENT|>{0}|?{" ",""})
+						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
+					]
+					[(#ID_PARENT|>{0}|?{""," "})
+						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
+					]
+			</BOUCLE_tous_liens>
+		</BOUCLE_tous_sites>
+
+
+	
+		<B_messages>
+		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+		<ul id="messages">
+		<BOUCLE_messages(spip_me){id_me IN #REM|retour_id_me_date}{id_parent=0}{pagination 25}{statut=publi}>
+			<li id="message#ID_ME">
+				[(#ID_ME|microcache{noisettes/afficher_message})]
+			</li>
+		</BOUCLE_messages>
+		</ul>
+		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+		</B_messages>
+		<ul id="messages">
+			<li>Pas encore de messages</li>
+		</ul>	
+		<//B_messages>
+
+#FILTRE{mini_html}

@@ -41,6 +41,7 @@
 		"vous_suivez" => "following",
 		"vous_suivent" => "followers",
 		"themes_vous_suivez" => "The tags you follow",
+		"urls_vous_suivez" => "The sites your follow",
 		"me_suggerer_contacts" => "Suggest me contacts",
 		"logout" => "log out",
 		"vous_connaissez" => "You might know:",

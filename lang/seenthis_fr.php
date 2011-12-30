@@ -41,6 +41,7 @@
 		"vous_suivez" => "abonnements",
 		"vous_suivent" => "abonnés",
 		"themes_vous_suivez" => "Les thèmes que vous suivez",
+		"urls_vous_suivez" => "Les sites que vous suivez",
 		"me_suggerer_contacts" => "Me suggérer des contacts",
 		"logout" => "se déconnecter",
 		"vous_connaissez" => "Vous connaissez peut-être&nbsp;:",

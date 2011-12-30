@@ -77,6 +77,27 @@
 			</BOUCLE_tous_liens>
 		</BOUCLE_tous_mots>
 		
+		[(#REM) Les sites qu'on suit ]
+		<B_follow_url>
+		<BOUCLE_follow_url(spip_me_follow_url){id_follow=#ID_AUTEUR}>
+			<BOUCLE_le_site(SYNDIC){id_syndic=#ID_SYNDIC}{doublons sites}>
+			<BOUCLE_enfants_site(SYNDIC){id_parent=#ID_SYNDIC}{tout}{doublons sites}>
+				<BOUCLE_enfants_site2(BOUCLE_enfants){tout}{doublons sites} />
+			</BOUCLE_enfants_site>
+			</BOUCLE_le_site>
+		</BOUCLE_follow_url>
+		</B_follow_url>
+		
+		<BOUCLE_tous_sites(SYNDIC){tout}{!doublons mots}>
+			<BOUCLE_tous_liens_sites(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
+					[(#ID_PARENT|>{0}|oui)
+						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
+					]
+					[(#ID_PARENT|>{0}|non)
+						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
+					]
+			</BOUCLE_tous_liens_sites>
+		</BOUCLE_tous_sites>
 	
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
