@@ -42,6 +42,9 @@
 	#enfants_sites ul li:hover>ul {
 		display: block;
 	}
+	#entete_people h2 {
+		margin-top: 0;
+	}
 	</style>
 	
 </head>
@@ -75,7 +78,14 @@
 	</ul>
 
 
-	<h1>[(#URL_SITE|replace{#GET{url_racine}}|mb_substr{0,40,utf-8})]</h1>
+	[(#TITRE|oui)
+		<h1>#TITRE</h1>
+		<h2>[(#URL_SITE|replace{#GET{url_racine}}|mb_substr{0,40,utf-8})]</h2>
+	]
+
+	[(#TITRE|non)
+		<h1>[(#URL_SITE|replace{#GET{url_racine}}|mb_substr{0,40,utf-8})]</h1>
+	]
 
 	[(#ID_SYNDIC|microcache{noisettes/afficher_enfants_site})]
 

@@ -12,11 +12,33 @@
 	<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
 
 	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+	
+	
+	#resultat_recherche_site {
+		margin-top: 10px;
+		font-size: 80%;
+	}
+	#resultat_recherche_site ul li {
+		margin-bottom: 4px;
+	}
+	#resultat_recherche_site ul li .lien_lien {
+		padding-left: 0px;
+	}
+	
 	--></style>
 
 	<script><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	
+	function chercher_site() {
+		var chercher = $("#recherche_site").attr("value");
+		$("#resultat_recherche_site").html("...").load("index.php?page=rechercher_site&recherche="+chercher);
+	}
 	--></script>
+	
+	
+	<style>
+	</style>
 	
 </head>
 <body class="tags plier">
@@ -30,6 +52,22 @@
 
 		<h1 class="urls_vous_suivez">&nbsp;</h1>
 		
+		
+
+
+<div id="rechercher_site" class="formulaire_recherche">
+	<form action="http://seenthis.net/spip.php?page=recherche" method="get" onsubmit="chercher_site();return false;">
+	<div>
+		<input name="page" value="recherche" type="hidden" />
+		<input type="text" class="text" size="10" name="recherche" id="recherche_site" accesskey="4" />
+		<input type="image" src="squelettes/imgs/search.png" class="submit" value="&gt;&gt;" title="Rechercher" />
+	</div>
+	</form>
+</div>
+<div id="resultat_recherche_site"></div>
+
+
+
 
 	</div>
 

@@ -1,0 +1,20 @@
+#CACHE{0}
+
+<ul>
+
+<BOUCLE_egal(SYNDIC){url_site==#ENV{recherche}$}{doublons}>
+	<li><strong>
+		[(#TITRE)<br />]
+		<span class="lien_lien"><span class="lien_lien_total"><a href="sites/#ID_SYNDIC">►</a></span><a href="sites/#ID_SYNDIC">[(#URL_SITE|lien_court)]</a></span>
+	</strong></li>
+</BOUCLE_egal>
+
+<BOUCLE_tous(SYNDIC){recherche}{par points}{inverse}{doublons}{0,40}>
+	<li>
+		[(#TITRE)<br />]
+		<span class="lien_lien"><span class="lien_lien_total"><a href="sites/#ID_SYNDIC">►</a></span><a href="sites/#ID_SYNDIC">[(#URL_SITE|lien_court)]</a></span>
+	</li>
+</BOUCLE_tous>
+
+
+</ul>
