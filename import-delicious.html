@@ -9,40 +9,43 @@ function importer_fichier_delicious($id_auteur) {
 
 	echo "<h3>$id_auteur</h3>";
 
+	if (!file_exists($fichier)) echo "Pas de fichier $fichier";
 	$import = join(file($fichier), "");
 	
-	//echo $import;
-	
-	$reg = '<post href="(.*)" hash=".*" description="(.*)" tag="(.*)" time="(.*)" extended="(.*)" meta=".*".*\/>';
+	$reg = '/<post description="(.*)" extended="(.*)" hash=".*" href="(.*)" private="no" shared=".*" tag="(.*)" time="(.*)".*\/>/U';
+	// Ancienne version
+	//$reg = '<post href="(.*)" hash=".*" description="(.*)" tag="(.*)" time="(.*)" extended="(.*)" meta=".*".*\/>';
 	  
 	preg_match_all($reg, $import, $resultats);
 	
 //	rsort($resultats[1]);
 	
-	foreach($resultats[1] as $key => $url) {
+	foreach($resultats[3] as $key => $url) {
 	
 
 		$url = str_replace("&#039;", "'", $url);
 
 	
-		$description = $resultats[2][$key];
+		$description = $resultats[1][$key];
 		$description = html_entity_decode($description);
 		$description = str_replace("&#039;", "'", $description);
 		if (strlen($description) > 0) {
 			$description = $description."\n";
+//			echo "<b>$description</b>";
 		}
 
-		$tags = trim($resultats[3][$key]);
+		$tags = trim($resultats[4][$key]);
 		if (strlen($tags) > 0) {
 			$tags = str_replace("@", "", $tags);
+			$tags = str_replace(":", "_", $tags);
 			$tags = "\n\n#" . preg_replace(", +,", " #", $tags)."\n";
 		}
 
-		$time = trim($resultats[4][$key]);
+		$time = trim($resultats[5][$key]);
 		$time = str_replace("T", " ", $time);
 		$time = str_replace("Z", "", $time);
 		
-		$extended = $resultats[5][$key];
+		$extended = $resultats[2][$key];
 		$extended = html_entity_decode($extended);
 		$extended = str_replace("&#039;", "'", $extended);
 
@@ -67,7 +70,7 @@ function importer_fichier_delicious($id_auteur) {
 }
 
 set_time_limit(0);
-importer_fichier_delicious(11);
+importer_fichier_delicious(922);
 
 
 ?>
