@@ -107,7 +107,7 @@ body.accueil {
 .suivre {
 	margin-bottom: 10px;
 }
-#follow, #follow_mot {
+#follow, #follow_mot, #follow_url {
 	div {
 		color: #666;
 		padding-left: 30px;
@@ -192,6 +192,11 @@ body.accueil {
 		-spip-opacity: 0.8;
 		font-weight: normal;
 	}
+}
+.triangle {
+	font-family: Times, serif;
+	font-size: 0.75em;
+	padding-right: 2px;
 }
 .formulaire_poster_message {
 

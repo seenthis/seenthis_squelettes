@@ -172,7 +172,7 @@ body {
 	}
 }
 
-#follow, #follow_mot {
+#follow, #follow_mot, #follow_url {
 	margin-top: 5px;
 	font-size: 0.9em;
 }
