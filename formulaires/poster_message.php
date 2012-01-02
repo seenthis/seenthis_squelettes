@@ -36,6 +36,24 @@ function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0, $id_dest
 	
 	if  ( strlen(trim($texte_message)) == 0 ) $errors["texte_message"] = "You have to write something before sending.";
 	
+	
+	if ($id_parent > 0) {
+		$query_auteur = sql_select("*", "spip_me", "id_me=$id_parent");
+		if ($row_auteur = sql_fetch($query_auteur)) {
+			$id_block = $row_auteur["id_auteur"];
+			$id_auteur = floor($GLOBALS["auteur_session"]["id_auteur"]);
+			
+			//die("$id_block - $id_auteur");
+			
+			$query = sql_select("*", "spip_me_block", "id_block=$id_block AND id_auteur=$id_auteur");
+			if ($row = sql_fetch($query)) {
+				$errors["texte_message"] = _T("seenthis:auteur_block_you");
+			}
+		}
+	}
+	
+	
+	
 	/*	
 	preg_match_all("/"._REG_PEOPLE."/", $texte_message, $regs);
 	if ($regs) {	
