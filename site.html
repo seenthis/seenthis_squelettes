@@ -111,11 +111,11 @@
 
 		[(#SESSION{id_auteur}|oui)
 		<div class="limite_date">
-		<a href="[(#SELF|parametre_url{follow,me})]"[(#GET{follow}|=={me}|oui)class="actif"]>Mes messages</a>
+		<a href="sites/#ID_SYNDIC?follow=me"[(#GET{follow}|=={me}|oui)class="actif"]>Mes messages</a>
 		|
-		<a href="[(#SELF|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
+		<a href="sites/#ID_SYNDIC?follow=follow"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
 		|
-		<a href="[(#SELF|parametre_url{follow,''})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+		<a href="sites/#ID_SYNDIC"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
 		</div>
 		]
 
