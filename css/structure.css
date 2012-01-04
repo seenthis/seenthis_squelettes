@@ -664,10 +664,16 @@ body {
 }
 .suggestions {
 	.logo_auteur {
+		
 		margin-top: 10px;
 		width: 220px;
 		float: left;
 		font-size: 0.9em;
+		
+		. :nth-child(4n+1) {
+			clear: left;
+		}
+		
 
 		a, a span {
 			color: black;
