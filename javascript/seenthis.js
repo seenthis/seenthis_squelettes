@@ -18,8 +18,7 @@ $('#messages li').live('mouseover', function() {
 	id_me = r[1];
 	me.addClass('cooking').addClass('cooked');
 
-	console.log(me);
-
+	//console.log(me);
 	me.removeClass('cooking');
 });
 
