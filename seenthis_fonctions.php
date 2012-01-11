@@ -357,6 +357,13 @@ function retour_mots_lies_wordle($rien) {
 	return $ret;
 }
 
+$GLOBALS["stocker_type"] = array();
+function stocker_type($id, $type) {
+	$GLOBALS["stocker_type"]["$type"][] = $id;
+}
+function sortir_type($rem, $type) {
+	return $GLOBALS["stocker_type"]["$type"];
+}
 
 $GLOBALS["compter_auteurs"] = array();
 function compter_auteurs($id_auteur) {
