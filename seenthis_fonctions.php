@@ -325,16 +325,32 @@ function afficher_off_mot($id_mot) {
 }
 
 $GLOBALS["mots_lies"] = array();
+$GLOBALS["mots_lies_titre"] = array();
 function compter_mots_lies($id_mot) {
 	$GLOBALS["mots_lies"]["$id_mot"] ++;
+	echo "$titre";
 }
-
+function compter_mots_titre ($id_mot, $titre) {
+	$GLOBALS["mots_lies_titre"]["$id_mot"] = $titre;
+	//echo "$id_mot - $titre";
+}
 
 function retour_mots_lies($rien) {
 	arsort($GLOBALS["mots_lies"]);
 	foreach($GLOBALS["mots_lies"] as $id_mot => $k) {
 		if ($k > 1) {
 			$ret[] = $id_mot;
+		}
+	}
+	return $ret;
+}
+
+
+function retour_mots_lies_wordle($rien) {
+	arsort($GLOBALS["mots_lies"]);
+	foreach($GLOBALS["mots_lies"] as $id_mot => $k) {
+		if ($k > 1 && strlen(trim($GLOBALS["mots_lies_titre"]["$id_mot"]))>0) {
+			$ret .= $GLOBALS["mots_lies_titre"]["$id_mot"].":$k\n";
 		}
 	}
 	return $ret;

@@ -15,7 +15,7 @@
 	<h3>thèmes fréquemment utilisés</h3>
 	<ul>
 	<BOUCLE_resultat(MOTS){tout}{id_mot IN (#REM|retour_mots_lies)}{doublons mots}{0,60}>
-	<li>
+	<li>[(#ID_MOT|compter_mots_titre{#TITRE})]
 		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>
 		<span class="groupe_mot">#TITRE:</span>
 		</BOUCLE_groupe>
@@ -23,6 +23,17 @@
 	</li>
 	</BOUCLE_resultat>
 	</ul>
+	
+			<div id="wordle">
+				<form action="http://www.wordle.net/compose" method="post">
+				<textarea rows="4" cols="10" name="wordcounts" id="wordcounts" style="display: none;">
+				[(#REM|retour_mots_lies_wordle)]
+				</textarea>
+				<input type="submit" class="submit" value="Wordle"/>
+			</form>
+			</div>
+
+	
 	</div>
 	</B_resultat>
 
