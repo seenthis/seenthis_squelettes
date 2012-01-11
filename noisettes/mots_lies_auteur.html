@@ -2,7 +2,8 @@
 
 
 <BOUCLE_principale(AUTEURS){id_auteur}{tout}>
-	<BOUCLE_messages(ME){id_auteur=#ID_AUTEUR}{par date}{inverse}{id_parent=0}{0,100}{statut=publi}>
+	<BOUCLE_messages(ME){follow #ID_AUTEUR}{par date}{inverse}{id_parent=0}{0,100}{statut=publi}>
+	
 		<BOUCLE_mots(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
 
 		<BOUCLE_enfants_me(ME){id_parent=#ID_ME}{statut=publi}>

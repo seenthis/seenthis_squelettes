@@ -331,6 +331,7 @@ function compter_mots_lies($id_mot) {
 	echo "$titre";
 }
 function compter_mots_titre ($id_mot, $titre) {
+	$titre = str_replace( "_", " ", $titre);
 	$GLOBALS["mots_lies_titre"]["$id_mot"] = $titre;
 	//echo "$id_mot - $titre";
 }
@@ -499,12 +500,19 @@ function liste_me_follow($quoi, $env_follow) {
 	// si le mode n'est pas precisé explicitement dans le critere,
 	// se baser sur l'env
 	if (!$quoi) $quoi = $env_follow;
+	$me = $GLOBALS['visiteur_session']['id_auteur'];
+
+	// critère {follow #ID_AUTEUR}
+	$val = floor($quoi);
+	if ($val > 0) {
+		$me = $val;
+		$quoi = "me";
+	}
 
 	switch ($quoi) {
 		case 'all':
 			return;
 		case 'me':
-			$me = $GLOBALS['visiteur_session']['id_auteur'];
 			if ($me > 0) {
 				return '(id_auteur='.$me.' OR '.sql_in('id_me', array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', 'id_auteur='.$me))).')';
 			} else
