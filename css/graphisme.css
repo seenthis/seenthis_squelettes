@@ -159,6 +159,7 @@ body.accueil {
 
 .lien_lien {
 	white-space: nowrap;
+	display: inline-block;
 	padding-left: 20px;
 	background-repeat: no-repeat;
 	background-position: left center;
