@@ -23,7 +23,7 @@
 		<INCLURE{fond=css/couleur}{couleur=dcdf03} />
 		--></style>
 	<//B_auteur_message>
-	[(#SET{couleur,dcdf04})]
+	[(#SET{couleur,99baad})]
 	
 	<script><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
@@ -56,11 +56,19 @@
 	<ul style="padding: 20px;">
 	
 		<BOUCLE_messages(ME){statut=publi} />
+			[(#ID_ME|stocker_id_me_date{#DATE})]
+		</BOUCLE_messages>
 		<li>[(#TOTAL_BOUCLE)] messages publiés</li>
-		<//B_messages>
+		</B_messages>
 		<BOUCLE_auteurs(AUTEURS){statut!=nouveau}{tout} />
 		<li>[(#TOTAL_BOUCLE)] auteurs enregistrés</li>
 		<//B_auteurs>
+		
+		ME: [(#REM|retour_id_me_date)]
+		<BOUCLE_tous_liens(spip_mots spip_me_mot){spip_me_mot.id_me IN #REM|retour_id_me_date}>
+			#ID_MOT
+		</BOUCLE_tous_liens>
+
 
 		[(#SET{auteur_30,0})]
 		<BOUCLE_messages_30(ME){statut=publi}{date>=(#VAL{30}|decaler_date)}>

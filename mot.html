@@ -12,7 +12,7 @@
 	<INCLURE{fond=inc/head}{lang=fr} />
 
 
-	[(#SET{couleur,dcdf04})]
+	[(#SET{couleur,99baad})]
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
 		<style type="text/css"><!--
@@ -20,9 +20,9 @@
 		[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
 		--></style>
 	</BOUCLE_auteur_message>
-		[(#SET{couleur,e26ed8})]
+		[(#SET{couleur,99baad})]
 		<style type="text/css"><!--
-		<INCLURE{fond=css/couleur}{couleur=e26ed8} />
+		<INCLURE{fond=css/couleur}{couleur=#GET{couleur}} />
 		<INCLURE{fond=css/inscription}{couleur=#GET{couleur}} />
 		
 		.formulaire_inscription {

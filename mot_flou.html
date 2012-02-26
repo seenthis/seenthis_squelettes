@@ -12,7 +12,7 @@
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr} />
 
-	[(#SET{couleur,dcdf04})]
+	[(#SET{couleur,99baad})]
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
 		<style type="text/css"><!--
