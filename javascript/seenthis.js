@@ -321,7 +321,9 @@ function switch_comments(id_me) {
 			} else {
 				isCtrl = false;
 			}
-		});
+		}).live("keyup", function(e) {
+			isCtrl = false;
+		});;
 		
 		$('textarea').live("keyup", function(e) {
 			var area = $(this);
