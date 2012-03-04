@@ -18,7 +18,7 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 		"id_dest" => $id_dest,
 		"ze_mot" => $ze_mot,
 		"id_auteur" => $GLOBALS["auteur_session"]["id_auteur"],
-		'action' => '/',
+		'action' => url_de_base(),
 	);
 
 	return $valeurs;
