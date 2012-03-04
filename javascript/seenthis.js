@@ -26,15 +26,14 @@ $('#messages li').live('mouseover', function() {
 
 function switch_comments(id_me) {
 	$('.yourmessage').show(); 
-	
-	if( $('#repondre'+id_me).is(':visible') ){ 
-		$('.repondre').stop().slideUp("fast");
-	} else { 
-		$('.repondre').stop().slideUp("fast"); 
-		$('.formulaire_poster_message').removeClass('focus');  
-		$('#yourmessage'+id_me).hide(); 
-		$('#repondre'+id_me).stop().slideDown("fast").find('.formulaire_poster_message').addClass('focus').find('textarea').focus();
-	}  
+
+	$('.repondre').stop().slideUp("fast");
+
+	if (!($('#repondre'+id_me).is(':visible') && ($('#repondre'+id_me).height() > 10)) ) {
+		$('.formulaire_poster_message').removeClass('focus');
+		$('#yourmessage'+id_me).hide();
+		$('#repondre'+id_me).stop().slideDown("fast").find('.formulaire_poster_message').addClass('focus').find('textarea').show().focus();
+	}
 }
 
 	
