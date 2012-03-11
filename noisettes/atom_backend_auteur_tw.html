@@ -11,7 +11,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 		<BOUCLE_messages_perso(spip_me){0,25}{id_auteur}{par date}{inverse}{id_parent=0}{statut=publi}>[(#SET{messages, #GET{messages}|push{#ID_ME}})]</BOUCLE_messages_perso>
 		<BOUCLE_share(spip_me_share){0,25}{par date}{inverse}{id_auteur}>[(#SET{messages, #GET{messages}|push{#ID_ME}})]</BOUCLE_share>
 
-<BOUCLE_me(spip_me){id_me IN #GET{messages}}{0,25}{par date}{inverse}{statut=publi}>
+<BOUCLE_me(spip_me){id_me IN #GET{messages}}{0,40}{par date}{inverse}{statut=publi}>
 	[(#ID_ME|microcache{noisettes/atom_me_tw})]
 </BOUCLE_me>
 </feed>
