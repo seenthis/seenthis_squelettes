@@ -12,7 +12,7 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 		}
 	}
 
-	
+	include_spip("base/utils");	
 	$valeurs = Array(
 		"texte_message"=> "$texte_message",
 		"id_dest" => $id_dest,
