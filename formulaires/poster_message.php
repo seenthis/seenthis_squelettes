@@ -12,13 +12,12 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 		}
 	}
 
-	include_spip("base/utils");	
 	$valeurs = Array(
 		"texte_message"=> "$texte_message",
 		"id_dest" => $id_dest,
 		"ze_mot" => $ze_mot,
 		"id_auteur" => $GLOBALS["auteur_session"]["id_auteur"],
-		'action' => url_de_base(),
+		'action' => preg_replace(',^[^/]+://[^/]+/,', '/', url_de_base()),
 	);
 
 	return $valeurs;
