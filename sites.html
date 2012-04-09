@@ -1,6 +1,12 @@
 #CACHE{0}
 [(#SESSION{id_auteur}|>{0}|oui)
-	[(#INCLURE{fond=connecte/page_sites}{id_auteur=#SESSION{id_auteur}}{env})]
+
+		[(#ENV{debut_messages}|>{10}|non)
+			[(#SESSION{id_auteur}|microcache{connecte/page_sites})]
+		]
+		[(#ENV{debut_messages}|>{10}|oui)
+			<INCLURE{fond=connecte/page_sites}{id=#SESSION{id_auteur}}{env} />
+		]
 ]
 
 [(#SESSION{id_auteur}|>{0}|non)
