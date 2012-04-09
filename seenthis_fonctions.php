@@ -483,6 +483,33 @@ function detecter_langue_visiteur($rien) {
 }
 
 
+function critere_follow_sites($idb, &$boucles, $crit) {
+	$boucle = &$boucles[$idb];
+	$quoi = calculer_liste($crit->param[0], array(), $boucles, $boucles[$idb]->id_parent);
+
+	$env_follow = (calculer_argument_precedent($idb, 'follow', $boucles));
+
+	$boucle->where[] = 'liste_me_follow_sites('.$quoi.', '.$env_follow.')';
+
+}
+
+function liste_me_follow_sites($quoi, $env_follow) {
+	$me = $GLOBALS['visiteur_session']['id_auteur'];
+	if ($me > 0) {
+	
+	 	$sites = array_map('array_pop', sql_allfetsel('id_syndic', 'spip_me_follow_url', 'id_follow='.$me));
+	 	
+	 	$parents = $sites;
+	 	while ( $enfants = array_map('array_pop', sql_allfetsel('id_syndic', 'spip_syndic', sql_in('id_parent', $parents))) ) {
+	 		$parents = $enfants;
+		 	$sites = array_merge($sites, $enfants);
+	 	}
+		return '('.sql_in('id_syndic', $sites).')';
+	}
+}
+
+
+
 // follow implique #SESSION
 function critere_follow_dist($idb, &$boucles, $crit) {
 	$boucle = &$boucles[$idb];

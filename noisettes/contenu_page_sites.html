@@ -1,16 +1,6 @@
 #CACHE{0}
 
-		<B_follow_mot>
-		<BOUCLE_follow_mot(spip_me_follow_url){id_follow=#ENV{id}}>
-			<BOUCLE_le_site(SYNDIC){id_syndic=#ID_SYNDIC}{doublons sites}>
-			<BOUCLE_enfants(SYNDIC){id_parent=#ID_SYNDIC}{tout}{doublons sites}>
-				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons sites} />
-			</BOUCLE_enfants>
-			</BOUCLE_le_site>
-		</BOUCLE_follow_mot>
-		</B_follow_mot>
-		
-		<BOUCLE_tous_sites(SYNDIC){tout}{!doublons sites}>
+		<BOUCLE_tous_sites(SYNDIC){tout}{follow_sites}>
 			<BOUCLE_tous_liens(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
 					[(#ID_PARENT|>{0}|?{" ",""})
 						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
