@@ -6,7 +6,7 @@
 
 			#SET{messages, #ARRAY{}}
 
-			<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
+			<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}{off!=oui}>
 				[(#ID_PARENT|>{0}|?{" ",""})
 					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
 				]
@@ -29,10 +29,10 @@
 			</BOUCLE_sites>
 			
 			<BOUCLE_messages_compt(ME){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{0,300}{statut=publi}>
-				<BOUCLE_mots(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
+				<BOUCLE_mots(spip_me_mot){id_me=#ID_ME}{off!=oui}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
 				
 				<BOUCLE_enfants_me(ME){id_parent=#ID_ME}>
-					<BOUCLE_mots2(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots2>
+					<BOUCLE_mots2(spip_me_mot){id_me=#ID_ME}{off!=oui}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots2>
 				</BOUCLE_enfants_me>
 			</BOUCLE_messages_compt>
 
@@ -40,7 +40,7 @@
 			#SET{messages, #ARRAY{}}
 			<BOUCLE_resultat(MOTS){tout}{id_mot IN (#REM|retour_mots_lies)}{0,10}>
 
-			<BOUCLE_tous_liens_res(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
+			<BOUCLE_tous_liens_res(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}{off!=oui}>
 				[(#ID_PARENT|>{0}|?{" ",""})
 					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
 				]

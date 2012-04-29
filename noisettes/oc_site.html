@@ -9,7 +9,7 @@
 <div class="mots_lies">
 <h3>thèmes de ce site</h3>
 <ul>
-<BOUCLE_calais(MOTS spip_syndic_oc) {spip_syndic_oc.id_syndic=#ENV{id}}{relevance>300}{par relevance}{inverse}>
+<BOUCLE_calais(MOTS spip_syndic_oc) {spip_syndic_oc.id_syndic=#ENV{id}}{spip_syndic_oc.off!=oui}{relevance>300}{par relevance}{inverse}>
 	<li>
 		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}>
 		<span class="groupe_mot">#TITRE:</span>

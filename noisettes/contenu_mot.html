@@ -13,7 +13,7 @@
 	</BOUCLE_enfants>
 	
 	[(#REM) OpenCalais sur les sites ]
-	<BOUCLE_sites(spip_syndic_oc){id_mot=#ENV{id}}>
+	<BOUCLE_sites(spip_syndic_oc){off!=oui}{id_mot=#ENV{id}}>
 		<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
 			[(#ID_PARENT|>{0}|oui)
 				[(#ID_PARENT|stocker_id_me)]
@@ -25,7 +25,7 @@
 	</BOUCLE_sites>
 	
 	<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
-		<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
+		<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}{off!=oui}>
 			[(#ID_PARENT|>{0}|oui)
 				[(#ID_PARENT|stocker_id_me)]
 			]

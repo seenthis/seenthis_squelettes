@@ -18,7 +18,7 @@
 			</BOUCLE_sites>
 			
 			<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
-				<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
+				<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}{off!=oui}>
 					[(#ID_PARENT|>{0}|?{" ",""})
 						[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
 					]
