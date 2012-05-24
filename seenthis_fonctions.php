@@ -529,6 +529,8 @@ function critere_follow_dist($idb, &$boucles, $crit) {
 // - les favoris des auteurs que je suis
 // {follow me} : mes message + mes favoris
 // {follow all} : tous les messages de la base
+// {follow LOGIN} : tous les messages de ce login + ses favoris
+// [A noter les login "me", "follow" et "all" sont niques]
 function liste_me_follow($quoi, $env_follow) {
 
 	// si le mode n'est pas precisé explicitement dans le critere,
@@ -537,10 +539,12 @@ function liste_me_follow($quoi, $env_follow) {
 	$me = $GLOBALS['visiteur_session']['id_auteur'];
 
 	// critère {follow #ID_AUTEUR}
-	$val = floor($quoi);
-	if ($val > 0) {
-		$me = $val;
-		$quoi = "me";
+	if (is_numeric($quoi)) {
+		$val = floor($quoi);
+		if ($val > 0) {
+			$me = $val;
+			$quoi = "me";
+		}
 	}
 
 	switch ($quoi) {
@@ -552,7 +556,6 @@ function liste_me_follow($quoi, $env_follow) {
 			} else
 				return '0=1';
 		case 'follow':
-		default:
 			$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
 			if ($id_auteur > 0) {
 				$suivi = liste_follow($id_auteur);
@@ -563,6 +566,12 @@ function liste_me_follow($quoi, $env_follow) {
 					.' OR '.sql_in('id_me',
 						array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', $auteurs))
 					).')';
+			} else
+				return '0=1';
+		default:
+			if ($auteur = sql_fetsel('id_auteur', 'spip_auteurs', 'login='.sql_quote($quoi))) {
+				$me = $auteur['id_auteur'];
+				return '(id_auteur='.$me.' OR '.sql_in('id_me', array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', 'id_auteur='.$me))).')';
 			} else
 				return '0=1';
 	}
