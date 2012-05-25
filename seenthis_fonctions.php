@@ -556,6 +556,7 @@ function liste_me_follow($quoi, $env_follow) {
 			} else
 				return '0=1';
 		case 'follow':
+		case '':
 			$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
 			if ($id_auteur > 0) {
 				$suivi = liste_follow($id_auteur);
