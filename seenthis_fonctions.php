@@ -245,10 +245,10 @@ function afficher_miniature($img) {
 	
 	
 	include_spip("inc/filtres_images_mini");
-	$vignette = image_reduire($vignette, 220);
+	$vignette = image_reduire($vignette, 300, 180);
 	$vignette = inserer_attribut($vignette, "alt", "");
 
-	$max = 240;
+	$max = 200;
 	
 	if ($width <= $max && $height <= $max) return "$vignette";
 
