@@ -1,0 +1,18 @@
+#CACHE{0}
+<BOUCLE_principale(ME){id_me=#ENV{id}}>
+<message>
+<BOUCLE_qui(AUTEURS){id_auteur}{tous}><author href="[(#URL_AUTEUR|url_absolue)]"><![CDATA[[(#NOM|interdire_scripts)]]]></author></BOUCLE_qui>
+<date>[(#DATE|date_iso)]</date>
+<text><![CDATA[[(#ID_ME|texte_de_me|interdire_scripts)]]]></text>
+<B_mots><tags>
+<BOUCLE_mots(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots>
+</tags></B_mots>
+<B_liens>
+<urls>
+<BOUCLE_liens(SITES spip_me_syndic){spip_me_syndic.id_me=#ID_ME}>
+<url href="#URL_SITE_SPIP/sites/#ID_SYNDIC"><![CDATA[#URL_SITE]]></url>
+</BOUCLE_liens>
+</urls>
+</B_liens>
+</message>
+</BOUCLE_principale>

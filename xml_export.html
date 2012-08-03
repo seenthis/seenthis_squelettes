@@ -4,37 +4,9 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}><messages href="[(#URL_AUTEUR|url_absolue)]">
 	<BOUCLE_messages(ME){follow me}{id_parent=0}{statut=publi}{par date}{inverse}>
 	<thread href="#URL_SITE_SPIP/messages/#ID_ME">
-	<message>
-		<BOUCLE_qui(AUTEURS){id_auteur}{tous}><author href="[(#URL_AUTEUR|url_absolue)]"><![CDATA[[(#NOM|interdire_scripts)]]]></author></BOUCLE_qui>
-		<date>[(#DATE|date_iso)]</date>
-		<text><![CDATA[[(#ID_ME|texte_de_me|interdire_scripts)]]]></text>
-		<B_mots><tags>
-		<BOUCLE_mots(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots>
-		</tags></B_mots>
-		<B_liens>
-		<urls>
-		<BOUCLE_liens(SITES spip_me_syndic){spip_me_syndic.id_me=#ID_ME}>
-		<url href="#URL_SITE_SPIP/sites/#ID_SYNDIC"><![CDATA[#URL_SITE]]></url>
-		</BOUCLE_liens>
-		</urls>
-		</B_liens>
-	</message>
+		[(#ID_ME|microcache{noisettes/afficher_me_xml})]
 	<BOUCLE_reponses(ME){id_parent=#ID_ME}{par date}{statut=publi}>
-	<message>
-		<BOUCLE_qui2(AUTEURS){id_auteur}{tous}><author href="[(#URL_AUTEUR|url_absolue)]"><![CDATA[[(#NOM|interdire_scripts)]]]></author></BOUCLE_qui2>
-		<date>[(#DATE|date_iso)]</date>
-		<text><![CDATA[[(#ID_ME|texte_de_me|interdire_scripts)]]]></text>
-		<B_mots2><tags>
-		<BOUCLE_mots2(MOTS spip_me_mot) {id_groupe=1} {spip_me_mot.id_me=#ID_ME}{par titre}><tag href="[(#URL_MOT|url_absolue)]">#TITRE</tag></BOUCLE_mots2>
-		</tags></B_mots2>
-		<B_liens2>
-		<urls>
-		<BOUCLE_liens2(SITES spip_me_syndic){spip_me_syndic.id_me=#ID_ME}>
-		<url href="#URL_SITE_SPIP/sites/#ID_SYNDIC"><![CDATA[#URL_SITE]]></url>
-		</BOUCLE_liens2>
-		</urls>
-		</B_liens2>
-	</message>
+		[(#ID_ME|microcache{noisettes/afficher_me_xml})]
 	</BOUCLE_reponses>
 	</thread></BOUCLE_messages>
 </messages></BOUCLE_auteur>
