@@ -76,7 +76,7 @@
 		"message_suggerer" => "
 				<strong>New to Seenthis? You should begin by following some people.</strong>
 				<p>Click on the “Suggest me contacts” button, and visit the pages of the proposed authors. If an author interests you, follow him by clicking on “Follow this author” button at the top of his page. Then come back to this page, and ask again for suggestions which will be more precise each time.</p>
-				<p>This message will disappear when you subscrive to five authors. Then, you will find the “Suggest me contacts” button on your “@people” page.</p>",
+				<p>This message will disappear when you subscribe to five authors. Then, you will find the “Suggest me contacts” button on your “@people” page.</p>",
 
 		'Z' => 'ZZzZZzzz'
 
