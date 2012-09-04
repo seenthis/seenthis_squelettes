@@ -45,6 +45,14 @@
 	[(#SESSION{id_auteur}|non)
 		<div class="centrer"><INCLURE{fond=slogan} /></div>
 	]
+	[(#SET{follow,#ENV{follow}})]
+	[(#ENV{follow}|non)
+		[(#SET{follow,all})]
+	]
+	[(#SESSION{id_auteur}|non)
+		[(#SET{follow,all})]
+	]
+	
 
 
 <div id="principale">
@@ -66,7 +74,7 @@
 				<div id="follow_mot"></div>
 			</div>
 
-			<div class="rss"><a href="index.php?page=backend_mot&id_mot=#ID_MOT">flux RSS de [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
+			<div class="rss"><a href="/?page=backend_mot&amp;id_mot=#ID_MOT[&amp;follow=(#GET{follow}|replace{^(follow|all)$})]">flux RSS de [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
 		</div>
 	
 		[(#ID_GROUPE|=={1}|oui)
@@ -94,14 +102,6 @@
 		</div>
 
 
-	[(#SET{follow,#ENV{follow}})]
-	[(#ENV{follow}|non)
-		[(#SET{follow,all})]
-	]
-	[(#SESSION{id_auteur}|non)
-		[(#SET{follow,all})]
-	]
-	
 
 		[(#SESSION{id_auteur}|oui)
 		<div class="limite_date">
