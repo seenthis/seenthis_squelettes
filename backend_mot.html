@@ -24,7 +24,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 			</BOUCLE_tous_liens>
 		</BOUCLE_tous_mots>
 	
-		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 40}{statut=publi}>
+		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 40}{statut=publi}{follow}>
 		[(#ID_ME|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
 		</BOUCLE_messages>
 </feed>
