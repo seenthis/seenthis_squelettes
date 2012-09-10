@@ -236,11 +236,20 @@ function couleur_chroma ($coul, $num) {
 	return $couleurs;
 }
 
-function afficher_miniature($img) {
+function afficher_miniature($img, $max = 200) {
 	$vignette = copie_locale($img);
 	
 	list($width, $height) = @getimagesize($vignette);
-	
+
+	if (!$width and preg_match(',\.svg$,', $vignette)) {
+		$xmlget = simplexml_load_string(file_get_contents($vignette));
+		$xmlattributes = $xmlget->attributes();
+		$width = (string) $xmlattributes->width; 
+		$height = (string) $xmlattributes->height;
+		$vignette = "<img src='".$vignette."' width=$width height=$height />";
+		$svg = true; # pas de shadowbox
+	}
+
 	if (($width * $height) < 300) return;
 	
 	
@@ -248,11 +257,13 @@ function afficher_miniature($img) {
 	$vignette = image_reduire($vignette, 300, 180);
 	$vignette = inserer_attribut($vignette, "alt", "");
 
-	$max = 200;
-	
-	if ($width <= $max && $height <= $max) return "$vignette";
+	if ($width <= $max && $height <= $max)
+		return $vignette;
 
-	 return "<a rel='shadowbox[Portfolio]' href='$img' class='display_box'>$vignette</a>";
+	if ($svg)
+		return "<a href='$img'>$vignette</a>";
+	else
+		return "<a rel='shadowbox[Portfolio]' href='$img' class='display_box'>$vignette</a>";
 }
 
 $GLOBALS["oc_lies"] = array();
