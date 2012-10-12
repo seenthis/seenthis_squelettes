@@ -10,7 +10,8 @@
 #sb-loading{position:relative;height:100%;}
 #sb-loading-inner{position:absolute;font-size:14px;line-height:24px;height:24px;top:50%;margin-top:-12px;width:100%;text-align:center;}
 #sb-loading-inner span{background:url(loading.gif) no-repeat;padding-left:34px;display:inline-block;}
-#sb-body,#sb-loading{background-color:#060606;}
+#sb-loading{background-color:#060606;}
+#sb-body{background-color:#fff;}
 #sb-title,#sb-info{position:relative;margin:0;padding:0;overflow:hidden;}
 #sb-title,#sb-title-inner{height:26px;line-height:26px;}
 #sb-title-inner{font-size:16px;}
