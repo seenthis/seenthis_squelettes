@@ -17,7 +17,7 @@
 	]
 	<div class="cadre">
 	
-		[(#REM) pour IE qui sinon se perd dans l'ajax !, ne pas retirer]<br class='bugajaxie' />
+		[(#REM) pour IE qui sinon se perd dans l'ajax !, ne pas retirer]<br class='bugajaxie'>
 	
 		<form method='post' action='#ENV{action}' enctype='multipart/form-data'>
 			#ACTION_FORMULAIRE{#ENV{action}}
@@ -62,10 +62,10 @@
 				<p class="boutons">
 					
 					[(#REM)
-						<input type="reset" value="<:seenthis:annuler:>" />
+						<input type="reset" value="<:seenthis:annuler:>">
 					]
 				
-					<input type="submit" value="<:seenthis:envoyer:>" />
+					<input type="submit" value="<:seenthis:envoyer:>">
 				</p>
 		</form>
 	</div>
@@ -74,7 +74,7 @@
 </div>
 
 	[<p class='envoi_message_ok'>(#ENV**{message_ok}|table_valeur{texte})</p>
-		<script type="text/javascript"><!--
+		<script><!--
 		
 		if ("[(#ENV**{message_ok}|table_valeur{maj})]" > 0) {
 			$("#message[(#ENV**{message_ok}|table_valeur{pave})]")

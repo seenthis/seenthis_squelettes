@@ -10,16 +10,15 @@
 
 	<fonctions>seenthis_fonctions.php</fonctions>
 
-	<necessite id="seenthis" />
+	<necessite id="seenthis">
 
-	<necessite id="SPIP" version="[2.1.0;]" />
+	<necessite id="SPIP" version="[2.1.0;]">
 
-	<necessite id="microcache" />
-	<necessite id="css_imbriques" />
-	<necessite id="inclureajaxload" />
-	<necessite id="calcul_date" />
-
-	<utilise id="gravatar" />
+	<necessite id="microcache">
+	<necessite id="css_imbriques">
+	<necessite id="inclureajaxload">
+	<necessite id="calcul_date">
+	<utilise id="gravatar">
 
 </plugin>
 

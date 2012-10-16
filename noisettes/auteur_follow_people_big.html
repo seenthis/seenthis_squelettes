@@ -11,7 +11,7 @@
 	
 	<BOUCLE_follow_people(spip_auteurs){id_auteur IN #GET{follow_people}}{tout}{par troll}{inverse}{pagination 100}>
 		<div class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-			<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="" />
+			<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="">
 			<span class="nom">#NOM</span>
 			<span class="login">@#LOGIN</span>
 		</a></div>

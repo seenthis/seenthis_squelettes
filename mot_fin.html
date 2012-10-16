@@ -1,27 +1,27 @@
 #CACHE{0}
 <BOUCLE_principale(MOTS){id_mot}{tout}{doublons mots}>
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<!DOCTYPE html>
+<html>
 <head>
 	<title>[(#TITRE|mb_strtolower{UTF-8})]</title>
-	<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
-	<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT" />
+	<meta charset="#CHARSET">
+	<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT">
 	
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT" />
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT">
 	
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
-	<INCLURE{fond=inc/head}{lang=fr} />
+	<INCLURE{fond=inc/head}{lang=fr}>
 
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
-		<style type="text/css"><!--
-		<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
 		[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
 		--></style>
 	</BOUCLE_auteur_message>
 		[(#SET{couleur,e26ed8})]
-		<style type="text/css"><!--
-		<INCLURE{fond=css/couleur}{couleur=e26ed8} />
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=e26ed8}>
 		--></style>
 	<//B_auteur_message>
 	[(#SET{couleur,99baad})]
@@ -43,7 +43,7 @@
 	<div id="entete_people">
 
 
-		<ul class="parents_url clearfix">
+		<ul class="parents_url">
 		<BOUCLE_parents(MOTS){id_mot=#ID_PARENT}{tout}>
 			<!-- #ID_MOT #ID_PARENT -->
 			<BOUCLE_parents2(BOUCLE_parents) />
@@ -54,11 +54,11 @@
 
 		[(#REM)
 		<div class="outils">
-			<div class="suivre clearfix">
+			<div class="suivre">
 				<div id="follow_mot"></div>
 			</div>
 
-			<div class="rss"><a href="index.php?page=backend_mot&id_mot=#ID_MOT">flux RSS de [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
+			<div class="rss"><a href="index.php?page=backend_mot&id_mot=#ID_MOT">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
 		</div>
 		]
 	
@@ -94,7 +94,7 @@
 			[(#ID_MOT|microcache{noisettes/contenu_mot_fin})]
 		]
 		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_mot_fin}{id=#ID_MOT} />
+			<INCLURE{fond=noisettes/contenu_mot_fin}{id=#ID_MOT}>
 		]
 
 		</div>
@@ -102,17 +102,17 @@
 
 	</div>
 	
-	<div id="droite">
+	<aside id="droite">
 
 		[(#SESSION{id_auteur}|?{""," "})
 			[(#GET{couleur}|microcache{noisettes/adsense})]
 		]
 
-		<INCLURE{fond=noisettes/mots_lies_fin}{id_mot}{ajaxload} />
+		<INCLURE{fond=noisettes/mots_lies_fin}{id_mot}{ajaxload}>
 		
 		
 		&nbsp;
-	</div>
+	</aside>
 
 	<div class="clear-left"></div>
 </div>

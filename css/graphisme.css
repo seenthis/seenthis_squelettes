@@ -78,15 +78,16 @@ body.accueil {
 		}
 	}
 }
-#entete {
+nav#entete {
 	background-color: #4c4646;
 	-spip-gradient: top, #4c4646, #403b3b;
 	-spip-box-shadow: 0px 0px 5px #000000;	
 	
 	color: #7c7474;
+	position: fixed;
 }
 
-#footer {
+footer {
 	clear: both;
 	background-color: #635a5a;
 	font-size: 70%;
@@ -105,6 +106,7 @@ body.accueil {
 }
 
 .suivre {
+	-spip-clear: fix;
 	margin-bottom: 10px;
 }
 #follow, #follow_mot, #follow_url {
@@ -163,6 +165,9 @@ body.accueil {
 	padding-left: 20px;
 	background-repeat: no-repeat;
 	background-position: left center;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	
 	
 	a {

@@ -1,5 +1,5 @@
 #CACHE{0}
-<BOUCLE_me(spip_me){id_me=#ID}>
+<BOUCLE_me(spip_me){id_me=#ID}><article>
 		<a name="message#ID_ME"></a>
 		
 		[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur})]
@@ -7,15 +7,15 @@
 		<div class="texte_reponse auteur#ID_AUTEUR">
 
 
-			<div class="stumble">[<a href="http://www.stumbleupon.com/submit?url=(#ID_ME|share_lien)" class="spip_out" rel="nofollow" title="StumbleUpon"><img src="#CHEMIN{imgs/stumble.png}" width="14" height="14" alt="" /></a>]</div>
-			<div class="facebook">[<a href="(#ID_ME|share_fb{#[(#ID_ME|texte_de_me)]})" class="spip_out" rel="nofollow" title="Facebook"><img src="#CHEMIN{imgs/facebook.gif}" width="14" height="14" alt="" /></a>]</div>
-			<div class="twitter">[<a href="http://twitter.com/intent/tweet?text=(#ID_ME|share_tw{[(#ID_ME|texte_de_me)]}|rawurlencode)" class="spip_out" rel="nofollow" title="Twitter"><img src="#CHEMIN{imgs/twitter.png}" width="16" height="13" alt="" /></a>]</div>
+			<div class="stumble">[<a href="http://www.stumbleupon.com/submit?url=(#ID_ME|share_lien)" class="spip_out" rel="nofollow" title="StumbleUpon"><img src="#CHEMIN{imgs/stumble.png}" width="14" height="14" alt=""></a>]</div>
+			<div class="facebook">[<a href="(#ID_ME|share_fb{#[(#ID_ME|texte_de_me)]})" class="spip_out" rel="nofollow" title="Facebook"><img src="#CHEMIN{imgs/facebook.gif}" width="14" height="14" alt=""></a>]</div>
+			<div class="twitter">[<a href="http://twitter.com/intent/tweet?text=(#ID_ME|share_tw{[(#ID_ME|texte_de_me)]}|rawurlencode)" class="spip_out" rel="nofollow" title="Twitter"><img src="#CHEMIN{imgs/twitter.png}" width="16" height="13" alt=""></a>]</div>
 
 
 			<div class="auteur_date">
 				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
 
-				<span class="date"><a href="#URL_ME" title="[(#DATE|date_u)]" class="calcul_date">[(#DATE|affdate)]</a></span>
+				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|annee)]-[(#DATE|mois)]-[(#DATE|journum)] [(#DATE|heures)]:[(#DATE|minutes)]</time></a></span>
 
 				<div class="favori[(#ID_PARENT|=={0}|?{'','_off'})]">
 					[(#SET{total,""})]
@@ -103,9 +103,6 @@
 			</div>
 	
 		</div>	
-		<div class="clear-left"></div>
-		
-
-		
+</article>
 </BOUCLE_me>
 #FILTRE{mini_html}

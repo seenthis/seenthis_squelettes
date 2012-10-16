@@ -11,6 +11,10 @@ ul#messages, ul.messages {
 		position: relative;
 		clear: left;
 
+		article {
+			-spip-clear: fix;
+		}
+
 		.logo_auteur {
 			padding-top: 23px;
 			padding-bottom: 10px;
@@ -18,6 +22,17 @@ ul#messages, ul.messages {
 			width: 48px;
 			float: left;
 			zoom: 1;
+
+			-spip-transition-property: margin-left, margin-right;
+			-spip-transition-duration: 0.2s;
+
+			@media all and (min-width: 780px) and (max-width: 1000px) {	
+				margin-left: 65px;
+			}
+			@media all and (max-width: 680px) {	
+				margin-left: 5px;
+			}
+
 			
 			img {
 				width: 48px;
@@ -38,6 +53,19 @@ ul#messages, ul.messages {
 			padding-top: 20px;
 			padding-bottom: 10px;
 			zoom: 1;
+
+			-spip-transition-property: margin-left, margin-right;
+			-spip-transition-duration: 0.2s;
+			
+			@media all and (min-width: 780px) and (max-width: 1000px) {	
+				margin-left: 153px;
+				margin-right: 90px;
+			}
+			@media all and (max-width: 680px) {	
+				margin-left: 63px;
+				margin-right: 10px;
+			}			
+			
 			
 			.favori {
 				font-size: 0.8em;
@@ -471,18 +499,25 @@ ul#messages, ul.messages {
 			background: url(../imgs/fond-bas-reponses.png) bottom left repeat-x;
 		}
 		ul.reponses {
-			background: url(../imgs/fond-haut-reponses.png) top left no-repeat;
+			background: url(../imgs/fond-haut-reponses.png) top left repeat-x;
 			clear: left;
 			list-style-type: none;
 			font-size: 95%;
 			padding-left: 0px;
+
+			-spip-transition-property: background-position;
+			-spip-transition-duration: 0.2s;
+
+			@media all and (min-width: 780px) and (max-width: 1000px) {	
+				background-position: 50px 0px;
+			}
+			@media all and (max-width: 680px) {	
+				background-position: -40px 0px;
+			}
+
 			
 			.twitter, .facebook, .stumble {
 				display: none;
-			}
-
-			textarea {
-				width: 441px;
 			}
 			
 			li.reponse {
@@ -506,6 +541,13 @@ ul#messages, ul.messages {
 					float: left;
 					width: 32px;
 					padding-top: 17px;
+
+					@media all and (min-width: 780px) and (max-width: 1000px) {	
+						margin-left: 153px;
+					}
+					@media all and (max-width: 680px) {	
+						margin-left: 63px;
+					}
 					
 					img {
 						width: 32px;
@@ -525,6 +567,15 @@ ul#messages, ul.messages {
 					margin-left: 154px;
 					padding-top: 15px;
 					padding-bottom: 5px;
+
+					@media all and (min-width: 780px) and (max-width: 1000px) {	
+						margin-left: 204px;
+					}
+					@media all and (max-width: 680px) {	
+						margin-left: 103px;
+					}
+
+
 				}
 				
 				.texte {
@@ -580,9 +631,6 @@ ul#messages, ul.messages {
 			padding-right: 40px;
 			padding-bottom: 20px;
 			border-bottom: 1px solid #ccc;
-		}
-		textarea {
-			width: 494px;
 		}
 		.mots_lies {
 			-spip-clear: fix;

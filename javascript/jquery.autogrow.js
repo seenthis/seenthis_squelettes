@@ -106,10 +106,10 @@
 			
 			// IE is different, as per usual
 			if (jQuery.browser.msie) {
-				html = html.replace(/\n/g, '<BR/>new');
+				html = html.replace(/\n/g, '<BR>new');
 			}
 			else {
-				html = html.replace(/\n/g, '<br/>new');
+				html = html.replace(/\n/g, '<br>new');
 			}
 			
 			if (this.dummy.html() != html) {

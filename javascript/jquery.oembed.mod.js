@@ -77,7 +77,7 @@
 	    var alt = data.title ? data.title : '';
         alt += data.author_name ? ' - ' + data.author_name : '';
         alt += data.provider_name ? ' - ' +data.provider_name : '';
-        var code = '<div><a href="' + url + '" target="_blank"><img src="' + data.url + '" alt="' + alt + '"/></a></div>';
+        var code = '<div><a href="' + url + '" target="_blank"><img src="' + data.url + '" alt="' + alt + '"></a></div>';
         if (data.html)
             code += "<div>" + data.html + "</div>";
         return code;

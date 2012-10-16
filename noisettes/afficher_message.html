@@ -2,7 +2,7 @@
 #CACHE{0}
 
 <BOUCLE_principale(spip_me){id_me=#ENV{id}}{statut=publi}>
-<div class="auteur#ID_AUTEUR clearfix">
+<section class="auteur#ID_AUTEUR">
 	[(#ID_ME|microcache{noisettes/afficher_un_message})]
 
 
@@ -26,6 +26,6 @@
 	[(#FORMULAIRE_POSTER_MESSAGE{0, #ID_ME})]
 	</div>
 
-</div>
+</section>
 </BOUCLE_principale>
 #FILTRE{mini_html}

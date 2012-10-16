@@ -39,7 +39,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 		</BOUCLE_share>
 	
 		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{0,40}{statut=publi}>
-		<INCLURE{fond=inc/rss-item-lien}{id_me} />
+		<INCLURE{fond=inc/rss-item-lien}{id_me}>
 		</BOUCLE_messages>
 
 

@@ -211,7 +211,7 @@ class Readability
 	* Debug
 	*/
 	protected function dbg($msg) {
-		if ($this->debug) echo '* ',$msg, '<br />', "\n";
+		if ($this->debug) echo '* ',$msg, '<br>', "\n";
 	}
 	
 	/**
@@ -923,7 +923,7 @@ class Readability
 		// doing the search and replace on the string, then turning it 
 		// back into an element and replacing the old element with the new.
 		$html = $node->innerHTML;
-		$html = preg_replace($this->regexps['killBreaks'], '<br />', $html);
+		$html = preg_replace($this->regexps['killBreaks'], '<br>', $html);
 		$node->innerHTML = $html;
 	}
 

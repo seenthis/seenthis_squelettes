@@ -3,10 +3,10 @@
 version="1.0"[ encoding="(#CHARSET)"]?>
 <BOUCLE_principale(MOTS){id_mot}{tout}{doublons mots}><feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
 	<title>#[(#TITRE)] - Seenthis</title>
-	<link href="[(#URL_MOT|url_absolue)]"/>
+	<link href="[(#URL_MOT|url_absolue)]">
 
 		<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
-			<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
+			<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots}/>
 		</BOUCLE_enfants>
 
 

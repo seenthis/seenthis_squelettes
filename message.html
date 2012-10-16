@@ -1,32 +1,34 @@
 #CACHE{0}
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<!DOCTYPE html>
+<html>
 <head>
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	[(#ID_ME|microcache{noisettes/head_message})]
 
 
-	<script type="text/javascript"><!--
+	<script><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
 	--></script>
 	
 </head>
 <body class="message">
 
+
 <INCLURE{fond=inc/entete}>
 
-	[(#SESSION{id_auteur}|non)
-		<div class="centrer"><INCLURE{fond=slogan} /></div>
-	]
-
-
-[(#SESSION{id_auteur}|>{0}|non)
-	[(#ID_ME|microcache{noisettes/entete_auteur_message})]
-]	
-
-
-
 <div id="principale"> 
+
+	
+		[(#SESSION{id_auteur}|non)
+			<div class="centrer"><INCLURE{fond=slogan}></div>
+		]
+	
+	
+	[(#SESSION{id_auteur}|>{0}|non)
+		[(#ID_ME|microcache{noisettes/entete_auteur_message})]
+	]	
+	
+
 	
 	<div id="centre">
 		<div id="tous_messages">
@@ -38,7 +40,7 @@
 		</div>
 	</div>
 	
-	<div id="droite">
+	<aside id="droite">
 		[(#SESSION{id_auteur}|?{""," "})
 			<div id="charger_pave_inscription"></div>
 			[(#ID_ME|microcache{noisettes/adsense_me})]
@@ -46,10 +48,9 @@
 		
 		[(#ID_ME|microcache{noisettes/oc_message})]
 
-		&nbsp;
-	</div>
+	</aside>
 
-	<INCLURE{fond=inc/footer} />
+	<INCLURE{fond=inc/footer}>
 
 </div>
 </body>

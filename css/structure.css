@@ -13,13 +13,42 @@ body {
 }
 #principale, .centrer {
 	z-index: 2;
-	width: 960px;
 	margin-left: auto;
 	margin-right: auto;
+}
+.centrer {
+
+}
+#principale {
+	width: 960px;
+	border: 35px solid rgba(255, 255, 255, 0.3);
+	border-width: 35px 15px 0px 15px;
+	overflow: hidden;
+
+	-spip-transition-property: width, border-left, border-right;
+	-spip-transition-duration: 0.2s;
+
+
+	@media all and (max-width: 768px) {	
+		border-width: 0px 15px 35px 15px;
+		font-size: 95%;
+	}
+	@media all and (max-width: 1000px) {	
+		width: 90%;
+	}
+	@media all and (max-width: 500px) {	
+		width: 100%;
+		border-left: 0px;
+		border-right: 0px;
+	}
 }
 #centre {
 	float: left;
 	width: 660px;
+
+	@media all and (max-width: 1000px) {	
+		width: 100%;
+	}
 	
 	#tetiere {
 		padding: 15px 40px 20px 40px;
@@ -31,6 +60,9 @@ body {
 #droite {
 	float: left;
 	width: 300px;
+	@media all and (max-width: 1000px) {	
+		width: 100%;
+	}	
 	
 	h3 {
 		font-size: 0.8em;
@@ -342,10 +374,11 @@ body {
 		font-size: 1em;
 		line-height: 1.3em;
 		max-height: 400px;
+		-spip-box-sizing: border-box;
+		width: 100%;
 		
 		font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif;
 		border: 1px solid #ddd;
-		width: 558px;
 		padding: 10px;
 		
 		. :focus {
@@ -464,12 +497,23 @@ body {
 		
 	}
 }
-#entete {
+nav#entete {
 	z-index: 2;
 	padding: 0px 1em;
 	height: 35px;
 	font-size: 0.9em;
-	position: relative;
+	left: 0px;
+	width: 100%;
+	-spip-box-sizing: border-box;
+
+	@media all and (max-width: 768px) {	
+		bottom: 0px;
+	}
+	
+	@media all and (max-width: 1000px) {	
+	
+	}
+	
 		
 	div.liens {
 		margin-left: 15px;
@@ -487,11 +531,56 @@ body {
 				text-decoration: underline;
 			}
 		}
-		
+		a.symbole {
+			color: #999;
+			
+			@media all and (max-width: 860px) {	
+				font-size: 140%;
+				margin-top: -8px;
+				font-weight: bold;
+				display: inline-block;
+				color: #ccc;
+				height: 30px;
+				padding-top: 5px;
+				margin-right: 0px;
+				
+				. :hover {
+					text-decoration: none;
+					color: white;
+				}
+			}
+			
+		}
 	}
 	.seenthis, .accueil, .perso, .people, .tags, .urls {
 		float: left;
 	}
+	
+	@media all and (max-width: 1000px) {	
+		.accueil {
+			display: none;
+		}
+	}
+	@media all and (max-width: 1000px) {	
+		margin-right: 5px;
+	
+	}
+	@media all and (max-width: 860px) {	
+		
+		margin-left: 0px;
+		margin-right: 0px;
+		
+		.intitule, .nom_auteur {
+			display: none;
+		}
+		.perso {
+			width: 24px;
+		}
+		.seenthis {
+			margin-right: 5px;
+		}
+	}
+	
 	div.perso {
 		a {
 			img {
@@ -526,6 +615,8 @@ body {
 		margin-left: 15px;
 		margin-right: 25px;
 		margin-top: 3px;
+		
+
 	}
 
 	. .rechercher {
@@ -543,8 +634,8 @@ body {
 	}
 	.formulaire_recherche {
 		margin-top: 5px;
-		margin-left: 25px;
-		float: left;
+		margin-right: 5px;
+		float: right;
 	}
 }
 

@@ -1,5 +1,5 @@
 [(#HTTP_HEADER{Content-type: text/html[; charset=(#CHARSET)]})]
 
 [(#ENV*{contenu}|rawurldecode)]
-<hr />
+<hr>
 [(#ENV*{contenu}|rawurldecode|traduire{#ENV{dest},#ENV{source}})]

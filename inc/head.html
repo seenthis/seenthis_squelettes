@@ -1,12 +1,12 @@
 #INSERT_HEAD
-[<link rel="stylesheet" href="(#CHEMIN{css/reset.css})" type="text/css" media="all" />]
-[<link rel="stylesheet" href="(#CHEMIN{css/structure.css}|direction_css|css_imbriques)" type="text/css" media="all" />]
-[<link rel="stylesheet" href="(#CHEMIN{css/graphisme.css}|direction_css|css_imbriques)" type="text/css" media="all" />]
-[<link rel="stylesheet" href="(#CHEMIN{css/messages.css}|direction_css|css_imbriques)" type="text/css" media="all" />]
-[<link rel="stylesheet" href="(#CHEMIN{css/parents_url.css}|direction_css|css_imbriques)" type="text/css" media="all" />]
-[<link rel="stylesheet" href="(#CHEMIN{javascript/shadowbox/shadowbox.css})" type="text/css" media="all" />]
-[<link rel="stylesheet" href="(#CHEMIN{css/li-scroller.css})" type="text/css" media="all" />]
-[<link rel="stylesheet" href="(#CHEMIN{css/profil.css}|direction_css|css_imbriques)" type="text/css" media="all" />]
+[<link rel="stylesheet" href="(#CHEMIN{css/reset.css})" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/structure.css}|direction_css|css_imbriques)" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/graphisme.css}|direction_css|css_imbriques)" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/messages.css}|direction_css|css_imbriques)" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/parents_url.css}|direction_css|css_imbriques)" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{javascript/shadowbox/shadowbox.css})" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/li-scroller.css})" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/profil.css}|direction_css|css_imbriques)" type="text/css" media="all">]
 
 <script src="prive/javascript/jquery.cookie.js" type="text/javascript"></script>
 <script src="#CHEMIN{javascript/jquery.elastic.js}" type="text/javascript"></script>
@@ -17,9 +17,13 @@
 <script src="#CHEMIN{javascript/jquery.timeout.js}" type="text/javascript"></script>
 <script src="#CHEMIN{javascript/shadowbox/shadowbox.js}" type="text/javascript"></script>
 <script src="#CHEMIN{javascript/seenthis.js}" type="text/javascript"></script>
+<!--[if lt IE 9]>
+[<script src="(#CHEMIN{javascript/html5.js})" type="text/javascript"></script>]
+[<script src="(#CHEMIN{javascript/css3-mediaqueries.js})" type="text/javascript"></script>]
+<![endif]-->
 
 
-	<script type="text/javascript"><!--
+	<script><!--
 	var verif_hash = new Array();
 	var time_verif_hash = 0;
 	var auteur_page = 0;

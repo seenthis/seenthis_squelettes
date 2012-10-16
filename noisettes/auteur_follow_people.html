@@ -7,7 +7,7 @@
 	</BOUCLE_follow>
 	
 	<B_follow_people>
-	<div class="following following_people clearfix">
+	<div class="following following_people">
 	<h3><span class="vous_suivez"><:seenthis:vous_suivez:></span> <strong>#TOTAL_BOUCLE</strong></h3>
 	<BOUCLE_follow_people(spip_auteurs){id_auteur IN #GET{follow_people}}{tout}{par troll}{inverse}>
 		[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur})]

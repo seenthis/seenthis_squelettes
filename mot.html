@@ -1,29 +1,29 @@
 #CACHE{0}
 <BOUCLE_principale(MOTS){id_mot}{tout}{doublons mots}>
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<!DOCTYPE html>
+<html>
 <head>
 	<title>[(#TITRE|mb_strtolower{UTF-8})]</title>
-	<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
-	<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT" />
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT" />
+	<meta charset="#CHARSET">
+	<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT">
 	
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
-	<INCLURE{fond=inc/head}{lang=fr} />
+	<INCLURE{fond=inc/head}{lang=fr}>
 
 
 	[(#SET{couleur,99baad})]
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
-		<style type="text/css"><!--
-		<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
 		[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
 		--></style>
 	</BOUCLE_auteur_message>
 		[(#SET{couleur,99baad})]
-		<style type="text/css"><!--
-		<INCLURE{fond=css/couleur}{couleur=#GET{couleur}} />
-		<INCLURE{fond=css/inscription}{couleur=#GET{couleur}} />
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=#GET{couleur}}>
+		<INCLURE{fond=css/inscription}{couleur=#GET{couleur}}>
 		
 		.formulaire_inscription {
 			display: none;
@@ -43,7 +43,7 @@
 <INCLURE{fond=inc/entete}>
 
 	[(#SESSION{id_auteur}|non)
-		<div class="centrer"><INCLURE{fond=slogan} /></div>
+		<div class="centrer"><INCLURE{fond=slogan}></div>
 	]
 	[(#SET{follow,#ENV{follow}})]
 	[(#ENV{follow}|non)
@@ -60,7 +60,7 @@
 	<div id="entete_people">
 
 
-		<ul class="parents_url clearfix">
+		<ul class="parents_url">
 		<BOUCLE_parents(MOTS){id_mot=#ID_PARENT}{tout}>
 			<!-- #ID_MOT #ID_PARENT -->
 			<BOUCLE_parents2(BOUCLE_parents) />
@@ -70,11 +70,11 @@
 		</ul>
 
 		<div class="outils">
-			<div class="suivre clearfix">
+			<div class="suivre">
 				<div id="follow_mot"></div>
 			</div>
 
-			<div class="rss"><a href="/?page=backend_mot&amp;id_mot=#ID_MOT[&amp;follow=(#GET{follow}|replace{^(follow|all)$})]">flux RSS de [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
+			<div class="rss"><a href="/?page=backend_mot&amp;id_mot=#ID_MOT[&amp;follow=(#GET{follow}|replace{^(follow|all)$})]">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
 		</div>
 	
 		[(#ID_GROUPE|=={1}|oui)
@@ -94,7 +94,7 @@
 			<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{par titre}{tout}{doublons mots}>
 			<li>#<a href="#URL_MOT">[(#TITRE)]</a>
 			
-				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
+				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots}/>
 			</li>
 			</BOUCLE_enfants>
 		</ul>
@@ -137,11 +137,11 @@
 				[(#ID_MOT|microcache{noisettes/contenu_mot})]
 			]
 			[(#GET{follow}|=={all}|non)
-				<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}} />
+				<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}}>
 			]
 		]
 		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}} />
+			<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}}>
 		]
 
 		</div>
@@ -149,7 +149,7 @@
 
 	</div>
 	
-	<div id="droite">
+	<aside id="droite">
 
 
 
@@ -160,11 +160,10 @@
 			[(#GET{couleur}|microcache{noisettes/adsense})]
 		]
 
-		<INCLURE{fond=noisettes/mots_lies}{id_mot}{ajaxload} />
+		<INCLURE{fond=noisettes/mots_lies}{id_mot}{ajaxload}>
 		
 		
-		&nbsp;
-	</div>
+	</aside>
 
 	<div class="clear-left"></div>
 </div>

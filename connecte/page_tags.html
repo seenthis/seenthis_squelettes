@@ -1,15 +1,15 @@
 #CACHE{0}
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}>
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<!DOCTYPE html>
+<html>
 <head>
 	<title>[(#NOM_SITE_SPIP|textebrut)] - [(#NOM|textebrut)]</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
-	<INCLURE{fond=inc/head}{lang=fr} />
-	<style type="text/css"><!--
-	<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
+	<INCLURE{fond=inc/head}{lang=fr}>
+	<style><!--
+	<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
 
 	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
 	--></style>
@@ -39,7 +39,7 @@
 			[(#ID_AUTEUR|microcache{noisettes/contenu_page_tags})]
 		]
 		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_page_tags}{id=#ID_AUTEUR} />
+			<INCLURE{fond=noisettes/contenu_page_tags}{id=#ID_AUTEUR}>
 		]
 		
 		
@@ -48,7 +48,7 @@
 
 	</div>
 
-	<div id="droite">
+	<aside id="droite">
 	
 		<B_follow_mot>
 		<ul>
@@ -57,14 +57,14 @@
 			<li>#<a href="#URL_MOT"><b>#TITRE</b></a></li>
 			
 			<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
-				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
+				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots}/>
 			</BOUCLE_enfants>
 			</BOUCLE_le_mot>
 		</BOUCLE_follow_mot>
 		</ul>
 		</B_follow_mot>
 			
-	</div>
+	</aside>
 
 	<div class="clear-left"></div>
 </div>

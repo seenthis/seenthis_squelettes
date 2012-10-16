@@ -109,7 +109,7 @@ function action_bouton_follow_people() {
 			echo "<a href='#' class='yes' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&follow=oui&id_auteur=$id_auteur'); return false;\">"._T("seenthis:suivre_people", array("people"=>"<strong>$nom</strong>"))."</a>";
 		}
 
-		echo "<br style='clear:both;' /><br />";
+		echo "<br style='clear:both;'><br>";
 
 		$query_block = sql_select("id_auteur", "spip_me_block", "id_block=$id_block AND id_auteur=$id_auteur");
 		if ($row_block = sql_fetch($query_block)) {

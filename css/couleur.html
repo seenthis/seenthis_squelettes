@@ -40,16 +40,35 @@ div.traduire a {
 	}
 }
 
-#entete {
+nav#entete {
 	.seenthis {
 		height: 26px;
 		overflow: hidden;
-		img {
-			width: 120px;
-			height: 26px;
-			
-			background: url([(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#ENV{couleur}|couleur_luminance{0.45})]}|image_reduire{120}|extraire_attribut{src})]);
+		
+		a{
+			display: block;
+			img {
+				width: 120px;
+				height: 26px;
+				
+				background: url([(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#ENV{couleur}|couleur_luminance{0.45})]}|image_reduire{120}|extraire_attribut{src})]);
+				
+			}			
 		}
+		@media all and (max-width: 860px) {	
+			height: 35px;
+			margin-top: 0px;
+			
+			a {
+				img {
+					width: 44px;
+					height: 35px;
+					background-image: url([(#CHEMIN{imgs/logo-mini.png})]);
+				
+				}
+			}
+		}
+			
 	}
 }
 #entete_people {
@@ -219,7 +238,8 @@ ul#messages {
 			margin-bottom: -1px;
 		}
 		.encadre {
-			margin-top: 1.6em;
+			top: 1.6em;
+			right: 0px;
 			padding: 10px;
 			background-color: [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
 			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.65})];
@@ -227,6 +247,17 @@ ul#messages {
 			-spip-border-bottom-left-radius: 4px;
 			-spip-border-bottom-right-radius: 4px;
 			-spip-border-top-left-radius: 4px;
+			position: absolute;
+
+			@media all and (max-width: 768px) {	
+				top: auto;
+				bottom: 1.6em;
+				-spip-border-top-right-radius: 4px;
+				-spip-border-bottom-right-radius: 0px;
+				-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.5})];
+				position: absolute;
+			}
+
 			
 		}
 	}

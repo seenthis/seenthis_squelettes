@@ -1,26 +1,26 @@
 #CACHE{0}
-<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG" dir="#LANG_DIR">
+<!DOCTYPE html>
+<html>
 <head>
 	<title>[(#ENV{recherche}|mb_strtolower{UTF-8}|textebrut)]</title>
-	<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<meta charset="#CHARSET">
 	
 	[(#REM)
-		<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT" />
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT">
 	]
 	
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
-	<INCLURE{fond=inc/head}{lang=fr} />
+	<INCLURE{fond=inc/head}{lang=fr}>
 
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
-		<style type="text/css"><!--
-		<INCLURE{fond=css/couleur}{couleur=#COULEUR} />
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
 		--></style>
 	</BOUCLE_auteur_message>
 		[(#SET{couleur,dcdf03})]
-		<style type="text/css"><!--
-		<INCLURE{fond=css/couleur}{couleur=dcdf03} />
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=dcdf03}>
 		--></style>
 	<//B_auteur_message>
 	[(#SET{couleur,99baad})]
@@ -35,7 +35,7 @@
 <body class="plier mot">
 
 
-<INCLURE{fond=inc/entete} />
+<INCLURE{fond=inc/entete}>
 
 <div id="principale">
 
@@ -75,7 +75,7 @@
 		]
 
 		[(#REM)
-			<div class="rss"><a href="index.php?page=backend_mot&recherche=[(#ENV{recherche}|rawurlencode)]">flux RSS de [(#RECHERCHE|mb_strtolower{UTF-8})]</a></div>
+			<div class="rss"><a href="index.php?page=backend_mot&recherche=[(#ENV{recherche}|rawurlencode)]">RSS: [(#RECHERCHE|mb_strtolower{UTF-8})]</a></div>
 		]
 
 	</div>
@@ -98,12 +98,12 @@
 
 	</div>
 	
-	<div id="droite">
+	<aside id="droite">
 
 		<div class="following following_big">
 		<BOUCLE_auteurs(AUTEURS){tous}{recherche}{par points}{inverse}>
 		<div class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-			<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="" />
+			<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="">
 			<span class="nom">#NOM</span>
 			<span class="login">@#LOGIN</span>
 		</a></div>
@@ -129,7 +129,7 @@
 
 
 		&nbsp;
-	</div>
+	</aside>
 
 	<div class="clear-left"></div>
 </div>

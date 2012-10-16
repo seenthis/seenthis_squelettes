@@ -39,7 +39,7 @@ body.accueil {
 		}
 	}
 }
-#entete {
+nav#entete {
 	background-color: #333;
 	-spip-gradient: top, #444, #222;
 }
