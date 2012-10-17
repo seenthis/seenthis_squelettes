@@ -166,6 +166,7 @@ footer {
 	background-repeat: no-repeat;
 	background-position: left center;
 	max-width: 100%;
+	-spip-box-sizing: border-box;	
 	overflow: hidden;
 	text-overflow: ellipsis;
 	

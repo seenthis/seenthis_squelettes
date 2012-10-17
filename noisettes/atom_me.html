@@ -6,6 +6,7 @@
 	xmlns:docs='http://schemas.google.com/docs/2007'>
 	<id>message:#ID_ME</id>
 	<title>[(#ID|texte_de_me|extraire_titre|texte_backend)]</title>
+
 	<author><BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID_AUTEUR}>
 		<name>#NOM [(@(#LOGIN))]</name>
 		<uri>[(#URL_AUTEUR|url_absolue{http://#EVAL{_HOST}/})]</uri>

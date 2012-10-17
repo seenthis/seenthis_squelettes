@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>[(#ENV{recherche}|mb_strtolower{UTF-8}|textebrut)]</title>
+
 	<meta charset="#CHARSET">
 	
 	[(#REM)
@@ -37,7 +38,7 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale">
+<div id="principale"><div>
 
 	<div id="entete_people">
 
@@ -132,7 +133,7 @@
 	</aside>
 
 	<div class="clear-left"></div>
-</div>
+</div></div>
 </body>
 </html>
 #FILTRE{mini_html}

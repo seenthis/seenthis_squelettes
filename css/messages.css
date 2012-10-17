@@ -19,7 +19,6 @@ ul#messages, ul.messages {
 			padding-top: 23px;
 			padding-bottom: 10px;
 			margin-left: 40px;
-			width: 48px;
 			float: left;
 			zoom: 1;
 
@@ -30,11 +29,18 @@ ul#messages, ul.messages {
 				margin-left: 65px;
 			}
 			@media all and (max-width: 680px) {	
-				margin-left: 5px;
+				margin-left: 10px;
+				
+				img {
+					width: 32px;
+					height: 32px;
+				}
 			}
 
 			
 			img {
+				-spip-transition-property: width, height;
+				-spip-transition-duration: 0.2s;
 				width: 48px;
 				height: 48px;
 				-spip-border-radius: 4px;
@@ -49,7 +55,7 @@ ul#messages, ul.messages {
 		
 		.texte_message, .texte_reponse {
 			margin-left: 103px;
-			margin-right: 40px;
+			margin-right: 60px;
 			padding-top: 20px;
 			padding-bottom: 10px;
 			zoom: 1;
@@ -59,11 +65,11 @@ ul#messages, ul.messages {
 			
 			@media all and (min-width: 780px) and (max-width: 1000px) {	
 				margin-left: 153px;
-				margin-right: 90px;
+				margin-right: 110px;
 			}
 			@media all and (max-width: 680px) {	
-				margin-left: 63px;
-				margin-right: 10px;
+				margin-left: 52px;
+				margin-right: 25px;
 			}			
 			
 			
@@ -322,7 +328,6 @@ ul#messages, ul.messages {
 			font-size: 0.85em;
 			line-height: 1.4em;
 			color: #333;
-			padding-right: 30px;
 			
 			p {
 				margin: 0.6em 0em 0.6em 0;
@@ -391,6 +396,14 @@ ul#messages, ul.messages {
 				-moz-hyphens: auto;
 				hyphens: auto;
 				
+				@media all and (max-width: 680px) {	
+					margin-left: 1em;
+				}
+				@media all and (max-width: 500px) {	
+					margin-left: 0em;
+				}
+				
+				
 				hr {
 					border: 0;
 					color: #999;
@@ -452,6 +465,17 @@ ul#messages, ul.messages {
 			padding-left: 104px;
 			text-align: left;
 			font-size: 0.75em;
+
+			-spip-transition-property: padding-left;
+			-spip-transition-duration: 0.1s;
+			
+			
+			@media all and (min-width: 780px) and (max-width: 1000px) {	
+				padding-left: 153px;
+			}
+			@media all and (max-width: 680px) {	
+				padding-left: 40px;
+			}	
 			
 			a {
 				display: inline-block;
@@ -512,7 +536,7 @@ ul#messages, ul.messages {
 				background-position: 50px 0px;
 			}
 			@media all and (max-width: 680px) {	
-				background-position: -40px 0px;
+				background-position: -65px 0px;
 			}
 
 			
@@ -546,7 +570,12 @@ ul#messages, ul.messages {
 						margin-left: 153px;
 					}
 					@media all and (max-width: 680px) {	
-						margin-left: 63px;
+						margin-left: 42px;
+						
+						img {
+							width: 24px;
+							height: 24px;
+						}
 					}
 					
 					img {
@@ -572,14 +601,13 @@ ul#messages, ul.messages {
 						margin-left: 204px;
 					}
 					@media all and (max-width: 680px) {	
-						margin-left: 103px;
+						margin-left: 71px;
 					}
 
 
 				}
 				
 				.texte {
-					padding-right: 20px;
 					color: #555;
 				}
 				

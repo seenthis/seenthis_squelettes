@@ -85,8 +85,9 @@ nav#entete {
 	}
 }
 #principale {
-	-spip-background-color: [(#ENV{couleur}|couleur_luminance{0.75}|couleur_rgba{0.75})];
-	
+	> div {
+		-spip-background-color: [(#ENV{couleur}|couleur_luminance{0.75}|couleur_rgba{0.75})];
+	}
 
 	#centre {
 		
@@ -180,21 +181,41 @@ ul#messages {
 }
 
 #pave_accueil {
-	margin: 40px 40px;
+	margin: 40px;
 	-spip-border-radius: 6px;
 	background-color: [#(#ENV{couleur}|couleur_luminance{0.55})];
 	-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.3}|couleur_chroma{1/36})], [#(#ENV{couleur}|couleur_luminance{0.55})];
 
 
 	padding: 20px;
-	color: #4f4848;
-	font-size: 1.4em;
-	line-height: 1.3em;
+
+	@media all and (max-width: 680px) {	
+		-spip-transition-property: margin;
+		-spip-transition-duration: 0.2s;
+		margin: 5px;
+	}
+
 	
 	.interne {
 		background: url(squelettes/imgs/guillemets-ouvrants.png) top left no-repeat;
 		padding-left: 90px;
+
+		color: #4f4848;
+		font-size: 1.4em;
+		line-height: 1.3em;
+		
+		-spip-transition-property: font-size, padding-left, line-height;
+		-spip-transition-duration: 0.2s;
+
+		@media all and (max-width: 680px) {	
+			background: transparent;
+			font-size: 1.2em;
+			line-height: 130%;
+			padding-left: 0px;
+		}
+
 	}
+
 	
 }
 

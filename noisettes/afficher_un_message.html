@@ -15,7 +15,7 @@
 			<div class="auteur_date">
 				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
 
-				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|annee)]-[(#DATE|mois)]-[(#DATE|journum)] [(#DATE|heures)]:[(#DATE|minutes)]</time></a></span>
+				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)] [(#DATE|heures)]:[(#DATE|minutes)]</time></a></span>
 
 				<div class="favori[(#ID_PARENT|=={0}|?{'','_off'})]">
 					[(#SET{total,""})]

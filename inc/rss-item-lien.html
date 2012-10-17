@@ -2,6 +2,7 @@
 <BOUCLE_un_message(spip_me){id_me}{tous}>
 	<item[ xml:lang="(#LANG)"]>
 		<title>[(#TEXTE*|extraire_titre|supprimer_tags|texte_backend)]</title>
+
 		<BOUCLE_lien(spip_me_syndic){id_me=#ID_ME}>
 			<BOUCLE_site(SYNDIC){id_syndic=#ID_SYNDIC}>
 				<link>#URL_SYNDIC</link>

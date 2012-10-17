@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>[(#TITRE|supprimer_numero|textebrut)] [- (#NOM_SITE_SPIP|textebrut)]</title>
+
 	<meta charset="#CHARSET">
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
@@ -30,7 +31,7 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale">
+<div id="principale"><div>
 
 
 	<div id="centre">
@@ -56,7 +57,7 @@
 	
 	<INCLURE{fond=inc/footer}>
 	
-</div>
+</div></div>
 </body>
 </html>
 </BOUCLE_principale>

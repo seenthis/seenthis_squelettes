@@ -10,12 +10,14 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 
 <channel[ xml:lang="(#LANG)"]>
 	<title>[(#NOM|texte_backend) has Seenthis] [- @(#LOGIN|texte_backend)]</title>
+
 	<link>[(#URL_AUTEUR|url_absolue)]</link>
 	<language>#LANG</language>
 	<generator>SPIP - www.spip.net</generator>
 
 [	<image>
 		<title>[(#NOM|texte_backend)] [- (#LOGIN|texte_backend)]</title>
+
 		<url>(#LOGO_AUTEUR|image_passe_partout{80,80}|extraire_attribut{src}|url_absolue|texte_backend)</url>
 		<link>[(#URL_AUTEUR|url_absolue)]</link>
 	</image>

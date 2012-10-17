@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>[(#NOM_SITE_SPIP|textebrut)] - [(#NOM|textebrut)]</title>
+
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
@@ -24,7 +25,7 @@
 <INCLURE{fond=inc/entete}>
 
 
-<div id="principale">
+<div id="principale"><div>
 
 	<div id="entete_people">
 
@@ -67,7 +68,7 @@
 	</aside>
 
 	<div class="clear-left"></div>
-</div>
+</div></div>
 </body>
 </html>
 </BOUCLE_auteur>

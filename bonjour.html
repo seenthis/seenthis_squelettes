@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#NOM|textebrut)]</title>
+
 	<meta charset="#CHARSET">
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
@@ -47,7 +48,7 @@
 <INCLURE{fond=inc/entete}>
 
 
-<div id="principale">
+<div id="principale"><div>
 
 <div id="entete_accueil">
 
@@ -57,7 +58,7 @@
 		</div>
 
 		<div class="logo">
-			[(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#GET{couleur}|couleur_luminance{0.57})]}|image_reduire{318})]
+			<img src="[(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#GET{couleur}|couleur_luminance{0.57})]}|image_reduire{318}|extraire_attribut{src})]" alt="Seenthis">
 		</div>
 	</div>
 
@@ -98,7 +99,7 @@
 		[(#GET{compteur}|>{30}|oui)
 			#SET{id_auteur,0}
 		]
-			<BOUCLE_suite(BOUCLE_recents)>
+			<BOUCLE_suite(BOUCLE_recents)/>
 		</BOUCLE_recents>
 		</ul>		
 		
@@ -133,8 +134,7 @@
 			
 	</aside>
 
-	<div class="clear-left"></div>
-</div>
+</div></div>
 </body>
 </html>
 #FILTRE{mini_html}

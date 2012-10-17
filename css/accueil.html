@@ -1,12 +1,24 @@
 #entete_accueil {
 		position: relative;
-		width: 960px;
+		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
 		background-color: #635a5a;
 	
 	.logo {
 		padding: 20px;
+		
+		img {
+			width: 318px;
+			height: 68px;
+			-spip-transition-property: width, height;
+			-spip-transition-duration: 0.2s;
+			
+			@media all and (max-width: 768px) {	
+				width: 238px;
+				height: 51px;
+			}
+		}
 	}
 	.inscription {
 		float: right;
@@ -16,6 +28,11 @@
 		color: #938d8d;
 		font-size: 0.9em;
 		line-height: 1.25em;
+
+		@media all and (max-width: 650px) {	
+			display: none;
+		}
+
 	}
 }
 nav#entete {

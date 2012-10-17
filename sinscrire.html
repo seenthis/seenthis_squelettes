@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#NOM|textebrut)]</title>
+
 	<meta charset="#CHARSET">
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
@@ -24,12 +25,12 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale">
+<div id="principale"><div>
 
 	<div id="charger_pave_inscription"></div>
 
 	<div class="clear-left"></div>
-</div>
+</div></div>
 </body>
 </html>
 #FILTRE{mini_html}

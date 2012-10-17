@@ -4,6 +4,7 @@
 <html>
 <head>
 	<title>[(#NOM_SITE_SPIP|textebrut)] - [(#NOM|textebrut)]</title>
+
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
@@ -46,7 +47,7 @@
 <INCLURE{fond=inc/entete}>
 
 
-<div id="principale">
+<div id="principale"><div>
 
 	<div id="entete_people">
 
@@ -55,16 +56,16 @@
 		
 
 
-<div id="rechercher_site" class="formulaire_recherche">
-	<form action="http://seenthis.net/spip.php?page=recherche" method="get" onsubmit="chercher_site();return false;">
-	<div>
-		<input name="page" value="recherche" type="hidden">
-		<input type="text" class="text" size="10" name="recherche" id="recherche_site" accesskey="4">
-		<input type="image" src="squelettes/imgs/search.png" class="submit" value="&gt;&gt;" title="Rechercher">
+	<div id="rechercher_site" class="formulaire_recherche">
+		<form action="http://seenthis.net/spip.php?page=recherche" method="get" onsubmit="chercher_site();return false;">
+		<div>
+			<input name="page" value="recherche" type="hidden">
+			<input type="text" class="text" size="10" name="recherche" id="recherche_site" accesskey="4">
+			<input type="image" src="squelettes/imgs/search.png" class="submit" value="&gt;&gt;" title="Rechercher">
+		</div>
+		</form>
 	</div>
-	</form>
-</div>
-<div id="resultat_recherche_site"></div>
+	<div id="resultat_recherche_site"></div>
 
 
 
@@ -108,7 +109,7 @@
 	</aside>
 
 	<div class="clear-left"></div>
-</div>
+</div></div>
 </body>
 </html>
 </BOUCLE_auteur>

@@ -5,6 +5,7 @@
 <head>
 
 	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#NOM|textebrut)]</title>
+
 	<!--[(#LANG|lang_select)]-->
 
 	<meta charset="#CHARSET">
@@ -41,7 +42,7 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale">
+<div id="principale"><div>
 
 		<BOUCLE_test5(spip_me_follow){id_follow=#SESSION{id_auteur}}{5,1}>
 		</BOUCLE_test5>
@@ -97,7 +98,7 @@
 			
 	</aside>
 
-</div>
+</div></div>
 </body>
 </html>
 </BOUCLE_auteur>

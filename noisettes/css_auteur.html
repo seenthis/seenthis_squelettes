@@ -16,5 +16,11 @@
 		background: url((#ID_AUTEUR|fichier_bandeau|image_reduire{960,0}|extraire_attribut{src})[?t=(#ID_AUTEUR|fichier_bandeau|image_reduire{960,0}|extraire_attribut{src}|filemtime)]) no-repeat;
 		cursor: pointer;
 	}
+	
+	@media all and (max-width: 768px) {		
+		.people #bandeau_auteur {
+			display: none;
+		}
+	}
 	]
 </BOUCLE_principale>

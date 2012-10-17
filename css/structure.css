@@ -1,5 +1,6 @@
 body {
 	word-wrap: break-word;
+	-webkit-text-size-adjust: none;
 }
 #spip-admin {
 	position: absolute;
@@ -21,9 +22,9 @@ body {
 }
 #principale {
 	width: 960px;
-	border: 35px solid rgba(255, 255, 255, 0.3);
+	border: 35px solid rgba(255, 255, 255, 0.5);
 	border-width: 35px 15px 0px 15px;
-	overflow: hidden;
+
 
 	-spip-transition-property: width, border-left, border-right;
 	-spip-transition-duration: 0.2s;
@@ -40,6 +41,13 @@ body {
 		width: 100%;
 		border-left: 0px;
 		border-right: 0px;
+	}
+	
+	> div {
+		width: 100%;
+		-spip-box-shadow: 0px 0px 5px #444444;
+		overflow: hidden;
+		
 	}
 }
 #centre {
@@ -116,7 +124,7 @@ body {
 					height: 48px;
 					border: 2px solid white;
 					margin: -2px;
-					-spip-box-shadow: 0px 0px 3px #000000;
+					-spip-box-shadow: 0px 0px 10px #000000;
 				}
 			}
 		}
@@ -284,7 +292,7 @@ body {
 	background-color: white;
 	padding: 20px 40px;
 	margin-bottom: 0px;
-	spip-clear: fix;
+	-spip-clear: fix;
 	
 	.logo {
 		float: left;
@@ -317,6 +325,9 @@ body {
 				font-size: 0.8em;
 			}
 		}
+	}
+	h2 {
+		clear: left;
 	}
 	
 	.outils {
@@ -634,8 +645,8 @@ nav#entete {
 	}
 	.formulaire_recherche {
 		margin-top: 5px;
-		margin-right: 5px;
-		float: right;
+		margin-left: 5px;
+		float: left;
 	}
 }
 
