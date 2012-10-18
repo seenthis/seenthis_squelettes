@@ -4,7 +4,6 @@
 <entry>
 	<id>message:#ID_ME</id>
 	<title>[(#ID|texte_de_me|extraire_titre|texte_backend)]</title>
-
 	<author><BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID_AUTEUR}>
 		<name>#NOM [(@(#LOGIN))]</name>
 		<uri>[(#URL_AUTEUR|url_absolue{http://#EVAL{_HOST}/})]</uri>
@@ -13,15 +12,15 @@
 	</author>
 	<published>[(#DATE|date_iso)]</published>
 	<updated>[(#DATE_MODIF|date_iso)]</updated>
-	[(#ID_PARENT|>{0}|oui)<link href="[(#ID_PARENT|share_tw_url)]#message#ID_ME">]
-	[(#ID_PARENT|>{0}|non)<link href="[(#ID_ME|share_tw_url)]">]
-	[(#ID_PARENT|>{0}|oui)<thr:in-reply-to ref="[message:(#ID_PARENT)]">]
-	<link rel="edit" href="https://#EVAL{_HOST}/api/messages/#ID_ME">
+	[(#ID_PARENT|>{0}|oui)<link href="[(#ID_PARENT|share_tw_url)]#message#ID_ME" />]
+	[(#ID_PARENT|>{0}|non)<link href="[(#ID_ME|share_tw_url)]" />]
+	[(#ID_PARENT|>{0}|oui)<thr:in-reply-to ref="[message:(#ID_PARENT)]" />]
+	<link rel="edit" href="https://#EVAL{_HOST}/api/messages/#ID_ME"/>
 	<content>[(#ID|texte_de_me|extraire_titre|texte_backend)][ (#ID_ME|share_tw_url)]</content>
 	<BOUCLE_liens(SITES spip_me_syndic) {spip_me_syndic.id_me=#ID_ME}>
-	<link rel="related" href="#URL_SITE"[ title="(#TITRE|replace{'"', "'"}|texte_backend)"][ hreflang="(#LANG)"]>
+	<link rel="related" href="#URL_SITE"[ title="(#TITRE|replace{'"', "'"}|texte_backend)"][ hreflang="(#LANG)"]/>
 	</BOUCLE_liens>
 	<BOUCLE_tags(MOTS spip_me_mot){spip_me_mot.id_me=#ID_ME}>
-	<category term="<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>#TITRE:</BOUCLE_groupe>[(#TITRE|replace{'"', "'"}|texte_backend)]" label="[(#TITRE|replace{'"', "'"}|texte_backend)]" scheme="[(#URL_MOT|url_absolue{http://#EVAL{_HOST}/})]"></BOUCLE_tags>
+	<category term="<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>#TITRE:</BOUCLE_groupe>[(#TITRE|replace{'"', "'"}|texte_backend)]" label="[(#TITRE|replace{'"', "'"}|texte_backend)]" scheme="[(#URL_MOT|url_absolue{http://#EVAL{_HOST}/})]"/></BOUCLE_tags>
 </entry>
 </BOUCLE_me>

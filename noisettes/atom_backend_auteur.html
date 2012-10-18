@@ -3,8 +3,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID}>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
 	<title>#NOM (@#LOGIN) - Seenthis</title>
-
-	<link href="[(#URL_AUTEUR|url_absolue)]">
+	<link href="[(#URL_AUTEUR|url_absolue)]"/>
 
 		#SET{messages, #ARRAY{}}
 		#SET{liens, #ARRAY{}}
