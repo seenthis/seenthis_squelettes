@@ -153,6 +153,7 @@ function switch_comments(id_me) {
 	function sucrer_utm(u) {
 		u = u.replace(/(http:\/\/twitter.com\/)#!/, "$1");
 		u = u.replace(/([\?\&]|\&amp;)utm\_.*/, "");
+		u = u.replace(/#xtor.*$/, "");
 		return u;
 	}
 
