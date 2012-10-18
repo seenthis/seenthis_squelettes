@@ -61,14 +61,10 @@
 		</BOUCLE_messages>
 		<li>[(#TOTAL_BOUCLE)] messages publiés</li>
 		</B_messages>
-		<BOUCLE_auteurs(AUTEURS){statut!=nouveau}{tout}>
+		<BOUCLE_auteurs(AUTEURS){statut!=nouveau}{tout}/>
 		<li>[(#TOTAL_BOUCLE)] auteurs enregistrés</li>
 		<//B_auteurs>
 		
-		ME: [(#REM|retour_id_me_date)]
-		<BOUCLE_tous_liens(spip_mots spip_me_mot){spip_me_mot.id_me IN #REM|retour_id_me_date}>
-			#ID_MOT
-		</BOUCLE_tous_liens>
 
 
 		[(#SET{auteur_30,0})]
