@@ -85,6 +85,7 @@ body {
 
 	.following {
 		margin: 10px 15px 10px 20px;
+		-spip-clear: fix;
 		
 		color: white;
 		
@@ -133,6 +134,7 @@ body {
 	.followed {
 		margin: 10px 15px 10px 20px;
 		color: white;
+		-spip-clear: fix;
 		
 		.logo_auteur {
 			float: left;
