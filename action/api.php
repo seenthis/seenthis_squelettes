@@ -4,6 +4,7 @@ function action_api_dist() {
 
 	$xml = false;
 
+	// forcer le https sauf si on a define('_API_HTTPS', false)
 	if (!defined('_API_HTTPS')
 	OR _API_HTTPS) {
 		if ($_SERVER['SERVER_PORT'] != 443)
@@ -59,7 +60,8 @@ function action_api_dist() {
 		$xml = preg_replace("/<entry[^>]*>/msU", "<entry xmlns='http://www.w3.org/2005/Atom' xmlns:thr='http://purl.org/syndication/thread/1.0'>", $xml);
 	
 		$res = new SimpleXMLElement($xml);
-		$id_me = $res->id;
+		$id = $res->id;
+
 		$id_parent = 0;
 		$summary = trim($res->summary);
 		$content = trim($res->content);
@@ -77,16 +79,44 @@ function action_api_dist() {
 				$id_parent = $regs[1];
 			}
 		}
-		if (preg_match("/message\:([0-9]+)/", $id_me, $regs)) {
+
+		// creer ou modifier un message ?
+		// si on passe id = message:1234 remplacer ce message
+		// si on passe id = "uuid:azertyu" pour creer OU remplacer
+		$id_me = 0;
+		if (preg_match("/^message\:(\d+)/", $id, $regs)) {
 			$id_me = $regs[1];
-		} else {
-			$id_me = 0;
+		} else if (preg_match("/^uuid\:(.+)/", $id, $regs)) {
+			$uuid = $regs[1];
+			$s = spip_query("SELECT id_me FROM spip_me WHERE uuid=".sql_quote($uuid));
+			if ($s AND $t = sql_fetch($s)) {
+				$id_me = $t['id_me'];
+spip_log("uuid: $uuid, found id_me=$id_me", 'debug');
+			} else {
+				$id_me = sql_insertq("spip_me",
+					array(
+						"date" => "NOW()",
+						"date_modif" => "NOW()",
+						"date_parent" => "NOW()",
+						"id_auteur" => $id_auteur,
+						'uuid' => $uuid
+					)
+				);
+				if ($id_me) {
+					sql_insertq("spip_me_texte",
+						array("id_me" => $id_me)
+					);
+spip_log("uuid: $uuid, create id_me=$id_me", 'debug');
+				}
+				else
+					erreur_405("Error - UUID not available on this server");
+			}
 		}
-		
+
 		$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent);
 		$id_me = $ret["id_me"];
 		
-		if (!$id_me) erreur_405("Unexpected error - not saved in base");		
+		if (!$id_me) erreur_405("Unexpected error - not saved in base");
 
 		cache_me($id_me);
 
