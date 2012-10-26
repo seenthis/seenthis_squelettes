@@ -87,30 +87,10 @@ function action_api_dist() {
 		if (preg_match("/^message\:(\d+)/", $id, $regs)) {
 			$id_me = $regs[1];
 		} else if (preg_match("/^uuid\:(.+)/", $id, $regs)) {
-			$uuid = $regs[1];
-			$s = spip_query("SELECT id_me FROM spip_me WHERE uuid=".sql_quote($uuid));
-			if ($s AND $t = sql_fetch($s)) {
-				$id_me = $t['id_me'];
-spip_log("uuid: $uuid, found id_me=$id_me", 'debug');
-			} else {
-				$id_me = sql_insertq("spip_me",
-					array(
-						"date" => "NOW()",
-						"date_modif" => "NOW()",
-						"date_parent" => "NOW()",
-						"id_auteur" => $id_auteur,
-						'uuid' => $uuid
-					)
-				);
-				if ($id_me) {
-					sql_insertq("spip_me_texte",
-						array("id_me" => $id_me)
-					);
-spip_log("uuid: $uuid, create id_me=$id_me", 'debug');
-				}
-				else
-					erreur_405("Error - UUID not available on this server");
-			}
+			include_spip('inc/seenthis_uuid');
+			$id_me = get_create_me_uuid($regs[1]);
+			if (!$id_me)
+				erreur_405("Error - UUID not available on this server");
 		}
 
 		$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent);
