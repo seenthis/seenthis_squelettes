@@ -106,11 +106,11 @@
 
 		[(#SESSION{id_auteur}|oui)
 		<div class="limite_date">
-		<a href="[(#SELF|parametre_url{follow,#SESSION{login}})]"[(#GET{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,#SESSION{login}})]"[(#GET{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
 		|
-		<a href="[(#SELF|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
 		|
-		<a href="[(#SELF|parametre_url{follow,''})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,''})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
 		</div>
 		]
 
