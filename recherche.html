@@ -49,29 +49,29 @@
 	
 	
 		<div class="limite_date">
-		<a href="[(#SELF|parametre_url{age,1})]"[(#ENV{age}|=={1}|oui)class="actif"]>Depuis hier</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,1})]"[(#ENV{age}|=={1}|oui)class="actif"]>Depuis hier</a>
 		|
-		<a href="[(#SELF|parametre_url{age,7})]"[(#ENV{age}|=={7}|oui)class="actif"]>Depuis une semaine</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,7})]"[(#ENV{age}|=={7}|oui)class="actif"]>Depuis une semaine</a>
 		|
-		<a href="[(#SELF|parametre_url{age,31})]"[(#ENV{age}|=={31}|oui)class="actif"]>Depuis un mois</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,31})]"[(#ENV{age}|=={31}|oui)class="actif"]>Depuis un mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,92})]"[(#ENV{age}|=={92}|oui)class="actif"]>Depuis trois mois</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,92})]"[(#ENV{age}|=={92}|oui)class="actif"]>Depuis trois mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,183})]"[(#ENV{age}|=={183}|oui)class="actif"]>Depuis six mois</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,183})]"[(#ENV{age}|=={183}|oui)class="actif"]>Depuis six mois</a>
 		|
-		<a href="[(#SELF|parametre_url{age,366})]"[(#ENV{age}|=={366}|oui)class="actif"]>Depuis un an</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,366})]"[(#ENV{age}|=={366}|oui)class="actif"]>Depuis un an</a>
 		|
-		<a href="[(#SELF|parametre_url{age,''})]"[(#ENV{age}|non)class="actif"]>Sans limite</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,''})]"[(#ENV{age}|non)class="actif"]>Sans limite</a>
 		</div>
 
 
 		[(#SESSION{id_auteur}|oui)
 		<div class="limite_date">
-		<a href="[(#SELF|parametre_url{follow,#SESSION{login}})]"[(#ENV{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,#SESSION{login}})]"[(#ENV{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
 		|
-		<a href="[(#SELF|parametre_url{follow,''})]"[(#ENV{follow}|non)class="actif"]>Messages de mon r&#233;seau</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,''})]"[(#ENV{follow}|non)class="actif"]>Messages de mon r&#233;seau</a>
 		|
-		<a href="[(#SELF|parametre_url{follow,all})]"[(#ENV{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,all})]"[(#ENV{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
 		</div>
 		]
 
@@ -100,36 +100,7 @@
 	</div>
 	
 	<aside id="droite">
-
-		<div class="following following_big">
-		<BOUCLE_auteurs(AUTEURS){tous}{recherche}{par points}{inverse}>
-		<div class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-			<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="">
-			<span class="nom">#NOM</span>
-			<span class="login">@#LOGIN</span>
-		</a></div>
-		</BOUCLE_auteurs>
-		</div>
-		
-		
-		<B_syndic>
-			<ul>
-		<BOUCLE_syndic(SYNDIC){tous}{recherche}{par points}{inverse}{id_parent=0}{doublons}>
-			<li>
-			<span class="lien_lien"><span class="lien_lien_total"><a href="sites/#ID_SYNDIC">►</a></span><a href="sites/#ID_SYNDIC">[(#URL_SITE|lien_court)]</a></span>
-			</li>
-		</BOUCLE_syndic>
-			</ul>
-		</B_syndic>
-		
-
-
-		[(#SESSION{id_auteur}|?{""," "})
-			[(#GET{couleur}|microcache{noisettes/adsense})]
-		]
-
-
-		&nbsp;
+	[(#INCLURE{fond=inc/recherche-aside,recherche})]
 	</aside>
 
 	<div class="clear-left"></div>
