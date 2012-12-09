@@ -89,7 +89,7 @@ function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 			
 			if($relevance > 0.3) {
 			
-				$query_groupe = sql_select("id_groupe", "spip_groupes_mots", "titre='".addslashes($groupe_mot)."'");
+				$query_groupe = sql_select("id_groupe", "spip_groupes_mots", "titre=".sql_quote($groupe_mot));
 				if ($row_groupe = sql_fetch($query_groupe)) {
 					$id_groupe = $row_groupe["id_groupe"];
 				} else {
@@ -98,7 +98,7 @@ function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 					);
 				}
 				
-				$query_mot = sql_select("id_mot", "spip_mots", "titre='".addslashes($nom)."' AND id_groupe=$id_groupe");
+				$query_mot = sql_select("id_mot", "spip_mots", "titre=".sql_quote($nom)." AND id_groupe=$id_groupe");
 				if ($row_mot = sql_fetch($query_mot)) {
 					$id_mot = $row_mot["id_mot"];
 				} else {
