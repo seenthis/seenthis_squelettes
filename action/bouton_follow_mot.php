@@ -1,7 +1,9 @@
 <?php
 
 function action_bouton_follow_mot() {
-	$id_mot = _request("id_mot");
+	$id_mot = intval(_request("id_mot"));
+	if (!$id_mot) return;
+
 	$id_follow = $GLOBALS['auteur_session']['id_auteur'];
 
 	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
