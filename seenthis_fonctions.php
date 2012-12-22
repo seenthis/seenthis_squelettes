@@ -538,7 +538,7 @@ function critere_follow_dist($idb, &$boucles, $crit) {
 // - mes favoris
 // - les msgs des auteurs que je suis
 // - les favoris des auteurs que je suis
-// {follow me} : mes message + mes favoris
+// {follow me} : mes messages + mes favoris
 // {follow all} : tous les messages de la base
 // {follow LOGIN} : tous les messages de ce login + ses favoris
 // [A noter les login "me", "follow" et "all" sont niques]
@@ -572,6 +572,15 @@ function liste_me_follow($quoi, $env_follow) {
 			if ($id_auteur > 0) {
 				$suivi = liste_follow($id_auteur);
 				$suivi[] = $id_auteur;
+
+				# optimisation:
+				# ne retenir que les auteurs ayant poste au moins un message
+				$suivi = array_map('array_pop',
+					sql_allfetsel('DISTINCT(id_auteur)',
+						'spip_me', 'statut="publi" AND '.sql_in('id_auteur',$suivi)
+					)
+				);
+
 				$auteurs = sql_in('id_auteur',$suivi);
 
 				return '('.$auteurs
