@@ -1,12 +1,12 @@
 <div id="fond_degrade"></div>
 <nav id="entete">
 
-	<div class="seenthis"><a href="#URL_SITE_SPIP"><img src="[(#CHEMIN{rien.gif})]" alt="Seenthis"></a></div>
+	<div class="seenthis"><a href="#URL_SITE_SPIP/"><img src="[(#CHEMIN{rien.gif})]" alt="Seenthis"></a></div>
 
 	<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}|sinon{0}}>
 		<div class="liens logout"><a href="#URL_LOGOUT" class="symbole">☕</a><a href="#URL_LOGOUT" class="intitule"></a></div>
 		<div class="liens profile"><a href="index.php?page=profil" class="symbole">☸</a><a href="index.php?page=profil" class="intitule"></a></div>
-		<div class="liens accueil"><a href="#URL_SITE_SPIP"></a></div>
+		<div class="liens accueil"><a href="#URL_SITE_SPIP/"></a></div>
 		<div class="liens perso">
 			<a href="#URL_AUTEUR">
 				[<img alt="@#LOGIN" src="(#LOGO_AUTEUR|image_passe_partout{24,24}|image_recadre{24,24}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{24})]})" style="width: 24px; height: 24px;" height="24" width="24">]
