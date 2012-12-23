@@ -67,12 +67,7 @@
 		</div>
 
 		<div id="tous_messages">
-		[(#ENV{debut_messages}|>{10}|non)
-			[(#ID_AUTEUR|microcache{noisettes/contenu_accueil})]
-		]
-		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_accueil}{id=#ID_AUTEUR}>
-		]
+		<INCLURE{fond=noisettes/contenu_accueil}{id=#ID_AUTEUR}{env}>
 		</div>
 	
 

@@ -1,15 +1,13 @@
 <B_messages>
 [<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 <ul id="messages">
-<BOUCLE_messages(ME_RECHERCHE)
-	{recherche}
-	{!par #ENV{tri,points}}
-	{date>(#ENV{age}|sinon{0})}
-	{follow}
+
+<BOUCLE_messages(DATA)
+	{source seenthisrecherche, #ENV**}
 	{pagination 20}
 >
-	<li id="message#ID_ME"><a name="message#ID_ME"></a>
-		[(#ID_ME|microcache{noisettes/afficher_message})]
+	<li id="message#VALEUR{id}" class="tseg#VALEUR{tseg}"><a name="message#VALEUR{id}"></a>
+		[(#VALEUR{id}|microcache{noisettes/afficher_message})]
 	</li>
 </BOUCLE_messages>
 

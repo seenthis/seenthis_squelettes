@@ -1,9 +1,12 @@
 <?php
 
+if (!defined('_ECRIRE_INC_VERSION')) return;
+
 defined('_HOST')||define('_HOST', $_SERVER['HTTP_HOST']);
 defined('_STATIC_HOST')||define('_STATIC_HOST', _HOST);
 
 include_spip("php/traduire_texte");
+include_spip('inc/seenthis_data');
 
 function unichr($u) {
 	return html_entity_decode('&#x' . intval($u) . ';', ENT_NOQUOTES, "UTF-8");
