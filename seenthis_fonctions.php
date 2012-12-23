@@ -615,4 +615,13 @@ function liste_follow($id_auteur) {
 	return $cache[$id_auteur];
 }
 
+// stocker une chaine dans un CDATA
+// a noter qu'il faut "echapper" un eventuel "]]>"
+function filtre_cdata($t) {
+	if (preg_match(',[&<>],', $t))
+		return "<![CDATA[" . str_replace(']]>', ']]]]><![CDATA[>', $t).']]>';
+	else
+		return $t;
+}
+
 ?>
