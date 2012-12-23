@@ -1,30 +1,35 @@
-#CACHE{0}
+#CACHE{3600}
+[(#REM)
 
-		
-	
-		#SET{auteurs_suivis, #ARRAY{}}
-		<BOUCLE_follow(spip_me_follow){id_follow=#ENV{id}}>
-			[(#SET{auteurs_suivis, #GET{auteurs_suivis}|push{#ID_AUTEUR}})]		
-		</BOUCLE_follow>
-		
-		<BOUCLE_messages_follow(ME){id_auteur IN #GET{auteurs_suivis}}{id_parent=0}{0,500}{par date}{inverse}>
-			[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
-		</BOUCLE_messages_follow>
+	Page /people s'affichant quand on est connecte
 
-		<BOUCLE_messages_follow_reponses(ME){id_auteur IN #GET{auteurs_suivis}}{id_parent>0}{0,100}{par date}{inverse}>
-			[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
-		</BOUCLE_messages_follow_reponses>
+	On va afficher un message d'activite recente par personne suivie.
 
-		<BOUCLE_share(spip_me_share){id_auteur IN #GET{auteurs_suivis}}>
-			[(#ID_ME|stocker_id_me_date{#DATE})]
-		</BOUCLE_share>
-	
-	
-	
+	GROUP BY ne donnant pas nécessairement le MAX(date) pour chaque auteur,
+	et SPIP ne proposant pas les sous-requêtes, il faut faire des boucles
+
+]
+
+		#SET{messages,#ARRAY{}}
+		<BOUCLE_follow(spip_me)
+			{id_auteur IN (#ENV{id}|liste_follow)}
+			{statut=publi}
+			{!par date}
+			{0,1000}>[(#ID_AUTEUR**|unique|?{[(#SET{messages, [(#GET{messages}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]})]</BOUCLE_follow>
+
+		<BOUCLE_share(spip_me_share)
+			{id_auteur IN (#ENV{id}|liste_follow)}
+			{statut=publi}
+			{!par date}
+			{0,300}>[(#ID_AUTEUR**|unique|?{[(#SET{messages, [(#GET{messages}|push{#ID_ME})]})]})]</BOUCLE_share>
+
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-		<BOUCLE_messages(spip_me){id_me IN (#VAL|retour_id_me_date)}{id_parent=0}{pagination 25}{statut=publi}>
+		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}
+		{pagination 25}
+		{statut=publi}
+		{!par date}>
 			<li id="message#ID_ME">
 				[(#ID_ME|microcache{noisettes/afficher_message})]
 			</li>
