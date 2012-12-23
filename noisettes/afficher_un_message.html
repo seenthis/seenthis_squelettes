@@ -8,8 +8,8 @@
 
 
 			<div class="stumble">[<a href="http://www.stumbleupon.com/submit?url=(#ID_ME|share_lien)" class="spip_out" rel="nofollow" title="StumbleUpon"><img src="#CHEMIN{imgs/stumble.png}" width="14" height="14" alt=""></a>]</div>
-			<div class="facebook">[<a href="(#ID_ME|share_fb{#[(#ID_ME|texte_de_me)]})" class="spip_out" rel="nofollow" title="Facebook"><img src="#CHEMIN{imgs/facebook.gif}" width="14" height="14" alt=""></a>]</div>
-			<div class="twitter">[<a href="http://twitter.com/intent/tweet?text=(#ID_ME|share_tw{[(#ID_ME|texte_de_me)]}|rawurlencode)" class="spip_out" rel="nofollow" title="Twitter"><img src="#CHEMIN{imgs/twitter.png}" width="16" height="13" alt=""></a>]</div>
+			<div class="facebook">[<a href="(#ID_ME|share_fb{#[(#TEXTE*)]})" class="spip_out" rel="nofollow" title="Facebook"><img src="#CHEMIN{imgs/facebook.gif}" width="14" height="14" alt=""></a>]</div>
+			<div class="twitter">[<a href="http://twitter.com/intent/tweet?text=(#ID_ME|share_tw{[(#TEXTE*)]}|rawurlencode)" class="spip_out" rel="nofollow" title="Twitter"><img src="#CHEMIN{imgs/twitter.png}" width="16" height="13" alt=""></a>]</div>
 
 
 			<div class="auteur_date">
@@ -17,29 +17,8 @@
 
 				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)] [(#DATE|heures)]:[(#DATE|minutes)]</time></a></span>
 
-				<div class="favori[(#ID_PARENT|=={0}|?{'','_off'})]">
-					[(#SET{total,""})]
-					
-					<B_people_share>
-						<div class="survol">
-						[(#SET{total,#TOTAL_BOUCLE})]
-	
-							<a class="activer_favori" onclick="$(this).parent('.favori').hide(); $('#message#ID_ME').load('index.php?action=favori&amp;id_me=#ID_ME&amp;x=' + (new Date()).getTime()); return false;" href="#"
-								rel="^(<BOUCLE_favoris2(spip_me_share){id_me=#ID_ME}{'|'}>#ID_AUTEUR</BOUCLE_favoris2>)$"	
-							>[<span class='total'>(#GET{total})</span>]<span class='intitule txt_favori'></span></a>
-						<div class="vignettes">
-						<BOUCLE_people_share(spip_me_share){id_me=#ID_ME}>
-							[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur_small_nofollow})]
-						</BOUCLE_people_share>
-						</div>
-						</div>
-					</B_people_share>
-				<a class="activer_favori" onclick="$(this).parent('.favori').hide(); $('#message#ID_ME').load('index.php?action=favori&amp;id_me=#ID_ME&amp;x=' + (new Date()).getTime()); return false;" href="#"
-					rel="^(<BOUCLE_favoris(spip_me_share){id_me=#ID_ME}{'|'}>#ID_AUTEUR</BOUCLE_favoris>)$"	
-				>[<span class='total'>(#GET{total})</span>]<span class='intitule txt_favori'></span></a>
-				</div>
+				[(#ID_PARENT|=={0}|?{#INCLURE{fond=noisettes/favoris,id_me}})]
 			</div>
-
 			
 			[(#ID_ME|microcache{noisettes/message_destinataires})]
 			<div  id="texte#ID">[(#ID_ME|microcache{noisettes/message_texte}|ajouter_embed)]</div>

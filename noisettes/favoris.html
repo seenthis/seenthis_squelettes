@@ -1,0 +1,22 @@
+#CACHE{0}
+<div class="favori">
+	[(#SET{total,""})]
+	
+	<B_people_share>
+		<div class="survol">
+		[(#SET{total,#TOTAL_BOUCLE})]
+	
+			<a class="activer_favori" onclick="$(this).parent('.favori').hide(); $('#message#ENV{id_me}').load('index.php?action=favori&amp;id_me=#ENV{id_me}&amp;x=' + (new Date()).getTime()); return false;" href="#"
+rel="^(<BOUCLE_favoris2(spip_me_share){id_me}{'|'}>#ID_AUTEUR</BOUCLE_favoris2>)$"	
+			>[<span class='total'>(#GET{total})</span>]<span class='intitule txt_favori'></span></a>
+		<div class="vignettes">
+		<BOUCLE_people_share(spip_me_share){id_me}>
+			[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur_small_nofollow})]
+		</BOUCLE_people_share>
+		</div>
+		</div>
+	</B_people_share>
+<a class="activer_favori" onclick="$(this).parent('.favori').hide(); $('#message#ENV{id_me}').load('index.php?action=favori&amp;id_me=#ENV{id_me}&amp;x=' + (new Date()).getTime()); return false;" href="#"
+	rel="^(<BOUCLE_favoris(spip_me_share){id_me}{'|'}>#ID_AUTEUR</BOUCLE_favoris>)$"
+>[<span class='total'>(#GET{total})</span>]<span class='intitule txt_favori'></span></a>
+</div>
