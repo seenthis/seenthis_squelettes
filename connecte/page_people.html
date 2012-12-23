@@ -51,13 +51,7 @@
 	<div id="centre">
 		<div id="tous_messages">
 
-		[(#ENV{debut_messages}|>{10}|non)
-			[(#ID_AUTEUR|microcache{noisettes/contenu_page_people})]
-		]
-		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_page_people}{id=#ID_AUTEUR}>
-		]
-
+		<INCLURE{fond=noisettes/contenu_page_people}{id=#ID_AUTEUR}>
 
 		</div>
 
