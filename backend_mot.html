@@ -6,27 +6,17 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 
 	<link href="[(#URL_MOT|url_absolue)]" />
 
+		#SET{mots, #ARRAY{0,#ID_MOT}}
 		<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
-			<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots}/>
+		#SET{mots, #GET{mots}|push{#ID_MOT}}
+			<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
 		</BOUCLE_enfants>
 
-
-		#SET{messages, #ARRAY{}}
-		#SET{liens, #ARRAY{}}
-		
-		<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
-			<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
-				[(#ID_PARENT|>{0}|?{" ",""})
-					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
-				]
-				[(#ID_PARENT|>{0}|?{""," "})
-					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
-				]
-			</BOUCLE_tous_liens>
-		</BOUCLE_tous_mots>
-
-		<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 40}{statut=publi}>
-		[(#ID_ME|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
+		<BOUCLE_messages(spip_me spip_me_mot)
+		{spip_me_mot.id_mot IN #GET{mots}}{!par date}
+		{0,40}{statut=publi}>
+		[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME}
+			|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
 		</BOUCLE_messages>
 </feed>
 </BOUCLE_principale>
