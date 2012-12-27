@@ -249,7 +249,7 @@ function afficher_miniature($img, $max = 200) {
 		$xmlattributes = $xmlget->attributes();
 		$width = (string) $xmlattributes->width; 
 		$height = (string) $xmlattributes->height;
-		$vignette = "<img src='".$vignette."' width=$width height=$height />";
+		$vignette = "<img src='".$vignette."' width='$width' height='$height' />";
 		$svg = true; # pas de shadowbox
 	}
 
@@ -257,8 +257,11 @@ function afficher_miniature($img, $max = 200) {
 	
 	
 	include_spip("inc/filtres_images_mini");
-	$vignette = image_reduire($vignette, 300, 180);
-	$vignette = inserer_attribut($vignette, "alt", "");
+	$vignetter = image_reduire($vignette, 300, 180);
+	
+	if ($vignetter == $vignette) return;
+	
+	$vignette = inserer_attribut($vignetter, "alt", "");
 
 	if ($width <= $max && $height <= $max)
 		return $vignette;
