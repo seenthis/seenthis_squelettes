@@ -26,18 +26,18 @@
 </url>
 
 
-<BOUCLE_auteurs(AUTEURS){tous}>[
+<BOUCLE_auteurs(AUTEURS){tous}{par hasard}{0,200}>[
 <url><loc>#URL_SITE_SPIP/(#URL_AUTEUR)</loc></url>]</BOUCLE_auteurs>
 
-<BOUCLE_mots(MOTS){tous}>[
+<BOUCLE_mots(MOTS){tous}{par hasard}{0,200}>[
 <url><loc>#URL_SITE_SPIP/(#URL_MOT)</loc></url>]</BOUCLE_mots>
 
 
-<BOUCLE_me(ME){tous}{par date}{inverse}{id_parent=0}>[
+<BOUCLE_me(ME){tous}{par date}{inverse}{0,500}{id_parent=0}>[
 <url><loc>#URL_SITE_SPIP/(#URL_ME)</loc></url>]</BOUCLE_me>
 
 
-<BOUCLE_site(SYNDIC){tous}{par date}{inverse}>[
+<BOUCLE_site(SYNDIC){tous}{par date}{inverse}{0,30}>[
 <url><loc>(#URL_SITE_SPIP)/sites/#ID_SYNDIC</loc></url>]</BOUCLE_site>
 
 </urlset>
