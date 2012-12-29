@@ -8,7 +8,7 @@
 	<meta charset="#CHARSET">
 	<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT">
 	
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_SITE_SPIP/#URL_MOT/feed">
 	
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
@@ -54,7 +54,7 @@
 				<div id="follow_mot"></div>
 			</div>
 
-			<div class="rss"><a href="index.php?page=backend_mot&id_mot=#ID_MOT">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
+			<div class="rss"><a href="#URL_SITE_SPIP/#URL_MOT/feed">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
 		</div>
 		]
 	
