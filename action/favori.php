@@ -3,10 +3,8 @@
 
 function action_favori_dist() {
 
-
-	$auteur_session = $GLOBALS["auteur_session"]["id_auteur"];
+	$auteur_session = $GLOBALS["visiteur_session"]["id_auteur"];
 	$id_me = floor(_request("id_me"));
-
 
 	if ($auteur_session < 1) exit;
 	#cache_me($id_me);
