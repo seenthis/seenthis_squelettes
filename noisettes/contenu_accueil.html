@@ -5,7 +5,7 @@
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-		<BOUCLE_messages(DATA){source seenthisaccueil,#ENV**}
+		<BOUCLE_messages(DATA){source seenthisaccueil,#ENV**,accueil}
 		{pagination 25}>
 			<li id="message#VALEUR">
 				[(#VALEUR|microcache{noisettes/afficher_message})]

@@ -5,7 +5,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 	<title>#NOM (@#LOGIN) - Seenthis</title>
 	<link href="[(#URL_AUTEUR|url_absolue)]"/>
 
-<BOUCLE_messages(DATA){source seenthisaccueil,#ENV**}{0,25}>
+<BOUCLE_messages(DATA){source seenthisaccueil,#ENV**,backend_auteur_follow}{0,25}>
 	[(#VALEUR|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
 </BOUCLE_messages>
 </feed>
