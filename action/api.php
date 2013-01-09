@@ -91,6 +91,8 @@ function action_api_dist() {
 			$id_me = get_create_me_uuid($regs[1]);
 			if (!$id_me)
 				erreur_405("Error - UUID not available on this server");
+		} else if (strlen($id)>0) {
+			erreur_405("Error - your ID does not match an acceptable format");
 		}
 
 		$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent);
