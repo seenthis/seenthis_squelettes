@@ -53,7 +53,7 @@
 			<B_messages>
 			[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 			<ul id="messages">
-			<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
+			<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{troll>1}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
 				<li id="message#ID_ME">
 				[(#ID_ME|microcache{noisettes/afficher_message})]
 				</li>
