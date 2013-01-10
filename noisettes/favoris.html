@@ -6,7 +6,7 @@
 		<div class="survol">
 		[(#SET{total,#TOTAL_BOUCLE})]
 	
-			<a class="activer_favori" onclick="$(this).parent('.favori').hide(); $('#message#ENV{id_me}').load('index.php?action=favori&amp;id_me=#ENV{id_me}&amp;share=-1&amp;x=' + (new Date()).getTime()); return false;" href="#"
+			<a class="activer_favori" onclick="var share=auteur_connecte.match($(this).attr('rel'))?-1:1; $(this).parent('.favori').hide(); $('#message#ENV{id_me}').load('index.php?action=favori&amp;id_me=#ENV{id_me}&amp;share=' + share + '&amp;x=' + (new Date()).getTime()); return false;" href="#"
 rel="^(<BOUCLE_favoris2(spip_me_share){id_me}{'|'}>#ID_AUTEUR</BOUCLE_favoris2>)$"	
 			>[<span class='total'>(#GET{total})</span>]<span class='intitule txt_favori'></span></a>
 		<div class="vignettes">
