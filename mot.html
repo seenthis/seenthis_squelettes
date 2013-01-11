@@ -93,7 +93,7 @@
 		<B_enfants>
 		<ul>
 			<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{par titre}{tout}{doublons mots}>
-			<li>#<a href="#URL_MOT">[(#TITRE)]</a>
+			<li>#<a href="[(#URL_MOT|url_absolue)]">[(#TITRE)]</a>
 			
 				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots}/>
 			</li>
