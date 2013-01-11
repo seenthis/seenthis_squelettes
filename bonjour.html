@@ -2,14 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#NOM|textebrut)]</title>
+	<title>[(#NOM_SITE_SPIP|textebrut)]</title>
 
 	<meta charset="#CHARSET">
+	[(#VAL{0}|microcache{inc/head_langue})]
 
-	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
-	
-	
-	
 	<style><!--
 	
 	<INCLURE{fond=css/accueil}>	
@@ -21,11 +18,29 @@
 		<INCLURE{fond=css/couleur}{couleur=#GET{couleur}}>
 	]
 	--></style>
-	[(#VAL{3}|microcache{noisettes/head_auteur})]
+
+[(#REM) Couleurs de l'auteur 3 ]
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=3}>
+
+	<INCLURE{fond=inc/head}{lang=fr}>
+
+	<style><!--
+	<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
+	<INCLURE{fond=css/inscription}{couleur=#COULEUR}>
+	.formulaire_inscription {
+		display: none;
+	}
+	
+	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+	
+	--></style>
+</BOUCLE_auteur>
+
+
 	
 
 	<script><!--
-	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	var auteur_connecte = null;
 	--></script>
 	
 	<style>
