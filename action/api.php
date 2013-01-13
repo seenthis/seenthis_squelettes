@@ -87,6 +87,9 @@ function action_api_dist() {
 		if (preg_match("/^message\:(\d+)/", $id, $regs)) {
 			$id_me = $regs[1];
 		} else if (preg_match("/^uuid\:(.+)/", $id, $regs)) {
+			include_spip('inc/uuid');
+			if (!UUID::Valid($regs[1]))
+				erreur_405("Error - invalid UUID format");
 			include_spip('inc/seenthis_uuid');
 			$id_me = get_create_me_uuid($regs[1]);
 			if (!$id_me)
