@@ -95,7 +95,7 @@
 		<BOUCLE_follow_mot(spip_me_follow_url){id_follow=#ID_AUTEUR}>
 			<BOUCLE_le_mot(SYNDIC){id_syndic=#ID_SYNDIC}{doublons mots}>
 			<li>
-			<span class="lien_lien"><span class="lien_lien_total"><a href="sites/#ID_SYNDIC">►</a></span><a href="sites/#ID_SYNDIC">[(#URL_SITE|lien_court)]</a></span>			
+			<span class="lien_lien"><span class="lien_lien_total"><a href="[(#ID_SYNDIC|generer_url_entite{site})]">►</a></span><a href="[(#ID_SYNDIC|generer_url_entite{site})]">[(#URL_SITE|lien_court)]</a></span>			
 			</li>
 			
 			<BOUCLE_enfants(SYNDIC){id_syndic=#ID_SYNDIC}{tout}{doublons mots}>

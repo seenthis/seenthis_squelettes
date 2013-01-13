@@ -10,7 +10,7 @@
 <B_liens>
 <urls>
 <BOUCLE_liens(SITES spip_me_syndic){spip_me_syndic.id_me=#ID_ME}>
-<url href="#URL_SITE_SPIP/sites/#ID_SYNDIC">[(#URL_SITE|cdata)]</url>
+<url href="[(#ID_SYNDIC|generer_url_entite{site}|url_absolue)]">[(#URL_SITE|cdata)]</url>
 </BOUCLE_liens>
 </urls>
 </B_liens>

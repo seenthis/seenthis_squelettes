@@ -27,17 +27,17 @@
 
 
 <BOUCLE_auteurs(AUTEURS){tous}{par hasard}{0,200}>[
-<url><loc>#URL_SITE_SPIP/(#URL_AUTEUR)</loc></url>]</BOUCLE_auteurs>
+<url><loc>(#URL_AUTEUR|url_absolue)</loc></url>]</BOUCLE_auteurs>
 
 <BOUCLE_mots(MOTS){tous}{par hasard}{0,200}>[
-<url><loc>#URL_SITE_SPIP/(#URL_MOT)</loc></url>]</BOUCLE_mots>
+<url><loc>(#URL_MOT|url_absolue)</loc></url>]</BOUCLE_mots>
 
 
 <BOUCLE_me(ME){tous}{par date}{inverse}{0,500}{id_parent=0}>[
-<url><loc>#URL_SITE_SPIP/(#URL_ME)</loc></url>]</BOUCLE_me>
+<url><loc>(#URL_ME|url_absolue)</loc></url>]</BOUCLE_me>
 
 
 <BOUCLE_site(SYNDIC){tous}{par date}{inverse}{0,30}>[
-<url><loc>(#URL_SITE_SPIP)/sites/#ID_SYNDIC</loc></url>]</BOUCLE_site>
+<url><loc>(#ID_SYNDIC|generer_url_entite{site}|url_absolue)</loc></url>]</BOUCLE_site>
 
 </urlset>
