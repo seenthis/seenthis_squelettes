@@ -13,8 +13,14 @@ function action_bouton_follow_url() {
 		lang_select($row["lang"]);
 	}
 
+	$query = sql_select("id_syndic,url_site", "spip_syndic", "id_syndic=".sql_quote($id_syndic));
+	if (!$row = sql_fetch($query))
+		die();
 
-	
+	$id_syndic = $row['id_syndic'];
+	$url = $row['url_site'];
+
+
 	$follow = _request("follow");
 	if ($follow == "non" OR $follow == "oui") {
 		$statut_session = $GLOBALS["auteur_session"]["statut"];
@@ -26,13 +32,22 @@ function action_bouton_follow_url() {
 		
 		
 		$retour = $_SERVER["HTTP_REFERER"];	
-	
-		sql_query("DELETE FROM `spip_me_follow_url` WHERE `id_follow` = $id_follow AND `id_syndic` = $id_syndic");
+
+
+
+		sql_query("DELETE FROM `spip_me_follow_url` WHERE `id_follow` = $id_follow AND `id_syndic`=$id_syndic");
+		
+		sql_query("DELETE FROM `spip_me_follow_tag` WHERE `id_follow` = $id_follow AND `tag`=".sql_quote($url));
 		
 		if ($follow == "oui") {
 			sql_insertq("spip_me_follow_url", array(
 				"id_follow" => $id_follow,
 				"id_syndic" => $id_syndic,
+				"date" => "NOW()"
+			));
+			sql_insertq("spip_me_follow_tag", array(
+				"id_follow" => $id_follow,
+				"tag" => $url,
 				"date" => "NOW()"
 			));
 		}

@@ -52,6 +52,16 @@ function getOpenCalais($content) {
 	
 }
 
+/*
+ * Va chercher les tags openCalais d'un contenu, et met les mots-clés
+ * correspondants dans la table spip_mots (+spip_groupes_mots)
+ * ainsi que dans les tables de liaison :
+ * - spip_me_mot pour les messages
+ * - spip_syndic_oc pour les textes récupérés sur des sites distants
+ *
+ * on ajoute (NEW STYLE) la table spip_me_tags, dans un premier temps
+ * pour les messages uniquement
+ */
 function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 
 	// Effacer les liens entre le mot et l'objet
@@ -59,6 +69,52 @@ function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 	// pour ne pas effacer les spip_me_mot des hashtags (qui n'ont pas de pondération)
 	
 	
+	$oc = getOpenCalais($texte);
+	if (!is_array($oc)) {
+		spip_log("erreur opencalais sur $id_tag=$id");
+		return false;
+	}
+
+	// filtrer les $oc : on ne veut que les entities, et leur relevance
+	$tags = array();
+	foreach($oc as &$tag) {
+		if ($tag->_typeGroup == 'entities') {
+			$key = $tag->_type . ':' . $tag->name;
+			$relevance = $tag->relevance;
+			$tags[$key] = round(1000*$relevance);
+		}
+	}
+
+	// NEW STYLE: spip_me_tags, pour les messages
+	if ($id_tag == 'id_me') {
+		// recuperer l'uuid
+		$u = sql_fetsel('uuid', 'spip_me', 'id_me='.sql_quote($id));
+		$uuid = $u['uuid'];
+		$idoff = sql_allfetsel('tag', 'spip_me_tags', 'uuid='.sql_quote($uuid).' AND off="oui" AND class="oc"');
+
+		sql_delete('spip_me_tags', 'uuid='.sql_quote($uuid).' AND class="oc"');
+		foreach($tags as $tag => $relevance) {
+			if ($relevance > 300) {
+				$off = in_array(array('tag'=>$tag), $idoff);
+				sql_insertq('spip_me_tags', $c = array(
+					'uuid' => $uuid,
+					'id_me' => $id,
+					'tag' => $tag,
+					'relevance' => $relevance,
+					'class' => 'oc',
+					'off' => $off ? 'oui' : 'non',
+					'date' => 'NOW()'
+				));
+			}
+		}
+	}
+
+
+	//
+	//  (OLD STYLE : mots-clés ; encore valable pour les spip_syndic_oc…)
+	//
+
+	// se souvenir des liens masques par l'utilisateur (off=oui)
 	$off = array();
 	$query = sql_select("*", "$lien", "off = 'oui' && $id_tag=".sql_quote($id));
 	while($row = sql_fetch($query)) {
@@ -66,17 +122,11 @@ function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 		$off["$id_mot"] = "oui";
 	}
 	
-	
+	// effacer les éventuels liens openCalais déjà présents
 	sql_delete("$lien", "relevance > 0 && $id_tag=".sql_quote($id));
 
-
-	$tags = getOpenCalais($texte);
-
-
-	if (!$tags) return false;
-
-
-	foreach ($tags AS $tag) {
+	// mettre les nouveaux liens openCalais
+	foreach ($oc AS $tag) {
 		$typeGroup = $tag->_typeGroup;
 		if ($typeGroup == "entities") {
 			$groupe_mot = $tag->_type;
@@ -116,7 +166,8 @@ function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 						"id_mot" => $id_mot,
 						"$id_tag" => $id,
 						"relevance" => round($relevance * 1000),
-						"off" => $off["$id_mot"]
+						"off" => $off["$id_mot"],
+						"date" => 'NOW()'
 					)
 				);
 				cache_mot($id_mot);

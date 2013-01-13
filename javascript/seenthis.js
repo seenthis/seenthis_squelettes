@@ -259,7 +259,9 @@ function switch_comments(id_me) {
 		}
 
 		if ($("body").hasClass("mot") &&  auteur_connecte > 0) {
-			$("#follow_mot").load('index.php?action=bouton_follow_mot&id_mot='+id_mot);
+			var tag = $("#follow_mot").attr('data-tag');
+			var type = $("#follow_mot").attr('data-type');
+			$("#follow_mot").load('index.php?action=bouton_follow_mot&tag='+encodeURIComponent(tag));
 		}
 
 		favoris_actifs();

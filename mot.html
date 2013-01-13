@@ -72,7 +72,7 @@
 
 		<div class="outils">
 			<div class="suivre">
-				<div id="follow_mot"></div>
+				<div id="follow_mot" data-tag="<BOUCLE_t(GROUPES_MOTS){id_groupe}{id_groupe>1}>[(#TITRE*|attribut_html):]</BOUCLE_t>#<//B_t>[(#TITRE*|attribut_html)]"></div>
 			</div>
 
 			<div class="rss"><a href="#URL_SITE_SPIP/#URL_MOT/feed[?follow=(#GET{follow}|replace{^(follow|all)$})]">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
