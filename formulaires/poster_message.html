@@ -9,10 +9,12 @@
 			[(#SET{zemot,#TITRE})]
 			</BOUCLE_mot>
 
+[<div id="poste(#ENV**{message_ok}|table_valeur{pave})" />]
 
 <div class='formulaire_spip formulaire_poster_message ajax'>
 
-	
+[<a name="ajax_ancre" href="#poste(#ENV**{message_ok}|table_valeur{pave})"></a>]
+
 	[(#EDITABLE|oui)
 	]
 	<div class="cadre">
@@ -37,10 +39,12 @@
 			[(#GET{dest}|oui)
 				<div><label class="votre_message_public"></label></div>
 			]
-			
-			
+
+
+		[(#REM) compter les lignes du message existant ]
+		[(#SET{lignes,[(#ENV**{texte_message}|nl2br|explode{"<br"}|count)]})]
 			[(#ENV**{message_ok}|table_valeur{ok_me}|non)
-				<div><textarea name="texte_message" rows="2" cols="60">[(#ENV**{texte_message})]</textarea></div>
+				<div><textarea name="texte_message" rows="[(#GET{lignes}|min{40}|max{2})]" cols="60">[(#ENV**{texte_message})]</textarea></div>
 			]
 			[(#ENV**{message_ok}|table_valeur{ok_me}|oui)
 				<div><textarea name="texte_message" rows="2" cols="60"></textarea></div>
@@ -77,9 +81,11 @@
 		<script><!--
 		
 		if ("[(#ENV**{message_ok}|table_valeur{maj})]" > 0) {
-			$("#message[(#ENV**{message_ok}|table_valeur{pave})]")
+			setTimeout(function() {
+				$("#message[(#ENV**{message_ok}|table_valeur{pave})]")
 				.html("<div class='loading_icone'></div>")
 				.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{pave})]");
+			}, 30);
 		}
 		else if ("[(#ENV**{message_ok}|table_valeur{ok_parent})]" > 0) {
 		

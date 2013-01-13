@@ -67,8 +67,8 @@
 					rel="^(#ID_AUTEUR<BOUCLE_racine(spip_me){id_me=#ID_PARENT}>|#ID_AUTEUR</BOUCLE_racine>)$"></a>
 				</div>
 				<div class="modifier"><a
-					onclick="$('#texte#ID').load('index.php?page=modifier_me&amp;id_me=#ID_ME&amp;x=' + (new Date()).getTime() ); return false;"	
-					href="#" rel="#ID_AUTEUR"></a>
+					onclick="$('#texte#ID').load('index.php?page=modifier_me&amp;id_me=#ID_ME&amp;x=' + (new Date()).getTime() ); if ($('#texte#ID').offset().top >= (scrolltop = self['pageYOffset'] || $.boxModel && document.documentElement[ 'scrollTop' ] || document.body[ 'scrollTop' ])) return false;"	
+					href="#message#ID" rel="#ID_AUTEUR"></a>
 				</div>
 				
 				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
