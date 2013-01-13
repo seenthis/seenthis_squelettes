@@ -1,7 +1,7 @@
 <?php
 
 function action_bouton_follow_url() {
-	$id_syndic = _request("id_syndic");
+	$id_syndic = intval(_request("id_syndic"));
 	$id_follow = $GLOBALS['auteur_session']['id_auteur'];
 
 	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
