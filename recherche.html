@@ -45,26 +45,6 @@
 	
 		<h1>[<:info_rechercher_02:> (#ENV{recherche}|mb_strtolower{UTF-8})]</h1>
 	
-		<div class="limite_date">
-		<em>À noter, un changement dans le moteur de recherche. Les messages sont désormais présentés par tranche d'âge : d'abord ceux de moins d'une heure, puis ceux d’un jour, d’une semaine, d’un mois, de trois mois, d’un an, et enfin les plus vieux. À l’intérieur d’une tranche, les résultats sont triés par pertinence.</em>
-<!--
-	// inutile car les resultats sont desormais tries par tseg
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,1})]"[(#ENV{age}|=={1}|oui)class="actif"]>Depuis hier</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,7})]"[(#ENV{age}|=={7}|oui)class="actif"]>Depuis une semaine</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,31})]"[(#ENV{age}|=={31}|oui)class="actif"]>Depuis un mois</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,92})]"[(#ENV{age}|=={92}|oui)class="actif"]>Depuis trois mois</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,183})]"[(#ENV{age}|=={183}|oui)class="actif"]>Depuis six mois</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,366})]"[(#ENV{age}|=={366}|oui)class="actif"]>Depuis un an</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{age,''})]"[(#ENV{age}|non)class="actif"]>Sans limite</a>
--->
-		</div>
-
 		[(#SESSION{id_auteur}|oui)
 		<div class="limite_date">
 		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,#SESSION{login}})]"[(#ENV{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
