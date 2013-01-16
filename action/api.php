@@ -86,19 +86,18 @@ function action_api_dist() {
 		$id_me = 0;
 		if (preg_match("/^message\:(\d+)/", $id, $regs)) {
 			$id_me = $regs[1];
+			$uuid = null;
 		} else if (preg_match("/^uuid\:(.+)/", $id, $regs)) {
 			include_spip('inc/uuid');
-			if (!UUID::Valid($regs[1]))
+			$uuid = $regs[1];
+			if (!UUID::Valid($uuid))
 				erreur_405("Error - invalid UUID format");
-			include_spip('inc/seenthis_uuid');
-			$id_me = get_create_me_uuid($regs[1]);
-			if (!$id_me)
-				erreur_405("Error - UUID not available on this server");
 		} else if (strlen($id)>0) {
 			erreur_405("Error - your ID does not match an acceptable format");
 		}
 
-		$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent);
+		$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent, $id_dest=0, $ze_mot=0, $time="NOW()", $uuid);
+
 		$id_me = $ret["id_me"];
 		
 		if (!$id_me) erreur_405("Unexpected error - not saved in base");
