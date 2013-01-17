@@ -31,7 +31,7 @@
 		"auteur_block" => "Block @people@",
 		"auteur_vous_block" => "You have blocked @people@",
 		"auteur_ne_plus_block" => "Un-block @people@",
-		"auteur_block_you" => "This author has blocked you. You cannot comment his messages.",
+		"auteur_block_you" => "This user has blocked your comments.",
 		"auteurs_vous_suivez" => "The people you are following",
 		"vous_suivez" => "following",
 		"vous_suivent" => "followers",
