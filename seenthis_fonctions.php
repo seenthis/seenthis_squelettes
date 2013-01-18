@@ -242,7 +242,20 @@ function couleur_chroma ($coul, $num) {
 }
 
 function afficher_miniature($img, $max = 200) {
-	$vignette = copie_locale($img);
+
+	if (!$vignette = copie_locale($img, 'test')
+	AND $id_me = _request('id_me')) {
+		include_spip('inc/acces');
+		$i = $GLOBALS['visiteur_session']['id_auteur'];
+		$sec = afficher_low_sec($i, "miniature $max $img $id_me");
+		$url = generer_url_action('creer_miniature');
+		$url = parametre_url($url, 'id_auteur', $i);
+		$url = parametre_url($url, 'id_me', $id_me);
+		$url = parametre_url($url, 'img', $img);
+		$url = parametre_url($url, 'max', $max);
+		$url = parametre_url($url, 'sec', $sec);
+		return "<div style=\"max-width:${max}px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img'><img src='$url' alt=\"". attribut_html($img).'" /></a></div>';
+	}
 	
 	list($width, $height) = @getimagesize($vignette);
 
