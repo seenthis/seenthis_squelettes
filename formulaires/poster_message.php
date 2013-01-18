@@ -3,7 +3,7 @@
 ############## CHARGER
 
 function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0, $ze_mot=0) {
-	if (!$GLOBALS["auteur_session"]["id_auteur"])
+	if (!$GLOBALS["visiteur_session"]["id_auteur"])
 		return;
 
 	$texte_message = "";
@@ -19,7 +19,7 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 		"texte_message"=> "$texte_message",
 		"id_dest" => intval($id_dest),
 		"ze_mot" => intval($ze_mot),
-		"id_auteur" => $GLOBALS["auteur_session"]["id_auteur"],
+		"id_auteur" => $GLOBALS["visiteur_session"]["id_auteur"],
 		'action' => preg_replace(',^[^/]+://[^/]+/,', '/', url_de_base()),
 	);
 
@@ -31,7 +31,7 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 ################# VERIFIER
 
 function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0, $id_dest=0, $ze_mot=0){
-	if (!$GLOBALS["auteur_session"]["id_auteur"])
+	if (!$GLOBALS["visiteur_session"]["id_auteur"])
 		return;
 
 	$errors = Array();
@@ -46,7 +46,7 @@ function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0, $id_dest
 		$query_auteur = sql_select("*", "spip_me", "id_me=".intval($id_parent));
 		if ($row_auteur = sql_fetch($query_auteur)) {
 			$id_block = $row_auteur["id_auteur"];
-			$id_auteur = floor($GLOBALS["auteur_session"]["id_auteur"]);
+			$id_auteur = floor($GLOBALS["visiteur_session"]["id_auteur"]);
 			
 			//die("$id_block - $id_auteur");
 			
@@ -89,7 +89,7 @@ function formulaires_poster_message_traiter ($id_me=0, $id_parent=0, $id_dest=0,
 	$id_me_nouv = 0;
 	$texte_message = _request("texte_message");
 	
-	$id_auteur = floor($GLOBALS["auteur_session"]["id_auteur"]);
+	$id_auteur = floor($GLOBALS["visiteur_session"]["id_auteur"]);
 
 	$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent, $id_dest, $ze_mot);
 	$id_me_nouv = $ret["id_me"];
