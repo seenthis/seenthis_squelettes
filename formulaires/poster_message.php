@@ -3,10 +3,13 @@
 ############## CHARGER
 
 function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0, $ze_mot=0) {
+	if (!$GLOBALS["auteur_session"]["id_auteur"])
+		return;
+
 	$texte_message = "";
 
 	if ($id_me > 0) {
-		$query = sql_select("*", "spip_me_texte", "id_me=$id_me");
+		$query = sql_select("*", "spip_me_texte", "id_me=".intval($id_me));
 		if ($row = sql_fetch($query)) {
 			$texte_message = $row["texte"];
 		}
@@ -14,8 +17,8 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 
 	$valeurs = Array(
 		"texte_message"=> "$texte_message",
-		"id_dest" => $id_dest,
-		"ze_mot" => $ze_mot,
+		"id_dest" => intval($id_dest),
+		"ze_mot" => intval($ze_mot),
 		"id_auteur" => $GLOBALS["auteur_session"]["id_auteur"],
 		'action' => preg_replace(',^[^/]+://[^/]+/,', '/', url_de_base()),
 	);
@@ -28,6 +31,9 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 ################# VERIFIER
 
 function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0, $id_dest=0, $ze_mot=0){
+	if (!$GLOBALS["auteur_session"]["id_auteur"])
+		return;
+
 	$errors = Array();
 	
 	
@@ -37,7 +43,7 @@ function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0, $id_dest
 	
 	
 	if ($id_parent > 0) {
-		$query_auteur = sql_select("*", "spip_me", "id_me=$id_parent");
+		$query_auteur = sql_select("*", "spip_me", "id_me=".intval($id_parent));
 		if ($row_auteur = sql_fetch($query_auteur)) {
 			$id_block = $row_auteur["id_auteur"];
 			$id_auteur = floor($GLOBALS["auteur_session"]["id_auteur"]);
