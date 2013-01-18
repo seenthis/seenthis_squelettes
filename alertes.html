@@ -41,7 +41,7 @@
 		<ul>
 		<BOUCLE_alertes(spip_me){id_me IN (#VAL|retour_id_me)}{par date}{inverse}{0,25}>
 			[(#SET{id_me,#ID_ME})]
-			[(#SET{texte,[(#TEXTE*|couper{100}|typo)]})]
+			[(#SET{texte,[(#TEXTE*|replace{\shttps?://\S+?,' '}|trim|couper{100}|typo)]})]
 			<BOUCLE_parent(spip_me){id_me = #ID_PARENT}>
 				[(#SET{id_me,#ID_ME})]
 				[(#SET{auteur_parent,#ID_AUTEUR})]
@@ -58,10 +58,10 @@
 				[<div class="logo_auteur">(#ID_AUTEUR|microcache{noisettes/message_logo_auteur_small})</div>]
 				
 				<div class="texte_message">
-					<div class="date_message"><a href="messages/#GET{id_me}" title="[(#DATE|date_u)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)] - [(#DATE|heures)]h[(#DATE|minutes)]</a></div>
+					<div class="date_message"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)] [(#DATE|heures)]:[(#DATE|minutes)]</time></a></div>
 				
 					<b>[(#NOM|typo)]</b>
-					<a href="messages/#GET{id_me}#message#ID_ME">
+					<a href="#URL_ME">
 					[(#ID_PARENT|=={0}|?{" ",""})
 						a posté un message
 					]
