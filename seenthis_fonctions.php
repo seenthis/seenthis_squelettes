@@ -347,7 +347,6 @@ $GLOBALS["mots_lies"] = array();
 $GLOBALS["mots_lies_titre"] = array();
 function compter_mots_lies($id_mot) {
 	$GLOBALS["mots_lies"]["$id_mot"] ++;
-	echo "$titre";
 }
 function compter_mots_titre ($id_mot, $titre) {
 	$titre = str_replace( "_", " ", $titre);

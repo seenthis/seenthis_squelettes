@@ -88,19 +88,24 @@
 
 
 
-		
 		<div id="enfants_mots">
+		<BOUCLE_tous_enfants(MOTS){id_groupe=1}{titre LIKE #TITRE*_%}{par titre}{tout}{doublons mots2} />
+
 		<B_enfants>
 		<ul>
-			<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{par titre}{tout}{doublons mots}>
+			<BOUCLE_enfants(MOTS)
+				{!doublons mots2}
+				{!id_parent IN #DOUBLONS{motsmots2}}
+				{doublons mots}
+				{par titre}
+			>
 			<li>#<a href="[(#URL_MOT|url_absolue)]">[(#TITRE)]</a>
-			
-				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots}/>
 			</li>
 			</BOUCLE_enfants>
 		</ul>
 		</B_enfants>
 		</div>
+
 
 
 
@@ -132,6 +137,7 @@
 				]
 			]
 		]
+
 		<div id="tous_messages">
 		[(#ENV{debut_messages}|>{10}|non)
 			[(#GET{follow}|=={all}|oui)
@@ -144,10 +150,7 @@
 		[(#ENV{debut_messages}|>{10}|oui)
 			<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}}>
 		]
-
 		</div>
-
-
 	</div>
 	
 	<aside id="droite">

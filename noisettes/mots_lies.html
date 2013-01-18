@@ -1,32 +1,23 @@
 #CACHE{60*60}
 
+[(#REM)
+
+	Les mots liés : il s'agit des mots les plus courants dans les 100 derniers messages publiés associés au mot demandé (ainsi qu'à ses enfants), ainsi que dans leurs réponses
+
+]
 
 <BOUCLE_principale(MOTS){id_mot=#ENV{id_mot}}{doublons mots}>
-	#SET{messages, #ARRAY{}}
+	<BOUCLE_tous_mots(spip_me spip_me_mot spip_mots){titre like #TITRE*%}{tout}
+	>[(#SET{messages,[(#GET{messages}
+		|concat{[ (#ID_PARENT|replace{^0$}|sinon{#ID_ME})]})]})
+	]</BOUCLE_tous_mots>
 
-	<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
-		<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
-	</BOUCLE_enfants>
+	<BOUCLE_messages(ME){id_me IN #GET{messages}|explode{' '}}{par date}{inverse}{0,100}{statut=publi}{doublons pourmots} />
 
-	<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
-		<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
-			[(#ID_PARENT|>{0}|?{" ",""})
-				[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
-			]
-			[(#ID_PARENT|>{0}|?{""," "})
-				[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
-			]
-		</BOUCLE_tous_liens>
-	</BOUCLE_tous_mots>
-	
-	
-	<BOUCLE_messages(ME){id_me IN #GET{messages}}{par date}{inverse}{id_parent=0}{0,100}{statut=publi}>
-		<BOUCLE_mots(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
-		
-		<BOUCLE_enfants_me(ME){id_parent=#ID_ME}>
-			<BOUCLE_mots2(spip_me_mot){id_me=#ID_ME}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots2>
-		</BOUCLE_enfants_me>
-	</BOUCLE_messages>
+	<BOUCLE_mots(spip_me_mot){id_me IN #DOUBLONS{mepourmots}}
+		>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
+	<BOUCLE_mots_reponses(spip_me_mot spip_me){spip_me.id_parent IN #DOUBLONS{mepourmots}}
+		>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots_reponses>
 
 	<B_resultat>
 	<div id="mots_lies">
