@@ -39,8 +39,11 @@ function translate_requestCurl_bing($apikey, $text, $srcLang, $destLang) {
 		'text' => $text, 
 		'from' => $srcLang, 
 		'to' => $destLang);
-	
-	$translation = $client->translate($params);
+	try {
+		$translation = $client->translate($params);
+	} catch(Exception $e) {
+		return false;
+	}
 	
 	return $translation->TranslateResult;
 	
