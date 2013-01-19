@@ -3,8 +3,8 @@
 ############## CHARGER
 
 function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0, $ze_mot=0) {
-	if (!$GLOBALS["visiteur_session"]["id_auteur"])
-		return;
+	#if (!$GLOBALS["visiteur_session"]["id_auteur"])
+	#	return;
 
 	$texte_message = "";
 
@@ -19,7 +19,7 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 		"texte_message"=> "$texte_message",
 		"id_dest" => intval($id_dest),
 		"ze_mot" => intval($ze_mot),
-		"id_auteur" => $GLOBALS["visiteur_session"]["id_auteur"],
+#		"id_auteur" => $GLOBALS["visiteur_session"]["id_auteur"],
 		'action' => preg_replace(',^[^/]+://[^/]+/,', '/', url_de_base()),
 	);
 
