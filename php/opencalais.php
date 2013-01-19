@@ -166,8 +166,7 @@ function traiterOpenCalais($texte, $id, $id_tag="id_article", $lien) {
 						"id_mot" => $id_mot,
 						"$id_tag" => $id,
 						"relevance" => round($relevance * 1000),
-						"off" => $off["$id_mot"],
-						"date" => 'NOW()'
+						"off" => $off["$id_mot"]
 					)
 				);
 				cache_mot($id_mot);
