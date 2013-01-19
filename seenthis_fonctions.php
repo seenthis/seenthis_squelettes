@@ -254,7 +254,7 @@ function afficher_miniature($img, $max = 200) {
 		$url = parametre_url($url, 'img', $img);
 		$url = parametre_url($url, 'max', $max);
 		$url = parametre_url($url, 'sec', $sec);
-		return "<div style=\"max-width:${max}px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img'><img src='$url' alt=\"". attribut_html($img).'" /></a></div>';
+		return "<div style=\"max-width:${max}px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img'><img src='$url' alt=\"". attribut_html($img).'" style="max-width:${max}px;" /></a></div>';
 	}
 	
 	list($width, $height) = @getimagesize($vignette);
