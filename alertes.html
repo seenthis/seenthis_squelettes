@@ -41,7 +41,7 @@
 		<ul>
 		<BOUCLE_alertes(spip_me){id_me IN (#VAL|retour_id_me)}{par date}{inverse}{0,25}>
 			[(#SET{id_me,#ID_ME})]
-			[(#SET{texte,[(#TEXTE*|replace{"https?://(www\.)*?(\S{1,18}?)\S+?","$2…"}|trim|couper{100}|typo)]})]
+			[(#SET{texte,[(#TEXTE*|replace{"https?://(www\.)*?(\S{1,18}?)\S*?","$2…"}|trim|couper{100}|typo)]})]
 			<BOUCLE_parent(spip_me){id_me = #ID_PARENT}>
 				[(#SET{id_me,#ID_ME})]
 				[(#SET{auteur_parent,#ID_AUTEUR})]
