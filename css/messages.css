@@ -509,7 +509,7 @@ ul#messages, ul.messages {
 		.destinataires {
 			float: right;
 			padding-left: 20px;
-			padding-top: 0.5em;
+			padding-top: 0em;
 			padding-bottom: 5px;
 			
 			a {

@@ -3,7 +3,9 @@
 		<a name="message#ID_ME"></a>
 		
 		[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur})]
-		
+		[(#SET{nom_auteur,
+		#INCLURE{fond=noisettes/message_nom_auteur}{id_auteur}})]
+
 		<div class="texte_reponse auteur#ID_AUTEUR">
 
 
@@ -13,14 +15,13 @@
 
 
 			<div class="auteur_date">
-				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
+				#GET{nom_auteur}
 
 				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)] [(#DATE|heures)]:[(#DATE|minutes)]</time></a></span>
 
 				[(#ID_PARENT|=={0}|?{#INCLURE{fond=noisettes/favoris,id_me}})]
 			</div>
-			
-			[(#ID_ME|microcache{noisettes/message_destinataires})]
+
 			<div  id="texte#ID">[(#ID_ME|microcache{noisettes/message_texte}|ajouter_embed)]</div>
 		
 
@@ -71,7 +72,7 @@
 					href="#message#ID" rel="#ID_AUTEUR"></a>
 				</div>
 				
-				[(#ID_ME|microcache{noisettes/message_nom_auteur})]
+				#GET{nom_auteur}
 				
 				[(#REM)
 					[(#GET{afficher_themes}|=={oui}|oui)
