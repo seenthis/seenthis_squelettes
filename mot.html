@@ -1,9 +1,8 @@
 #CACHE{0}
-<BOUCLE_principale(MOTS){id_mot}{tout}{doublons mots}>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>[(#TITRE|mb_strtolower{UTF-8})]</title>
+	<title>[(#ENV{tag}|mb_strtolower{UTF-8})]</title>
 
 	<meta charset="#CHARSET">
 	<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT">
@@ -35,7 +34,6 @@
 	
 	<script><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	var id_mot = "#ID_MOT";
 	--></script>
 	
 </head>
@@ -62,20 +60,21 @@
 
 
 		<ul class="parents_url">
-		<BOUCLE_parents(MOTS){id_mot=#ID_PARENT}{tout}>
-			<!-- #ID_MOT #ID_PARENT -->
-			<BOUCLE_parents2(BOUCLE_parents) />
-			
-			<li><a href="#URL_MOT">#[(#TITRE)]</a></li>
+		<BOUCLE_parents(spip_me_tags)
+			{si #ENV{tag}|match{^#}}
+			{tag IN (#ENV{tag}|precurseurs)}
+			{fusion tag}
+		>
+		<li><a href="tag/[(#TAG|replace{#}|urlencode_1738_plus)]">[(#TAG|mb_strtolower{UTF-8})]</a></li>
 		</BOUCLE_parents>
 		</ul>
 
 		<div class="outils">
 			<div class="suivre">
-				<div id="follow_mot" data-tag="<BOUCLE_t(GROUPES_MOTS){id_groupe}{id_groupe>1}>[(#TITRE*|attribut_html):]</BOUCLE_t>#<//B_t>[(#TITRE*|attribut_html)]"></div>
+				<div id="follow_mot"[ data-tag="(#ENV{tag}|attribut_html)"]></div>
 			</div>
 
-			<div class="rss"><a href="#URL_SITE_SPIP/#URL_MOT/feed[?follow=(#GET{follow}|replace{^(follow|all)$})]">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
+			<div class="rss"><a href="#URL_SITE_SPIP/#URL_MOT/feed[?follow=(#GET{follow}|replace{^(follow|all)$})]">RSS: [(#ENV{tag}|mb_strtolower{UTF-8})]</a></div>
 		</div>
 	
 		[(#ID_GROUPE|=={1}|oui)
@@ -84,25 +83,24 @@
 		[(#ID_GROUPE|=={1}|non)
 			<div id="theme_automatiquement" class="theme_manu_auto"></div>
 		]
-		<h1>[#(#TITRE|mb_strtolower{UTF-8})]</h1>
+		<h1>[(#ENV{tag}|mb_strtolower{UTF-8})]</h1>
 
 
 
 		<div id="enfants_mots">
-		<BOUCLE_tous_enfants(MOTS){id_groupe=1}{titre LIKE #TITRE*_%}{par titre}{tout}{doublons mots2} />
-
 		<B_enfants>
-		<ul>
-			<BOUCLE_enfants(MOTS)
-				{!doublons mots2}
-				{!id_parent IN #DOUBLONS{motsmots2}}
-				{doublons mots}
-				{par titre}
-			>
-			<li>#<a href="[(#URL_MOT|url_absolue)]">[(#TITRE)]</a>
+			<ul>
+		<BOUCLE_enfants(spip_me_tags)
+		{si #ENV{tag}|match{^#}}
+		{tag IN (#ENV{tag}|successeurs)}
+		{fusion tag}
+		{par tag}
+		{0,200}
+		>
+			<li>#<a href="tag/[(#TAG|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus)]">[(#TAG|replace{#}|mb_strtolower{UTF-8})]</a>
 			</li>
-			</BOUCLE_enfants>
-		</ul>
+		</BOUCLE_enfants>
+			</ul>
 		</B_enfants>
 		</div>
 
@@ -139,17 +137,7 @@
 		]
 
 		<div id="tous_messages">
-		[(#ENV{debut_messages}|>{10}|non)
-			[(#GET{follow}|=={all}|oui)
-				[(#ID_MOT|microcache{noisettes/contenu_mot})]
-			]
-			[(#GET{follow}|=={all}|non)
-				<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}}>
-			]
-		]
-		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_mot}{id=#ID_MOT}{follow=#GET{follow}}>
-		]
+			<INCLURE{fond=noisettes/contenu_mot}{env}{follow=#GET{follow}} />
 		</div>
 	</div>
 	

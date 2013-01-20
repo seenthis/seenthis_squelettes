@@ -1,50 +1,45 @@
 #CACHE{0}
 
+[(#REM)  TODO: remettre la selection OpenCalais des sites ]
 
 [(#SET{follow,#ENV{follow}})]
 [(#ENV{follow}|non)
 	[(#SET{follow,all})]
 ]
 
+[(#REM) pas efficace: il faut un critere qui retienne id_me OU parent dans DOUBLONS ]
+#SET{parents,#ARRAY}
+<BOUCLE_tag(ME spip_me_tags)
+	{tag like #ENV{tag}%}
+	{statut=publi}
+	{follow #ENV{follow}}
+	{!par date}
+	{0,1000}
+>[(#SET{parents,
+[(#GET{parents}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]</BOUCLE_tag>
 
-<BOUCLE_principale(MOTS){id_mot=#ENV{id}}{doublons mots}>
-	<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
-		<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
-	</BOUCLE_enfants>
-	
-	[(#REM) OpenCalais sur les sites ]
-	<BOUCLE_sites(spip_syndic_oc){off!=oui}{id_mot=#ENV{id}}>
-		<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
-			[(#ID_PARENT|>{0}|oui)
-				[(#ID_PARENT|stocker_id_me)]
-			]
-			[(#ID_PARENT|>{0}|non)
-				[(#ID_ME|stocker_id_me)]
-			]
-		</BOUCLE_tous_liens_site>
-	</BOUCLE_sites>
-	
-	<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
-		<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}{off!=oui}>
-			[(#ID_PARENT|>{0}|oui)
-				[(#ID_PARENT|stocker_id_me)]
-			]
-			[(#ID_PARENT|>{0}|non)
-				[(#ID_ME|stocker_id_me)]
-			]
-		</BOUCLE_tous_liens>
-	</BOUCLE_tous_mots>
+[(#REM) Inutile car la table spip_mots_syndic est VIDE !!
+< BOUCLE_oc(ME spip_me_syndic spip_syndic spip_mots_syndic)
+	{spip_mots_syndic.id_mot=# ENV{id}}
+	{doublons me}
+	{statut=publi}
+/>
+]
 
-	<B_messages>
+<B_messages>
 	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 	<ul id="messages">
-	<BOUCLE_messages(spip_me){id_me IN #REM|retour_id_me}{troll>1}{follow #GET{follow}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
-		<li id="message#ID_ME">
-		[(#ID_ME|microcache{noisettes/afficher_message})]
-		</li>
-	</BOUCLE_messages>
+<BOUCLE_messages(ME)
+	{id_me IN #GET{parents}}
+	{statut=publi}
+	{!par date}
+	{pagination 25}
+>
+	<li id="message#ID_ME">
+	[(#ID_ME|microcache{noisettes/afficher_message})]
+	</li>
+</BOUCLE_messages>
 	</ul>
 	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
-	</B_messages>
-</BOUCLE_principale>
+</B_messages>
 #FILTRE{mini_html}

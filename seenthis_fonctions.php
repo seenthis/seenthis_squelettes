@@ -524,6 +524,35 @@ function critere_follow_sites($idb, &$boucles, $crit) {
 
 }
 
+function precurseurs($mot) {
+	$l = mb_strlen($mot,'UTF-8');
+	$a = array();
+
+	for($i=1; $i<$l; $i++)
+		$a[] = mb_substr($mot,0,$i,'UTF-8');
+
+	return $a;
+}
+
+function successeurs($mot) {
+	$motq = str_replace(array('_','%',"'"), array('\\_', '\\%','\\\''), $mot);
+
+	$a = array();
+
+	foreach (sql_allfetsel("DISTINCT(tag) AS tag", "spip_me_tags", "tag LIKE '${motq}_%'") as $m) {
+		$k = str_replace(array('_','%',"'"), array('\\_', '\\%','\\\''), $m['tag']);
+		$mots[] = "tag LIKE '${k}_%'";
+	}
+
+	if ($mots) {
+		foreach (sql_allfetsel("DISTINCT(tag) AS tag", "spip_me_tags", "tag LIKE '${motq}_%' AND NOT(".join(' OR ', $mots).")") as $m) {
+			$a[] = $m['tag'];
+		}
+	}
+
+	return $a;
+}
+
 function liste_me_follow_sites($quoi, $env_follow) {
 	$me = $GLOBALS['visiteur_session']['id_auteur'];
 	if ($me > 0) {
