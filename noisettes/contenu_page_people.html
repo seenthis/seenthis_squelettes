@@ -19,7 +19,6 @@
 
 		<BOUCLE_share(spip_me_share)
 			{id_auteur IN (#ENV{id}|liste_follow)}
-			{statut=publi}
 			{!par date}
 			{0,300}>[(#ID_AUTEUR**|unique|?{[(#SET{messages, [(#GET{messages}|push{#ID_ME})]})]})]</BOUCLE_share>
 
