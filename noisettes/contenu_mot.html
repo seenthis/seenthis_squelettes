@@ -12,7 +12,6 @@
 <BOUCLE_tag(ME spip_me_tags)
 	{tag like #ENV{tag}%}
 	{statut=publi}
-	{follow #ENV{follow}}
 	{!par date}
 	{0,1000}
 >[(#SET{parents,
@@ -32,6 +31,7 @@
 <BOUCLE_messages(ME)
 	{id_me IN #GET{parents}}
 	{statut=publi}
+	{follow #ENV{follow}}
 	{!par date}
 	{pagination 25}
 >
