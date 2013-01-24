@@ -6,17 +6,31 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 
 	<link href="[(#URL_MOT|url_absolue)]" />
 
-		#SET{mots, #ARRAY{0,#ID_MOT}}
-		<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
-		#SET{mots, #GET{mots}|push{#ID_MOT}}
-			<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
-		</BOUCLE_enfants>
+[(#REM) pas efficace: il faut un critere qui retienne id_me OU parent dans DOUBLONS ]
+#SET{parents,#ARRAY}
+<BOUCLE_tag(ME spip_me_tags)
+	{tag like #ENV{tag}%}
+	{statut=publi}
+	{!par date}
+	{0,1000}
+>[(#SET{parents,
+[(#GET{parents}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]</BOUCLE_tag>
 
-		<BOUCLE_messages(spip_me spip_me_mot)
-		{spip_me_mot.id_mot IN #GET{mots}}{!par date}
-		{0,40}{statut=publi}>
-		[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME}
-			|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
-		</BOUCLE_messages>
+[(#REM) Inutile car la table spip_mots_syndic est VIDE !!
+< BOUCLE_oc(ME spip_me_syndic spip_syndic spip_mots_syndic)
+	{spip_mots_syndic.id_mot=# ENV{id}}
+	{doublons me}
+	{statut=publi}
+/>
+]
+<BOUCLE_messages(ME)
+	{id_me IN #GET{parents}}
+	{statut=publi}
+	{follow #ENV{follow,all}}
+	{!par date}
+	{0,40}
+>
+	[(#ID_ME|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
+</BOUCLE_messages>
 </feed>
 </BOUCLE_principale>
