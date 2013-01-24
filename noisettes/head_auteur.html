@@ -5,6 +5,9 @@
 	<meta charset="#CHARSET">
 	<link rel="canonical" href="#URL_SITE_SPIP/#URL_AUTEUR">
 	<link rel="alternate" type="application/rss+xml" title="Flux RSS de [(#NOM|textebrut)]" href="#URL_SITE_SPIP/#URL_AUTEUR/feed">
+	[(#TROLL|=={1}|oui)
+		<meta name="robots" content="noindex">
+	]
 
 	<INCLURE{fond=inc/head}{lang=fr}>
 
