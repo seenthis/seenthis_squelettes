@@ -17,6 +17,8 @@ function action_creer_miniature_dist() {
 		AND $miniature = extraire_balise($image,'img')) {
 			spip_log('fin copie locale '.$img, 'distant');
 			cache_me($id_me);
+			if ($id_parent = sql_fetsel('id_parent', 'spip_me', 'id_me='.sql_quote($id_me)))
+				cache_me($id_parent);
 			include_spip('inc/headers');
 			$mini = extraire_attribut($miniature,'src');
 			spip_log("miniature $img = $mini", 'distant');
