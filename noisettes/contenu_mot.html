@@ -17,13 +17,15 @@
 >[(#SET{parents,
 [(#GET{parents}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]</BOUCLE_tag>
 
-[(#REM) Inutile car la table spip_mots_syndic est VIDE !!
-< BOUCLE_oc(ME spip_me_syndic spip_syndic spip_mots_syndic)
-	{spip_mots_syndic.id_mot=# ENV{id}}
+
+<BOUCLE_urls(spip_syndic spip_syndic_oc){id_mot}>
+<BOUCLE_oc(ME spip_me_tags)
+	{tag=#URL_SITE}
 	{doublons me}
 	{statut=publi}
-/>
-]
+>[(#SET{parents,
+[(#GET{parents}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]</BOUCLE_oc>
+</BOUCLE_urls>
 
 <B_messages>
 	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
