@@ -245,6 +245,7 @@ function afficher_miniature($img, $max = 200) {
 
 	if (!$vignette = copie_locale($img, 'test')
 	AND $id_me = _request('id_me')) {
+		# a noter : ce id_me est le numero du message qu'on cree OU DU PARENT
 		include_spip('inc/acces');
 		$i = $GLOBALS['visiteur_session']['id_auteur'];
 		$sec = afficher_low_sec($i, "miniature $max $img $id_me");
@@ -254,7 +255,7 @@ function afficher_miniature($img, $max = 200) {
 		$url = parametre_url($url, 'img', $img);
 		$url = parametre_url($url, 'max', $max);
 		$url = parametre_url($url, 'sec', $sec);
-		return "<div style=\"max-width:${max}px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img'><img src='$url' alt=\"". attribut_html($img).'" style="max-width:${max}px;" /></a></div>';
+		return "<div style=\"max-width:".$max."px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img' class='display_box' rel='shadowbox[Portfolio]'><img src='$url' alt=\"". attribut_html($img).'" style="max-width:${max}px;" /></a></div>';
 	}
 	
 	list($width, $height) = @getimagesize($vignette);
