@@ -243,7 +243,19 @@ function couleur_chroma ($coul, $num) {
 
 function afficher_miniature($img, $max = 200) {
 
-	if (!$vignette = copie_locale($img, 'test')
+	if (preg_match(',\.svg$,i', $img)) {
+		if (defined('_SVG2PNG_SERVER')) {
+			$cvt = parametre_url(_SVG2PNG_SERVER,'url',$img).'#';
+			$box = " target='_blank'";
+		} else {
+			return false;
+		}
+	} else {
+		$cvt = $img;
+		$box = " rel='shadowbox[Portfolio]'";
+	}
+
+	if (!$vignette = copie_locale($cvt, 'test')
 	AND $id_me = _request('id_me')) {
 		# a noter : ce id_me est le numero du message qu'on cree OU DU PARENT
 		include_spip('inc/acces');
@@ -255,19 +267,10 @@ function afficher_miniature($img, $max = 200) {
 		$url = parametre_url($url, 'img', $img);
 		$url = parametre_url($url, 'max', $max);
 		$url = parametre_url($url, 'sec', $sec);
-		return "<div style=\"max-width:".$max."px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img' class='display_box' rel='shadowbox[Portfolio]'><img src='$url' alt=\"". attribut_html($img).'" style="max-width:${max}px;" /></a></div>';
+		return "<div style=\"max-width:".$max."px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img' class='display_box'$box><img src='$url' alt=\"". attribut_html($img).'" style="max-width:${max}px;" /></a></div>';
 	}
-	
-	list($width, $height) = @getimagesize($vignette);
 
-	if (!$width and preg_match(',\.svg$,', $vignette)) {
-		$xmlget = simplexml_load_string(file_get_contents($vignette));
-		$xmlattributes = $xmlget->attributes();
-		$width = (string) $xmlattributes->width; 
-		$height = (string) $xmlattributes->height;
-		$vignette = "<img src='".$vignette."' width='$width' height='$height' />";
-		$svg = true; # pas de shadowbox
-	}
+	list($width, $height) = @getimagesize($vignette);
 
 	if (($width * $height) < 300) return;
 	
@@ -282,10 +285,7 @@ function afficher_miniature($img, $max = 200) {
 	if ($width <= $max && $height <= $max)
 		return $vignette;
 
-	if ($svg)
-		return "<a href='$img'>$vignette</a>";
-	else
-		return "<a rel='shadowbox[Portfolio]' href='$img' class='display_box'>$vignette</a>";
+	return "<a href='$img' class='display_box'$box>$vignette</a>";
 }
 
 $GLOBALS["oc_lies"] = array();
