@@ -245,7 +245,7 @@ function afficher_miniature($img, $max = 200) {
 
 	if (preg_match(',\.svg$,i', $img)) {
 		if (defined('_SVG2PNG_SERVER')) {
-			$cvt = parametre_url(_SVG2PNG_SERVER,'url',$img).'#';
+			$cvt = parametre_url(_SVG2PNG_SERVER,'url',$img);
 			$box = " target='_blank'";
 		} else {
 			return false;
@@ -260,11 +260,11 @@ function afficher_miniature($img, $max = 200) {
 		# a noter : ce id_me est le numero du message qu'on cree OU DU PARENT
 		include_spip('inc/acces');
 		$i = $GLOBALS['visiteur_session']['id_auteur'];
-		$sec = afficher_low_sec($i, "miniature $max $img $id_me");
+		$sec = afficher_low_sec($i, "miniature $max $cvt $id_me");
 		$url = generer_url_action('creer_miniature');
 		$url = parametre_url($url, 'id_auteur', $i);
 		$url = parametre_url($url, 'id_me', $id_me);
-		$url = parametre_url($url, 'img', $img);
+		$url = parametre_url($url, 'img', $cvt);
 		$url = parametre_url($url, 'max', $max);
 		$url = parametre_url($url, 'sec', $sec);
 		return "<div style=\"max-width:".$max."px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img' class='display_box'$box><img src='$url' alt=\"". attribut_html($img).'" style="max-width:${max}px;" /></a></div>';
