@@ -77,12 +77,8 @@
 			<div class="rss"><a href="#URL_SITE_SPIP/#URL_MOT/feed[?follow=(#GET{follow}|replace{^(follow|all)$})]">RSS: [(#ENV{tag}|mb_strtolower{UTF-8})]</a></div>
 		</div>
 	
-		[(#ID_GROUPE|=={1}|oui)
-			<div id="theme_manuellement" class="theme_manu_auto"></div>
-		]
-		[(#ID_GROUPE|=={1}|non)
-			<div id="theme_automatiquement" class="theme_manu_auto"></div>
-		]
+		<div id="[(#ENV{tag}|match{^#}|?{theme_manuellement,theme_automatiquement})]" class="theme_manu_auto"></div>
+
 		<h1>[(#ENV{tag}|mb_strtolower{UTF-8})]</h1>
 
 
@@ -90,15 +86,12 @@
 		<div id="enfants_mots">
 		<B_enfants>
 			<ul>
-		<BOUCLE_enfants(spip_me_tags)
+		<BOUCLE_enfants(DATA)
 		{si #ENV{tag}|match{^#}}
-		{tag IN (#ENV{tag}|successeurs)}
-		{fusion tag}
-		{par tag}
-		{0,200}
+		{source tableau,#ENV{tag}|successeurs}
 		>
-			<li>#<a href="tag/[(#TAG|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus)]">[(#TAG|replace{#}|mb_strtolower{UTF-8})]</a>
-			</li>
+			[<li>#<a href="tag/(#VALEUR|proteger_amp|urlencode_1738_plus)">#VALEUR</a>
+			</li>]
 		</BOUCLE_enfants>
 			</ul>
 		</B_enfants>

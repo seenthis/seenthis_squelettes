@@ -535,23 +535,56 @@ function precurseurs($mot) {
 	return $a;
 }
 
+
+function elaguer_arbre_successeurs($x) {
+	$l = array();
+	foreach($x as $k => $xx) {
+		if (empty($xx))
+			$l[] = $k;
+		else {
+			if (count($xx) > 4)
+				$l[] = $k;
+			else
+			foreach(elaguer_arbre_successeurs($xx) as $a) {
+				$l[] = $k.$a;
+			}
+		}
+	}
+	return $l;
+}
+
 function successeurs($mot) {
+	if (strlen($mot) < 2) return array();
+
 	$motq = str_replace(array('_','%',"'"), array('\\_', '\\%','\\\''), $mot);
 
 	$a = array();
+	$d = mb_strlen($mot);
 
-	foreach (sql_allfetsel("DISTINCT(tag) AS tag", "spip_me_tags", "tag LIKE '${motq}_%'") as $m) {
-		$k = str_replace(array('_','%',"'"), array('\\_', '\\%','\\\''), $m['tag']);
-		$mots[] = "tag LIKE '${k}_%'";
-	}
+	$s = sql_query("SELECT DISTINCT(tag)
+	FROM spip_me_tags
+	WHERE class='#' AND tag LIKE '${motq}_%'
+	ORDER BY CHAR_LENGTH(tag)
+	LIMIT 200");
+	$tous = array();
 
-	if ($mots) {
-		foreach (sql_allfetsel("DISTINCT(tag) AS tag", "spip_me_tags", "tag LIKE '${motq}_%' AND NOT(".join(' OR ', $mots).")") as $m) {
-			$a[] = $m['tag'];
+	while ($m = sql_fetch($s)) {
+		$tag = $m['tag'];
+		$l = mb_strlen($tag);
+		$h = &$tous;
+		for ($i=$d; $i<$l; $i++) {
+			$c = mb_strtolower(mb_substr($tag,$i,1, 'UTF-8'), 'UTF-8');
+			if (!isset($h[$c]))
+				$h[$c] = array();
+			$h = &$h[$c];
 		}
 	}
 
-	return $a;
+	$tous = elaguer_arbre_successeurs($tous);
+	foreach ($tous as &$t)
+		$t = proteger_amp(substr($mot,1).$t);
+
+	return $tous;
 }
 
 function liste_me_follow_sites($quoi, $env_follow) {
