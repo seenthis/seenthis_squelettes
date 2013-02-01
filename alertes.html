@@ -30,7 +30,7 @@
 		<BOUCLE_follow_mot(spip_me_follow_mot){id_follow=#ID_AUTEUR}
 		>[(#SET{tags,#GET{tags}|push{#ID_MOT}})]</BOUCLE_follow_mot>
 		<BOUCLE_le_mot(MOTS){id_mot IN #GET{tags}}
-		><BOUCLE_enfants(MOTS){titre LIKE #TITRE*%}{tout}
+		><BOUCLE_enfants(MOTS){titre LIKE #TITRE*%}{id_groupe=1}{tout}
 		>[(#SET{tags,#GET{tags}|push{#ID_MOT}})]</BOUCLE_enfants>
 		</BOUCLE_le_mot>
 		<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot IN #GET{tags}}{spip_me.statut=publi}{par date}{inverse}{0,25}>
