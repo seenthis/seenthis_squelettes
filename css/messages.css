@@ -125,6 +125,7 @@ ul#messages, ul.messages {
 					background-color: #eeeeee;
 					padding: 5px;
 					-spip-border-radius: 4px;
+					z-index: 1;
 					
 					.vignettes {
 						padding-top: 5px;
