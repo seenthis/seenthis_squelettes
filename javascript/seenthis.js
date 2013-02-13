@@ -100,7 +100,7 @@ function switch_comments(id_me) {
 					lien = tag.substr(1,1000);
 					var affclass = "";
 					
-					tags = tags +  "<span class='hashtag" + affclass + "'><span class='diese'>#</span><a href=\"tags/"+lien+"\" class='spip_out'>"+lien+"</a></span>";
+					tags = tags +  "<span class='hashtag" + affclass + "'><span class='diese'>#</span><a href=\"tag/"+lien+"\" class='spip_out'>"+lien+"</a></span>";
 				}
 				area.parent("div").parent("form").find(".tags").html(tags);
 				area.parent("div").parent("form").find(".tags").slideDown();
