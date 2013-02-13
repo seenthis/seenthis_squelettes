@@ -242,6 +242,7 @@ function couleur_chroma ($coul, $num) {
 }
 
 function afficher_miniature($img, $max = 200) {
+	include_spip('inc/distant');
 
 	if (preg_match(',\.svg$,i', $img)) {
 		if (defined('_SVG2PNG_SERVER')) {
