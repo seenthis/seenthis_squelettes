@@ -1,9 +1,7 @@
 #CACHE{0}
 
 <BOUCLE_me(spip_me){id_me=#ID}{statut=publi}>
-<entry xmlns='http://www.w3.org/2005/Atom' 
-	xmlns:thr='http://purl.org/syndication/thread/1.0' 
-	xmlns:docs='http://schemas.google.com/docs/2007'>
+<entry>
 	[<id>urn:uuid:(#UUID)</id>]
 	<title>[(#TEXTE*|extraire_titre|texte_backend)]</title>
 	<author><BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID_AUTEUR}>
