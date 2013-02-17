@@ -5,37 +5,35 @@
 
 		#SET{alertes, #ARRAY{}}
 
+		[(#REM) Les reponses recentes a un de mes messages ]
+		[(#REM) probleme : ici on ne regarde que les reponses
+		        aux 300 messages les plus recents ]
+		<BOUCLE_mes_messages(ME){id_auteur}
+		{statut=publi}
+		{!par date}{0,300}
+		{doublons} /> 
+		<BOUCLE_reponses(ME){id_parent IN #DOUBLONS{me}}
+			{id_auteur!=#SESSION{id_auteur}}
+			{statut=publi}
+			{!par date}{0,25}
+		>
+			[(#ID_ME|stocker_id_me)]
+		</BOUCLE_reponses>
 
-		<BOUCLE_messages_perso(spip_me){id_auteur}{par date}{inverse}{statut=publi}{0,25}> 
-			<BOUCLE_reponses(spip_me){id_parent=#ID_ME}{id_auteur!=#SESSION{id_auteur}}{statut=publi}{par date}{inverse}{0,25}> 
-				[(#ID_ME|stocker_id_me)]		
-			</BOUCLE_reponses>
-		</BOUCLE_messages_perso>
-
-				
-		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur){spip_me_auteur.id_auteur=#ID_AUTEUR}{spip_me.statut=publi}{par date}{inverse}{0,25}>
-				[(#ID_ME|stocker_id_me)]	
+		[(#REM) Les messages qui me mentionnent ]
+		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur)
+		{spip_me_auteur.id_auteur=#ID_AUTEUR}
+		{id_auteur!=#SESSION{id_auteur}}
+		{!par date}{0,25}>
+			[(#ID_ME|stocker_id_me)]
 		</BOUCLE_liens_vers_moi>
 	
-		[(#REM) Les gens qu'on suit ]
+		[(#REM) Les reponses des gens que je suis ]
 		#SET{people, #ARRAY{}}
 		<BOUCLE_follow(spip_me_follow){id_follow=#ID_AUTEUR}
 		>[(#SET{people,#GET{people}|push{#ID_AUTEUR}})]</BOUCLE_follow>
-		<BOUCLE_messages_follow(spip_me){id_auteur IN #GET{people}}{par date}{inverse}{doublons}{statut=publi}{0,25}
+		<BOUCLE_messages_follow(spip_me){id_auteur IN #GET{people}}{par date}{inverse}{doublons}{statut=publi}{id_parent>0}{0,25}
 		>[(#ID_ME|stocker_id_me)]</BOUCLE_messages_follow>
-
-
-		[(#REM) Les mots qu'on suit ]
-		#SET{tags, #ARRAY{}}
-		<BOUCLE_follow_mot(spip_me_follow_mot){id_follow=#ID_AUTEUR}
-		>[(#SET{tags,#GET{tags}|push{#ID_MOT}})]</BOUCLE_follow_mot>
-		<BOUCLE_le_mot(MOTS){id_mot IN #GET{tags}}
-		><BOUCLE_enfants(MOTS){titre LIKE #TITRE*%}{id_groupe=1}{tout}
-		>[(#SET{tags,#GET{tags}|push{#ID_MOT}})]</BOUCLE_enfants>
-		</BOUCLE_le_mot>
-		<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot IN #GET{tags}}{spip_me.statut=publi}{par date}{inverse}{0,25}>
-				[(#ID_ME|stocker_id_me)]
-		</BOUCLE_tous_liens>
 
 
 		<ul>
