@@ -96,8 +96,10 @@ function formulaires_poster_message_traiter ($id_me=0, $id_parent=0, $id_dest=0,
 	$id_parent = $ret["id_parent"];
 	$maj = $ret["maj"];
 
-	if ($id_parent > 0) $pave = $id_parent;
-	else $pave = $id_me_nouv;
+	if ($id_parent > 0)
+		$pave = $id_parent;
+	else
+		$pave = $id_me_nouv;
 
 	return array(
 		'message_ok'=> array(

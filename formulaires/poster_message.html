@@ -1,14 +1,6 @@
 #HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
 #HTTP_HEADER{"Pragma: no-cache"}
 
-			<BOUCLE_destinataire(AUTEURS){id_auteur=#ENV{id_dest}}{id_auteur!=#ENV{id_auteur}}{tout}>
-			[(#SET{dest,#LOGIN})]
-			</BOUCLE_destinataire>
-
-			<BOUCLE_mot(MOTS){id_mot=#ENV{ze_mot}}>
-			[(#SET{zemot,#TITRE})]
-			</BOUCLE_mot>
-
 [<div id="poste(#ENV**{message_ok}|table_valeur{pave})" />]
 
 <div class='formulaire_spip formulaire_poster_message ajax'>
@@ -33,12 +25,7 @@
 				]
 			</div>
 			
-			[(#GET{dest}|non)
-				<div><label class="votre_message"></label></div>
-			]
-			[(#GET{dest}|oui)
-				<div><label class="votre_message_public"></label></div>
-			]
+			<div><label class="votre_message"></label></div>
 
 
 		[(#REM) compter les lignes du message existant ]
