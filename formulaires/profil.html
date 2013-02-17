@@ -202,11 +202,25 @@
 					<input type="file" name="image_fond">
 				</li>
 			
-			
-
-			
 			</ul>
+
+			<div[
+			(#AUTORISER{seenthis_configurer_flux}|non|?{style="display:none"})]>
+
+
+			<h3><multi>
+				Import RSS
+			</multi></h3>
 			
+			<ul>
+				<li><label><multi>
+					Importer automatiquement un flux
+				</multi></label>
+					<input type="text" class="text" name="rss" value="[(#ENV*{rss})]" />
+				</li>
+			</ul>
+			</div>
+
 	
 				<p class="boutons">
 					<input type="submit" value="<:enregistrer:>">

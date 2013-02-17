@@ -60,13 +60,9 @@ function formulaires_profil_traiter (){
 	$couleur = _request("couleur");
 	$couleur = str_replace("#", "", $couleur);
 	$copyright = _request("copyright");
-	$mail_nouv_billet = _request("mail_nouv_billet");
-	$mail_rep_moi = _request("mail_rep_moi");
-	$mail_rep_billet = _request("mail_rep_billet");
-	$mail_rep_conv = _request("mail_rep_conv");
-	$mail_suivre_moi = _request("mail_suivre_moi");
 
 	$url_site = _request("url_site");
+	$rss = _request("rss");
 	
 	$nom = strip_tags($nom);
 	$bio = strip_tags($bio);
@@ -77,7 +73,13 @@ function formulaires_profil_traiter (){
 		"bio" => $bio,
 		"couleur" => $couleur,
 		"url_site" => $url_site,
-		"copyright" => $copyright
+		"copyright" => $copyright,
+		"rss" => $rss,
+		"mail_nouv_billet" => intval(_request("mail_nouv_billet")),
+		"mail_rep_moi" => intval(_request("mail_rep_moi")),
+		"mail_rep_billet" => intval(_request("mail_rep_billet")),
+		"mail_rep_conv" => intval(_request("mail_rep_conv")),
+		"mail_suivre_moi" => intval(_request("mail_suivre_moi")),
 	);
 	
 	// compat plugin OpenID
@@ -96,20 +98,6 @@ function formulaires_profil_traiter (){
 
 	include_spip('inc/modifier');
 	revision_auteur($id_auteur, $profil);
-
-	// correction d'urgence: 
-	// il faut pouvoir desactiver les alertes 
-	// (les checkbox décochées semblent ne pas être prises en compte par revision_auteur)
-	sql_updateq("spip_auteurs",
-		array(
-		"mail_nouv_billet" => $mail_nouv_billet,
-		"mail_rep_moi" => $mail_rep_moi,
-		"mail_rep_billet" => $mail_rep_billet,
-		"mail_rep_conv" => $mail_rep_conv,	
-		"mail_suivre_moi" => $mail_suivre_moi		
-		),
-		"id_auteur=$id_auteur");
-
 
 
 	if ($lang != $lang_ancien) {
