@@ -256,8 +256,13 @@ function afficher_miniature($img, $max = 200) {
 		$box = " rel='shadowbox[Portfolio]'";
 	}
 
+	//
+	// chargement asynchrone ?
+	//
 	if (!$vignette = copie_locale($cvt, 'test')
-	AND $id_me = _request('id_me')) {
+	AND $id_me = _request('id_me')
+	AND $GLOBALS['visiteur_session']['id_auteur'] > 0  # eviter sur l'API
+	) {
 		# a noter : ce id_me est le numero du message qu'on cree OU DU PARENT
 		include_spip('inc/acces');
 		$i = $GLOBALS['visiteur_session']['id_auteur'];
@@ -270,6 +275,11 @@ function afficher_miniature($img, $max = 200) {
 		$url = parametre_url($url, 'sec', $sec);
 		return "<div style=\"max-width:".$max."px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img' class='display_box'$box><img src='$url' alt=\"". attribut_html($img)."\" style=\"max-width:${max}px;\" /></a></div>";
 	}
+
+	//
+	// chargement synchrone
+	//
+	$vignette = copie_locale($cvt);
 
 	list($width, $height) = @getimagesize($vignette);
 
