@@ -79,7 +79,7 @@
 			[(#ID_AUTEUR|microcache{noisettes/contenu_auteur})]
 		]
 		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_auteur}{id=#ID_AUTEUR}>
+			<INCLURE{fond=noisettes/contenu_auteur}{id=#ID_AUTEUR}{env}>
 		]
 		
 		</div>
