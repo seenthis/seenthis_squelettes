@@ -28,7 +28,7 @@ function share_tw_url($id_me) {
 function share_tw_texte ($texte, $l=0) {
 	$texte = preg_replace(",([\t\r\n\ ]+),", " ", $texte);
 
-	$texte = mb_substr($texte, 0, 140-$l, "utf-8");
+	$texte = mb_substr($texte, 0, 135-$l, "utf-8");
 	$pos = mb_strrpos($texte, " ", "utf-8");
 	
 	if ($pos > 40) {
