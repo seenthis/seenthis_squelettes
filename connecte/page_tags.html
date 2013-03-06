@@ -50,21 +50,19 @@
 	</div>
 
 	<aside id="droite">
-	
-		<B_follow_mot>
+
+	<B_follow_tag>
 		<ul>
-		<BOUCLE_follow_mot(spip_me_follow_mot){id_follow=#ID_AUTEUR}>
-			<BOUCLE_le_mot(MOTS){id_mot=#ID_MOT}{doublons mots}>
-			<li>#<a href="#URL_MOT"><b>#TITRE</b></a></li>
-			
-			<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
-				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots}/>
-			</BOUCLE_enfants>
-			</BOUCLE_le_mot>
-		</BOUCLE_follow_mot>
+	<BOUCLE_follow_tag(spip_me_follow_tag)
+		{id_follow=#SESSION{id_auteur}}
+		{tag!==^http://}
+		{fusion tag}
+	>
+		<li>#<a href="tag/[(#TAG|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus)]"><b>[(#TAG|replace{#})]</b></a></li>
+	</BOUCLE_follow_tag>
 		</ul>
-		</B_follow_mot>
-			
+	</B_follow_tag>
+
 	</aside>
 
 	<div class="clear-left"></div>

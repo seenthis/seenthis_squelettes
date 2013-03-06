@@ -1,49 +1,20 @@
 #CACHE{0}
 
+	[(#REM) boucle desactivee car les _oc avec leurs mots-cles ne sont pas geres comme des tags, ce qui est bien dommage ]
+	<BOUCLE_sites(spip_syndic_oc){id_mot=#ID_MOT}
+	{si 0}>
+	<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>[(#SET{me,[(#GET{me}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]</BOUCLE_tous_liens_site>
+		</BOUCLE_sites>
 
 
-		<B_follow_mot>
-		<BOUCLE_follow_mot(spip_me_follow_mot){id_follow=#ENV{id}}>
-			<BOUCLE_le_mot(MOTS){id_mot=#ID_MOT}{doublons mots}>
-			<BOUCLE_enfants(MOTS){id_parent=#ID_MOT}{tout}{doublons mots}>
-				<BOUCLE_enfants2(BOUCLE_enfants){tout}{doublons mots} />
-			</BOUCLE_enfants>
-			</BOUCLE_le_mot>
-
-			<BOUCLE_sites(spip_syndic_oc){id_mot=#ID_MOT}>
-				<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
-					[(#ID_PARENT|>{0}|?{" ",""})
-						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
-					]
-					[(#ID_PARENT|>{0}|?{""," "})
-						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
-					]
-				</BOUCLE_tous_liens_site>
-			</BOUCLE_sites>
-		</BOUCLE_follow_mot>
-		</B_follow_mot>
-		
-		
-		
-		<BOUCLE_tous_mots(MOTS){tout}{!doublons mots}>
-			<BOUCLE_tous_liens(spip_me spip_me_mot){spip_me_mot.id_mot=#ID_MOT}>
-					[(#ID_PARENT|>{0}|?{" ",""})
-						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
-					]
-					[(#ID_PARENT|>{0}|?{""," "})
-						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
-					]
-			</BOUCLE_tous_liens>
-		</BOUCLE_tous_mots>
-
-
-	
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-		<BOUCLE_messages(spip_me){id_me IN #REM|retour_id_me_date}{troll>1}{id_parent=0}{pagination 25}{statut=publi}>
-			<li id="message#ID_ME">
-				[(#ID_ME|microcache{noisettes/afficher_message})]
+		<BOUCLE_messages(DATA){source seenthisfollowtags}
+		{pagination 25}
+		>
+			<li id="message#VALEUR">
+				[(#VALEUR|microcache{noisettes/afficher_message})]
 			</li>
 		</BOUCLE_messages>
 		</ul>
