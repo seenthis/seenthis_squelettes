@@ -10,7 +10,7 @@
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-		<BOUCLE_messages(DATA){source seenthisfollowtags}
+		<BOUCLE_messages(DATA){source seenthisfollowtags,#ENV*,tags}
 		{pagination 25}
 		>
 			<li id="message#VALEUR">

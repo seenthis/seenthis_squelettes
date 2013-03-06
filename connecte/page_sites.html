@@ -55,9 +55,9 @@
 		
 		
 
-
+<!--
 	<div id="rechercher_site" class="formulaire_recherche">
-		<form action="http://seenthis.net/spip.php?page=recherche" method="get" onsubmit="chercher_site();return false;">
+		<form action="spip.php?page=recherche" method="get" onsubmit="chercher_site();return false;">
 		<div>
 			<input name="page" value="recherche" type="hidden">
 			<input type="text" class="text" size="10" name="recherche" id="recherche_site" accesskey="4">
@@ -67,7 +67,7 @@
 	</div>
 	<div id="resultat_recherche_site"></div>
 
-
+-->
 
 
 	</div>
@@ -79,7 +79,7 @@
 			[(#ID_AUTEUR|microcache{noisettes/contenu_page_sites})]
 		]
 		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_page_sites}{id=#ID_AUTEUR}>
+			<INCLURE{fond=noisettes/contenu_page_sites,id=#ID_AUTEUR,env}>
 		]
 		
 		

@@ -1,24 +1,13 @@
 #CACHE{0}
 
-		<BOUCLE_tous_sites(SYNDIC){tout}{follow_sites}>
-			<BOUCLE_tous_liens(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>
-					[(#ID_PARENT|>{0}|?{" ",""})
-						[(#ID_PARENT|stocker_id_me_date{#DATE_PARENT})]
-					]
-					[(#ID_PARENT|>{0}|?{""," "})
-						[(#ID_ME|stocker_id_me_date{#DATE_PARENT})]
-					]
-			</BOUCLE_tous_liens>
-		</BOUCLE_tous_sites>
-
-
-	
 		<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-		<BOUCLE_messages(spip_me){id_me IN #REM|retour_id_me_date}{id_parent=0}{pagination 25}{statut=publi}>
-			<li id="message#ID_ME">
-				[(#ID_ME|microcache{noisettes/afficher_message})]
+		<BOUCLE_messages(DATA){source seenthisfollowtags,#ENV*,sites}
+		{pagination 25}
+		>
+			<li id="message#VALEUR">
+				[(#VALEUR|microcache{noisettes/afficher_message})]
 			</li>
 		</BOUCLE_messages>
 		</ul>
