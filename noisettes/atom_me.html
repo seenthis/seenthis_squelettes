@@ -21,7 +21,7 @@
 	<BOUCLE_liens(SITES spip_me_syndic) {spip_me_syndic.id_me=#ID_ME}>
 	<link rel="related" href="#URL_SITE"[ title="(#TITRE|replace{'"', "'"}|texte_backend)"][ hreflang="(#LANG)"]/>
 	</BOUCLE_liens>
-	<BOUCLE_tags(MOTS spip_me_mot){spip_me_mot.id_me=#ID_ME}>
-	<category term="<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>#TITRE:</BOUCLE_groupe>[(#TITRE|replace{'"', "'"}|texte_backend)]" label="[(#TITRE|replace{'"', "'"}|texte_backend)]" scheme="[(#URL_MOT|url_absolue{http://#EVAL{_HOST}/})]"/></BOUCLE_tags>
+	<BOUCLE_tags(spip_me_tags){id_me}{class IN '#','oc'}{fusion tag}>
+	<category term="[(#TAG*|replace{'"', "'"}|replace{#}|texte_backend)]" label="[(#TAG*|replace{'"', "'"}|replace{#}|replace{^.*:}|texte_backend)]" scheme="[(#URL_TAG|url_absolue{http://#EVAL{_HOST}/})]"/></BOUCLE_tags>
 </entry>
 </BOUCLE_me>

@@ -718,4 +718,19 @@ function filtre_cdata($t) {
 		return $t;
 }
 
+# tag/[(#TAG|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus
+function balise_URL_TAG_dist($p) {
+	$_tag = champ_sql('tag', $p);
+	$_class = champ_sql('class', $p);
+	$p->code = "((\$class=$_class) == '#')
+		? 'tag/'.urlencode_1738_plus(mb_strtolower(str_replace('#', '', $_tag),'UTF-8'))
+		: ((\$class=='oc')
+		? 'tag/'.urlencode_1738_plus(mb_strtolower($_tag,'UTF-8'))
+		: ((\$class=='url')
+		? 'sites/'.md5($_tag)
+		: ''))";
+	$p->interdire_scripts = true;
+	return $p;
+}
+
 ?>
