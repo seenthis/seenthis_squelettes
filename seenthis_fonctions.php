@@ -265,7 +265,7 @@ function afficher_miniature($img, $max = 200) {
 	) {
 		# a noter : ce id_me est le numero du message qu'on cree OU DU PARENT
 		include_spip('inc/acces');
-		$i = $GLOBALS['visiteur_session']['id_auteur'];
+		$i = 1; #$GLOBALS['visiteur_session']['id_auteur'];
 		$sec = afficher_low_sec($i, "miniature $max $cvt $id_me");
 		$url = generer_url_action('creer_miniature');
 		$url = parametre_url($url, 'id_auteur', $i);
@@ -722,7 +722,7 @@ function filtre_cdata($t) {
 function balise_URL_TAG_dist($p) {
 	$_tag = champ_sql('tag', $p);
 	$_class = champ_sql('class', $p);
-	$p->code = "((\$class=$_class) == '#')
+	$p->code = "((\$class=$_class) == '#' OR (\$class==''))
 		? 'tag/'.urlencode_1738_plus(mb_strtolower(str_replace('#', '', $_tag),'UTF-8'))
 		: ((\$class=='oc')
 		? 'tag/'.urlencode_1738_plus(mb_strtolower($_tag,'UTF-8'))
