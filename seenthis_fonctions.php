@@ -711,8 +711,9 @@ function liste_follow($id_auteur) {
 
 // stocker une chaine dans un CDATA
 // a noter qu'il faut "echapper" un eventuel "]]>"
+// http://www.w3.org/TR/xml/#charsets
 function filtre_cdata($t) {
-	if (preg_match(',[&<>],', $t))
+	if (preg_match(',[&<>]|[^\x09\x0a\x0d\x20-\xd7ff\xe000-\xfffd],u', $t))
 		return "<![CDATA[" . str_replace(']]>', ']]]]><![CDATA[>', $t).']]>';
 	else
 		return $t;
