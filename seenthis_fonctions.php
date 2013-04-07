@@ -713,9 +713,10 @@ function liste_follow($id_auteur) {
 // a noter qu'il faut "echapper" un eventuel "]]>"
 // http://www.w3.org/TR/xml/#charsets
 function filtre_cdata($t) {
-	if (preg_match(',[&<>]|[^\x09\x0a\x0d\x20-\xd7ff\xe000-\xfffd],u', $t))
+	if (preg_match(',[<>&\x0-\x8\xb-\xc\xe-\x1f],u', $t)) {
+		$t = preg_replace('/[\x0-\x8\xb-\xc\xe-\x1f]/ue', '"&#x".bin2hex(\'$0\').";"', $t);
 		return "<![CDATA[" . str_replace(']]>', ']]]]><![CDATA[>', $t).']]>';
-	else
+	} else
 		return $t;
 }
 
