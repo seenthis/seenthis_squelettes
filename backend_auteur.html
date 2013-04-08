@@ -8,6 +8,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
 	<title>#NOM (@#LOGIN) - Seenthis[ ((#VARIANTE))]</title>
 	<link href="[(#URL_AUTEUR|url_absolue)]"/>
+	<id>[(#URL_AUTEUR|url_absolue)]</id>
+	<updated>[(#DATE|date_iso)]</updated>
+	<link rel="self" href="[(#SELF|url_absolue)]" />
 
 <BOUCLE_messages(DATA){source seenthisbackend,#ENV**,#VARIANTE}{0,25}>
 	[(#VALEUR|microcache{noisettes/atom_me#ENV{twitter}})]

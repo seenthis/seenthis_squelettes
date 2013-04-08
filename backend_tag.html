@@ -5,6 +5,9 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 	<title><BOUCLE_t(GROUPES_MOTS){id_groupe}{id_groupe>1}>#TITRE:</BOUCLE_t>#<//B_t>[(#TITRE)] - Seenthis</title>
 
 	<link href="[(#URL_MOT|url_absolue)]" />
+        <id>[(#URL_MOT|url_absolue)]</id>
+        <updated>[(#DATE|date_iso)]</updated>
+        <link rel="self" href="[(#SELF|url_absolue)]" />
 
 [(#REM) pas efficace: il faut un critere qui retienne id_me OU parent dans DOUBLONS ]
 #SET{parents,#ARRAY}
