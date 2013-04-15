@@ -25,12 +25,13 @@
 	</div>
 
 </section>
-</BOUCLE_principale>
+</BOUCLE_principale><BOUCLE_efface(spip_me){id_me=#ENV{id}}{statut==.*}>
 
-<section>
-<h1>Message effacé</h1>
-</section>
+[(#REM) Tout autre statut que "publi" correspond a un message efface ]
+	<section>
+	<h1>Message effacé</h1>
+	</section>
 
-<//B_principale>
+</BOUCLE_efface><//B_principale>
 
 #FILTRE{mini_html}
