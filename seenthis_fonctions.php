@@ -567,7 +567,7 @@ function elaguer_arbre_successeurs($x) {
 function successeurs($mot) {
 	if (strlen($mot) < 2) return array();
 
-	$motq = str_replace(array('_','%',"'"), array('\\_', '\\%','\\\''), $mot);
+	$motq = str_replace(array('&amp;', '_','%',"'"), array('&', '\\_', '\\%','\\\''), $mot);
 
 	$a = array();
 	$d = mb_strlen($mot);
