@@ -154,7 +154,7 @@
 
 		[(#REM) plugin seenthis_opencalais]
 		[(#PLUGIN{seenthisoc}|?{
-			[(#ID_SYNDIC|microcache{noisettes/oc_site})]
+			[(#INCLURE{fond=noisettes/oc_site,id=#ID_SYNDIC})]
 		})]
 
 	</aside>
