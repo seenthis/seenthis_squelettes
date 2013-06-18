@@ -45,8 +45,11 @@
 			<div id="charger_pave_inscription"></div>
 			[(#ID_ME|microcache{noisettes/adsense_me})]
 		]
-		
-		[(#ID_ME|microcache{noisettes/oc_message})]
+
+		[(#REM) plugin seenthis_opencalais]
+		[(#PLUGIN{seenthisoc}|?{
+			[(#INCLURE{fond=noisettes/oc_message,id=#ID_ME})]
+		})]
 
 	</aside>
 

@@ -25,41 +25,10 @@
 			<div  id="texte#ID">[(#ID_ME|microcache{noisettes/message_texte}|ajouter_embed)]</div>
 		
 
-			[(#VAL{rien}|reset_oc_lies)]
-
-
-			<BOUCLE_calais_me(MOTS spip_me_mot) {spip_mots.id_groupe!=1} {spip_me_mot.id_me=#ENV{id}}{spip_me_mot.relevance>300}{!par spip_me_mot.relevance}{doublons}>
-					[(#ID_MOT|compter_oc_lies{#RELEVANCE})]
-					[(#ID_MOT|stocker_rel{me#ID_ME,#OFF})]
-			</BOUCLE_calais_me>
-
-			<BOUCLE_sites_lies(spip_me_syndic){id_me=#ENV{id}}>
-				<BOUCLE_calais_site(MOTS spip_syndic_oc) {spip_syndic_oc.id_syndic=#ID_SYNDIC}{relevance>300}{par relevance}{inverse}{doublons}>
-					[(#ID_MOT|compter_oc_lies{[(#RELEVANCE|mult{0.7}|floor)]})]
-					[(#ID_MOT|stocker_rel{me#ID_ME-syndic#ID_SYNDIC,#OFF})]
-				</BOUCLE_calais_site>
-				</B_calais_site>
-			</BOUCLE_sites_lies>
-			
-			
-
-
-			<B_calais>
-			<ul class="mots_lies" id="mots_lies_#ID_ME">
-			<BOUCLE_calais(MOTS spip_me_mot) {id_mot IN (#REM|retour_oc_lies)}{id_groupe !IN #EVAL{_EXCLUDE_GROUPE}}>
-				
-				<li class="oc_mot[ (#ID_MOT|afficher_off_mot)]">#<a href="#URL_MOT"[ rel="(#ID_MOT|afficher_rel_mot)"]>#TITRE</a></li>
-			</BOUCLE_calais>
-
-				<li>
-					<a onclick="$(this).parents('.mots_lies').addClass('edition'); return false;" 
-						href="#" class="modifier_themes"></a>
-				</li>
-
-			</ul>
-			[(#SET{afficher_themes,oui})]
-			</B_calais>
-
+			[(#REM) plugin seenthis_opencalais]
+			[(#PLUGIN{seenthisoc}|?{
+				[(#INCLURE{fond=noisettes/message_tags_oc,id})]
+			})]
 
 			<div class="commandes">
 				<div class="supprimer"><a
@@ -73,12 +42,6 @@
 				</div>
 				
 				#GET{nom_auteur}
-				
-				[(#REM)
-					[(#GET{afficher_themes}|=={oui}|oui)
-						<span class="afficher_themes"><a onclick="$(this).hide(); $('#mots_lies_#ID_ME').slideDown(); return false;" href="#" class="texte_afficher_themes"></a></span>
-					]
-				]
 
 			</div>
 	

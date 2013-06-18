@@ -284,7 +284,8 @@ function switch_comments(id_me) {
 		$("#recherche").focusout(function() {
 			$("#entete").removeClass("rechercher");
 		});
-		
+
+		// plugin seenthis_opencalais
 		$(".edition li.oc_mot").live("click", function() {
 			var relation = $(this).find("a").attr("rel");
 			if ($(this).hasClass("off")) {

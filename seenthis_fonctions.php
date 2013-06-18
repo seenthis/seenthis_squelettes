@@ -299,26 +299,6 @@ function afficher_miniature($img, $max = 200) {
 	return "<a href='$img' class='display_box'$box>$vignette</a>";
 }
 
-$GLOBALS["oc_lies"] = array();
-
-function reset_oc_lies($rien) {
-	$GLOBALS["oc_lies"] = array();
-}
-
-function compter_oc_lies($id_mot, $relevance) {
-	if ($relevance > 300 && $relevance > $GLOBALS["oc_lies"]["$id_mot"]) $GLOBALS["oc_lies"]["$id_mot"] = $relevance;	
-}
-
-function retour_oc_lies($rien) {
-	arsort($GLOBALS["oc_lies"]);
-	foreach($GLOBALS["oc_lies"] as $id_mot => $k) {
-		if ($k > 1) {
-			$ret[] = $id_mot;
-		}
-	}
-	return $ret;
-}
-
 
 function stocker_id_me($id_me) {
 	$GLOBALS["liste_id_me"][$id_me] = $id_me;
@@ -355,18 +335,6 @@ function retour_id_me_date($rien) {
 	} else return 0;
 }
 
-function stocker_rel($id_mot, $lien, $off) {
-	$GLOBALS["oc_rel"]["$id_mot"] = "mot$id_mot-$lien";
-	if ($off == "oui") $GLOBALS["oc_off"]["$id_mot"] = "off";
-}
-
-function afficher_rel_mot($id_mot) {
-	return $GLOBALS["oc_rel"]["$id_mot"];
-}
-
-function afficher_off_mot($id_mot) {
-	return $GLOBALS["oc_off"]["$id_mot"];
-}
 
 $GLOBALS["mots_lies"] = array();
 $GLOBALS["mots_lies_titre"] = array();

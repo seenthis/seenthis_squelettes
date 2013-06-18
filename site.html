@@ -152,7 +152,10 @@
 			[(#INCLUDE{fond=noisettes/adsense_site})]
 		]
 
-		[(#ID_SYNDIC|microcache{noisettes/oc_site})]
+		[(#REM) plugin seenthis_opencalais]
+		[(#PLUGIN{seenthisoc}|?{
+			[(#ID_SYNDIC|microcache{noisettes/oc_site})]
+		})]
 
 	</aside>
 
