@@ -3,8 +3,6 @@
 ############## CHARGER
 
 function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0, $ze_mot=0) {
-	#if (!$GLOBALS["visiteur_session"]["id_auteur"])
-	#	return;
 
 	$texte_message = "";
 
@@ -32,7 +30,7 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 
 function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0, $id_dest=0, $ze_mot=0){
 	if (!$GLOBALS["visiteur_session"]["id_auteur"])
-		return;
+		return array("texte_message" => "Il faut se connecter pour poster un message.");
 
 	$errors = Array();
 	
