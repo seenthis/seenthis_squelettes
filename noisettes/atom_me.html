@@ -17,7 +17,7 @@
 	[(#ID_PARENT|>{0}|oui)<thr:in-reply-to ref="[message:(#ID_PARENT)]" />]
 	<link rel="edit" href="https://#EVAL{_HOST}/api/messages/#ID_ME"/>
 	<summary>[(#TEXTE*|message_texte|supprimer_background_favicon|cdata)]</summary>
-	<content type="html">[(#TEXTE|liens_troll{#ID_AUTEUR}|liens_absolus{http://#EVAL{_HOST}/}|supprimer_background_favicon|texte_backend)]</content>
+	<content type="html">[(#TEXTE|liens_troll{#ID_AUTEUR}|liens_absolus{http://#EVAL{_HOST}/}|supprimer_background_favicon|cdata)]</content>
 	<BOUCLE_liens(SITES spip_me_syndic) {spip_me_syndic.id_me=#ID_ME}>
 	<link rel="related" href="#URL_SITE"[ title="(#TITRE|replace{'"', "'"}|texte_backend)"][ hreflang="(#LANG)"]/>
 	</BOUCLE_liens>

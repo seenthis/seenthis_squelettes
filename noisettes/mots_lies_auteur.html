@@ -1,20 +1,19 @@
-#CACHE{60*60}
+#CACHE{0}
 
 
 <BOUCLE_principale(AUTEURS){id_auteur}{tout}>
-	<BOUCLE_messages(ME){follow #ID_AUTEUR}{par date}{inverse}{id_parent=0}{0,1000}{statut=publi}>[(#ID_ME|stocker_type{id_me})]</BOUCLE_messages>
-	<BOUCLE_mots(spip_me_mot){id_me IN #REM|sortir_type{id_me}}>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
+	<BOUCLE_messages(ME){follow #ID_AUTEUR}{par date}{inverse}{id_parent=0}{0,500}{statut=publi}{doublons me} />
 	
+	<BOUCLE_tags(spip_me_tags){id_me IN #DOUBLONS{meme}}{class!=url}>
+	[(#TAG*|compter_mots_lies)]</BOUCLE_tags>
+
 	<B_resultat>
 	<div id="mots_lies">
 	<h3>thèmes fréquemment utilisés</h3>
 	<ul>
-	<BOUCLE_resultat(MOTS){tout}{id_mot IN (#REM|retour_mots_lies)}{doublons mots}{0,200}>
-	<li>[(#ID_MOT|compter_mots_titre{#TITRE})]
-		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>
-		<span class="groupe_mot">#TITRE:</span>
-		</BOUCLE_groupe>
-		[(#ID_GROUPE|=={1}|?{"#",""})]<a href="#URL_MOT">[(#ID_GROUPE|=={1}|?{"<strong>",""})][(#TITRE)][(#ID_GROUPE|=={1}|?{"</strong>",""})]</a>
+	<BOUCLE_resultat(spip_me_tags){tout}{tag IN (#REM|retour_mots_lies)}{fusion tag}{0,200}>
+	<li>[(#TAG*|compter_mots_titre{#TAG})]
+		[(#CLASS|match{#}|?{<strong>#})]<a href="#URL_TAG">[(#TAG|replace{#})]</a>[(#CLASS|match{#}|?{</strong>})]
 	</li>
 	</BOUCLE_resultat>
 	</ul>

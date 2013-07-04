@@ -19,21 +19,9 @@
 		[<dc:creator>(#NOM|supprimer_tags|texte_backend)</dc:creator>]
 </BOUCLE_auteur>
 
-[(#REM)
-	Le bloc qui suit diffuse les mots-cles a la mode RSS
+		[<description>(#TEXTE|couper{250}|typo|texte_backend)</description>]
 
-]
-
-		<description>[(#TEXTE|couper{250}|typo|texte_backend)]
-
-		</description>
-
-[(#REM)
-	Le bloc qui suit diffuse aussi le texte integral de l'article,
-	ce qui permet une syndication plus riche (mais plus "lourde").
-	Fonction desactivable depuis les reglages du site.
-]
-<content:encoded>[(#ID_ME|microcache{noisettes/message_texte}|texte_backend)]</content:encoded>
+		[<content:encoded>(#ID_ME|microcache{noisettes/message_texte}|texte_backend)</content:encoded>]
 
 
 	</item>

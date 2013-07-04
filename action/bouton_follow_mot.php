@@ -15,20 +15,6 @@ function action_bouton_follow_mot() {
 		lang_select($row["lang"]);
 	}
 
-	// A quel id_mot OLD STYLE correspond ce tag
-	if (substr($tag,0,1) == '#') {
-		$titre = substr($tag,1);
-		$type = 'Hashtags';
-	} elseif (strpos(':', $tag)) {
-		list($type,$titre) = explode(':',$tag);
-	} else {
-		$titre = $tag;
-		$type = '?';
-	}
-	if ($f = sql_fetsel('id_mot', 'spip_mots AS m LEFT JOIN spip_groupes_mots AS g ON m.id_groupe=g.id_groupe', 'm.titre='.sql_quote($titre).' AND g.titre='.sql_quote($type)))
-		$id_mot = $f['id_mot'];
-	// fin OLD STYLE
-
 	//
 	// gerer une action : suivre/cesser de suivre
 	//
@@ -36,18 +22,10 @@ function action_bouton_follow_mot() {
 
 	if ($follow == "non" OR $follow == "oui") {
 
-		sql_query("DELETE FROM spip_me_follow_mot WHERE id_follow=$id_follow
-			AND id_mot=$id_mot");
 		sql_query("DELETE FROM spip_me_follow_tag WHERE id_follow=$id_follow
 			AND tag=".sql_quote($tag));
 		
 		if ($follow == "oui") {
-			if ($id_mot)
-			sql_insertq("spip_me_follow_mot", array(
-				"id_follow" => $id_follow,
-				"id_mot" => $id_mot,
-				"date" => "NOW()"
-			));
 			sql_insertq("spip_me_follow_tag", array(
 				"id_follow" => $id_follow,
 				"tag" => $tag,

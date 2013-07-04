@@ -1,18 +1,24 @@
 #CACHE{60*5}
 [(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml 
 version="1.0"[ encoding="(#CHARSET)"]?>
-<BOUCLE_principale(MOTS){id_mot}{tout}{doublons mots}><feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
-	<title><BOUCLE_t(GROUPES_MOTS){id_groupe}{id_groupe>1}>#TITRE:</BOUCLE_t>#<//B_t>[(#TITRE)] - Seenthis</title>
 
-	<link href="[(#URL_MOT|url_absolue)]" />
-        <id>[(#URL_MOT|url_absolue)]</id>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
+	<title>[(#TAG|cdata)] - Seenthis</title>
+
+	<link href="[(#URL_TAG|url_absolue)]" />
+        <id>[(#URL_TAG|url_absolue)]</id>
         <updated>[(#DATE|date_iso)]</updated>
         <link rel="self" href="[(#SELF|url_absolue)]" />
 
-[(#REM) pas efficace: il faut un critere qui retienne id_me OU parent dans DOUBLONS ]
 #SET{parents,#ARRAY}
+[(#TAG|match{\$$}|?{
+	[(#SET{tag,[(#TAG|replace{\$})]})]
+,
+	#SET{tag,#TAG*%}
+})]
 <BOUCLE_tag(ME spip_me_tags)
-	{tag like #ENV{tag}%}
+	{tag like #TAG*%}
 	{statut=publi}
 	{!par date}
 	{0,1000}
@@ -36,4 +42,3 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 	[(#ID_ME|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
 </BOUCLE_messages>
 </feed>
-</BOUCLE_principale>

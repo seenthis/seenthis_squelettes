@@ -6,37 +6,38 @@
 
 ]
 
-<BOUCLE_principale(MOTS){id_mot=#ENV{id_mot}}{doublons mots}>
-	<BOUCLE_tous_mots(spip_me_tags spip_me){tag like ##TITRE*%}
-	{!par date}
-	{0,150}
-	>
-	[(#SET{messages,[(#GET{messages}
-		|concat{[ (#ID_PARENT|replace{^0$}|sinon{#ID_ME})]})]})
-	]</BOUCLE_tous_mots>
 
-	<BOUCLE_messages(ME){id_me IN #GET{messages}|explode{' '}}{statut=publi}{doublons pourmots}{!par date}{0,100} />
+<BOUCLE_tous_mots(spip_me_tags spip_me){tag like #TAG*%}
+{!par date}
+{0,150}
+>
+[(#SET{messages,[(#GET{messages}
+	|concat{[ (#ID_PARENT|replace{^0$}|sinon{#ID_ME})]})]})
+]</BOUCLE_tous_mots>
 
-	<BOUCLE_mots(spip_me_mot){id_me IN #DOUBLONS{mepourmots}}
-		>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots>
-	<BOUCLE_mots_reponses(spip_me_mot spip_me){spip_me.id_parent IN #DOUBLONS{mepourmots}}
-		>[(#ID_MOT|compter_mots_lies)]</BOUCLE_mots_reponses>
+<BOUCLE_messages(ME){id_me IN #GET{messages}|explode{' '}}{statut=publi}{doublons pourmots}{!par date}{0,100} />
 
-	<B_resultat>
+
+	<BOUCLE_mots(spip_me_tags){id_me IN #DOUBLONS{mepourmots}}
+		{class IN #,oc}
+		>[(#TAG*|compter_mots_lies)]</BOUCLE_mots>
+	<BOUCLE_mots_reponses(spip_me_tags spip_me){spip_me.id_parent IN #DOUBLONS{mepourmots}}
+		{class IN #,oc}
+		>[(#TAG*|compter_mots_lies)]</BOUCLE_mots_reponses>
+
+<B_resultat>
 	<div id="mots_lies">
 	<h3>Thèmes liés</h3>
 	<ul>
-	<BOUCLE_resultat(MOTS){par titre}{tout}{id_mot IN (#REM|retour_mots_lies)}{doublons mots}{0,40}>
+<BOUCLE_resultat(DATA){source array,#REM*|retour_mots_lies}
+	{valeur!=#TAG*}{0,40}>
 	<li>
-		<BOUCLE_groupe(GROUPES_MOTS){id_groupe}{id_groupe!=1}>
-		<span class="groupe_mot">#TITRE:</span>
-		</BOUCLE_groupe>
-		[(#ID_GROUPE|=={1}|?{"#",""})]<a href="#URL_MOT">[(#ID_GROUPE|=={1}|?{"<strong>",""})][(#TITRE)][(#ID_GROUPE|=={1}|?{"</strong>",""})]</a>
+	[<span class="groupe_mot">(#VALEUR|match{^.*:}|mb_strtolower{UTF-8})</span>]
+	[(#VALEUR|match{^#})]<a href="[(#VALEUR|url_tag)]">[(#VALEUR|match{^#}|?{<strong>})][(#VALEUR|replace{#}|replace{^.*:}|mb_strtolower{UTF-8})][(#VALEUR|match{^#}|?{<strong>})]</a>
 	</li>
-	</BOUCLE_resultat>
+</BOUCLE_resultat>
 	</ul>
 	</div>
-	</B_resultat>
+</B_resultat>
 
-</BOUCLE_principale>
 #FILTRE{mini_html}

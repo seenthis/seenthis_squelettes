@@ -1,14 +1,13 @@
 #CACHE{0}
-<BOUCLE_principale(MOTS){id_mot}{tout}{doublons mots}>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>[(#TITRE|mb_strtolower{UTF-8})]</title>
+	<title>[(#TAG|mb_strtolower{UTF-8})] et thèmes voisins</title>
 
 	<meta charset="#CHARSET">
-	<link rel="canonical" href="#URL_SITE_SPIP/#URL_MOT">
+	<link rel="canonical" href="#URL_SITE_SPIP/[(#TAG*|url_tag)]">
 	
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_SITE_SPIP/#URL_MOT/feed">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_SITE_SPIP/[(#TAG*|url_tag)]/feed">
 	
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
@@ -33,7 +32,6 @@
 	
 	<script><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	var id_mot = "#ID_MOT";
 	--></script>
 	
 </head>
@@ -48,27 +46,17 @@
 	<div id="entete_people">
 
 
-		[(#REM)
-		<div class="outils">
-			<div class="suivre">
-				<div id="follow_mot"></div>
-			</div>
-
-			<div class="rss"><a href="#URL_SITE_SPIP/#URL_MOT/feed">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
-		</div>
-		]
-	
-		[(#ID_GROUPE|=={1}|oui)
+		[(#TAG|match{#}|oui)
 			<div>
 				Ce <b>thème</b> est attribué <b>manuellement</b> par les auteurs des messages.
 			</div>
 		]
-		[(#ID_GROUPE|=={1}|non)
+		[(#TAG|match{#}|non)
 			<div>
 				Ce <b>thème</b> a été généré <b>automatiquement</b>.  
 			</div>
 		]
-		<h1>[#(#TITRE|mb_strtolower{UTF-8})] et thèmes voisins</h1>
+		<h1>[(#TAG|mb_strtolower{UTF-8})] et thèmes voisins</h1>
 
 
 
@@ -81,21 +69,8 @@
 	]
 	<div id="centre">
 
-		[(#SESSION{id_auteur}|?{" ",""})
-			[(#ID_GROUPE|=={1}|oui)
-			<div id="tetiere">
-				[<div class="formulaire_principal">(#FORMULAIRE_POSTER_MESSAGE{0, 0, 0,#ID_MOT})</div>]
-			</div>
-			]
-		]
 		<div id="tous_messages">
-		[(#ENV{debut_messages}|>{10}|non)
-			[(#ID_MOT|microcache{noisettes/contenu_mot_flou})]
-		]
-		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_mot_flou}{id=#ID_MOT}>
-		]
-
+		<INCLURE{fond=noisettes/contenu_mot_flou}{env}{follow=#GET{follow}} />
 		</div>
 
 
@@ -108,7 +83,7 @@
 			[(#GET{couleur}|microcache{noisettes/adsense})]
 		]
 
-		<INCLURE{fond=noisettes/mots_lies_fin}{id_mot}{ajaxload}>
+		<INCLURE{fond=noisettes/mots_lies}{tag}{ajaxload}>
 		
 		
 		&nbsp;
@@ -118,5 +93,4 @@
 </div></div>
 </body>
 </html>
-</BOUCLE_principale>
 #FILTRE{mini_html}

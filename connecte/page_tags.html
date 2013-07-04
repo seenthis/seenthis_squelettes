@@ -36,14 +36,7 @@
 
 	<div id="centre">
 		<div id="tous_messages">
-		[(#ENV{debut_messages}|>{10}|non)
-			[(#ID_AUTEUR|microcache{noisettes/contenu_page_tags})]
-		]
-		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_page_tags}{id=#ID_AUTEUR}>
-		]
-		
-		
+		<INCLURE{fond=noisettes/contenu_page_tags}{id=#ID_AUTEUR}{env} />
 		</div>
 
 
@@ -52,15 +45,17 @@
 	<aside id="droite">
 
 	<B_follow_tag>
+		<div class="mots_lies">
 		<ul>
 	<BOUCLE_follow_tag(spip_me_follow_tag)
 		{id_follow=#SESSION{id_auteur}}
 		{tag!==^http://}
 		{fusion tag}
 	>
-		<li>#<a href="#URL_TAG"><b>[(#TAG|replace{#})]</b></a></li>
+		<li>[(#TAG|match{^(#|.*:)})]<a href="#URL_TAG"><b>[(#TAG|replace{^(#|.*:)})]</b></a></li>
 	</BOUCLE_follow_tag>
 		</ul>
+		</div>
 	</B_follow_tag>
 
 	</aside>

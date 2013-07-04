@@ -285,47 +285,29 @@ function switch_comments(id_me) {
 			$("#entete").removeClass("rechercher");
 		});
 
-		// plugin seenthis_opencalais
-		$(".edition li.oc_mot").live("click", function() {
-			var relation = $(this).find("a").attr("rel");
-			if ($(this).hasClass("off")) {
-				var statut_relation = "activer";
-				$(this).removeClass("off");
-			}
-			else { 
-				var statut_relation = "desactiver";
-				$(this).addClass("off");
-			}
-			$.get("index.php?action=lien_mot&statut="+statut_relation+"&relation="+relation+"&date="+ (new Date()).getTime());
-			return false;
-		});
-
-
 		$('textarea').live("keydown", function(e) {
 			var area = $(this);
 			var keyCode = e.keyCode || 0;
 
-			// shift + enter (valider)
-			if (keyCode == 13 && isCtrl) {
-				isCtrl = false;
+			// (shift ou ctrl) + enter (valider)
+			if (keyCode == 13 && (isShift || isCtrl)) {
+				isShift = false;
 				area.submit();
 				return false;
 			}
 			// shift + tab (citer)
-			if (keyCode == 9 && isCtrl) {
-				isCtrl = false;
+			if (keyCode == 9 && isShift) {
+				isShift = false;
 				$(this).replaceSelection("\n❝" + $(this).getSelection().text + "❞\n", true);
 				return false;
 			}
 
 			// detecter le shift
-			if (keyCode == 16) {
-				isCtrl = true;
-			} else {
-				isCtrl = false;
-			}
+			isShift = (keyCode == 16);
+			// detecter le ctrl
+			isCtrl  = (keyCode == 17);
 		}).live("keyup", function(e) {
-			isCtrl = false;
+			isShift = false;
 		});;
 		
 		$('textarea').live("keyup", function(e) {

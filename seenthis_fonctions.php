@@ -343,6 +343,8 @@ function compter_mots_lies($id_mot) {
 }
 function compter_mots_titre ($id_mot, $titre) {
 	$titre = str_replace( "_", " ", $titre);
+	$titre = preg_replace( "/^.*:/", "", $titre); # "position:Economist"
+	$titre = preg_replace( "/^#/", "", $titre); # "#hashtag"
 	$GLOBALS["mots_lies_titre"]["$id_mot"] = $titre;
 	//echo "$id_mot - $titre";
 }
@@ -354,6 +356,7 @@ function retour_mots_lies($rien) {
 			$ret[] = $id_mot;
 		}
 	}
+	
 	return $ret;
 }
 
@@ -701,6 +704,13 @@ function balise_URL_TAG_dist($p) {
 		: ''))";
 	$p->interdire_scripts = true;
 	return $p;
+}
+
+function url_tag($tag) {
+	if (preg_match(',^http,i', $tag))
+		return 'sites/' . md5($tag);
+	$tag = str_replace('#', '', $tag);
+	return 'tag/'.urlencode_1738_plus(mb_strtolower($tag, 'UTF-8'));
 }
 
 ?>

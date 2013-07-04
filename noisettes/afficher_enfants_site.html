@@ -1,5 +1,5 @@
 #CACHE{0}
-<BOUCLE_principale(SYNDIC){id_syndic=#ENV{id}}{tout}{doublons mots}>
+<BOUCLE_principale(SYNDIC){id_syndic=#ENV{id}}{tout}>
 	[(#SET{tous_sites,[(#ID_SYNDIC|calculer_enfants_syndic{#URL_SITE})]})]
 	[<div id="enfants_sites">(#REM|afficher_enfants_syndic)</div>]
 </BOUCLE_principale>

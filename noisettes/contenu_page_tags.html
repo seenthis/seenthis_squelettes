@@ -1,28 +1,28 @@
 #CACHE{0}
 
-	[(#REM) boucle desactivee car les _oc avec leurs mots-cles ne sont pas geres comme des tags, ce qui est bien dommage ]
+	[(#REM) boucle desactivee car les _oc avec leurs mots-cles ne sont pas geres comme des tags, ce qui est bien dommage ; a mettre dans le plugin opencalais]
 	<BOUCLE_sites(spip_syndic_oc){id_mot=#ID_MOT}
 	{si 0}>
 	<BOUCLE_tous_liens_site(spip_me spip_me_syndic){spip_me_syndic.id_syndic=#ID_SYNDIC}>[(#SET{me,[(#GET{me}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]</BOUCLE_tous_liens_site>
 		</BOUCLE_sites>
 
 
-		<B_messages>
-		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
-		<ul id="messages">
-		<BOUCLE_messages(DATA){source seenthisfollowtags,#ENV*,tags}
-		{pagination 25}
-		>
-			<li id="message#VALEUR">
-				[(#VALEUR|microcache{noisettes/afficher_message})]
-			</li>
-		</BOUCLE_messages>
-		</ul>
-		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
-		</B_messages>
-		<ul id="messages">
-			<li>Pas encore de messages</li>
-		</ul>	
-		<//B_messages>
+<B_messages>
+	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+	<ul id="messages">
+<BOUCLE_messages(DATA){source seenthisfollowtags,#ENV*,tags}
+{pagination 25}
+>
+	<li id="message#VALEUR">
+		[(#VALEUR|microcache{noisettes/afficher_message})]
+	</li>
+</BOUCLE_messages>
+	</ul>
+	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+</B_messages>
+	<ul id="messages">
+		<li>Pas encore de messages</li>
+	</ul>
+<//B_messages>
 
 #FILTRE{mini_html}
