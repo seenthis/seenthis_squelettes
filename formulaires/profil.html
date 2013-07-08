@@ -14,47 +14,32 @@
 		<form method='post' action='#ENV{action}' enctype='multipart/form-data'>
 			#ACTION_FORMULAIRE{#ENV{action}}
 
-			<h3><multi>Identité[en]Identity</multi></h3>
+			<h3><multi><:seenthis:profil_identite:></multi></h3>
 			<ul>
 				<li>
-					<label><multi>
-						Votre nom<br>ou pseudonyme<br> en clair
-						[en]Your name<br>or pseudo
-					</multi></label>
+					<label><:entree_nom_pseudo:></label>
 					<input type="text" class="text" name="nom" value="[(#ENV**{nom})]">
 				</li>
 				<li>
-					<label><multi>
-						Biographie
-						[en] Bio
-					</multi></label>
+					<label><:entree_biographie|replace{"\.",""}:></label>
 					<input type="text" class="text" name="bio" value="[(#ENV**{bio})]">
 				</li>
 
 
 				<li>
-					<label><multi>
-						URL de votre site
-						[en]Website URL
-					</multi></label>
-					<input type="text" class="text" name="url_site" value="[(#ENV**{url_site})]">
+					<label><:entree_url|typo:></label>
+					<input type="text" class="text" placeholder="http://" name="url_site" value="[(#ENV**{url_site})]">
 				</li>
 			</ul>
 
-			<h3><multi>Connexion[en]Connection</multi></h3>
+			<h3><:connexion_ldap:></h3>
 			<ul>
 				<li id="login">
-					<label><multi>
-						Votre identifiant
-						[en] Your identifier
-					</multi></label>
+					<label><:login_login2:></label>
 					<input type="text" class="text" name="login" value="#ENV{login}" disabled="disabled">
 				</li>
 				<li id="password">
-					<label><multi>
-						Nouveau mot de passe
-						[en] New password
-					</multi></label>
+					<label><:pass_nouveau_pass:></label>
 					<input type="password" class="text" name="password" value="">
 				</li>
 
@@ -68,10 +53,7 @@
 			</ul>
 
 
-			<h3><multi>
-				Langue
-				[en]Language
-			</multi></h3>
+			<h3><:seenthis:profil_langue:></h3>
 			
 			<ul>
 				<li>
@@ -81,63 +63,34 @@
 			
 			</ul>
 			
-			<h3><multi>
-				Alertes
-				[en]Notices
-			</multi></h3>
+			<h3><:seenthis:profil_alertes:></h3>
 			
 			<ul>
-				<li><label><multi>
-					M’expédier un courrier<br> électronique quand...
-					[en] Send me an email when...
-				</multi></label>
+				<li><label><:seenthis:profil_mexpedier:></label>
 				<input type="checkbox" name="mail_nouv_billet" [(#ENV**{mail_nouv_billet}|=={1}|oui)checked="checked"] value="1"> 
-				<multi>
-					<b>nouveaux billets</b> / un nouveau billet est posté par un auteur que je suis
-					[en] <b>new posts</b> / an initial text is posted by an author I follow
-				</multi>
+				<:seenthis:profil_alerte_nouveaux_billets:>
 					
 				<br><input type="checkbox" name="mail_rep_moi" [(#ENV**{mail_rep_moi}|=={1}|oui)checked="checked"] value="1"> 
-				<multi>
-					<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets
-					[en] <b>answers to my posts</b> / someone answers one of my initial posts
-				</multi>
+				<:seenthis:profil_alerte_reponses:>
 					
 				<br><input type="checkbox" name="mail_rep_conv" [(#ENV**{mail_rep_conv}|=={1}|oui)checked="checked"] value="1"> 
-				<multi>
-					<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu
-					[en] <b>conversations</b> / someone answers to a post I have already answered to
-				</multi>
+				<:seenthis:profil_alerte_conversations:>
 
 				<br><input type="checkbox" name="mail_rep_billet" [(#ENV**{mail_rep_billet}|=={1}|oui)checked="checked"] value="1"> 
-				<multi>
-					<b>nolife</b> / un auteur que je suis répond à n’importe quel billet
-					[en] <b>no life</b> / someone that I follow answers to any post
-				</multi>
+				<:seenthis:profil_alerte_nolife:>
 
 				<br><input type="checkbox" name="mail_suivre_moi" [(#ENV**{mail_suivre_moi}|=={1}|oui)checked="checked"] value="1"> 
-				<multi>
-					<b>quelqu’un vous veut du bien</b> / quelqu’un me suit
-					[en] <b>stalker</b> / someone is following me
-				</multi>
+				<:seenthis:profil_alerte_dubien:>
 
 				</li>
 			</ul>
 			
-			<h3><multi>
-				Copyright, copyleft
-			</multi></h3>
+			<h3><:seenthis:profil_copyleft:></h3>
 			<ul>
 			
-				<li><label><multi>
-						Licence<br> de vos messages
-						[en] Licence<br> of your messages
-					</multi></label>
+				<li><label><:seenthis:profil_licence:></label>
 					<input type="radio" value="C" [(#ENV**{copyright}|=={C}|oui)checked="checked"] name="copyright"> 
-					<multi>
-						Pas de licence spécifique (droits d’auteur par défaut)
-						[en] No specific licence (exclusive copyright)
-					</multi>
+					<:seenthis:profil_copyright_classique:>
 
 					<br><input type="radio" value="BY" [(#ENV**{copyright}|=={BY}|oui)checked="checked"] name="copyright"> Creative Commons Attribution (<a href="http://creativecommons.org/licenses/by/3.0/">CC BY</a>)
 					<br><input type="radio" value="BY-SA" [(#ENV**{copyright}|=={BY-SA}|oui)checked="checked"] name="copyright"> Creative Commons Attribution-ShareAlike (<a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA</a>)
@@ -151,26 +104,17 @@
 			</ul>
 			
 			
-			<h3><multi>
-				Graphisme
-				[en] Design
-			</multi></h3>
+			<h3><:seenthis:profil_graphisme:></h3>
 			<ul>
 				<li>
-					<label><multi>
-						Couleur
-						[en] Color
-					</multi></label>
+					<label><:seenthis:profil_couleur:></label>
 					<div id="farb"></div>
 					<input type="text" name="couleur" value="#[(#ENV**{couleur}|replace{'#',''})]">
 				</li>
 			
 			
 				<li>
-					<label><multi>
-						Logo de l’auteur<br>(carré)
-						[en] Author’s picture <br>(square)
-					</multi></label>
+					<label><:seenthis:profil_couleur:></label>
 					[(#SESSION{id_auteur}|fichier_logo_auteur|image_reduire{150})
 						<div><input type="submit" value="<:supprimer:>" name="supprimer_logo"></div>					
 					]
@@ -180,10 +124,7 @@
 
 			
 				<li[ class="(#ENV**{erreurs}|table_valeur{image_bandeau}|?{erreur})"]>
-					<label><multi>
-						Bandeau supérieur<br> (960px de large au maximum)
-						[en] Header<br> (width: 960px max.)
-					</multi></label>
+					<label><:seenthis:profil_entete:></label>
 					[(#SESSION{id_auteur}|fichier_bandeau|image_reduire{150})
 						<div><input type="submit" value="<:supprimer:>" name="supprimer_bandeau"></div>
 					]
@@ -192,10 +133,7 @@
 				</li>
 			
 				<li>
-					<label><multi>
-						Image de fond<br>(1600px x 1200px au maximum)
-						[en] Background picture<br>(1600px x 1200px max.)
-					</multi></label>
+					<label><:seenthis:profil_fond:></label>
 					[(#SESSION{id_auteur}|fichier_fond|image_reduire{150})
 						<div><input type="submit" value="<:supprimer:>" name="supprimer_fond"></div>					
 					]
@@ -204,15 +142,11 @@
 			
 			</ul>
 
-			<h3><multi>
-				Import RSS
-			</multi></h3>
+			<h3><:seenthis:profil_rss:></h3>
 			
 			<ul>
-				<li><label><multi>
-					Importer automatiquement un flux d'articles au format ATOM ou RSS
-				</multi></label>
-					<input type="text" class="text" name="rss" value="[(#ENV*{rss})]" />
+				<li><label><:entree_adresse_fichier_syndication:></label>
+					<input type="text" placeholder="http://" class="text" name="rss" value="[(#ENV*{rss})]" />
 				</li>
 			</ul>
 
