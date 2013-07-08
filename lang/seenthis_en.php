@@ -66,8 +66,32 @@
 				<p>Click on the “Suggest Contacts” button to see the pages of other authors you might like. You can follow an author by clicking on the “Follow...” button at the top of their page. The more choices you make, the more accurate the contact suggestions will be!</p>
 				<p>After you’ve followed five authors, this message will go away. The “Suggest Contacts” button is always available on your “@people” page.</p>",
 
-		'Z' => 'ZZzZZzzz'
+		'Z' => 'ZZzZZzzz',
+
+		"profil_identite" => "Identity",
+		"profil_langue" => "My language",
+		"profil_alertes" => "Notifications",
+
+		"profil_mexpedier" => "Send me an email when...",
+		"profil_alerte_nouveaux_billets" => "<b>new posts</b> / an initial text is posted by an author I follow",
+		"profil_alerte_reponses" => "<b>answers to my posts</b> / someone answers one of my initial posts",
+		"profil_alerte_conversations" => "<b>conversations</b> / someone answers to a post I have already answered to",
+		"profil_alerte_nolife" => "<b>no life</b> / someone that I follow answers to any post",
+		"profil_alerte_dubien" => "<b>stalker</b> / someone is following me",
+
+		"profil_copyleft" => "Copyright, copyleft",
+		"profil_licence" => "Licence of your messages",
+		"profil_copyright_classique" => "No specific licence (exclusive copyright)",
+		
+		"profil_graphisme" => "Your design",
+		"profil_couleur" => "Your color",
+		"profil_logo" => "Author’s picture (square)",
+		"profil_entete" => "Header picture (width: 960 pixels)",
+		"profil_fond" => "Background picture (1600px&nbsp;x&nbsp;1200px max.)",
+		"profil_rss" => "Automatically import a RSS or Atom feed"
+
 
 	);
+	
 
 ?>

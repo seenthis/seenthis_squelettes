@@ -73,7 +73,30 @@
 				Rendez-vous ensuite  sur l'onglet «&nbsp;@auteurs&nbsp;» pour obtenir des suggestions d'auteurs.</p>",
 
 
-		'Z' => 'ZZzZZzzz'
+		'Z' => 'ZZzZZzzz',
+		
+		"profil_identite" => "Identité",
+		"profil_langue" => "Ma langue",
+		"profil_alertes" => "Alertes",
+		"profil_mexpedier" => "M’expédier un courrier<br> électronique quand...",
+		"profil_alerte_nouveaux_billets" => "<b>nouveaux billets</b> / un nouveau billet est posté par un auteur que je suis",
+		"profil_alerte_reponses" => "<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets",
+		"profil_alerte_conversations" => "<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu",
+		"profil_alerte_nolife" => "<b>nolife</b> / un auteur que je suis répond à n’importe quel billet",
+		"profil_alerte_dubien" => "<b>un ami qui vous veut du bien</b> / quelqu’un me suit",
+		
+		"profil_copyleft" => "Copyright, copyleft",$
+		"profil_licence" => "Licence de vos messages",
+		"profil_copyright_classique" => "Pas de licence spécifique (droits d’auteur par défaut)",
+		
+		"profil_graphisme" => "Votre graphisme",
+		"profil_couleur" => "Votre couleur",
+		"profil_logo" => "Logo de l’auteur (carré)",
+		"profil_entete" => "Bandeau supérieur (960 pixels de large)",
+		"profil_fond" => "Image de fond (1600px&nbsp;x&nbsp;1200px au maximum)",
+
+		"profil_rss" => "Importer automatiquement un flux d'articles au format ATOM ou RSS"
+
 
 	);
 
