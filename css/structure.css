@@ -30,10 +30,6 @@ body {
 	-spip-transition-duration: 0.2s;
 
 
-	@media all and (max-width: 768px) {	
-		border-width: 0px 15px 35px 15px;
-		font-size: 95%;
-	}
 	@media all and (max-width: 1000px) {	
 		width: 90%;
 	}
@@ -45,7 +41,6 @@ body {
 	
 	> div {
 		width: 100%;
-		-spip-box-shadow: 0px 0px 5px #444444;
 		overflow: hidden;
 		
 	}
@@ -519,11 +514,9 @@ nav#entete {
 	width: 100%;
 	-spip-box-sizing: border-box;
 
-	@media all and (max-width: 768px) {	
-		bottom: 0px;
-	}
 	
-	@media all and (max-width: 1000px) {	
+	@media all and (max-width: 900px) {	
+		padding: 0px;
 	
 	}
 	
@@ -547,7 +540,14 @@ nav#entete {
 		a.symbole {
 			color: #999;
 			
-			@media all and (max-width: 860px) {	
+			img {
+				width: 16px;
+				height: 16px;
+				vertical-align: middle;
+				margin-top: -5px;
+			}
+			
+			@media all and (max-width: 900px) {	
 				font-size: 140%;
 				margin-top: -8px;
 				font-weight: bold;
@@ -560,6 +560,12 @@ nav#entete {
 				. :hover {
 					text-decoration: none;
 					color: white;
+				}
+
+				img {
+					width: 24px;
+					height: 24px;
+					margin-right: 1px;
 				}
 			}
 			
@@ -578,10 +584,15 @@ nav#entete {
 		margin-right: 5px;
 	
 	}
-	@media all and (max-width: 860px) {	
+	@media all and (max-width: 900px) {	
 		
 		margin-left: 0px;
 		margin-right: 0px;
+
+		div.liens {
+			margin-left: 5px;
+			margin-right: 5px;
+		}
 		
 		.intitule, .nom_auteur {
 			display: none;
@@ -590,7 +601,7 @@ nav#entete {
 			width: 24px;
 		}
 		.seenthis {
-			margin-right: 5px;
+			margin-right: 10px;
 		}
 	}
 	

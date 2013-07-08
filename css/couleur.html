@@ -24,13 +24,7 @@ body {
 }
 
 #fond_degrade {
-	z-index: -1;
-	-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.7})], [#(#ENV{couleur}|couleur_luminance{0.5})];
-	width: 100%;
-	height: 600px;
-	position: absolute;
-	top: 0px;
-	left: 0px;
+	display: none;
 }
 div.traduire a {
 	background-color: [#(#ENV{couleur}|couleur_luminance{0.2})];
@@ -63,7 +57,7 @@ nav#entete {
 				img {
 					width: 44px;
 					height: 35px;
-					background-image: url([(#CHEMIN{imgs/logo-mini.png})]);
+					[background-image: url((#CHEMIN{imgs/logo-mini.png}));]
 				
 				}
 			}
@@ -104,14 +98,10 @@ nav#entete {
 			-spip-transition-duration: 0.1s;
 
 			background-color: [#(#ENV{couleur}|couleur_luminance{0.25})];
-			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.18})], [#(#ENV{couleur}|couleur_luminance{0.32})];
-			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.30})];
 			color: [#(#ENV{couleur}|couleur_luminance{0.9})];
 			
-			. :hover {
+			. :hover, . :focus {
 				background-color: [#(#ENV{couleur}|couleur_luminance{0.7})];
-				-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.63})], [#(#ENV{couleur}|couleur_luminance{0.77})];
-				-spip-box-shadow: 0px 0px 3px #333333;
 				color: #fff;
 			}
 		}
@@ -181,10 +171,7 @@ ul#messages {
 }
 
 #pave_accueil {
-	margin: 40px;
-	-spip-border-radius: 6px;
-	background-color: [#(#ENV{couleur}|couleur_luminance{0.55})];
-	-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.3}|couleur_chroma{1/36})], [#(#ENV{couleur}|couleur_luminance{0.55})];
+	background-color: [#(#ENV{couleur}|couleur_luminance{0.15})];
 
 
 	padding: 20px;
@@ -192,12 +179,10 @@ ul#messages {
 	@media all and (max-width: 680px) {	
 		-spip-transition-property: margin;
 		-spip-transition-duration: 0.2s;
-		margin: 5px;
 	}
 
 	
 	.interne {
-		background: url(squelettes/imgs/guillemets-ouvrants.png) top left no-repeat;
 		padding-left: 90px;
 
 		color: #4f4848;
@@ -240,8 +225,6 @@ ul#messages {
 			float: right;
 			padding: 2px 5px;
 			background-color: [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
-			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.35}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
-			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.65})];
 			color: [#(#ENV{couleur}|couleur_luminance{0.85})];
 		}
 	}
@@ -263,22 +246,10 @@ ul#messages {
 			right: 0px;
 			padding: 10px;
 			background-color: [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})];
-			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.65})];
-			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.65})];
 			-spip-border-bottom-left-radius: 4px;
 			-spip-border-bottom-right-radius: 4px;
 			-spip-border-top-left-radius: 4px;
 			position: absolute;
-
-			@media all and (max-width: 768px) {	
-				top: auto;
-				bottom: 1.6em;
-				-spip-border-top-right-radius: 4px;
-				-spip-border-bottom-right-radius: 0px;
-				-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.5}|couleur_chroma{2/36})], [#(#ENV{couleur}|couleur_luminance{0.5})];
-				position: absolute;
-			}
-
 			
 		}
 	}
@@ -291,15 +262,10 @@ ul#messages {
 			-spip-border-radius: 4px;
 
 			background-color: [#(#ENV{couleur}|couleur_luminance{0.7})];
-			-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.63})], [#(#ENV{couleur}|couleur_luminance{0.77})];
-			border: 1px solid [#(#ENV{couleur}|couleur_luminance{0.7})];
 			color: [#(#ENV{couleur}|couleur_luminance{0.2})];
 			
-			. :hover {
+			. :hover, . :focus {
 				background-color: [#(#ENV{couleur}|couleur_luminance{0.9})];
-				-spip-gradient: top, [#(#ENV{couleur}|couleur_luminance{0.83})], [#(#ENV{couleur}|couleur_luminance{0.97})];
-				border: 1px solid black;
-				-spip-box-shadow: 0px 0px 3px #666666;
 				color: #fff;
 			}	
 }

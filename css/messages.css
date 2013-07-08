@@ -391,17 +391,25 @@ ul#messages, ul.messages {
 				padding-left: 1em;
 				border-left: 1px dotted #ccc;
 				text-align: justify;
-				-ms-text-justify:newspaper;
-				text-justify:newspaper;
-				-webkit-hyphens: auto;
-				-moz-hyphens: auto;
-				hyphens: auto;
+				-spip-text-justify:newspaper;
+				-spip-hyphens: auto;
+				-spip-hyphenate-limit-before: 3;
+				-spip-hyphenate-limit-after: 3;
+				-spip-hyphenate-limit-lines: 2;
+				-spip-hyphenate-limit-chars: 6 3 3;
 				
 				@media all and (max-width: 680px) {	
 					margin-left: 1em;
 				}
 				@media all and (max-width: 500px) {	
 					margin-left: 0em;
+				}
+				@media all and (max-width: 400px) {	
+					margin-left: 0em;
+					-spip-hyphenate-limit-before: 2;
+					-spip-hyphenate-limit-after: 2;
+					-spip-hyphenate-limit-lines: 3;
+					-spip-hyphenate-limit-chars: 5 2 2;
 				}
 				
 				
