@@ -17,7 +17,7 @@
 			<div class="auteur_date">
 				#GET{nom_auteur}
 
-				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)] [(#DATE|heures)]:[(#DATE|minutes)]</time></a></span>
+				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)]</time></a></span>
 
 				[(#ID_PARENT|=={0}|?{#INCLURE{fond=noisettes/favoris,id_me}})]
 			</div>
