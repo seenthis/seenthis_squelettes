@@ -85,7 +85,7 @@
 		"profil_alerte_nolife" => "<b>nolife</b> / un auteur que je suis répond à n’importe quel billet",
 		"profil_alerte_dubien" => "<b>un ami qui vous veut du bien</b> / quelqu’un me suit",
 		
-		"profil_copyleft" => "Copyright, copyleft",$
+		"profil_copyleft" => "Copyright, copyleft",
 		"profil_licence" => "Licence de vos messages",
 		"profil_copyright_classique" => "Pas de licence spécifique (droits d’auteur par défaut)",
 		
