@@ -61,18 +61,20 @@
 
 
 		<div id="enfants_mots">
-		<B_tags>
+		<B_enfants>
 			<ul>
-		<BOUCLE_tags(spip_me_tags)
-		{tag=##ENV{recherche}}
+		<BOUCLE_enfants(spip_me_tags)
+		{tag LIKE #(#ENV{recherche})%}
 		{class=#}
-		{0,1}
+		{fusion tag}
+		{par tag}
+		{0,200}
 		>
-			<li>#<a href="#URL_TAG">[(#TAG|replace{#}|mb_strtolower{UTF-8})]</a>
+			<li>#<a href="tag/[(#TAG|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus)]">[(#TAG|replace{#}|mb_strtolower{UTF-8})]</a>
 			</li>
-		</BOUCLE_tags>
+		</BOUCLE_enfants>
 			</ul>
-		</B_tags>
+		</B_enfants>
 		</div>
 
 	</div>
