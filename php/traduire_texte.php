@@ -3,7 +3,7 @@
 function translate_requestCurl($parameters)
 {
 	$url_page = "https://ajax.googleapis.com/ajax/services/language/translate?";
-
+	$url_page = "https://www.googleapis.com/language/translate/v2?";
 	
 	
 	$parameters_explode = explode("&", $parameters);
@@ -21,10 +21,12 @@ function translate_requestCurl($parameters)
 		curl_close($ch);
 		
 		$json = json_decode( $body, true );
+		
+		//print_r($json);
 	
 		if (isset($json["error"])) return false;
-	//	return urldecode($json["data"]["translations"][0]["translatedText"]);
-		return urldecode($json["responseData"]["translatedText"]);
+		return urldecode($json["data"]["translations"][0]["translatedText"]);
+	//	return urldecode($json["responseData"]["translatedText"]);
 
 }
 
@@ -62,7 +64,10 @@ function traduire_texte( $text, $destLang = 'fr', $srcLang = 'en' ) {
 		$trans = translate_requestCurl_bing(_BING_APIKEY, $text, $srcLang, $destLang);
 	} else {
 		//echo "GOOGLE";
-		$trans = translate_requestCurl( "v=1.0&key="._GOOGLETRANSLATE_APIKEY."&q=".rawurlencode($text)."&langpair=$srcLang%7C$destLang" );
+//		GET "https://www.googleapis.com/language/translate/v2?
+
+		//$trans = translate_requestCurl( "v=1.0&key="._GOOGLETRANSLATE_APIKEY."&q=".rawurlencode($text)."&langpair=$srcLang%7C$destLang" );
+		$trans = translate_requestCurl("key="._GOOGLETRANSLATE_APIKEY."&source=$srcLang&target=$destLang&q=".rawurlencode($text));
 	}
 
 	$ltr = lang_dir($destLang, 'ltr','rtl');
