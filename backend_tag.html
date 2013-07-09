@@ -13,12 +13,12 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 
 #SET{parents,#ARRAY}
 [(#TAG|match{\$$}|?{
-	[(#SET{tag,[(#TAG|replace{\$})]})]
+	[(#SET{tag,[(#TAG*|replace{\$})]})]
 ,
 	#SET{tag,#TAG*%}
 })]
 <BOUCLE_tag(ME spip_me_tags)
-	{tag like #TAG*%}
+	{tag like #GET{tag}}
 	{statut=publi}
 	{!par date}
 	{0,1000}
