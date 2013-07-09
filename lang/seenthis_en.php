@@ -1,97 +1,113 @@
 <?php
+// This is a SPIP language file  --  Ceci est un fichier langue de SPIP
+// extrait automatiquement de http://trad.spip.net/tradlang_module/seenthis?lang_cible=en
+// ** ne pas modifier le fichier **
 
+if (!defined('_ECRIRE_INC_VERSION')) return;
 
-	$GLOBALS[$GLOBALS['idx_lang']] = array(
-		'accueil' => 'Home',
-		"people" => "people",
-		"tags" => "tags",
-		"profil" => "settings",
-		"urls" => "sites",
-		"intitule_connexion" => "log in",
-		"votre_message" => "Your message",
-		"votre_message_public" => "Your public message to ",
-		"tous_les_messages_de" => "All of @people@'s messages",
-		"annuler" => "Cancel",
-		"envoyer" => "Send (shift+enter)",
-		"ecrire_commentaire" => "Write a comment",
-		"effacer" => "erase",
-		"modifier" => "modify",
-		"raccourci_quote" => "❝quote❞ (shift+tab)",
-		"raccourci_italic" => "_<i>italic</i>_",
-		"raccourci_bold" => "*<b>bold</b>*",
-		"raccourci_strike" => "-<del>strike</del>-",
-		"favori" => "share",
-		"insecable_typo" => "",
-		"suivre_people" => "Follow @people@",
-		"suivre_url_you" => "You are following this site",
-		"suivre_url" => "Follow this site",
-		"suivre_url_stop" => "Stop following this site",
-		"auteur_vous_suivez" => "Your are following @people@",
-		"auteur_ne_plus_suivre" => "Stop following @people@",
-		"auteur_block" => "Block @people@",
-		"auteur_vous_block" => "You have blocked @people@",
-		"auteur_ne_plus_block" => "Un-block @people@",
-		"auteur_block_you" => "This user has blocked your comments.",
-		"auteurs_vous_suivez" => "The people you are following",
-		"vous_suivez" => "following",
-		"vous_suivent" => "followers",
-		"themes_vous_suivez" => "The tags you follow",
-		"urls_vous_suivez" => "The sites your follow",
-		"me_suggerer_contacts" => "Suggest contacts",
-		"logout" => "log out",
-		"vous_connaissez" => "You might know:",
-		"suggestions" => "Suggestions:",
+$GLOBALS[$GLOBALS['idx_lang']] = array(
 
-		"traduire_avec_google" => "translate",
+	// Z
+	'Z' => 'ZZzZZzzz',
 
-		"montrer_messages" => "show the @total@ messages",
-		"themes_automatiques" => "automatic themes",
+	// A
+	'accueil' => 'Home',
+	'annuler' => 'Cancel',
+	'auteur_block' => 'Block @people@',
+	'auteur_block_you' => 'This user has blocked your comments.',
+	'auteur_ne_plus_block' => 'Un-block @people@',
+	'auteur_ne_plus_suivre' => 'Stop following @people@',
+	'auteur_vous_block' => 'You have blocked @people@',
+	'auteur_vous_suivez' => 'Your are following @people@',
+	'auteurs_vous_suivez' => 'The people you are following',
 
-		"bookmarklet_titre" => "Drag and drop this bookmarklet on your bookmarks bar:",
-		"bookmarklet_descriptif" => "How to use : when you visit the web page of an article you wish to link, select the text abstract you want to quote, and click on the bookmarklet.",
-		
-		"beta_publique" => "<strong>Seenthis  Beta version.</strong><br> You can subscribe and participate. Thank you for your patience during this phase.",
+	// B
+	'beta_publique' => '<strong>Seenthis  Beta version.</strong><br> You can subscribe and participate. Thank you for your patience during this phase.',
+	'bookmarklet_descriptif' => 'How to use : when you visit the web page of an article you wish to link, select the text abstract you want to quote, and click on the bookmarklet.',
+	'bookmarklet_titre' => 'Drag and drop this bookmarklet on your bookmarks bar:',
 
-		"pave_accueil" => "<strong>Short-blogging</strong> with no text limit. <strong>Curation and web survey</strong>. Cool <strong>automatic</strong> text layout. <strong>Forums</strong> under each post. Advanced and automatic <strong>thematisation</strong>.",
+	// E
+	'ecrire_commentaire' => 'Write a comment',
+	'effacer' => 'erase',
+	'envoyer' => 'Send (shift+enter)',
 
-		"slogan_texte" => "<strong>Take part in the discussion!</strong> On Seenthis, you can recommend articles, comment, discuss with your friends, follow authors...",
-		"slogan_lien" => "Sign up, it’s free!",
-		"message_inscription" => "<strong>Free sign-up</strong><br>Your password will be immediately sent to your email address.",
+	// F
+	'favori' => 'share',
 
-		"theme_manuellement" => "This <b>theme</b> is attributed <b>manually</b> by the authors of the messages.",
-		"theme_automatiquement" => "This <b>theme</b> is <b>automatically</b> generated.",
+	// I
+	'insecable_typo' => '',
+	'intitule_connexion' => 'log in',
 
-		"message_suggerer" => "
+	// L
+	'logout' => 'log out',
+
+	// M
+	'me_suggerer_contacts' => 'Suggest contacts',
+	'message_inscription' => '<strong>Free sign-up</strong><br>Your password will be immediately sent to your email address.',
+	'message_suggerer' => '
 				<strong>New to Seenthis? You should begin by following some people.</strong>
 				<p>Click on the “Suggest Contacts” button to see the pages of other authors you might like. You can follow an author by clicking on the “Follow...” button at the top of their page. The more choices you make, the more accurate the contact suggestions will be!</p>
-				<p>After you’ve followed five authors, this message will go away. The “Suggest Contacts” button is always available on your “@people” page.</p>",
+				<p>After you’ve followed five authors, this message will go away. The “Suggest Contacts” button is always available on your “@people” page.</p>',
+	'modifier' => 'modify',
+	'montrer_messages' => 'show the @total@ messages',
 
-		'Z' => 'ZZzZZzzz',
+	// P
+	'pave_accueil' => '<strong>Short-blogging</strong> with no text limit. <strong>Curation and web survey</strong>. Cool <strong>automatic</strong> text layout. <strong>Forums</strong> under each post. Advanced and automatic <strong>thematisation</strong>.',
+	'people' => 'people',
+	'profil' => 'settings',
+	'profil_alerte_conversations' => '<b>conversations</b> / someone answers to a post I have already answered to',
+	'profil_alerte_dubien' => '<b>stalker</b> / someone is following me',
+	'profil_alerte_nolife' => '<b>no life</b> / someone that I follow answers to any post',
+	'profil_alerte_nouveaux_billets' => '<b>new posts</b> / an initial text is posted by an author I follow',
+	'profil_alerte_reponses' => '<b>answers to my posts</b> / someone answers one of my initial posts',
+	'profil_alertes' => 'Notifications',
+	'profil_copyleft' => 'Copyright, copyleft',
+	'profil_copyright_classique' => 'No specific licence (exclusive copyright)',
+	'profil_couleur' => 'Your color',
+	'profil_entete' => 'Header picture (width: 960 pixels)',
+	'profil_fond' => 'Background picture (1600px x 1200px max.)',
+	'profil_graphisme' => 'Your design',
+	'profil_identite' => 'Identity',
+	'profil_langue' => 'My language',
+	'profil_licence' => 'Licence of your messages',
+	'profil_logo' => 'Author’s picture (square)',
+	'profil_mexpedier' => 'Send me an email when...',
+	'profil_rss' => 'Automatically import a RSS or Atom feed',
 
-		"profil_identite" => "Identity",
-		"profil_langue" => "My language",
-		"profil_alertes" => "Notifications",
+	// R
+	'raccourci_bold' => '*<b>bold</b>*',
+	'raccourci_italic' => '_<i>italic</i>_',
+	'raccourci_quote' => '❝quote❞ (shift+tab)',
+	'raccourci_strike' => '-<del>strike</del>-',
 
-		"profil_mexpedier" => "Send me an email when...",
-		"profil_alerte_nouveaux_billets" => "<b>new posts</b> / an initial text is posted by an author I follow",
-		"profil_alerte_reponses" => "<b>answers to my posts</b> / someone answers one of my initial posts",
-		"profil_alerte_conversations" => "<b>conversations</b> / someone answers to a post I have already answered to",
-		"profil_alerte_nolife" => "<b>no life</b> / someone that I follow answers to any post",
-		"profil_alerte_dubien" => "<b>stalker</b> / someone is following me",
+	// S
+	'slogan_lien' => 'Sign up, it’s free!',
+	'slogan_texte' => '<strong>Take part in the discussion!</strong> On Seenthis, you can recommend articles, comment, discuss with your friends, follow authors...',
+	'suggestions' => 'Suggestions:',
+	'suivre_people' => 'Follow @people@',
+	'suivre_url' => 'Follow this site',
+	'suivre_url_stop' => 'Stop following this site',
+	'suivre_url_you' => 'You are following this site',
 
-		"profil_copyleft" => "Copyright, copyleft",
-		"profil_licence" => "Licence of your messages",
-		"profil_copyright_classique" => "No specific licence (exclusive copyright)",
-		
-		"profil_graphisme" => "Your design",
-		"profil_couleur" => "Your color",
-		"profil_logo" => "Author’s picture (square)",
-		"profil_entete" => "Header picture (width: 960 pixels)",
-		"profil_fond" => "Background picture (1600px&nbsp;x&nbsp;1200px max.)",
-		"profil_rss" => "Automatically import a RSS or Atom feed"
+	// T
+	'tags' => 'tags',
+	'theme_automatiquement' => 'This <b>theme</b> is <b>automatically</b> generated.',
+	'theme_manuellement' => 'This <b>theme</b> is attributed <b>manually</b> by the authors of the messages.',
+	'themes_automatiques' => 'automatic themes',
+	'themes_vous_suivez' => 'The tags you follow',
+	'tous_les_messages_de' => 'All of @people@\'s messages',
+	'traduire_avec_google' => 'translate',
 
+	// U
+	'urls' => 'sites',
+	'urls_vous_suivez' => 'The sites your follow',
 
-	);
-	
+	// V
+	'votre_message' => 'Your message',
+	'votre_message_public' => 'Your public message to ',
+	'vous_connaissez' => 'You might know:',
+	'vous_suivent' => 'followers',
+	'vous_suivez' => 'following'
+);
 
 ?>
