@@ -3,12 +3,11 @@
 
 function action_creer_miniature_dist() {
 	include_spip('inc/acces');
-	if ($i = _request('id_auteur')
-	AND $id_me = _request('id_me')
+	if ($id_me = _request('id_me')
 	AND $img = _request('img')
 	AND $max = _request('max')
 	AND $sec = _request('sec')
-	AND verifier_low_sec($i, $sec, "miniature $max $img $id_me")) {
+	AND verifier_low_sec(1, $sec, "miniature $max $img $id_me")) {
 		include_spip('seenthis_fonctions');
 		include_spip('inc/distant');
 		spip_log('debut copie locale '.$img, 'distant');
