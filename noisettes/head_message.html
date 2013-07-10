@@ -10,8 +10,8 @@
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="[(#ID_AUTEUR|compte_twitter|sinon{@seenthisnet})]">
 	<meta name="twitter:creator" content="[(#ID_AUTEUR|compte_twitter|sinon{@seenthisnet})]">
-	<meta name="twitter:title" content="[(#TEXTE*|extraire_titre)]">
-	<meta name="twitter:description" content="[(#TEXTE*|supprimer_titre|textebrut|couper{256})]">
+	<meta name="twitter:title" content="[(#TEXTE*|extraire_titre{50})]">
+	<meta name="twitter:description" content="[(#TEXTE*|supprimer_titre{50}|textebrut|couper{256})]">
 	<BOUCLE_images(spip_syndic spip_me_syndic){id_me=#ENV{id}}{spip_syndic.url_site==(jpg|gif|png)$}{0,1}>
 	[<meta name="twitter:image:src" content="(#URL_SITE)">]
 	</BOUCLE_images>
