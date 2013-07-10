@@ -47,7 +47,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'me_suggerer_contacts' => 'Stel mij contacten voor',
 	'message_inscription' => '<strong>Gratis en onmiddelijke inschrijving</strong><br>Je passwoord wordt na je registratie rechstreeks per email opgestuurd.',
 	'message_suggerer' => '				<strong>Nieuw op Seenthis ? Eerst zou je  enkele auteurs kiezen om ze te volgen.</strong>
-				<p>Klik hiernaast op het knopje "Stel mij contacten voor" en bezoek de pagina\'s van de auteurs. Wanner een auteur je interesseert, mag je in het top van de pagina op "Die auteur volgen" klikken.
+				<p>Klik hiernaast op het knopje "Stel mij contacten voor" en bezoek de pagina’s van de auteurs. Wanner een auteur je interesseert, mag je in het top van de pagina op "Die auteur volgen" klikken.
 				Kom dan terug op huidige pagine om het een paar keer herbeginnen. Hoe meer je auteurs heeft geselecteerd, hoe beter de voorstellingen progressief zouden moeten worden.</p>
 				<p>Dit boodschap wordt geborgen op het moment je meer dans 5 auteurs hebt gekozen. 
 				Om meer suggesties van auteurs te krijgen, surf dan naar het tab "@auteurs".</p>',
@@ -73,7 +73,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_identite' => 'Identiteit',
 	'profil_langue' => 'Mijn taal',
 	'profil_licence' => 'Licentie van je berichten',
-	'profil_logo' => 'Auteur\'s logo (vierkant)',
+	'profil_logo' => 'Auteur’s logo (vierkant)',
 	'profil_mexpedier' => 'Stuur mij een email op<br> wanneer...',
 	'profil_rss' => 'Een ATOM of RSS artikelenstroom   automatisch invoeren',
 
@@ -93,12 +93,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'suivre_url_you' => 'Je volgt dit website',
 
 	// T
-	'tags' => 'thema\'s',
+	'tags' => 'thema’s',
 	'theme_automatiquement' => 'Dit <b>thema</b> werd <b>automatisch</b> geselecteerd.',
-	'theme_manuellement' => 'Dit <b>thema</b> wordt <b>manueel</b> door de auteurs van de berichten toegekend.
-',
-	'themes_automatiques' => 'automatische thema\'s',
-	'themes_vous_suivez' => 'Thema\'s dat je volgt',
+	'theme_manuellement' => 'Dit <b>thema</b> wordt <b>manueel</b> door de auteurs van de berichten toegekend.',
+	'themes_automatiques' => 'automatische thema’s',
+	'themes_vous_suivez' => 'Thema’s dat je volgt',
 	'tous_les_messages_de' => 'Alle boodschappen van @people@',
 	'traduire_avec_google' => 'vertalen',
 
