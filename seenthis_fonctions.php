@@ -482,6 +482,8 @@ function detecter_langue_visiteur($rien) {
 		$langue = $langues[$i];	
 		if (preg_match("/^fr/", $langue) > 0) $choix = "fr";
 		if (preg_match("/^en/", $langue) > 0) $choix = "en";
+		if (preg_match("/^es/", $langue) > 0) $choix = "es";
+		if (preg_match("/^nl/", $langue) > 0) $choix = "nl";
 //		if (preg_match("/it/", $langue) > 0) $choix = "it";
 //		if (preg_match("/ar/", $langue) > 0) $choix = "ar";
 //		if (preg_match("/es/", $langue) > 0) $choix = "es";
@@ -711,6 +713,23 @@ function url_tag($tag) {
 		return 'sites/' . md5($tag);
 	$tag = str_replace('#', '', $tag);
 	return 'tag/'.urlencode_1738_plus(mb_strtolower($tag, 'UTF-8'));
+}
+
+function compte_twitter($id_auteur) {
+	global $comptes_twitter;
+	
+	if ($comptes_twitter["$id_auteur"]) return $comptes_twitter["$id_auteur"];
+	else {
+		$query = sql_select("twitter", "spip_auteurs", "id_auteur=$id_auteur");
+		if ($row = sql_fetch($query)) {
+			$twitter = $row["twitter"];
+			
+			if (!preg_match(",^@,", $twitter)) $twitter = "@".$twitter;
+			
+			$comptes_twitter["$id_auteur"] = $twitter;
+			return $twitter;
+		}
+	}
 }
 
 ?>

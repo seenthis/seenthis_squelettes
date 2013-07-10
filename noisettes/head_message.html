@@ -6,6 +6,15 @@
 	<title>[(#TEXTE*|extraire_titre)]</title>
 	[(#TROLL|=={1}|?{<meta name="robots" content="noindex">})]
 	[(#ID_AUTEUR|microcache{noisettes/head_auteur_message})]
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@seenthisnet">
+	<meta name="twitter:creator" content="[(#ID_AUTEUR|compte_twitter|sinon{@seenthisnet})]">
+	<meta name="twitter:title" content="[(#TEXTE*|extraire_titre)]">
+	<meta name="twitter:description" content="[(#TEXTE|liens_troll{#ID_AUTEUR}|textebrut|couper{256})]">
+	<BOUCLE_images(spip_syndic spip_me_syndic){id_me=#ENV{id}}{spip_syndic.url_site==(jpg|gif|png)$}{0,1}>
+	[<meta name="twitter:image:src" content="(#URL_SITE)">]
+	</BOUCLE_images>
 </BOUCLE_principale>
 	<title>#NOM_SITE_SPIP</title>
 	<meta name="robots" content="noindex">
