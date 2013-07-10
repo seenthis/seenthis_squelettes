@@ -60,6 +60,7 @@ function formulaires_profil_traiter (){
 	$couleur = _request("couleur");
 	$couleur = str_replace("#", "", $couleur);
 	$copyright = _request("copyright");
+	$twitter = _request("twitter");
 
 	$url_site = _request("url_site");
 	$rss = _request("rss");
@@ -74,6 +75,7 @@ function formulaires_profil_traiter (){
 		"couleur" => $couleur,
 		"url_site" => $url_site,
 		"copyright" => $copyright,
+		"twitter" => $twitter,
 		"rss" => $rss,
 		"mail_nouv_billet" => intval(_request("mail_nouv_billet")),
 		"mail_rep_moi" => intval(_request("mail_rep_moi")),

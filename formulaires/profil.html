@@ -30,6 +30,10 @@
 					<label><:entree_url|typo:></label>
 					<input type="text" class="text" placeholder="http://" name="url_site" value="[(#ENV**{url_site})]">
 				</li>
+				<li>
+					<label>Twitter</label>
+					<input type="text" class="text" placeholder="@TwitterAcc" name="twitter" value="[(#ENV**{twitter})]">
+				</li>
 			</ul>
 
 			<h3><:connexion_ldap:></h3>
@@ -57,8 +61,10 @@
 			
 			<ul>
 				<li>
-				<input type="radio" name="lang" [(#ENV**{lang}|=={en}|oui)checked="checked"] value="en"> english
-				<br><input type="radio" name="lang" [(#ENV**{lang}|sinon{fr}|=={fr}|oui)checked="checked"] value="fr"> français
+				<input type="radio" name="lang" [(#ENV**{lang}|=={en}|oui)checked="checked"] value="en"> [(#VAL{en}|traduire_nom_langue)]
+				<br><input type="radio" name="lang" [(#ENV**{lang}|sinon{fr}|=={fr}|oui)checked="checked"] value="fr"> [(#VAL{fr}|traduire_nom_langue)]
+				<br><input type="radio" name="lang" [(#ENV**{lang}|sinon{es}|=={es}|oui)checked="checked"] value="es"> [(#VAL{es}|traduire_nom_langue)]
+				<br><input type="radio" name="lang" [(#ENV**{lang}|sinon{nl}|=={nl}|oui)checked="checked"] value="nl"> [(#VAL{nl}|traduire_nom_langue)]
 				</li>
 			
 			</ul>
