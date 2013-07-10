@@ -1,4 +1,17 @@
 <traduction module="seenthis" gestionnaire="salvatore" url="http://trad.spip.net" source="svn://trac.rezo.net/seenthis/squelettes/lang/" reference="fr">
-	<langue code="en" />
+	<langue code="en" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=en">
+		<traducteur nom="George" lien="http://trad.spip.net/auteur/جورج-قندلفت" />
+	</langue>
+	<langue code="es" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=es">
+		<traducteur nom="Raquel S. Bujaldón" lien="http://trad.spip.net/auteur/raquel" />
+		<traducteur nom="speciale" lien="http://trad.spip.net/auteur/speciale-2899" />
+	</langue>
 	<langue code="fr" />
+	<langue code="fr_tu" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu">
+		<traducteur nom="James" lien="http://trad.spip.net/auteur/james" />
+	</langue>
+	<langue code="nl" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=nl">
+		<traducteur nom="lapeg" lien="http://trad.spip.net/auteur/lapeg" />
+		<traducteur nom="Suske" lien="http://trad.spip.net/auteur/suske" />
+	</langue>
 </traduction>

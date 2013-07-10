@@ -1,0 +1,118 @@
+<?php
+// This is a SPIP language file  --  Ceci est un fichier langue de SPIP
+// extrait automatiquement de http://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu
+// ** ne pas modifier le fichier **
+
+if (!defined('_ECRIRE_INC_VERSION')) return;
+
+$GLOBALS[$GLOBALS['idx_lang']] = array(
+
+	// Z
+	'Z' => 'ZZzZZzzz',
+
+	// A
+	'accueil' => 'Accueil',
+	'annuler' => 'Annuler',
+	'auteur_block' => 'Bloquer @people@',
+	'auteur_block_you' => 'Cet auteur t\'a bloqué. Tu ne peux pas commenter ses messages.',
+	'auteur_ne_plus_block' => 'Débloquer @people@',
+	'auteur_ne_plus_suivre' => 'Ne plus suivre @people@',
+	'auteur_vous_block' => 'Tu as bloqué @people@',
+	'auteur_vous_suivez' => 'Tu suis @people@',
+	'auteurs_vous_suivez' => 'Les auteurs que tu suis',
+
+	// B
+	'beta_publique' => '<strong>Seenthis est en beta publique.</strong><br>Vous pouvez vous inscrire et participer, merci pour votre patience et votre bonne volonté durant cette phase.', # NEW
+	'bookmarklet_descriptif' => 'Pour l’utiliser : lorsque vous visitez la page d’un article que vous souhaitez référencer, sélectionnez l’extrait du texte à citer, et cliquez sur votre bookmarklet. Votre interface Seenthis s’ouvre alors, et votre message est pré-rempli avec le titre de la page, l’URL et la citation.', # NEW
+	'bookmarklet_titre' => 'Faites glisser ce bookmarklet dans votre barre de favoris :', # NEW
+
+	// E
+	'ecrire_commentaire' => 'Écrire un commentaire',
+	'effacer' => 'effacer',
+	'envoyer' => 'Envoyer (maj+retour)',
+
+	// F
+	'favori' => 'partager',
+
+	// I
+	'insecable_typo' => ' ',
+	'intitule_connexion' => 'connexion',
+
+	// L
+	'logout' => 'se déconnecter',
+
+	// M
+	'me_suggerer_contacts' => 'Me suggérer des contacts',
+	'message_inscription' => '<strong>Inscription gratuite et immédiate</strong><br>Dès l’enregistrement, votre mot de passe vous est expédié par email.', # NEW
+	'message_suggerer' => '
+				<strong>Nouveau sur Seenthis ? Vous devriez commencer par suivre des auteurs.</strong>
+				<p>Cliquez sur le bouton « Me suggérer des contacts » ci-contre, et 
+				visitez les pages des auteurs proposés. Si un auteur vous intéresse, suivez-le en cliquant, 
+				en haut de page, sur « Suivre cet auteur ».
+				Puis revenez sur cette page, recommencez l\'opération, les propositions s\'affineront au fur et
+				à mesure de votre propre sélection d\'auteurs.</p>
+				<p>Ce message disparaîtra lorsque vous suivrez cinq auteurs. 
+				Rendez-vous ensuite  sur l\'onglet « @auteurs » pour obtenir des suggestions d\'auteurs.</p>', # NEW
+	'modifier' => 'modifier',
+	'montrer_messages' => 'montrer les @total@ messages',
+
+	// P
+	'pave_accueil' => 'Du <strong>short-blogging</strong> sans limite de caractères. De la <strong>recommandation de liens</strong>. Des <strong>automatismes</strong> pour rédiger facilement vos messages. Des <strong>forums</strong> sous chaque billet. De la <strong>veille d’actualité</strong>. Une <strong>thématisation</strong> avancée.', # NEW
+	'people' => 'auteurs',
+	'profil' => 'préférences',
+	'profil_alerte_conversations' => '<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu', # NEW
+	'profil_alerte_dubien' => '<b>un ami qui vous veut du bien</b> / quelqu’un me suit', # NEW
+	'profil_alerte_nolife' => '<b>nolife</b> / un auteur que je suis répond à n’importe quel billet', # NEW
+	'profil_alerte_nouveaux_billets' => '<b>nouveaux billets</b> / un nouveau billet est posté par un auteur que je suis', # NEW
+	'profil_alerte_reponses' => '<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets', # NEW
+	'profil_alertes' => 'Alertes',
+	'profil_copyleft' => 'Copyright, copyleft',
+	'profil_copyright_classique' => 'Pas de licence spécifique (droits d’auteur par défaut)',
+	'profil_couleur' => 'Ta couleur',
+	'profil_entete' => 'Bandeau supérieur (960 pixels de large)',
+	'profil_fond' => 'Image de fond (1600px x 1200px au maximum)',
+	'profil_graphisme' => 'Votre graphisme', # NEW
+	'profil_identite' => 'Identité',
+	'profil_langue' => 'Ma langue',
+	'profil_licence' => 'Licence de tes messages',
+	'profil_logo' => 'Logo de l’auteur (carré)',
+	'profil_mexpedier' => 'M’expédier un courrier<br> électronique quand...', # NEW
+	'profil_rss' => 'Importer automatiquement un flux d\'articles au format ATOM ou RSS', # NEW
+
+	// R
+	'raccourci_bold' => '*<b>gras</b>*',
+	'raccourci_italic' => '_<i>italique</i>_',
+	'raccourci_quote' => '❝citation❞ (maj+tab)',
+	'raccourci_strike' => '-<del>barré</del>-',
+
+	// S
+	'slogan_lien' => 'Inscrivez-vous, c’est gratuit et rapide !', # NEW
+	'slogan_texte' => '<strong>Participez à la discussion !</strong> Sur Seenthis, vous pouvez référencer des articles, les commenter, écrire des billets, discuter avec vos amis, suivre les auteurs qui vous intéressent...', # NEW
+	'suggestions' => 'Suggestions :',
+	'suivre_people' => 'Suivre @people@',
+	'suivre_url' => 'Suivre ce site',
+	'suivre_url_stop' => 'Ne plus suivre ce site',
+	'suivre_url_you' => 'Vous suivez ce site', # NEW
+
+	// T
+	'tags' => 'thèmes',
+	'theme_automatiquement' => 'Ce <b>thème</b> a été généré <b>automatiquement</b>.',
+	'theme_manuellement' => 'Ce <b>thème</b> est attribué <b>manuellement</b> par les auteurs des messages.',
+	'themes_automatiques' => 'thèmes automatiques',
+	'themes_vous_suivez' => 'Les thèmes que tu suis',
+	'tous_les_messages_de' => 'Tous les messages de @people@',
+	'traduire_avec_google' => 'traduire',
+
+	// U
+	'urls' => 'sites',
+	'urls_vous_suivez' => 'Les sites que tu suis',
+
+	// V
+	'votre_message' => 'Votre message', # NEW
+	'votre_message_public' => 'Votre message public à ', # NEW
+	'vous_connaissez' => 'Tu connaispeut-être :',
+	'vous_suivent' => 'abonnés',
+	'vous_suivez' => 'abonnements'
+);
+
+?>

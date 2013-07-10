@@ -23,7 +23,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
 	'beta_publique' => '<strong>Seenthis  Beta version.</strong><br> You can subscribe and participate. Thank you for your patience during this phase.',
-	'bookmarklet_descriptif' => 'How to use : when you visit the web page of an article you wish to link, select the text abstract you want to quote, and click on the bookmarklet.',
+	'bookmarklet_descriptif' => 'How to use: when you visit the web page of an article you wish to reference, select the text abstract you want to quote, and click on the bookmarklet.',
 	'bookmarklet_titre' => 'Drag and drop this bookmarklet on your bookmarks bar:',
 
 	// E
@@ -63,7 +63,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_alertes' => 'Notifications',
 	'profil_copyleft' => 'Copyright, copyleft',
 	'profil_copyright_classique' => 'No specific licence (exclusive copyright)',
-	'profil_couleur' => 'Your color',
+	'profil_couleur' => 'Your colour',
 	'profil_entete' => 'Header picture (width: 960 pixels)',
 	'profil_fond' => 'Background picture (1600px x 1200px max.)',
 	'profil_graphisme' => 'Your design',
@@ -93,7 +93,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tags' => 'tags',
 	'theme_automatiquement' => 'This <b>theme</b> is <b>automatically</b> generated.',
 	'theme_manuellement' => 'This <b>theme</b> is attributed <b>manually</b> by the authors of the messages.',
-	'themes_automatiques' => 'automatic themes',
+	'themes_automatiques' => 'automatic tags',
 	'themes_vous_suivez' => 'The tags you follow',
 	'tous_les_messages_de' => 'All of @people@\'s messages',
 	'traduire_avec_google' => 'translate',
@@ -105,7 +105,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// V
 	'votre_message' => 'Your message',
 	'votre_message_public' => 'Your public message to ',
-	'vous_connaissez' => 'You might know:',
+	'vous_connaissez' => 'You may know:',
 	'vous_suivent' => 'followers',
 	'vous_suivez' => 'following'
 );
