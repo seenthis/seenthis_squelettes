@@ -51,6 +51,7 @@ function formulaires_profil_traiter (){
 		$couleur_ancien = $row["couleur"];
 		$url_site_ancien = $row["url_site"];
 		$copyright_ancien = $row["copyright"];
+		$twitter_ancien = $row["twitter"];
 	}
 
 
