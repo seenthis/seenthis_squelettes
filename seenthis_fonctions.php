@@ -724,8 +724,9 @@ function compte_twitter($id_auteur) {
 		if ($row = sql_fetch($query)) {
 			$twitter = $row["twitter"];
 			
-			if (!preg_match(",^@,", $twitter)) $twitter = "@".$twitter;
-			
+			if (strlen($twitter) > 0) {
+				if (!preg_match(",^@,", $twitter)) $twitter = "@".$twitter;
+			}
 			$comptes_twitter["$id_auteur"] = $twitter;
 			return $twitter;
 		}
