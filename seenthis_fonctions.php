@@ -150,15 +150,29 @@ function filtrer_rediriger_images($reg) {
 	return " src='$lien'" ;
 }
 function filtrer_rediriger_css($reg) {
+
+
 	$lien = $reg[2];
 	$media = $reg[1];
+	
+	$lien_ar = direction_css($lien, "rtl");
 	
 	if ( ! preg_match(",^http,", $lien)) {
 		$code = substr(md5($lien), 0, 1);
 		$code = hexdec($code) % 4;		
 		$lien = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
+
+		if ( ! preg_match(",^http,", $lien_ar)) {
+			$code = substr(md5($lien_ar), 0, 1);
+			$code = hexdec($code) % 4;		
+			$lien_ar = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien_ar;
+			
+			// De cette façon, ne créer l'alternative RTL qu'une fois
+			$ret = "<link rel='alternate stylesheet'  media='$media' href='$lien_ar' type='text/css' id='css_rtl'>\n" ;
+		}
 	}
-	return "<link rel='stylesheet'  media='$media' href='$lien'" ;
+	$ret .= "<link rel='stylesheet'  media='$media' href='$lien' type='text/css' id='css_default'>\n" ;
+	return $ret;
 }
 
 function filtrer_rediriger_background($reg) {
@@ -172,6 +186,7 @@ function filtrer_rediriger_background($reg) {
 	return "url($lien)" ;
 }
 
+
 function filtrer_background_css($flux) {
 
 	$flux = preg_replace_callback(",url\((.*)\),", "filtrer_rediriger_background", $flux );
@@ -183,7 +198,7 @@ function filtrer_images_page($flux) {
 	if ($_SERVER["HTTP_HOST"] == "localhost:8888") return $flux;
 	
 	$flux = preg_replace_callback(",[[:space:]]src=[\"\']([^\"\']*)[\"\'],", "filtrer_rediriger_images", $flux );
-	$flux = preg_replace_callback(",<link[[:space:]]+rel='stylesheet'[[:space:]]+media='(.*)'[[:space:]]+href='(.*)',", "filtrer_rediriger_css", $flux );
+	$flux = preg_replace_callback(",<link[[:space:]]+rel='stylesheet'[[:space:]]+media='(.*)'[[:space:]]+href='([^\']*)'.*>,", "filtrer_rediriger_css", $flux );
 	$flux = filtrer_background_css($flux);
 	return $flux;
 }
@@ -480,10 +495,12 @@ function detecter_langue_visiteur($rien) {
 	while ($i < count($langues) && !$choix) {
 	
 		$langue = $langues[$i];	
-		if (preg_match("/^fr/", $langue) > 0) $choix = "fr";
-		if (preg_match("/^en/", $langue) > 0) $choix = "en";
-		if (preg_match("/^es/", $langue) > 0) $choix = "es";
-		if (preg_match("/^nl/", $langue) > 0) $choix = "nl";
+		if (preg_match("/^fr_tu/", $langue) > 0) $choix = "fr_tu";
+		else if (preg_match("/^fr/", $langue) > 0) $choix = "fr";
+		else if (preg_match("/^en/", $langue) > 0) $choix = "en";
+		else if (preg_match("/^ar/", $langue) > 0) $choix = "ar";
+		else if (preg_match("/^es/", $langue) > 0) $choix = "es";
+		else if (preg_match("/^nl/", $langue) > 0) $choix = "nl";
 //		if (preg_match("/it/", $langue) > 0) $choix = "it";
 //		if (preg_match("/ar/", $langue) > 0) $choix = "ar";
 //		if (preg_match("/es/", $langue) > 0) $choix = "es";

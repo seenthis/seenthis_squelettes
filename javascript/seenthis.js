@@ -2,10 +2,12 @@ if (langue_visiteur) var language = langue_visiteur;
 else if (navigator.browserLanguage) var language = navigator.browserLanguage;
 else var language = navigator.language;
 
-if (language.indexOf('fr') > -1) language = "fr";
+if (language.indexOf('fr_tu') > -1) language = "fr_tu";
+else if (language.indexOf('fr') > -1) language = "fr";
+else if (language.indexOf('nl') > -1) language = "nl";
 else if (language.indexOf('en') > -1) language = "en";
 else if (language.indexOf('es') > -1) language = "es";
-else if (language.indexOf('it') > -1) language = "it";
+else if (language.indexOf('ar') > -1) language = "ar";
 else language = "fr";
 
 var traduire_avec_google = "traduire avec Google";
@@ -266,6 +268,14 @@ function switch_comments(id_me) {
 
 		favoris_actifs();
 		afficher_traduire();
+		if (language == "ar"){
+			$("body").attr("dir", "rtl").addClass("lang-ar");
+			
+			if ( $("#css_rtl").length>0 ) {
+				$("#css_rtl").attr("rel", "stylesheet");
+				$("#css_default").attr("rel", "alternate stylesheet");
+			}
+		}
 		
 		$("ul#scroll_tags").liScroll();
 		
