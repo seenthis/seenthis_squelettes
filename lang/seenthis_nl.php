@@ -25,8 +25,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
 	'beta_publique' => '<strong>Seenthis is in openbaar beta-ontwikkelingsphase.</strong><br>Je mag je inschrijven en medoen, wees al bedankt voor je geduld en goede wil tijdens dit phase.',
-	'bookmarklet_descriptif' => 'Gebruiksaanwijzing : wanneer je de pagina bezoekt van een artikel die je wilt aanwijzen, mag je een te warderen deel van de tekst selecteren en dan op je bookmarklet clicken. Je Seenthis venster wordt dan geopend en je boodschap is automatisch ingevuld met de naam van de website, de URL en de geselecteerde tekst.',
-	'bookmarklet_titre' => 'Glijd de bookmarklet uit en zet het neer in je favorieten menu :',
+	'bookmarklet_descriptif' => 'Gebruiksaanwijzing : op de pagina van een artikel die je wilt aanwijzen, mag je een deel van de tekst selecteren (citaat) en op je bookmarklet klikken.  Seenthis wordt dan geopend en je boodschap is automatisch ingevuld met de naam van de website, de URL en de geselecteerde tekst (citaat).',
+	'bookmarklet_titre' => 'Glijd de bookmarklet uit naar je  favorieten menu :',
 
 	// E
 	'ecrire_commentaire' => ' Een commentaar schrijven',
@@ -47,10 +47,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'me_suggerer_contacts' => 'Stel mij contacten voor',
 	'message_inscription' => '<strong>Gratis en onmiddelijke inschrijving</strong><br>Je passwoord wordt na je registratie rechstreeks per email opgestuurd.',
 	'message_suggerer' => '				<strong>Nieuw op Seenthis ? Eerst zou je  enkele auteurs kiezen om ze te volgen.</strong>
-				<p>Klik hiernaast op het knopje "Stel mij contacten voor" en bezoek de pagina’s van de auteurs. Wanner een auteur je interesseert, mag je in het top van de pagina op "Die auteur volgen" klikken.
+				<p>Klik hiernaast op het knopje “Stel mij contacten voor” en bezoek de pagina’s van de auteurs. Wanner een auteur je interesseert, mag je in het top van de pagina op “Die auteur volgen” klikken.
 				Kom dan terug op huidige pagine om het een paar keer herbeginnen. Hoe meer je auteurs heeft geselecteerd, hoe beter de voorstellingen progressief zouden moeten worden.</p>
 				<p>Dit boodschap wordt geborgen op het moment je meer dans 5 auteurs hebt gekozen. 
-				Om meer suggesties van auteurs te krijgen, surf dan naar het tab "@auteurs".</p>',
+				Om meer suggesties van auteurs te krijgen, surf dan naar het tab “@auteurs”.</p>',
 	'modifier' => 'wijzigen ',
 	'montrer_messages' => 'Wijs de @total@ boodschappen',
 
