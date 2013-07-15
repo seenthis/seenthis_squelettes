@@ -11,20 +11,20 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'Z' => 'ZZzZZzzz',
 
 	// A
-	'accueil' => 'Eigener Stream',
+	'accueil' => 'Startseite',
 	'annuler' => 'Abbrechen',
-	'auteur_block' => '@people@ ignorieren',
-	'auteur_block_you' => 'Cet auteur vous a bloqué. Vous ne pouvez pas commenter ses messages.', # NEW
-	'auteur_ne_plus_block' => '@people@ nicht mehr ignorieren',
-	'auteur_ne_plus_suivre' => '@people@ entfolgen',
-	'auteur_vous_block' => '@people@ wird fortan ignoriert',
-	'auteur_vous_suivez' => 'Sie folgen jetzt @people@',
-	'auteurs_vous_suivez' => 'Ihre Kontakte',
+	'auteur_block' => '@people@ sperren',
+	'auteur_block_you' => 'Dieser Autor hat Sie gesperrt, Sie können seine Nachrichten nicht kommentieren.',
+	'auteur_ne_plus_block' => '@people@ nicht mehr sperrren',
+	'auteur_ne_plus_suivre' => '@people@ nicht mehr folgen',
+	'auteur_vous_block' => 'Sie haben @people@ gesperrt.',
+	'auteur_vous_suivez' => 'Sie folgen @people@.',
+	'auteurs_vous_suivez' => 'Sie folgen diesen Autoren',
 
 	// B
-	'beta_publique' => '<strong>Seenthis est en beta publique.</strong><br>Vous pouvez vous inscrire et participer, merci pour votre patience et votre bonne volonté durant cette phase.', # NEW
-	'bookmarklet_descriptif' => 'Pour l’utiliser : lorsque vous visitez la page d’un article que vous souhaitez référencer, sélectionnez l’extrait du texte à citer, et cliquez sur votre bookmarklet. Votre interface Seenthis s’ouvre alors, et votre message est pré-rempli avec le titre de la page, l’URL et la citation.', # NEW
-	'bookmarklet_titre' => 'Faites glisser ce bookmarklet dans votre barre de favoris :', # NEW
+	'beta_publique' => '<strong>Seenthis befindet sich in der öffentlichen Betaphase.</strong><br>Sie können sich anmelden und mitmachen. Vielen Dank für Ihre Geduld und Ihren guten Willen in dieser Phase.',
+	'bookmarklet_descriptif' => 'Bedienungsanleitung: Wenn Sie auf einer Internetseite sind, die Sie verlinken möchten, wählen Sie den Text aus, den sie zitieren möchten. Klicken Sie dann auf das Seenthis-Bookmarklet. Ihr Seenthis-Interface wird geöffnet, und sie sehen Ihren vorausgefüllten Beitrag mit Titel, URL und dem ausgewählten Text der WWW-Seite.',
+	'bookmarklet_titre' => 'Ziehen Sie dieses Bookmarklet in die Bookmark-Leiste Ihres Browsers:',
 
 	// E
 	'ecrire_commentaire' => 'Kommentieren',
@@ -32,52 +32,46 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'envoyer' => 'Absenden (Umschalt+Eingabe)',
 
 	// F
-	'favori' => 'Weitersagen',
+	'favori' => 'Teilen',
 
 	// I
-	'insecable_typo' => ' ', # NEW
-	'intitule_connexion' => 'Anmelden',
+	'insecable_typo' => ' ',
+	'intitule_connexion' => 'Einloggen',
 
 	// L
-	'logout' => 'Abmelden',
+	'logout' => 'Ausloggen',
 
 	// M
 	'me_suggerer_contacts' => 'Kontaktvorschläge',
-	'message_inscription' => '<strong>Inscription gratuite et immédiate</strong><br>Dès l’enregistrement, votre mot de passe vous est expédié par email.', # NEW
-	'message_suggerer' => '
-				<strong>Nouveau sur Seenthis ? Vous devriez commencer par suivre des auteurs.</strong>
-				<p>Cliquez sur le bouton « Me suggérer des contacts » ci-contre, et 
-				visitez les pages des auteurs proposés. Si un auteur vous intéresse, suivez-le en cliquant, 
-				en haut de page, sur « Suivre cet auteur ».
-				Puis revenez sur cette page, recommencez l\'opération, les propositions s\'affineront au fur et
-				à mesure de votre propre sélection d\'auteurs.</p>
-				<p>Ce message disparaîtra lorsque vous suivrez cinq auteurs. 
-				Rendez-vous ensuite  sur l\'onglet « @auteurs » pour obtenir des suggestions d\'auteurs.</p>', # NEW
+	'message_inscription' => '<strong>Anmeldung sofort und kostenlos.</strong><br>Nach der Anmeldung erhalten Sie Ihr Paßwort sofort per Mail.',
+	'message_suggerer' => '<strong>Neu bei Seenthis ? Sie sollten zuerst Autoren folgen.</strong>
+<p>Klicken Sie auf die gegenüberliegende Schaltfläche "Kontaktvorschläge", und schauen Sie sich die Seiten dieser Autoren an. Wenn Sie ein Autor interessiert, klicken Sie auf « Autor folgen ». Öffnen Sie diese Seite erneut und klicken Sie wieder auf  "Kontaktvorschläge". Die Vorschläge werden in Abhängigkeit von den von Ihnen ausgewählten Autoren jedes Mal genauer auf Ihre Interessen zugeschnitten.</p>
+<p>Dieser Hinweis wird nicht mehr angezeigt, wenn Sie mindestens fünf Autoren folgen. Wählen Sie nun den Reiter  « @auteurs » um Autoren vorgeschlagen zu bekommen.</p>',
 	'modifier' => 'Bearbeiten',
-	'montrer_messages' => 'montrer les @total@ messages', # NEW
+	'montrer_messages' => '@total@ Beiträge anzeigen',
 
 	// P
-	'pave_accueil' => 'Du <strong>short-blogging</strong> sans limite de caractères. De la <strong>recommandation de liens</strong>. Des <strong>automatismes</strong> pour rédiger facilement vos messages. Des <strong>forums</strong> sous chaque billet. De la <strong>veille d’actualité</strong>. Une <strong>thématisation</strong> avancée.', # NEW
-	'people' => 'Kontakte',
+	'pave_accueil' => '<strong>Microblogging</strong> mit unbegrenzter Textlänge, <strong>Linkempfehlungen</strong> austauschen, Beiträge mit <strong>Weiterleitungsautomatik</strong> im Handumdrehen veröffentlichen, <strong>Foren</strong> zu jedem Beitrag, <strong>News-Monitoring</strong>, fortschrittliche <strong>Themenbildung und Verschlagwortung</strong>.',
+	'people' => 'Autoren',
 	'profil' => 'Einstellungen',
-	'profil_alerte_conversations' => '<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu', # NEW
-	'profil_alerte_dubien' => '<b>un ami qui vous veut du bien</b> / quelqu’un me suit', # NEW
-	'profil_alerte_nolife' => '<b>nolife</b> / un auteur que je suis répond à n’importe quel billet', # NEW
-	'profil_alerte_nouveaux_billets' => '<b>nouveaux billets</b> / un nouveau billet est posté par un auteur que je suis', # NEW
-	'profil_alerte_reponses' => '<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets', # NEW
+	'profil_alerte_conversations' => '<b>Diskussionen</b> /jemand antwortet auf einen Beitrag, den ich ebenfalls kommentiert habe',
+	'profil_alerte_dubien' => '<b>Ein Freund</b> / jemand folgt mir',
+	'profil_alerte_nolife' => '<b>nolife</b> / ein Autor, dem ich folge antwortet auf sämtliche Beiträge',
+	'profil_alerte_nouveaux_billets' => '<b>Neuer Beitrag</b> / ein Autor, dem ich folge, hat einen neuen Beitrag veröffentlicht.',
+	'profil_alerte_reponses' => '<b>Antworten auf meine Beiträge</b> / Jemand hat auf auf einen meiner Beiträge geantwortet.',
 	'profil_alertes' => 'Benachrichtigungen',
-	'profil_copyleft' => 'Copyright, copyleft',
-	'profil_copyright_classique' => 'Pas de licence spécifique (droits d’auteur par défaut)', # NEW
-	'profil_couleur' => 'Ihre Farbeinstellung',
-	'profil_entete' => 'Bandeau supérieur (960 pixels de large)', # NEW
-	'profil_fond' => 'Image de fond (1600px x 1200px au maximum)', # NEW
-	'profil_graphisme' => 'Individuelle graphische Gestaltung',
+	'profil_copyleft' => 'Copyright, Copyleft',
+	'profil_copyright_classique' => 'Keine spezifische Lizenz, es gelten die  Regelungen des Urheberrechts.',
+	'profil_couleur' => 'Ihre Farbeinstellungen',
+	'profil_entete' => 'Banner oben (Breite 960 Pixel)',
+	'profil_fond' => 'Hintergrundbild (maximal 1600 x 1200 Pixel)',
+	'profil_graphisme' => 'Ihre grafische Gestaltung',
 	'profil_identite' => 'Persönliche Angaben',
 	'profil_langue' => 'Sprachauswahl',
-	'profil_licence' => 'Lizenz für Ihre Beiträge',
+	'profil_licence' => 'Lizenz Ihrer Beiträge',
 	'profil_logo' => 'Avatar (quadratisch)',
-	'profil_mexpedier' => 'M’expédier un courrier<br> électronique quand...', # NEW
-	'profil_rss' => 'Importer automatiquement un flux d\'articles au format ATOM ou RSS', # NEW
+	'profil_mexpedier' => 'Mir eine E-Mail senden<br> wenn...',
+	'profil_rss' => 'Artikel aus ATOM oder RSS -Stream automatisch importieren',
 
 	// R
 	'raccourci_bold' => '*<b>fett</b>*',
@@ -86,31 +80,31 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'raccourci_strike' => '-<del>durchgestrichen</del>-',
 
 	// S
-	'slogan_lien' => 'Inscrivez-vous, c’est gratuit et rapide !', # NEW
-	'slogan_texte' => '<strong>Participez à la discussion !</strong> Sur Seenthis, vous pouvez référencer des articles, les commenter, écrire des billets, discuter avec vos amis, suivre les auteurs qui vous intéressent...', # NEW
+	'slogan_lien' => 'Melden Sie sich an ! Es geht schnell und ist kostenlos.',
+	'slogan_texte' => '<strong>Diskutieren Sie mit !</strong> Auf Seenthis können Sie Websiten verlinken und kommentieren, eigene Beiträge schreiben, mit Ihren Freunden diskutieren, interessanten Autoren folgen ...',
 	'suggestions' => 'Vorschläge:',
-	'suivre_people' => 'Suivre @people@', # NEW
-	'suivre_url' => 'Suivre ce site', # NEW
-	'suivre_url_stop' => 'Sie entfolgen diese Internetseite',
+	'suivre_people' => '@people@ folgen',
+	'suivre_url' => 'Dieser Internetseite folgen',
+	'suivre_url_stop' => 'Dieser Internetseite nicht mehr folgen',
 	'suivre_url_you' => 'Sie folgen dieser Internetseite',
 
 	// T
-	'tags' => 'Stichwörter',
-	'theme_automatiquement' => 'Ce <b>thème</b> a été généré <b>automatiquement</b>.', # NEW
-	'theme_manuellement' => 'Ce <b>thème</b> est attribué <b>manuellement</b> par les auteurs des messages.', # NEW
-	'themes_automatiques' => 'thèmes automatiques', # NEW
-	'themes_vous_suivez' => 'Stichwörtern, denen Sie folgen',
+	'tags' => 'Themen',
+	'theme_automatiquement' => 'Dieses <b>Thema wurde </b>automatisch erzeugt</b>.',
+	'theme_manuellement' => 'Dieses <b>Thema</b> wurde von Autoren <b>manuell</b> in Beiträge eingefügt.',
+	'themes_automatiques' => 'Automatisch erzeugte Themen',
+	'themes_vous_suivez' => 'Sie folgen diesen Themen',
 	'tous_les_messages_de' => 'Alle Beiträge von @people@',
-	'traduire_avec_google' => 'Übersetzten',
+	'traduire_avec_google' => 'übersetzen',
 
 	// U
-	'urls' => 'WWW-Auswahl (URLs)',
-	'urls_vous_suivez' => 'WWW-Seiten, denen Sie folgen',
+	'urls' => 'WWW-Seiten',
+	'urls_vous_suivez' => 'Sie folgen diesen WWW-Seiten',
 
 	// V
 	'votre_message' => 'Ihr Beitrag',
-	'votre_message_public' => 'Votre message public à ', # NEW
-	'vous_connaissez' => 'Vous connaissez peut-être :', # NEW
+	'votre_message_public' => 'Öffentliche Nachricht an',
+	'vous_connaissez' => 'Vielleicht kennen Sie:',
 	'vous_suivent' => 'Ihnen folgen',
 	'vous_suivez' => 'Sie folgen'
 );
