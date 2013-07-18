@@ -107,8 +107,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'votre_message' => 'رسالتك',
 	'votre_message_public' => 'رسالتك العمومية الى ',
 	'vous_connaissez' => 'قد تعرفون:',
-	'vous_suivent' => 'المشتركون',
-	'vous_suivez' => 'الاشتراكات'
+	'vous_suivent' => 'يتبعكم',
+	'vous_suivez' => 'تتبعون'
 );
 
 ?>
