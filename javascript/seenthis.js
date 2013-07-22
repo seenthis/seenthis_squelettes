@@ -39,7 +39,16 @@ function switch_comments(id_me) {
 	}
 }
 
-	
+$.fn.soundmanager = function() {
+	return $(this)
+	.each(function(){
+		console.log(this);
+		var url_son = $(this).find('source[type=audio/mpeg]').attr('src');
+		$(this).html('<div class="lecture"><button class="play">play</button></div><div class="controles"><div class="track sans_titre"><a title="Ecouter" rel="enclosure" href="' + url_son + '"><span class="fn"> </span></a></div><div class="progress_bar"><div class="position"></div><div class="loading"></div></div><div class="lesinfos"><div class="time"></div><div class="duration"></div></div></div><br style="clear:both;">');
+	});
+}
+
+
 	function favoris_actifs() {
 	
 		if (auteur_connecte > 0) {
@@ -369,13 +378,17 @@ function switch_comments(id_me) {
 			$(this).find(".modifier").children("a").hide();
 			$(this).find(".favori a.inactif").hide();
 		});
-		//afficher_oe();		
+		//afficher_oe();
 
 		// soundmanager
-		$('div.audio').each(function(i){
-			var url_son = $(this).find('source[type=audio/mpeg]').attr('src');
-			$(this).html('<div class="lecture"><button class="play">play</button></div><div class="controles"><div class="track sans_titre"><a title="Ecouter" rel="enclosure" href="' + url_son + '"><span class="fn"> </span></a></div><div class="progress_bar"><div class="position"></div><div class="loading"></div></div><div class="lesinfos"><div class="time">00:00</div><div class="duration"></div></div></div><br style="clear:both;">');
-		});
+		var soundmanager = function() {
+			$('div.audio:not(.soundmanager)')
+			.soundmanager()
+			.addClass('soundmanager');
+		};
+		soundmanager();
+		setInterval(soundmanager, 2000);
+
 	});
 
 	/* Activer quand on charge un element de page en Ajax 
@@ -384,3 +397,5 @@ function switch_comments(id_me) {
 		//$('textarea').autoResize();
 		favoris_actifs();
 	});
+
+
