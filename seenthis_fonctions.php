@@ -498,6 +498,7 @@ function detecter_langue_visiteur($rien) {
 		if (preg_match("/^fr_tu/", $langue) > 0) $choix = "fr_tu";
 		else if (preg_match("/^fr/", $langue) > 0) $choix = "fr";
 		else if (preg_match("/^en/", $langue) > 0) $choix = "en";
+		else if (preg_match("/^de/", $langue) > 0) $choix = "de";
 		else if (preg_match("/^ar/", $langue) > 0) $choix = "ar";
 		else if (preg_match("/^es/", $langue) > 0) $choix = "es";
 		else if (preg_match("/^nl/", $langue) > 0) $choix = "nl";
