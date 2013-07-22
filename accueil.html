@@ -76,7 +76,7 @@
 	
 		<div id="bookmarklet">
 		<strong class="bookmarklet_titre">&nbsp;</strong><br>
-		<a class="bkl" href="javascript:var%20titre=document.title;var%20txt='';if(window.getSelection){txt=window.getSelection();}else%20if(document.getSelection){txt=document.getSelection();}else%20if(document.selection){txt=document.selection.createRange().text;}var%20url=document.location+'';void(btw=window.open('http://[(#EVAL{_HOST})]/#ajouter='+(encodeURIComponent(titre))+'&url_site='+url.replace('%2520','+')+'&extrait='+(encodeURIComponent(txt))))">+&nbsp;Seenthis</a>
+		<a class="bkl" href="javascript:var%20titre=document.title;var%20txt='';if(window.getSelection){txt=window.getSelection();}else%20if(document.getSelection){txt=document.getSelection();}else%20if(document.selection){txt=document.selection.createRange().text;}var%20url=document.location+'';void(btw=window.open('http://[(#EVAL{_HOST})]/#ajouter='+(encodeURIComponent(titre))+'&url_site='+encodeURIComponent(url.replace('%2520','+'))+'&extrait='+(encodeURIComponent(txt))))">+&nbsp;#NOM_SITE_SPIP</a>
 		<br>
 		
 		<span class="bookmarklet_descriptif">&nbsp;</span>
