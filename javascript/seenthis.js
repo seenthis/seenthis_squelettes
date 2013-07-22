@@ -6,6 +6,7 @@ if (language.indexOf('fr_tu') > -1) language = "fr_tu";
 else if (language.indexOf('fr') > -1) language = "fr";
 else if (language.indexOf('nl') > -1) language = "nl";
 else if (language.indexOf('en') > -1) language = "en";
+else if (language.indexOf('de') > -1) language = "de";
 else if (language.indexOf('es') > -1) language = "es";
 else if (language.indexOf('ar') > -1) language = "ar";
 else language = "fr";
@@ -369,6 +370,12 @@ function switch_comments(id_me) {
 			$(this).find(".favori a.inactif").hide();
 		});
 		//afficher_oe();		
+
+		// soundmanager
+		$('div.audio').each(function(i){
+			var url_son = $(this).find('source[type=audio/mpeg]').attr('src');
+			$(this).html('<div class="lecture"><button class="play">play</button></div><div class="controles"><div class="track sans_titre"><a title="Ecouter" rel="enclosure" href="' + url_son + '"><span class="fn"> </span></a></div><div class="progress_bar"><div class="position"></div><div class="loading"></div></div><div class="lesinfos"><div class="time">00:00</div><div class="duration"></div></div></div><br style="clear:both;">');
+		});
 	});
 
 	/* Activer quand on charge un element de page en Ajax 
