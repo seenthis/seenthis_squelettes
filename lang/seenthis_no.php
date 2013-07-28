@@ -36,7 +36,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'favori' => 'Dele',
 
 	// I
-	'insecable_typo' => ' ', # NEW
+	'insecable_typo' => ' ',
 	'intitule_connexion' => 'Logg inn',
 
 	// L
@@ -45,50 +45,48 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// M
 	'me_suggerer_contacts' => 'Foreslå meg noen nye kontakter',
 	'message_inscription' => '<strong>Medlemskap er gratis og umiddelbar</strong><br>D Ved registrering vil passordet bli sendt via e-post.',
-	'message_suggerer' => '
-				<strong>Nouveau sur Seenthis ? Vous devriez commencer par suivre des auteurs.</strong>
-				<p>Cliquez sur le bouton « Me suggérer des contacts » ci-contre, et 
-				visitez les pages des auteurs proposés. Si un auteur vous intéresse, suivez-le en cliquant, 
-				en haut de page, sur « Suivre cet auteur ».
-				Puis revenez sur cette page, recommencez l\'opération, les propositions s\'affineront au fur et
-				à mesure de votre propre sélection d\'auteurs.</p>
-				<p>Ce message disparaîtra lorsque vous suivrez cinq auteurs. 
-				Rendez-vous ensuite  sur l\'onglet « @auteurs » pour obtenir des suggestions d\'auteurs.</p>', # NEW
+	'message_suggerer' => '				Ny på <strong> Seenthis ?   Du bør starte med følgende bidragsytere. </ Strong>
+				<p><p> Klikk på "foreslå meg noen bidragsytere"-knappen, og besøke sidene av bidragsytere foreslått. Om du er interessert i en bidragsyter kan du følge den ved å klikke
+Opp på "Følg denne bidragsyter."
+				Gå deretter tilbake til denne siden, prøv dette på nytt, forslagene kommer til å bli mer og mer presis. </ p>
+				<p>Denne meldingen forsvinner når du følger fem bidragsyter.
+				Deretter går du til fanen "@ bidragsyter" for å få forslag til bidragsyter</p>',
 	'modifier' => 'endre',
 	'montrer_messages' => 'vis alle @total@ Innleggene',
 
 	// P
-	'pave_accueil' => 'Du <strong>short-blogging</strong> sans limite de caractères. De la <strong>recommandation de liens</strong>. Des <strong>automatismes</strong> pour rédiger facilement vos messages. Des <strong>forums</strong> sous chaque billet. De la <strong>veille d’actualité</strong>. Une <strong>thématisation</strong> avancée.', # NEW
+	'pave_accueil' => '<strong> "Short-blogging" </ strong> ubegrenset tegn. <strong> Anbefalingen lenker </ strong>. automatisering <strong> </ strong> for enkelt å skrive inlegg. <strong> Forums </ strong> på hvert inlegg. <strong> Like før nyheten </ strong>. En avansert <strong> tematisere </ strong> .',
 	'people' => 'bidragsyter',
 	'profil' => 'innstillinger',
-	'profil_alerte_conversations' => '<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu', # NEW
-	'profil_alerte_dubien' => '<b>un ami qui vous veut du bien</b> / quelqu’un me suit', # NEW
-	'profil_alerte_nolife' => '<b>nolife</b> / un auteur que je suis répond à n’importe quel billet', # NEW
-	'profil_alerte_nouveaux_billets' => '<b>nouveaux billets</b> / un nouveau billet est posté par un auteur que je suis', # NEW
-	'profil_alerte_reponses' => '<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets', # NEW
+	'profil_alerte_conversations' => '<b> samtaler </ b> / noen svarer på en inlegg som jeg selv svarte',
+	'profil_alerte_dubien' => '<b> en venn som ønsker deg godt </ b> / noen følger meg',
+	'profil_alerte_nolife' => '<b>"nolife"</b> /  En bidragsyter som jeg føler svarer på noen inlegg',
+	'profil_alerte_nouveaux_billets' => '<b>nye inlegg</b> /et nytt innlegg er lagt ut av en bidragsyter jeg føler
+',
+	'profil_alerte_reponses' => '<b> svar på mine meldinger </ b> / noen svarer på en av mine meldinger',
 	'profil_alertes' => 'Varsler',
-	'profil_copyleft' => 'Copyright, copyleft', # NEW
-	'profil_copyright_classique' => 'Pas de licence spécifique (droits d’auteur par défaut)', # NEW
+	'profil_copyleft' => 'Copyright, copyleft',
+	'profil_copyright_classique' => 'Ingen spesiell lisens (opphavsrettigheter som standard)',
 	'profil_couleur' => 'Din farge',
-	'profil_entete' => 'Bandeau supérieur (960 pixels de large)', # NEW
-	'profil_fond' => 'Image de fond (1600px x 1200px au maximum)', # NEW
-	'profil_graphisme' => 'Votre graphisme', # NEW
+	'profil_entete' => 'Toppbanner (960 px bredt)',
+	'profil_fond' => 'Bakgrunnsbilde (1600 px x 1200 px maksimum)',
+	'profil_graphisme' => 'oppsettet ditt',
 	'profil_identite' => 'ID',
 	'profil_langue' => 'Min språk',
-	'profil_licence' => 'Licence de vos messages', # NEW
-	'profil_logo' => 'Logo de l’auteur (carré)', # NEW
-	'profil_mexpedier' => 'M’expédier un courrier<br> électronique quand...', # NEW
-	'profil_rss' => 'Importer automatiquement un flux d\'articles au format ATOM ou RSS', # NEW
+	'profil_licence' => 'Lisens til innleggene dine',
+	'profil_logo' => 'logo bidragsyter (firekant)',
+	'profil_mexpedier' => 'Send meg en e-post <br>når  ...',
+	'profil_rss' => 'Automatisk importere en strøm av artikler i RSS eller ATOM',
 
 	// R
-	'raccourci_bold' => '*<b>gras</b>*', # NEW
-	'raccourci_italic' => '_<i>italique</i>_', # NEW
-	'raccourci_quote' => '❝citation❞ (maj+tab)', # NEW
-	'raccourci_strike' => '-<del>barré</del>-', # NEW
+	'raccourci_bold' => '*<b>fet skrift</b>*',
+	'raccourci_italic' => '_<i>kursiv</i>_',
+	'raccourci_quote' => '❝sitat❞ (maj+tab)',
+	'raccourci_strike' => '-<del>gjennomstreking</del>-',
 
 	// S
-	'slogan_lien' => 'Inscrivez-vous, c’est gratuit et rapide !', # NEW
-	'slogan_texte' => '<strong>Participez à la discussion !</strong> Sur Seenthis, vous pouvez référencer des articles, les commenter, écrire des billets, discuter avec vos amis, suivre les auteurs qui vous intéressent...', # NEW
+	'slogan_lien' => 'Meld deg, dette er gratis og enkelt !',
+	'slogan_texte' => '<strong>PBli med i diskusjonen !</strong> På Seenthis, kan du referere artikler, kommentere, skrive notater, diskutere med venner, følge bidragsyteren du er interessert i...',
 	'suggestions' => 'Anbefalinger :',
 	'suivre_people' => 'Følg @people@',
 	'suivre_url' => 'Følg denne nettside',
