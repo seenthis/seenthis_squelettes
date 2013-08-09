@@ -39,7 +39,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'intitule_connexion' => 'Einloggen',
 
 	// L
-	'logout' => 'Ausloggen',
+	'logout' => 'Logout',
 
 	// M
 	'me_suggerer_contacts' => 'Kontaktvorschläge',
