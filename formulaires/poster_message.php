@@ -2,7 +2,7 @@
 
 ############## CHARGER
 
-function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0, $ze_mot=0) {
+function formulaires_poster_message_charger ($id_me=0, $id_parent=0) {
 
 	$texte_message = "";
 
@@ -15,8 +15,6 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 
 	$valeurs = Array(
 		"texte_message"=> "$texte_message",
-		"id_dest" => intval($id_dest),
-		"ze_mot" => intval($ze_mot),
 #		"id_auteur" => $GLOBALS["visiteur_session"]["id_auteur"],
 		'action' => preg_replace(',^[^/]+://[^/]+/,', '/', url_de_base()),
 	);
@@ -28,7 +26,7 @@ function formulaires_poster_message_charger ($id_me=0, $id_parent=0, $id_dest=0,
 
 ################# VERIFIER
 
-function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0, $id_dest=0, $ze_mot=0){
+function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0){
 	if (!$GLOBALS["visiteur_session"]["id_auteur"])
 		return array("texte_message" => "Il faut se connecter pour poster un message.");
 
@@ -56,32 +54,13 @@ function formulaires_poster_message_verifier ($id_me = 0, $id_parent=0, $id_dest
 	}
 	
 	
-	
-	/*	
-	preg_match_all("/"._REG_PEOPLE."/", $texte_message, $regs);
-	if ($regs) {	
-		include_spip("base/abstract_sql");
-	
-		foreach ($regs[0] as $k=>$people) {
-			$nom = substr($people, 1, 1000);
-			
-			$query = sql_query("SELECT id_auteur FROM spip_auteurs WHERE login = '$nom'");
-			if (!sql_fetch($query)) {
-				$errors["people"] .= "<div>@<b>$nom</b> is not using ".lire_meta("nom_site")."</div>";
-			}
-			
-		
-		}
-	}
-	*/
-	
 	return $errors;
 }
 
 
 ################### TRAITER
 
-function formulaires_poster_message_traiter ($id_me=0, $id_parent=0, $id_dest=0, $ze_mot=0){
+function formulaires_poster_message_traiter ($id_me=0, $id_parent=0){
 	include_spip("base/abstract_sql");
 	$maj = 0;
 	$id_me_nouv = 0;
@@ -89,7 +68,7 @@ function formulaires_poster_message_traiter ($id_me=0, $id_parent=0, $id_dest=0,
 	
 	$id_auteur = floor($GLOBALS["visiteur_session"]["id_auteur"]);
 
-	$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent, $id_dest, $ze_mot);
+	$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent);
 	$id_me_nouv = $ret["id_me"];
 	$id_parent = $ret["id_parent"];
 	$maj = $ret["maj"];

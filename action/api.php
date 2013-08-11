@@ -96,7 +96,7 @@ function action_api_dist() {
 			erreur_405("Error - your ID does not match an acceptable format");
 		}
 
-		$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent, $id_dest=0, $ze_mot=0, $time="NOW()", $uuid);
+		$ret = instance_me ($id_auteur, $texte_message,  $id_me, $id_parent, $time="NOW()", $uuid);
 
 		$id_me = $ret["id_me"];
 		
