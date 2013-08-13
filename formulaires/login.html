@@ -1,13 +1,15 @@
 #HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
 #HTTP_HEADER{"Pragma: no-cache"}
 
-
 <div class='formulaire_spip formulaire_login'>
 	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{_deja_loge})</p>]
 
 	[<script><!--
-	document.location = "#SELF";
+//	"#SELF".match(/%2Fecrire/) ? '' : document.location = "#SELF";
 	--></script>
+
+"#SELF"
+
 	(#ENV*{message_ok}|oui)]
 	[<p class='reponse_formulaire reponse_formulaire_erreur'>(#ENV*{message_erreur})</p>]
 
@@ -33,7 +35,7 @@
 				<label for="password"><:login_pass2:></label>[
 				<span class="erreur_message">(#ENV**{erreurs}|table_valeur{password})</span>
 				]<input type='password' class='password' name='password' id='password' value="" size='40'>
-				<span class='details'>&#91;<a href="#URL_PAGE{spip_pass}" id='spip_pass'><:login_motpasseoublie:></a>&#93;</span>
+				<span class='details'>&#91;<a href="[(#URL_PAGE{spip_pass}|parametre_url{lang,#LANG})]" id='spip_pass'><:login_motpasseoublie:></a>&#93;</span>
 			</li>
 			[(#ENV{rester_connecte})
 			<li class="editer_session"><div class='choix'>

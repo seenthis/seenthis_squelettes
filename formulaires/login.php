@@ -3,20 +3,22 @@
 /***************************************************************************\
  *  SPIP, Systeme de publication pour l'internet                           *
  *                                                                         *
- *  Copyright (c) 2001-2010                                                *
+ *  Copyright (c) 2001-2012                                                *
  *  Arnaud Martin, Antoine Pitrou, Philippe Riviere, Emmanuel Saint-James  *
  *                                                                         *
  *  Ce programme est un logiciel libre distribue sous licence GNU/GPL.     *
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) return;	#securite
+if (!defined('_ECRIRE_INC_VERSION')) return;
 
 include_spip('base/abstract_sql');
 
 function is_url_prive($cible){
-	$parse = parse_url($cible);
-	return strncmp(substr($parse['path'],-strlen(_DIR_RESTREINT_ABS)), _DIR_RESTREINT_ABS, strlen(_DIR_RESTREINT_ABS))==0;
+	include_spip('inc/filtres_mini');
+	$path = parse_url(tester_url_absolue($cible)?$cible:url_absolue($cible));
+	$path = (isset($path['path'])?$path['path']:'');
+	return strncmp(substr($path,-strlen(_DIR_RESTREINT_ABS)), _DIR_RESTREINT_ABS, strlen(_DIR_RESTREINT_ABS))==0;
 }
 
 function formulaires_login_charger_dist($cible="",$login="",$prive=null)
@@ -54,7 +56,7 @@ function formulaires_login_charger_dist($cible="",$login="",$prive=null)
 		'_pipeline' => 'affiche_formulaire_login', // faire passer le formulaire dans un pipe dedie pour les methodes auth
 		);
 
-	if ($erreur OR !$GLOBALS['visiteur_session']['id_auteur'])
+	if ($erreur OR !isset($GLOBALS['visiteur_session']['id_auteur']) OR !$GLOBALS['visiteur_session']['id_auteur'])
 		$valeurs['editable'] = true;
 
 	if (is_null($prive) ? is_url_prive($cible) : $prive) {
@@ -62,7 +64,7 @@ function formulaires_login_charger_dist($cible="",$login="",$prive=null)
 		$loge = autoriser('ecrire');
 	} 
 	else
-		$loge = ($GLOBALS['visiteur_session']['auth'] != '');
+		$loge = (isset($GLOBALS['visiteur_session']['auth']) AND $GLOBALS['visiteur_session']['auth'] != '');
 
 	// Si on est connecte, appeler traiter()
 	// et lancer la redirection si besoin
@@ -73,10 +75,17 @@ function formulaires_login_charger_dist($cible="",$login="",$prive=null)
 
 		if ($res['redirect']){
 			include_spip('inc/headers');
+			# preparer un lien pour quand redirige_formulaire ne fonctionne pas
+			$valeurs['_deja_loge'] = inserer_attribut(
+				"<a>" . _T('login_par_ici') . "</a>$m",
+				'href', $res['redirect']
+			);
+			# preparer un lien pour quand redirige_formulaire ne fonctionne pas
+			$valeurs['_deja_loge'] = inserer_attribut(
+				"<a>" . _T('login_par_ici') . "</a>$m",
+				'href', $res['redirect']
+			);
 			$m = redirige_formulaire($res['redirect']);
-			# quand la redirection 302 ci-dessus ne fonctionne pas
-			$valeurs['_deja_loge'] =
-			"<a href='$cible'>" . _T('login_par_ici') . "</a>$m";
 		}
 	}
 	// en cas d'echec de cookie, inc_auth a renvoye vers le script de
@@ -172,7 +181,6 @@ function login_autoriser()
 }
 
 function formulaires_login_traiter_dist($cible="",$login="",$prive=null){
-	
 	$res = array();
 	// Si on se connecte dans l'espace prive, 
 	// ajouter "bonjour" (repere a peu pres les cookies desactives)
@@ -184,19 +192,20 @@ function formulaires_login_traiter_dist($cible="",$login="",$prive=null){
 
 	if ($cible) {
 		$cible = parametre_url($cible, 'var_login', '', '&');
-	} 
-	
-	
-	if (!headers_sent()) {
-		$cible = self();
-		$cible = str_replace("&amp;", "&", $cible);
-		header($cible);
+
+		// transformer la cible absolue en cible relative
+		// pour pas echouer quand la meta adresse_site est foireuse
+		if (strncmp($cible,$u = url_de_base(),strlen($u))==0){
+			$cible = "./".substr($cible,strlen($u));
+		}
+
+		// si c'est une url absolue, refuser la redirection
+		// sauf si cette securite est levee volontairement par le webmestre
+		elseif (tester_url_absolue($cible) AND !defined('_AUTORISER_LOGIN_ABS_REDIRECT')) {
+			$cible = "";
+		}
 	}
-	// transformer la cible absolue en cible relative
-	// pour pas echouer quand la meta adresse_site est foireuse
-	if (strncmp($cible,$u = url_de_base(),strlen($u))==0){
-		$cible = "./".substr($cible,strlen($u));
-	}
+
 
 	// Si on est admin, poser le cookie de correspondance
 	if ($GLOBALS['auteur_session']['statut'] == '0minirezo') {
@@ -205,17 +214,16 @@ function formulaires_login_traiter_dist($cible="",$login="",$prive=null){
 		time() + 7 * 24 * 3600);
 	}
 
-	$res['message_ok'] = "connexion";
 	// Si on est connecte, envoyer vers la destination
 	if ($cible AND ($cible!=self())) {
 		if (!headers_sent() AND !$_GET['var_mode']) {
 			include_spip('inc/headers');
-			$res['message_ok'] = "connexion";
 			$res['redirect'] = $cible;
 		} else {
-			$res['message_ok'] .= "<a href='$cible'>" .
-			  _T('login_par_ici') .
-			  "</a>";
+			$res['message_ok'] .= inserer_attribut(
+				"<a>" . _T('login_par_ici') . "</a>",
+				'href', $cible
+			);
 		}
 	}
 	return $res;
