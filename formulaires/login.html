@@ -3,14 +3,7 @@
 
 <div class='formulaire_spip formulaire_login'>
 	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{_deja_loge})</p>]
-
-	[<script><!--
-//	"#SELF".match(/%2Fecrire/) ? '' : document.location = "#SELF";
-	--></script>
-
-"#SELF"
-
-	(#ENV*{message_ok}|oui)]
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 	[<p class='reponse_formulaire reponse_formulaire_erreur'>(#ENV*{message_erreur})</p>]
 
 	[(#ENV{echec_cookie})
