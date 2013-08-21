@@ -98,7 +98,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'traduire_avec_google' => 'übersetzen',
 
 	// U
-	'urls' => 'WWW-Seiten',
+	'urls' => 'Websites', # "WWW-Seiten" war zu lang
 	'urls_vous_suivez' => 'Sie folgen diesen WWW-Seiten',
 
 	// V
