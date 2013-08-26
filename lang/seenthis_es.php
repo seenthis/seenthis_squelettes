@@ -71,7 +71,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_licence' => 'Licencia de sus mensajes',
 	'profil_logo' => 'Avatar del autor (cuadrado)',
 	'profil_mexpedier' => 'Enviarme un correo<br /> electrónico cuando…',
-	'profil_rss' => 'Importar automáticamente  un flujo de artículos en formato ATOM o RSS',
+	'profil_rss' => 'Importar automáticamente una fuente de artículos en formato ATOM o RSS',
 
 	// R
 	'raccourci_bold' => '*<b>negrita</b>*',
