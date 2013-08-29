@@ -167,7 +167,7 @@ footer {
 	-spip-box-sizing: border-box;	
 	overflow: hidden;
 	text-overflow: ellipsis;
-	
+	vertical-align:text-top;
 	
 	a {
 		text-decoration: none;
