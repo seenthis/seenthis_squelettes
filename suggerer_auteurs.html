@@ -1,9 +1,11 @@
 #CACHE{0}
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}{doublons}{lang_select}>
 
+	#SET{vus,#ARRAY}
 	<BOUCLE_suivis(spip_me_follow){id_follow=#ID_AUTEUR}>
-		<BOUCLE_vus(AUTEURS){id_auteur}{tous}{doublons}/>
+	#SET{vus,#GET{vus}|push{#ID_AUTEUR}}
 	</BOUCLE_suivis>
+	<BOUCLE_vus(AUTEURS){tout}{id_auteur IN #GET{vus}}{doublons} />
 
 	<BOUCLE_quisuit(spip_me_follow)
 		{id_follow IN #DOUBLONS{auteurs}}
