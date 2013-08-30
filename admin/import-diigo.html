@@ -1,0 +1,82 @@
+#CACHE{0}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h1>>importer diigo (format d'export delicious)</h1>
+
+<?php
+
+function importer_fichier_delicious($id_auteur) {
+	$fichier = "backup$id_auteur.xml";
+
+	echo "<h3>$id_auteur</h3>";
+
+	if (!file_exists($fichier)) echo "Pas de fichier $fichier";
+	$import = file_get_contents($fichier);
+
+	# <DT><A HREF="http://www.csmonitor.com/USA/Military/2012/0604/How-a-US-strike-on-Syria-might-look-cyberwar-could-play-key-role" LAST_VISIT="1377786745" ADD_DATE="1377786745" PRIVATE="0" TAGS="syrie,cyberguerre">Comment une cyber attaque pourrait avoir lieu en Syrie - Christian Monitor</A>
+
+
+	$reg = ',<DT><A HREF="([^"]*)"[^>]*ADD_DATE="(.*)" PRIVATE="0" TAGS="(.*)">(.*)</A>,Ums';
+	// Ancienne version
+	//$reg = '<post href="(.*)" hash=".*" description="(.*)" tag="(.*)" time="(.*)" extended="(.*)" meta=".*".*\>';
+	  
+	preg_match_all($reg, $import, $resultats, PREG_SET_ORDER);
+	
+//	rsort($resultats[1]);
+	include_spip('inc/uuid');
+
+	foreach($resultats as $r) {
+
+#		var_dump($r);exit;
+		list(,$url, $time, $tags, $title) = $r;
+
+		$url = sucrer_utm(str_replace("&#039;", "'", $url));
+
+		$description = $resultats[1][$key];
+		$description = html_entity_decode($description);
+		$description = str_replace("&#039;", "'", $description);
+		if (strlen($description) > 0) {
+			$description = $description."\n";
+//			echo "<b>$description</b>";
+		}
+
+		$tags = trim(str_replace('no_tag', '', $tags));
+		if (strlen($tags) > 0) {
+			$tags = str_replace("@", "", $tags);
+			$tags = str_replace(":", "_", $tags);
+			$tags = "\n\n#" . preg_replace("/,/", " #", $tags)."\n";
+		}
+
+		$time = @date('Y-m-d H:i:s', $time);
+
+		$texte = trim($title."\n".$url.$extended.$tags);
+	
+		echo "<hr>";
+		
+		echo "$time: <pre>";
+		echo $texte;
+		echo "</pre>";
+		
+		#job_queue_add('instance_me', "delicious $id_auteur", array($id_auteur, $texte,  0, 0, 0, 0, $time));
+		
+		$uuid = UUID::getuuid('import '.$id_auteur.$url);
+		instance_me ($id_auteur, $texte, $id_me=0, $id_parent=0, $time, $uuid);
+	}
+	
+	
+	
+}
+
+set_time_limit(0);
+importer_fichier_delicious(3);
+
+
+?>
+
+</body>
+</html>
