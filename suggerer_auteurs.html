@@ -1,16 +1,14 @@
 #CACHE{0}
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}{doublons}{lang_select}>
 
-
-	
-
 	<BOUCLE_suivis(spip_me_follow){id_follow=#ID_AUTEUR}>
 		<BOUCLE_vus(AUTEURS){id_auteur}{tous}{doublons}/>
-
-		<BOUCLE_quisuit(spip_me_follow){id_follow=#ID_AUTEUR}>
-		[(#ID_AUTEUR|compter_auteurs)]
-		</BOUCLE_quisuit>
 	</BOUCLE_suivis>
+
+	<BOUCLE_quisuit(spip_me_follow)
+		{id_follow IN #DOUBLONS{auteurs}}
+		{id_auteur !IN #DOUBLONS{auteurs}}
+	>[(#ID_AUTEUR|compter_auteurs)]</BOUCLE_quisuit>
 
 	<BOUCLE_block(spip_me_block){id_block=#ID_AUTEUR}>
 		<BOUCLE_vus2(AUTEURS){id_auteur}{tous}{doublons}/>
