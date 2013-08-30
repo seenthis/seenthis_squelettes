@@ -33,7 +33,7 @@
 
 	<BOUCLE_pop(AUTEURS){tout}{statut!=nouveau}{doublons}{par troll}{inverse}{0,50}>
 		<BOUCLE_messages(ME){id_auteur=#ID_AUTEUR}{date>#VAL{7}|decaler_date}></BOUCLE_messages>
-			[(#ID_AUTEUR|stocker_auteur{#TROLL,#TOTAL_BOUCLE})]
+			[(#TOTAL_BOUCLE|>{0}|?{[(#ID_AUTEUR|stocker_auteur{#TROLL,#TOTAL_BOUCLE})]})]
 		<//B_messages>
 	</BOUCLE_pop>
 	
