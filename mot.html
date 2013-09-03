@@ -142,9 +142,9 @@
 
 		[(#SESSION{id_auteur}|non)
 			<div id="charger_pave_inscription"></div>
-
-
-			[(#GET{couleur}|microcache{noisettes/adsense})]
+			[(#REM)
+				[(#GET{couleur}|microcache{noisettes/adsense})]
+			]
 		]
 
 		<INCLURE{fond=noisettes/mots_lies}{tag}{ajaxload}>
