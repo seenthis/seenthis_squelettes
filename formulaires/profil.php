@@ -44,9 +44,11 @@ function formulaires_profil_verifier (){
 	AND ($new !== $old)) {
 		$s = sql_query("SELECT * FROM spip_auteurs WHERE email=".sql_quote($new)." AND statut!='nouveau'");
 		if ($t = sql_fetch($s)) {
-			$errors["changement_email_existe"] = _T('seenthis:changement_email_existe');
+			$errors["email"] = _T('seenthis:changement_email_existe');
 		}
-	}
+}
+
+			$errors[] = _T('BAH ALORS');
 
 	return $errors;
 }
