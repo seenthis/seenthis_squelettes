@@ -33,6 +33,20 @@ function formulaires_profil_verifier (){
 			$errors["image_bandeau"] = "Mauvais format.";
 	}
 
+	// en cas de modification d'email, verifier que le nouveau n'est pas
+	// déjà enregistré dans la base (sauf statut "nouveau")
+	// Note : on a le droit de supprimer son email (envoyer "")
+	$new = _request('email');
+	$old = $GLOBALS["auteur_session"]['email'];
+	if (!is_null($new)
+	AND $new !== ""
+	AND ($new !== $old)) {
+		$s = sql_query("SELECT * FROM spip_auteurs WHERE email=".sql_quote($new)." AND statut!='nouveau'");
+		if ($t = sql_fetch($s)) {
+			$errors["changement_email_existe"] = _T('seenthis:changement_email_existe');
+		}
+	}
+
 	return $errors;
 }
 
@@ -46,6 +60,7 @@ function formulaires_profil_traiter (){
 	$query = sql_select("*", "spip_auteurs", "id_auteur=$id_auteur");
 	if ($row = sql_fetch($query)) {
 		$nom_ancien = $row["nom"];
+		$email_ancien = $row["email"];
 		$lang_ancien = $row["lang"];
 		$bio_ancien = $row["bio"];
 		$couleur_ancien = $row["couleur"];
@@ -56,6 +71,12 @@ function formulaires_profil_traiter (){
 
 
 	$nom = _request("nom");
+
+	$email = _request("email");
+
+	if (is_null($email))
+		$email = $email_ancien;
+
 	$lang = _request("lang");
 	$bio = _request("bio");
 	$couleur = _request("couleur");
@@ -65,12 +86,14 @@ function formulaires_profil_traiter (){
 
 	$url_site = _request("url_site");
 	$rss = _request("rss");
-	
+
 	$nom = strip_tags($nom);
+	$email = strip_tags($email);
 	$bio = strip_tags($bio);
 
 	$profil = array(
 		"nom" => $nom,
+		"email" => $email,
 		"lang" => $lang,
 		"bio" => $bio,
 		"couleur" => $couleur,
@@ -118,7 +141,24 @@ function formulaires_profil_traiter (){
 	if ($nom != $nom_ancien OR $copyright != $copyright_ancien ) {
 			nettoyer_nom_auteur($id_auteur);
 	}
-	
+
+	// notification changement d'email
+	if ($email != $email_ancien) {
+		foreach(array($email, $email_ancien, $GLOBALS['email_webmaster']) as $dest) {
+			$msg = _T('seenthis:changement_email_informer', array(
+				'login' => $GLOBALS["auteur_session"]["login"],
+				'new' => $email,
+				'old' => $email_ancien
+			));
+			$envoyer_mail = charger_fonction('envoyer_mail','inc');
+			$titre_mail = _T('seenthis:changement_email_subject', array(
+				'login' => $GLOBALS["auteur_session"]["login"]
+			));
+			$envoyer_mail($dest, $titre_mail, $msg);
+		}
+	}
+
+
 	if ($couleur != $couleur_ancien) {
 			supprimer_microcache($id_auteur, "noisettes/head_auteur");
 			supprimer_microcache($id_auteur, "noisettes/css_auteur");
