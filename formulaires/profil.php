@@ -3,6 +3,7 @@
 ############## CHARGER
 
 function formulaires_profil_charger () {
+
 	$id_auteur = $GLOBALS["auteur_session"]["id_auteur"];
 	
 	if ($id_auteur > 0) {
@@ -144,7 +145,10 @@ function formulaires_profil_traiter (){
 
 	// notification changement d'email
 	if ($email != $email_ancien) {
-		foreach(array($email, $email_ancien, $GLOBALS['email_webmaster']) as $dest) {
+		session_set('email', $email);
+		foreach(array_filter(array(
+			$email, $email_ancien, $GLOBALS['meta']['email_webmaster']
+		)) as $dest) {
 			$msg = _T('seenthis:changement_email_informer', array(
 				'login' => $GLOBALS["auteur_session"]["login"],
 				'new' => $email,

@@ -26,7 +26,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// C
 	'changement_email_existe' => 'Cette adresse email est déjà utilisée par un autre compte',
-	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old")',
+	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")',
 	'changement_email_subject' => 'Nouvelle adresse email pour @login@',
 
 	// E
