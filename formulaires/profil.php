@@ -150,13 +150,13 @@ function formulaires_profil_traiter (){
 			$email, $email_ancien, $GLOBALS['meta']['email_webmaster']
 		)) as $dest) {
 			$msg = _T('seenthis:changement_email_informer', array(
-				'login' => $GLOBALS["auteur_session"]["login"],
+				'login' => '@'.$GLOBALS["auteur_session"]["login"],
 				'new' => $email,
 				'old' => $email_ancien
 			));
 			$envoyer_mail = charger_fonction('envoyer_mail','inc');
 			$titre_mail = _T('seenthis:changement_email_subject', array(
-				'login' => $GLOBALS["auteur_session"]["login"]
+				'login' => '@'.$GLOBALS["auteur_session"]["login"]
 			));
 			$envoyer_mail($dest, $titre_mail, $msg);
 		}
