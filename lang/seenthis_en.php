@@ -26,6 +26,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bookmarklet_descriptif' => 'How to use: when you visit the web page of an article you wish to reference, select the text abstract you want to quote, and click on the bookmarklet.',
 	'bookmarklet_titre' => 'Drag and drop this bookmarklet on your bookmarks bar:',
 
+	// C
+	'changement_email_existe' => 'Cette adresse email est déjà utilisée par un autre compte', # NEW
+	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")', # NEW
+	'changement_email_subject' => 'Nouvelle adresse email pour @login@', # NEW
+
 	// E
 	'ecrire_commentaire' => 'Write a comment',
 	'effacer' => 'erase',

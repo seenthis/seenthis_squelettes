@@ -26,6 +26,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bookmarklet_descriptif' => 'كيفية الاستخدام: عندما تزورون صفحة مقال ما يجذب اهتمامكم وترغبون في تبويبه، حددوا فقرة النص المطلوب اقتباسها ثم انقروا على أداة التبويب مما سيفتح واجهة Seenthis التي تعرض اقتباسكم وعنوان الصفحة الآتين منها في مربع رسالتكم.',
 	'bookmarklet_titre' => 'إسحبوا أداة التبويب هذه الى شريط مواقعكم المفضلة في المتصفح:',
 
+	// C
+	'changement_email_existe' => 'Cette adresse email est déjà utilisée par un autre compte', # NEW
+	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")', # NEW
+	'changement_email_subject' => 'Nouvelle adresse email pour @login@', # NEW
+
 	// E
 	'ecrire_commentaire' => 'كتابة تعليق',
 	'effacer' => 'حذف',

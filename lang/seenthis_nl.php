@@ -28,6 +28,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bookmarklet_descriptif' => 'Gebruiksaanwijzing : op de pagina van een artikel die je wilt aanwijzen, mag je een deel van de tekst selecteren (citaat) en op je bookmarklet klikken.  Seenthis wordt dan geopend en je boodschap is automatisch ingevuld met de naam van de website, de URL en de geselecteerde tekst (citaat).',
 	'bookmarklet_titre' => 'Glijd de bookmarklet uit naar je  favorieten menu :',
 
+	// C
+	'changement_email_existe' => 'Cette adresse email est déjà utilisée par un autre compte', # NEW
+	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")', # NEW
+	'changement_email_subject' => 'Nouvelle adresse email pour @login@', # NEW
+
 	// E
 	'ecrire_commentaire' => ' Een commentaar schrijven',
 	'effacer' => 'uitwissen',

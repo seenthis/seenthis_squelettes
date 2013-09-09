@@ -26,6 +26,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bookmarklet_descriptif' => 'Bedienungsanleitung: Wenn Sie auf einer Internetseite sind, die Sie verlinken möchten, wählen Sie den Text aus, den sie zitieren möchten. Klicken Sie dann auf das Seenthis-Bookmarklet. Ihr Seenthis-Interface wird geöffnet, und sie sehen Ihren vorausgefüllten Beitrag mit Titel, URL und dem ausgewählten Text der WWW-Seite.',
 	'bookmarklet_titre' => 'Ziehen Sie dieses Bookmarklet in die Bookmark-Leiste Ihres Browsers:',
 
+	// C
+	'changement_email_existe' => 'Cette adresse email est déjà utilisée par un autre compte', # NEW
+	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")', # NEW
+	'changement_email_subject' => 'Nouvelle adresse email pour @login@', # NEW
+
 	// E
 	'ecrire_commentaire' => 'Kommentieren',
 	'effacer' => 'Löschen',

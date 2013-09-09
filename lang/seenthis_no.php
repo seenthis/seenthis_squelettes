@@ -26,6 +26,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bookmarklet_descriptif' => 'For å bruke det: Når du er på siden til en artikkel som du vil referere til, velger du tekstutdraget du ønsker å sitere og klikker på "bookmarklet". Din Seenthis-side åpnes med en forhåndsutfylt melding med sidens tittelen, URL og sitatet.',
 	'bookmarklet_titre' => 'Dra denne bookmarklet til bokmerkelinjen',
 
+	// C
+	'changement_email_existe' => 'Cette adresse email est déjà utilisée par un autre compte', # NEW
+	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")', # NEW
+	'changement_email_subject' => 'Nouvelle adresse email pour @login@', # NEW
+
 	// E
 	'ecrire_commentaire' => 'Skriv en kommentar',
 	'effacer' => 'slett',
