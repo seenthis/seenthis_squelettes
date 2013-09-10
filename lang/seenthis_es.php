@@ -27,9 +27,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bookmarklet_titre' => 'Deslice el bookmarklet en la barra de favoritos:',
 
 	// C
-	'changement_email_existe' => 'Cette adresse email est déjà utilisée par un autre compte', # NEW
-	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")', # NEW
-	'changement_email_subject' => 'Nouvelle adresse email pour @login@', # NEW
+	'changement_email_existe' => 'Esta dirección de correo electrónico ya está utilizada por otra cuenta',
+	'changement_email_informer' => '@login@ ha indicado una nueva dirección de correo electrónico: "@new@" (en sustitución de "@old@")',
+	'changement_email_subject' => 'Nueva dirección de correo electrónico para @login@',
 
 	// E
 	'ecrire_commentaire' => 'Escribir un comentario',
