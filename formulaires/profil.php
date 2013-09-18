@@ -48,8 +48,6 @@ function formulaires_profil_verifier (){
 		}
 }
 
-			$errors[] = _T('BAH ALORS');
-
 	return $errors;
 }
 
