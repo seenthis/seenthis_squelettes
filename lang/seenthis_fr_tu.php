@@ -14,7 +14,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'accueil' => 'Accueil',
 	'annuler' => 'Annuler',
 	'auteur_block' => 'Bloquer @people@',
-	'auteur_block_you' => 'Cet auteur t\'a bloqué. Tu ne peux pas commenter ses messages.',
+	'auteur_block_you' => 'Cet auteur t’a bloqué. Tu ne peux pas commenter ses messages.',
 	'auteur_ne_plus_block' => 'Débloquer @people@',
 	'auteur_ne_plus_suivre' => 'Ne plus suivre @people@',
 	'auteur_vous_block' => 'Tu as bloqué @people@',
@@ -22,8 +22,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'auteurs_vous_suivez' => 'Les auteurs que tu suis',
 
 	// B
-	'beta_publique' => '<strong>Seenthis est en beta publique.</strong><br>Tu peux t\'inscrire et participer, merci pour ta patience et ta bonne volonté durant cette phase.',
-	'bookmarklet_descriptif' => 'Pour l’utiliser : lorsque tu visites la page d’un article que tu souhaites référencer, sélectionne l’extrait du texte à citer, et clique sur ton bookmarklet. Ton interface Seenthis s’ouvre alors, et ton message est pré-rempli avec le titre de la page, l’URL et la citation.',
+	'beta_publique' => '<strong>Seenthis est en beta publique.</strong><br>Tu peux t’inscrire et participer, merci pour ta patience et ta bonne volonté durant cette phase.',
+	'bookmarklet_descriptif' => 'Pour l’utiliser : lorsque tu visites la page d’un article que tu souhaites référencer, sélectionne l’extrait du texte à citer, et clique sur ton bookmarklet. Ton interface Seenthis s’ouvre alors, et ton message est pré-rempli avec le titre de la page, l’URL et la citation.',
 	'bookmarklet_titre' => 'Fais glisser ce bookmarklet dans ta barre de favoris :',
 
 	// E
@@ -43,15 +43,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// M
 	'me_suggerer_contacts' => 'Me suggérer des contacts',
-	'message_inscription' => '<strong>Inscription gratuite et immédiate</strong><br>Dès l’enregistrement, ton mot de passe t\'est expédié par email.',
+	'message_inscription' => '<strong>Inscription gratuite et immédiate</strong><br>Dès l’enregistrement, ton mot de passe t’est expédié par email.',
 	'message_suggerer' => '				<strong>Nouveau sur Seenthis ? Tu devrais commencer par suivre des auteurs.</strong>
 				<p>Clique sur le bouton « Me suggérer des contacts » ci-contre, et 
-				visite les pages des auteurs proposés. Si un auteur t\'intéresse, suive-le en cliquant, 
+				visite les pages des auteurs proposés. Si un auteur t’intéresse, suive-le en cliquant, 
 				en haut de page, sur « Suivre cet auteur ».
-				Puis reviens sur cette page, recommence l\'opération, les propositions s\'affineront au fur et
-				à mesure de ta propre sélection d\'auteurs.</p>
+				Puis reviens sur cette page, recommence l’opération, les propositions s’affineront au fur et
+				à mesure de ta propre sélection d’auteurs.</p>
 				<p>Ce message disparaîtra lorsque tu suivras cinq auteurs. 
-				Rends-toi ensuite  sur l\'onglet « @auteurs » pour obtenir des suggestions d\'auteurs.</p>',
+				Rends-toi ensuite  sur l’onglet « @auteurs » pour obtenir des suggestions d’auteurs.</p>',
 	'modifier' => 'modifier',
 	'montrer_messages' => 'montrer les @total@ messages',
 
@@ -76,7 +76,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_licence' => 'Licence de tes messages',
 	'profil_logo' => 'Logo de l’auteur (carré)',
 	'profil_mexpedier' => 'M’expédier un courrier<br> électronique quand...',
-	'profil_rss' => 'Importer automatiquement un flux d\'articles au format ATOM ou RSS',
+	'profil_rss' => 'Importer automatiquement un flux d’articles au format ATOM ou RSS',
 
 	// R
 	'raccourci_bold' => '*<b>gras</b>*',
@@ -86,7 +86,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => 'Inscris-toi, c’est gratuit et rapide !',
-	'slogan_texte' => '<strong>Participe à la discussion !</strong> Sur Seenthis, tu peux référencer des articles, les commenter, écrire des billets, discuter avec tes amis, suivre les auteurs qui t\'intéressent...',
+	'slogan_texte' => '<strong>Participe à la discussion !</strong> Sur Seenthis, tu peux référencer des articles, les commenter, écrire des billets, discuter avec tes amis, suivre les auteurs qui t’intéressent...',
 	'suggestions' => 'Suggestions :',
 	'suivre_people' => 'Suivre @people@',
 	'suivre_url' => 'Suivre ce site',

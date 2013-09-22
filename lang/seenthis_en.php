@@ -26,6 +26,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bookmarklet_descriptif' => 'How to use: when you visit the web page of an article you wish to reference, select the text abstract you want to quote, and click on the bookmarklet.',
 	'bookmarklet_titre' => 'Drag and drop this bookmarklet on your bookmarks bar:',
 
+	// C
+	'changement_email_existe' => 'This e-mail address is already being used by another account',
+	'changement_email_informer' => '@login@ has chosen a new e-mail address : "@new@" (replacing "@old@")',
+	'changement_email_subject' => 'New e-mail address for @login@',
+
 	// E
 	'ecrire_commentaire' => 'Write a comment',
 	'effacer' => 'erase',
@@ -95,7 +100,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'theme_manuellement' => 'This <b>theme</b> is attributed <b>manually</b> by the authors of the messages.',
 	'themes_automatiques' => 'automatic tags',
 	'themes_vous_suivez' => 'The tags you follow',
-	'tous_les_messages_de' => 'All of @people@\'s messages',
+	'tous_les_messages_de' => 'All of @people@’s messages',
 	'traduire_avec_google' => 'translate',
 
 	// U

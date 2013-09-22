@@ -21,12 +21,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
 	'beta_publique' => '<strong>Seenthis est en beta publique.</strong><br>Vous pouvez vous inscrire et participer, merci pour votre patience et votre bonne volonté durant cette phase.',
-	'bookmarklet_descriptif' => 'Pour l’utiliser : lorsque vous visitez la page d’un article que vous souhaitez référencer, sélectionnez l’extrait du texte à citer, et cliquez sur votre bookmarklet. Votre interface Seenthis s’ouvre alors, et votre message est pré-rempli avec le titre de la page, l’URL et la citation.',
+	'bookmarklet_descriptif' => 'Pour l’utiliser : lorsque vous visitez la page d’un article que vous souhaitez référencer, sélectionnez l’extrait du texte à citer, et cliquez sur votre bookmarklet. Votre interface Seenthis s’ouvre alors, et votre message est pré-rempli avec le titre de la page, l’URL et la citation.',
 	'bookmarklet_titre' => 'Faites glisser ce bookmarklet dans votre barre de favoris :',
 
 	// C
 	'changement_email_existe' => 'Cette adresse email est déjà utilisée par un autre compte',
-	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")',
+	'changement_email_informer' => '@login@ a indiqué une nouvelle adresse d’email : "@new@" (en remplacement de "@old@")',
 	'changement_email_subject' => 'Nouvelle adresse email pour @login@',
 
 	// E
@@ -52,10 +52,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 				<p>Cliquez sur le bouton « Me suggérer des contacts » ci-contre, et 
 				visitez les pages des auteurs proposés. Si un auteur vous intéresse, suivez-le en cliquant, 
 				en haut de page, sur « Suivre cet auteur ».
-				Puis revenez sur cette page, recommencez l\'opération, les propositions s\'affineront au fur et
-				à mesure de votre propre sélection d\'auteurs.</p>
+				Puis revenez sur cette page, recommencez l’opération, les propositions s’affineront au fur et
+				à mesure de votre propre sélection d’auteurs.</p>
 				<p>Ce message disparaîtra lorsque vous suivrez cinq auteurs. 
-				Rendez-vous ensuite  sur l\'onglet « @auteurs » pour obtenir des suggestions d\'auteurs.</p>',
+				Rendez-vous ensuite  sur l’onglet « @auteurs » pour obtenir des suggestions d’auteurs.</p>',
 	'modifier' => 'modifier',
 	'montrer_messages' => 'montrer les @total@ messages',
 
@@ -80,7 +80,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_licence' => 'Licence de vos messages',
 	'profil_logo' => 'Logo de l’auteur (carré)',
 	'profil_mexpedier' => 'M’expédier un courrier<br> électronique quand...',
-	'profil_rss' => 'Importer automatiquement un flux d\'articles au format ATOM ou RSS',
+	'profil_rss' => 'Importer automatiquement un flux d’articles au format ATOM ou RSS',
 
 	// R
 	'raccourci_bold' => '*<b>gras</b>*',
