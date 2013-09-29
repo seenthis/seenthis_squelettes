@@ -20,7 +20,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'auteurs_vous_suivez' => 'Les auteurs que vous suivez',
 
 	// B
-	'beta_publique' => '<strong>Seenthis est en beta publique.</strong><br>Vous pouvez vous inscrire et participer, merci pour votre patience et votre bonne volonté durant cette phase.',
+	'beta_publique' => '<strong>Seenthis est en beta publique.</strong><br />Vous pouvez vous inscrire et participer, merci pour votre patience et votre bonne volonté durant cette phase.',
 	'bookmarklet_descriptif' => 'Pour l’utiliser : lorsque vous visitez la page d’un article que vous souhaitez référencer, sélectionnez l’extrait du texte à citer, et cliquez sur votre bookmarklet. Votre interface Seenthis s’ouvre alors, et votre message est pré-rempli avec le titre de la page, l’URL et la citation.',
 	'bookmarklet_titre' => 'Faites glisser ce bookmarklet dans votre barre de favoris :',
 
@@ -46,7 +46,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// M
 	'me_suggerer_contacts' => 'Me suggérer des contacts',
-	'message_inscription' => '<strong>Inscription gratuite et immédiate</strong><br>Dès l’enregistrement, votre mot de passe vous est expédié par email.',
+	'message_inscription' => '<strong>Inscription gratuite et immédiate</strong><br />Dès l’enregistrement, votre mot de passe vous est expédié par email.',
 	'message_suggerer' => '
 				<strong>Nouveau sur Seenthis ? Vous devriez commencer par suivre des auteurs.</strong>
 				<p>Cliquez sur le bouton « Me suggérer des contacts » ci-contre, et 
@@ -79,7 +79,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_langue' => 'Ma langue',
 	'profil_licence' => 'Licence de vos messages',
 	'profil_logo' => 'Logo de l’auteur (carré)',
-	'profil_mexpedier' => 'M’expédier un courrier<br> électronique quand...',
+	'profil_mexpedier' => 'M’expédier un courrier<br /> électronique quand...',
 	'profil_rss' => 'Importer automatiquement un flux d’articles au format ATOM ou RSS',
 
 	// R

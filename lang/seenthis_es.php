@@ -22,7 +22,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'auteurs_vous_suivez' => 'Autores que usted sigue',
 
 	// B
-	'beta_publique' => '<strong>Seenthis está en beta pública.</strong><br>Usted puede inscribirse y participar. Gracias por su paciencia y su buena voluntad durante esta fase.',
+	'beta_publique' => '<strong>Seenthis está en beta pública.</strong><br />Usted puede inscribirse y participar. Gracias por su paciencia y su buena voluntad durante esta fase.',
 	'bookmarklet_descriptif' => 'Para utilizarlo: cuando usted visita la página de un artículo que desea referenciar, seleccione la parte del texto que quiera citar y pulse el bookmarklet. La interfaz de Seenthis se abre y vuestro mensaje aparece con el lazo, el título de la página y la selección.',
 	'bookmarklet_titre' => 'Deslice el bookmarklet en la barra de favoritos:',
 
@@ -48,7 +48,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// M
 	'me_suggerer_contacts' => 'Sugerirme contactos',
-	'message_inscription' => '<strong>Inscripción gratis e inmediata. </strong><br> Usted recibirá su contraseña en contados minutos.',
+	'message_inscription' => '<strong>Inscripción gratis e inmediata. </strong><br /> Usted recibirá su contraseña en contados minutos.',
 	'message_suggerer' => '<strong>¿Nuevo en Seenthis? Usted debería comenzar siguiendo algunos autores.</strong>
 <p>Pulse el botón 2Sugerirme contactos" y visite las páginas de los autores propuestos. Si un autor le interesa, sígalo pulsando en el botón "Seguir este autor". Reinicie esta operación y las propuestas se harán en relación a su selección de autores.</p>
 <p>Este mensaje desaparecerá una vez que usted siga a cinco autores. Para encontrar más autores, pulse el botón "@autores".</p>',

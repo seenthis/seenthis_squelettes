@@ -22,7 +22,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'auteurs_vous_suivez' => 'The people you are following',
 
 	// B
-	'beta_publique' => '<strong>Seenthis  Beta version.</strong><br> You can subscribe and participate. Thank you for your patience during this phase.',
+	'beta_publique' => '<strong>Seenthis Beta version.</strong><br />You can subscribe and participate. Thank you for your patience during this phase.',
 	'bookmarklet_descriptif' => 'How to use: when you visit the web page of an article you wish to reference, select the text abstract you want to quote, and click on the bookmarklet.',
 	'bookmarklet_titre' => 'Drag and drop this bookmarklet on your bookmarks bar:',
 
@@ -48,7 +48,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// M
 	'me_suggerer_contacts' => 'Suggest contacts',
-	'message_inscription' => '<strong>Free sign-up</strong><br>Your password will be immediately sent to your email address.',
+	'message_inscription' => '<strong>Free sign-up</strong><br />Your password will be immediately sent to your email address.',
 	'message_suggerer' => '
 				<strong>New to Seenthis? You should begin by following some people.</strong>
 				<p>Click on the “Suggest Contacts” button to see the pages of other authors you might like. You can follow an author by clicking on the “Follow...” button at the top of their page. The more choices you make, the more accurate the contact suggestions will be!</p>

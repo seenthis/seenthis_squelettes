@@ -24,7 +24,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'auteurs_vous_suivez' => 'De auteurs die je volgt',
 
 	// B
-	'beta_publique' => '<strong>Seenthis is in openbaar beta-ontwikkelingsphase.</strong><br>Je mag je inschrijven en medoen, wees al bedankt voor je geduld en goede wil tijdens dit phase.',
+	'beta_publique' => '<strong>Seenthis is in openbaar beta-ontwikkelingsphase.</strong><br />Je mag je inschrijven en medoen, wees al bedankt voor je geduld en goede wil tijdens dit phase.',
 	'bookmarklet_descriptif' => 'Gebruiksaanwijzing : op de pagina van een artikel die je wilt aanwijzen, mag je een deel van de tekst selecteren (citaat) en op je bookmarklet klikken.  Seenthis wordt dan geopend en je boodschap is automatisch ingevuld met de naam van de website, de URL en de geselecteerde tekst (citaat).',
 	'bookmarklet_titre' => 'Glijd de bookmarklet uit naar je  favorieten menu :',
 
