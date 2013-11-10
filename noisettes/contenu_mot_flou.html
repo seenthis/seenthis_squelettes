@@ -8,7 +8,7 @@
 	|concat{[ (#ID_PARENT|replace{^0$}|sinon{#ID_ME})]})]})
 ]</BOUCLE_tous_mots>
 
-<BOUCLE_me(ME){id_me IN #GET{messages}|explode{' '}}{statut=publi}{doublons pourmots}{!par date}{0,200} />
+<BOUCLE_me(ME){id_me IN #GET{messages}|explode{' '}|array_filter}{statut=publi}{doublons pourmots}{!par date}{0,200} />
 
 
 	<BOUCLE_mots(spip_me_tags){id_me IN #DOUBLONS{mepourmots}}
