@@ -256,7 +256,7 @@ function couleur_chroma ($coul, $num) {
 	return $couleurs;
 }
 
-function afficher_miniature($img, $max = 200) {
+function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 	include_spip('inc/distant');
 
 	if (preg_match(',\.svg$,i', $img)) {
@@ -281,14 +281,14 @@ function afficher_miniature($img, $max = 200) {
 		# a noter : ce id_me est le numero du message qu'on cree OU DU PARENT
 		include_spip('inc/acces');
 		$i = 1; #$GLOBALS['visiteur_session']['id_auteur'];
-		$sec = afficher_low_sec($i, "miniature $max $cvt $id_me");
+		$sec = afficher_low_sec($i, "miniature $maxw $cvt $id_me");
 		$url = generer_url_action('creer_miniature');
 		$url = parametre_url($url, 'id_auteur', $i);
 		$url = parametre_url($url, 'id_me', $id_me);
 		$url = parametre_url($url, 'img', $cvt);
-		$url = parametre_url($url, 'max', $max);
+		$url = parametre_url($url, 'max', $maxw);
 		$url = parametre_url($url, 'sec', $sec);
-		return "<div style=\"max-width:".$max."px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img' class='display_box'$box><img src='$url' alt=\"". attribut_html($img)."\" style=\"max-width:${max}px;\" /></a></div>";
+		return "<div style=\"max-width:".$maxw."px; max-height:".$maxh."px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img' class='display_box'$box><img src='$url' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" /></a></div>";
 	}
 
 	//
