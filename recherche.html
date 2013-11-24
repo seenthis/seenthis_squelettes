@@ -64,7 +64,7 @@
 		<B_enfants>
 			<ul>
 		<BOUCLE_enfants(spip_me_tags)
-		{tag LIKE #(#ENV{recherche})%}
+		{tag LIKE #(#ENV{recherche}|likeq)%}
 		{class=#}
 		{fusion tag}
 		{par tag}

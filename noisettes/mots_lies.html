@@ -7,7 +7,7 @@
 ]
 
 
-<BOUCLE_tous_mots(spip_me_tags spip_me){tag like #TAG*%}
+<BOUCLE_tous_mots(spip_me_tags spip_me){tag like (#TAG*|likeq)%}
 {!par date}
 {0,150}
 >

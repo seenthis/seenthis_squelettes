@@ -18,7 +18,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 	#SET{tag,#TAG*%}
 })]
 <BOUCLE_tag(ME spip_me_tags)
-	{tag like #GET{tag}}
+	{tag like (#GET{tag}|likeq)}
 	{statut=publi}
 	{!par date}
 	{0,1000}

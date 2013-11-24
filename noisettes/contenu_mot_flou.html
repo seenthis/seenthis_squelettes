@@ -1,7 +1,7 @@
 #CACHE{0}
 
 <BOUCLE_tous_mots(spip_me_tags spip_me)
-{tag like #TAG*%}
+{tag like (#TAG*|likeq)%}
 {!par date}
 {0,500}
 >[(#SET{messages,[(#GET{messages}

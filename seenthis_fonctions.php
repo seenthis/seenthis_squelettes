@@ -555,13 +555,17 @@ function elaguer_arbre_successeurs($x) {
 	return $l;
 }
 
+// escape pour like
+function likeq($m) {
+	return str_replace(array('&amp;', '_','%',"'"), array('&', '\\_', '\\%','\\\''), $m);
+}
+
 function successeurs($mot) {
 	if (strlen($mot) < 2) return array();
 
-	$motq = str_replace(array('&amp;', '_','%',"'"), array('&', '\\_', '\\%','\\\''), $mot);
-
 	$a = array();
 	$d = mb_strlen($mot);
+	$motq = likeq($mot);
 
 	$s = sql_query("SELECT DISTINCT(tag)
 	FROM spip_me_tags
