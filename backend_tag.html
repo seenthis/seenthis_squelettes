@@ -12,13 +12,13 @@ version="1.0"[ encoding="(#CHARSET)"]?>
         <link rel="self" href="[(#SELF|url_absolue)]" />
 
 #SET{parents,#ARRAY}
-[(#TAG|match{\$$}|?{
-	[(#SET{tag,[(#TAG*|replace{\$})]})]
+[(#TAG*|match{\$$}|?{
+	[(#SET{tagq,[(#TAG*|likeq|replace{\$})]})]
 ,
-	#SET{tag,#TAG*%}
+	[(#SET{tagq,[(#TAG*|likeq)%]})]
 })]
 <BOUCLE_tag(ME spip_me_tags)
-	{tag like (#GET{tag}|likeq)}
+	{tag like (#GET{tagq})}
 	{statut=publi}
 	{!par date}
 	{0,1000}
