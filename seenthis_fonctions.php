@@ -256,6 +256,16 @@ function couleur_chroma ($coul, $num) {
 	return $couleurs;
 }
 
+function copie_locale_safe($source, $mode='auto') {
+	if (!copie_locale($source, 'test')
+	AND $u = parametre_url($source, 'var_hasard', rand(0,10000000))
+	AND $a = copie_locale($u, $mode)) {
+		rename($a, _DIR_RACINE.fichier_copie_locale($source));
+	}
+
+	return copie_locale($source, $mode);
+}
+
 function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 	include_spip('inc/distant');
 
@@ -274,7 +284,7 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 	//
 	// chargement asynchrone ?
 	//
-	if (!$vignette = copie_locale($cvt, 'test')
+	if (!$vignette = copie_locale_safe($cvt, 'test')
 	AND $id_me = _request('id_me')
 	AND $GLOBALS['visiteur_session']['id_auteur'] > 0  # eviter sur l'API
 	) {
@@ -294,7 +304,7 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 	//
 	// chargement synchrone
 	//
-	$vignette = copie_locale($cvt);
+	$vignette = copie_locale_safe($cvt);
 
 	list($width, $height) = @getimagesize($vignette);
 

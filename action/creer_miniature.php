@@ -11,7 +11,7 @@ function action_creer_miniature_dist() {
 		include_spip('seenthis_fonctions');
 		include_spip('inc/distant');
 		spip_log('debut copie locale '.$img, 'distant');
-		if (copie_locale($img)
+		if (copie_locale_safe($img)
 		AND $image = afficher_miniature($img,$max)
 		AND $miniature = extraire_balise($image,'img')) {
 			spip_log('fin copie locale '.$img, 'distant');
