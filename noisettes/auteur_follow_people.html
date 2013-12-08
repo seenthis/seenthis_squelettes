@@ -5,7 +5,7 @@
 	<B_follow>
 	<div class="following following_people">
 	<h3><span class="vous_suivez"><:seenthis:vous_suivez:></span> <strong>#TOTAL_BOUCLE</strong></h3>
-	<BOUCLE_follow(spip_me_follow){id_follow=#ENV{id}}>
+	<BOUCLE_follow(spip_me_follow){id_follow=#ENV{id}}{id_auteur>0}>
 		[(#SET{follow_people, #GET{follow_people}|push{#ID_AUTEUR}})]
 	</BOUCLE_follow>
 	
