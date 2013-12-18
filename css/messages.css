@@ -526,7 +526,22 @@ ul#messages, ul.messages {
 			}
 		}
 		
-		
+		.spip_code {
+			color: #555;
+		}
+		code.spip_code {
+			background: #eee;
+		}
+		div.spip_code:nth-child(2n) {
+			background:#eee;
+		}
+		div.spip_code:nth-child(2n+1) {
+			background:#ddd;
+		}
+		div.spip_code {
+			border-left: solid 1px #999;
+			padding-left:0.6em;
+		}
 
 		div.conteneur_reponses {
 			background: url(../imgs/fond-bas-reponses.png) bottom left repeat-x;
