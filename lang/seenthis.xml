@@ -20,8 +20,9 @@
 	<langue code="fr_tu" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="74" traduits="71" relire="0" modifs="0" nouveaux="3" pourcent="95.95">
 		<traducteur nom="James" lien="http://trad.spip.net/auteur/james" />
 	</langue>
-	<langue code="nl" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=nl" total="74" traduits="71" relire="0" modifs="0" nouveaux="3" pourcent="95.95">
+	<langue code="nl" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=nl" total="74" traduits="74" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="ARNO*" lien="http://trad.spip.net/auteur/arno-7003" />
+		<traducteur nom="Hanjo" lien="http://trad.spip.net/auteur/hanjo" />
 		<traducteur nom="lapeg" lien="http://trad.spip.net/auteur/lapeg" />
 		<traducteur nom="Suske" lien="http://trad.spip.net/auteur/suske" />
 	</langue>
