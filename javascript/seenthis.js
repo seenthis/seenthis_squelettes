@@ -13,9 +13,17 @@ else language = "fr";
 
 var traduire_avec_google = "traduire avec Google";
 
+// preparer migration vers jQuery 1.9
+if (typeof $.fn.live == 'undefined') {
+ $.fn.live = function( types, data, fn ) {
+  $( this.context ).on( types, this.selector, data, fn );
+  return this;
+ };
+}
+
 $('#messages li').live('mouseover', function() {
 	var me=$(this),r,id_me;
-	if (!(r = me.attr('id').match(/message(\d+)/))
+	if (!(r = (me.attr('id') ||'').match(/message(\d+)/))
 	|| me.hasClass('cooked'))
 		return;
 	id_me = r[1];

@@ -386,16 +386,6 @@ function retour_mots_lies($rien) {
 }
 
 
-function retour_mots_lies_wordle($rien) {
-	arsort($GLOBALS["mots_lies"]);
-	foreach($GLOBALS["mots_lies"] as $id_mot => $k) {
-		if ($k > 1 && strlen(trim($GLOBALS["mots_lies_titre"]["$id_mot"]))>0) {
-			$ret .= $GLOBALS["mots_lies_titre"]["$id_mot"].":$k\n";
-		}
-	}
-	return $ret;
-}
-
 $GLOBALS["stocker_type"] = array();
 function stocker_type($id, $type) {
 	$GLOBALS["stocker_type"]["$type"][] = $id;
