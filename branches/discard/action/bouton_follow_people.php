@@ -1,9 +1,24 @@
 <?php
 
+function _menage($id_auteur, $id_follow) {
+		job_queue_add('calculer_troll', 'Troll auteur '.$id_auteur, array($id_auteur, true));		
+		
+		supprimer_microcache($id_follow, "noisettes/auteur_follow_people");
+		supprimer_microcache($id_follow, "noisettes/auteur_follow_people_big");
+		supprimer_microcache($id_follow, "noisettes/auteur_followed");
+		cache_auteur($id_follow);
+		
+		supprimer_microcache($id_auteur, "noisettes/auteur_follow_people");
+		supprimer_microcache($id_auteur, "noisettes/auteur_follow_people_big");
+		supprimer_microcache($id_auteur, "noisettes/auteur_followed");
+		cache_auteur($id_auteur);
+}
+
 function action_bouton_follow_people() {
 	$id_auteur = _request("id_auteur");
 	$id_follow = $GLOBALS['auteur_session']['id_auteur'];
 	$id_block = $id_follow;
+	$id_discard = $id_follow;
 
 	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
@@ -13,10 +28,28 @@ function action_bouton_follow_people() {
 		lang_select($row["lang"]);
 	}
 
-	
 	$follow = _request("follow");
 	$block = _request("block");
+	$discard = _request("discard");
 	
+	if($discard == "oui" OR $discard == "non") {
+		$statut_session = $GLOBALS["auteur_session"]["statut"];
+		if ($id_discard < 1) die();
+		$id_auteur = floor(_request("id_auteur"));
+		if ($id_auteur < 1) die();
+
+		if($discard = "oui") {
+			$session_discard = session_get('discard');
+			if(!isset($session_discard)) $session_discard = array();
+			if(array_push($session_discard, $id_auteur)) {
+				session_set('discard', $session_discard);
+			}
+		}
+
+		_menage($id_auteur, $id_follow);
+
+	}
+
 	if ($block == "oui" OR $block == "non") {
 		$statut_session = $GLOBALS["auteur_session"]["statut"];
 		if ($id_block < 1) die();
@@ -39,18 +72,8 @@ function action_bouton_follow_people() {
 			//job_queue_add('notifier_suivre_moi', "notifier_suivre_moi $id_auteur - $id_follow", array($id_auteur, $id_follow));
 		}
 
-		job_queue_add('calculer_troll', 'Troll auteur '.$id_auteur, array($id_auteur, true));		
-		
-		supprimer_microcache($id_follow, "noisettes/auteur_follow_people");
-		supprimer_microcache($id_follow, "noisettes/auteur_follow_people_big");
-		supprimer_microcache($id_follow, "noisettes/auteur_followed");
-		cache_auteur($id_follow);
-		
-		supprimer_microcache($id_auteur, "noisettes/auteur_follow_people");
-		supprimer_microcache($id_auteur, "noisettes/auteur_follow_people_big");
-		supprimer_microcache($id_auteur, "noisettes/auteur_followed");
-		cache_auteur($id_auteur);
-		
+		_menage($id_auteur, $id_follow);
+
 	}
 	
 	
@@ -79,18 +102,9 @@ function action_bouton_follow_people() {
 			//notifier_suivre_moi($id_auteur, $id_follow);
 			
 		}
-		
-		job_queue_add('calculer_troll', 'Troll auteur '.$id_auteur, array($id_auteur, true));		
-		
-		supprimer_microcache($id_follow, "noisettes/auteur_follow_people");
-		supprimer_microcache($id_follow, "noisettes/auteur_follow_people_big");
-		supprimer_microcache($id_follow, "noisettes/auteur_followed");
-		cache_auteur($id_follow);
-		
-		supprimer_microcache($id_auteur, "noisettes/auteur_follow_people");
-		supprimer_microcache($id_auteur, "noisettes/auteur_follow_people_big");
-		supprimer_microcache($id_auteur, "noisettes/auteur_followed");
-		cache_auteur($id_auteur);
+
+		_menage($id_auteur, $id_follow);
+
 	}	
 	
 	

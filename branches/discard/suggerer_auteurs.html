@@ -6,6 +6,7 @@
 	#SET{vus,#GET{vus}|push{#ID_AUTEUR}}
 	</BOUCLE_suivis>
 	<BOUCLE_vus(AUTEURS){tout}{id_auteur IN #GET{vus}}{doublons} />
+	<BOUCLE_discard(AUTEURS){tout}{id_auteur IN #SESSION{discard}}{doublons} />
 
 	<BOUCLE_quisuit(spip_me_follow)
 		{id_follow IN #DOUBLONS{auteurs}}
@@ -15,7 +16,6 @@
 	<BOUCLE_block(spip_me_block){id_block=#ID_AUTEUR}>
 		<BOUCLE_vus2(AUTEURS){id_auteur}{tous}{doublons}/>
 	</BOUCLE_block>
-	
 	
 	<B_amis>
 	<h2><:seenthis:vous_connaissez:></h2>
@@ -27,7 +27,9 @@
 			<span class="nom">#NOM</span>
 			<span class="login">@#LOGIN</span>
 		</a>
-		<br><a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a></div>
+		<br><a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a>
+		<a href="#" class="suivre discard ajax" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&discard=oui').fadeOut();$('#suggerer_auteurs').load('index.php?page=suggerer_auteurs');return false;">X</a>
+		</div>
 	</BOUCLE_amis>
 	</div>
 	</B_amis>
@@ -52,6 +54,7 @@
 			<span class="login">@#LOGIN</span>
 		</a>
 		<br><a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a>
+		<a href="#" class="suivre discard ajax" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&discard=oui').fadeOut();$('#suggerer_auteurs').load('index.php?page=suggerer_auteurs');return false;">X</a>
 		</div>
 	
 	</BOUCLE_populaires>
