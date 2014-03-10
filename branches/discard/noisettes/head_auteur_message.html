@@ -1,0 +1,22 @@
+#CACHE{0}
+<BOUCLE_auteur_message(AUTEURS){id_auteur=#ENV{id}}{tout}>
+<style><!--
+<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
+<INCLURE{fond=css/inscription}{couleur=#COULEUR}>
+.formulaire_inscription {
+	display: none;
+}
+
+[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+
+--></style>
+<script><!--
+var auteur_page = "#ID_AUTEUR";
+--></script>
+
+[<link rel="author" href="(#GPLUS)">]
+
+</BOUCLE_auteur_message>
+
+
+#FILTRE{mini_html}

@@ -1,0 +1,30 @@
+#CACHE{0}
+
+#SET{messages, #ARRAY{}}
+
+[(#REM) todo: remettre OpenCalais sur les sites ; ne marche plus… ]
+
+
+<BOUCLE_tous_liens(spip_me spip_me_tags){tag}{off!=oui}>
+	[(#ID_PARENT|>{0}|?{" ",""})
+		[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
+	]
+	[(#ID_PARENT|>{0}|?{""," "})
+		[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
+	]
+</BOUCLE_tous_liens>
+
+
+<B_messages>
+[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+<ul id="messages">
+<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{troll>1}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
+	<li id="message#ID_ME">
+	[(#ID_ME|microcache{noisettes/afficher_message})]
+	</li>
+</BOUCLE_messages>
+</ul>
+[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+</B_messages>
+</BOUCLE_principale>
+#FILTRE{mini_html}

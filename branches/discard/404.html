@@ -1,0 +1,103 @@
+#HTTP_HEADER{#VAL{"HTTP/1.0 "}|concat{#ENV{code,"404 Not Found"}}}
+#HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
+#HTTP_HEADER{Pragma: no-cache}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>[(#ENV{recherche}|mb_strtolower{UTF-8}|textebrut)]</title>
+
+	<meta charset="#CHARSET">
+	
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT">
+	
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr}>
+
+	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
+		[(#SET{couleur,#COULEUR})]
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
+		--></style>
+	</BOUCLE_auteur_message>
+		[(#SET{couleur,dc2400})]
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=dc2400}>
+		--></style>
+	<//B_auteur_message>
+	[(#SET{couleur,dc2400})]
+	
+	<script><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	var id_mot = "#ID_MOT";
+
+	--></script>
+	
+</head>
+<body class="plier mot">
+
+
+<INCLURE{fond=inc/entete}>
+
+<div id="principale"><div>
+
+	<div id="entete_people">
+
+	
+		<header>
+		<h1>Oopsie daisy! 404 error  [- searching for (#REM|mot_chemin)]</h1>
+		</header>
+	
+		<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{1}|decaler_date)]">Depuis hier</a>
+		|
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{7}|decaler_date)]">Depuis une semaine</a>
+		|
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{31}|decaler_date)]">Depuis un mois</a>
+		|
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{92}|decaler_date)]">Depuis trois mois</a>
+		|
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{183}|decaler_date)]">Depuis six mois</a>
+		|
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{365}|decaler_date)]">Depuis un an</a>
+		|
+		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=0000-00-00">Sans limite</a>
+		</div>
+		
+		[(#REM)
+			<div class="rss"><a href="index.php?page=backend_mot&id_mot=#ID_MOT">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
+		]
+
+	</div>
+
+	<div id="centre">
+		
+		[(#INCLURE{fond=inc/inc-recherche}{recherche=[(#REM|mot_chemin)]*}{ajax}{env})]
+
+	</div>
+	
+	<aside id="droite">
+
+		<div class="following following_big">
+		<BOUCLE_auteurs(AUTEURS){tous}{recherche}{par points}{inverse}>
+		<div class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
+			<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="">
+			<span class="nom">#NOM</span>
+			<span class="login">@#LOGIN</span>
+		</a></div>
+		</BOUCLE_auteurs>
+		</div>
+		
+
+
+		[(#SESSION{id_auteur}|?{""," "})
+			[(#GET{couleur}|microcache{noisettes/adsense})]
+		]
+
+
+		&nbsp;
+	</aside>
+
+</div></div>
+</body>
+</html>
+#FILTRE{mini_html}

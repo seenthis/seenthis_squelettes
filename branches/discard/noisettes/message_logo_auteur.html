@@ -1,0 +1,5 @@
+#CACHE{0}
+<BOUCLE_auteur_reponse_logo(AUTEURS){tout}{id_auteur=#ID}>
+		[<div class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)"[ rel="(#ID_AUTEUR|rel_troll)"]><img src="(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})"  alt=""></a></div>]
+</BOUCLE_auteur_reponse_logo>
+#FILTRE{mini_html}

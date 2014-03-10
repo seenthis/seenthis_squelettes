@@ -1,0 +1,37 @@
+﻿#CACHE{0}
+<BOUCLE_principale(spip_me){id_me=#ENV{id}}{statut=publi}>
+<section class="auteur#ID_AUTEUR">
+	<INCLUDE{fond=noisettes/afficher_un_message}{id=#ID_ME} />
+
+
+	<B_reponses>
+	<div class="conteneur_reponses">
+	<ul class="reponses">
+	
+	<BOUCLE_reponses(spip_me){id_parent=#ID_ME}{par date}{statut=publi}>
+		<li class="reponse">
+		<INCLUDE{fond=noisettes/afficher_un_message}{id=#ID_ME} />
+		</li>
+	</BOUCLE_reponses>
+	</ul>
+	</div>
+	</B_reponses>
+
+			<div class="bouton_repondre"><a href="#" rel="#ID_ME"><:seenthis:ecrire_commentaire:></a></div>
+	
+	<a name="repondre#ID_ME"></a>
+	<div class="repondre" id="repondre#ID_ME">
+	[(#FORMULAIRE_POSTER_MESSAGE{0, #ID_ME})]
+	</div>
+
+</section>
+</BOUCLE_principale><BOUCLE_efface(spip_me){id_me=#ENV{id}}{statut==.*}>
+
+[(#REM) Tout autre statut que "publi" correspond a un message efface ]
+	<section>
+	<h1>Message effacé</h1>
+	</section>
+
+</BOUCLE_efface><//B_principale>
+
+#FILTRE{mini_html}

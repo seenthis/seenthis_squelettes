@@ -1,0 +1,19 @@
+#CACHE{0}
+<BOUCLE_principale(ME){id_me=#ENV{id}}>
+<message>
+<BOUCLE_qui(AUTEURS){id_auteur}{tous}><author href="[(#URL_AUTEUR|url_absolue)]"><![CDATA[[(#NOM|interdire_scripts)]]]></author></BOUCLE_qui>
+<date>[(#DATE|date_iso)]</date>
+<text>[(#TEXTE*|cdata)]</text>
+<B_mots><tags>
+<BOUCLE_mots(spip_me_tags){id_me}{class='#'}{fusion tag}{par tag}>
+[<tag href="[(#URL_TAG|url_absolue)]">(#TAG*|replace{#}|cdata)</tag>]
+</BOUCLE_mots></tags></B_mots>
+<B_liens>
+<urls>
+<BOUCLE_liens(spip_me_tags){id_me}{class=url}{fusion tag}>
+[<url href="[(#URL_TAG|url_absolue)]">(#TAG*|cdata)</url>]
+</BOUCLE_liens>
+</urls>
+</B_liens>
+</message>
+</BOUCLE_principale>

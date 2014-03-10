@@ -1,0 +1,98 @@
+#CACHE{0}<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}><!DOCTYPE html>
+<html>
+<head>
+
+	<title>[(#NOM_SITE_SPIP|textebrut)][ - (#NOM|textebrut)]</title>
+
+	<!--[(#LANG|lang_select)]-->
+
+	<meta charset="#CHARSET">
+
+	<link rel="alternate" type="application/rss+xml" title="General RSS for [(#NOM|textebrut)]" href="#URL_SITE_SPIP/#URL_AUTEUR/follow/feed">
+
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr}>
+	
+	<style><!--
+	<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
+
+	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+
+
+	.auteurs_conseiller {
+		font-weight: normal;
+		font-size: 0.9em;
+		width: 580px;
+	}
+	.auteurs_conseiller p {
+		margin: 0.5em 0;
+	}
+	--></style>
+	
+
+	<script><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	--></script>
+	
+</head>
+<body class="accueil plier">
+
+<INCLURE{fond=inc/entete}>
+
+<div id="principale"><div>
+
+		<BOUCLE_test5(spip_me_follow){id_follow=#SESSION{id_auteur}}{5,1}>
+		</BOUCLE_test5>
+		
+		
+		<div id="entete_people">
+			<div id="lien_suggerer_auteurs">
+				<a class="bouton_suggerer" onclick="$(this).hide(); $('#suggerer_auteurs').load('index.php?page=suggerer_auteurs'); return false;" href="#">Me suggérer des contacts</a>
+			</div>
+
+			<h3 class="auteurs_conseiller">
+				<:seenthis:message_suggerer:>
+			</h3>
+			<div id="suggerer_auteurs"></div>
+		</div>
+		<//B_test5>
+
+
+	<div id="centre">
+		<div id="tetiere">
+			[<div class="formulaire_principal">(#FORMULAIRE_POSTER_MESSAGE)</div>]
+		</div>
+
+		<div id="tous_messages">
+		<INCLURE{fond=noisettes/contenu_accueil}{id=#ID_AUTEUR}{env}>
+		</div>
+	
+
+	</div>
+
+	<aside id="droite">
+		<INCLURE{fond=inc/alire}>
+	
+		<div id="bookmarklet">
+		<strong class="bookmarklet_titre">&nbsp;</strong><br>
+		<a class="bkl" href="javascript:var%20titre=document.title;var%20txt='';if(window.getSelection){txt=window.getSelection();}else%20if(document.getSelection){txt=document.getSelection();}else%20if(document.selection){txt=document.selection.createRange().text;}var%20url=document.location+'';void(btw=window.open('http://[(#EVAL{_HOST})]/#ajouter='+(encodeURIComponent(titre))+'&url_site='+encodeURIComponent(url.replace('%2520','+'))+'&extrait='+(encodeURIComponent(txt))))">+&nbsp;#NOM_SITE_SPIP</a>
+		<br>
+		
+		<span class="bookmarklet_descriptif">&nbsp;</span>
+		
+		</div>
+
+
+	
+		<div id="alertes"></div>
+	
+	
+			
+	</aside>
+
+</div></div>
+</body>
+</html>
+</BOUCLE_auteur>
+#FILTRE{mini_html}

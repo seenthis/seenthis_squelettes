@@ -1,0 +1,31 @@
+<div id="fond_degrade"></div>
+<nav id="entete">
+
+	<div class="seenthis"><a href="#URL_SITE_SPIP/"><img src="[(#CHEMIN{rien.gif})]" alt="Seenthis"></a></div>
+
+	<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}|sinon{0}}>
+		<div class="liens logout"><a href="#URL_LOGOUT" class="symbole"><img src="[(#CHEMIN{imgs/quit.png})]" alt="Quit"></a><a href="#URL_LOGOUT" class="intitule"></a></div>
+		<div class="liens profile"><a href="index.php?page=profil" class="symbole"><img src="[(#CHEMIN{imgs/profil.png})]" alt="Prefs"></a><a href="index.php?page=profil" class="intitule"></a></div>
+		<div class="liens accueil"><a href="#URL_SITE_SPIP/"></a></div>
+		<div class="liens perso">
+			<a href="#URL_AUTEUR">
+				[<img alt="@#LOGIN" src="(#LOGO_AUTEUR|image_passe_partout{24,24}|image_recadre{24,24}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{24})]})" style="width: 24px; height: 24px;" height="24" width="24">]
+				<span class="nom_auteur">#LOGIN</span>
+			</a>
+		</div>
+		<div class="liens people"><a href="people" class="symbole"><img src="[(#CHEMIN{imgs/people.png})]" alt="People"></a><a href="people" class="intitule"></a></div>
+		<div class="liens tags"><a href="tags" class="symbole"><img src="[(#CHEMIN{imgs/themes.png})]" alt="Tags"></a><a href="tags" class="intitule"></a></div>
+		<div class="liens urls"><a href="sites" class="symbole"><span class="triangle"><img src="[(#CHEMIN{imgs/sites.png})]" alt="Sites"></span></a><a href="sites" class="intitule"></a></div>
+		
+		
+		#FORMULAIRE_RECHERCHE
+		
+	</BOUCLE_auteur>
+			<div class="liens accueil"><a href="#URL_SITE_SPIP"></a></div>
+			#FORMULAIRE_RECHERCHE
+	
+		<div id="interface_connexion"><INCLURE{fond=pave_connexion}{lang=fr}{env}></div>
+	<//B_auteur>
+		<INCLURE{fond=analytics}>
+
+</nav>

@@ -1,0 +1,19 @@
+[(#REM)
+	Backend ATOM d'un auteur, avec differentes variantes selon qu'on 
+	l'appelle en /only, /follow, /all
+
+
+][(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml  version="1.0"[ encoding="(#CHARSET)"] ?>
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID_AUTEUR}>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
+	<title>#NOM (@#LOGIN) - Seenthis[ ((#VARIANTE))]</title>
+	<link href="[(#URL_AUTEUR|url_absolue)]"/>
+	<id>[(#URL_AUTEUR|url_absolue)]</id>
+	<updated>[(#DATE|date_iso)]</updated>
+	<link rel="self" href="[(#SELF|url_absolue)]" />
+
+<BOUCLE_messages(DATA){source seenthisbackend,#ENV**,#VARIANTE}{0,25}>
+	[(#VALEUR|microcache{noisettes/atom_me#ENV{twitter}})]
+</BOUCLE_messages>
+</feed>
+</BOUCLE_auteur>

@@ -1,0 +1,101 @@
+#CACHE{0}
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#SESSION{id_auteur}}>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)] - [(#NOM|textebrut)]</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr}>
+	<style><!--
+	<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
+
+	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+	
+	
+	#resultat_recherche_site {
+		margin-top: 10px;
+		font-size: 80%;
+	}
+	#resultat_recherche_site ul li {
+		margin-bottom: 4px;
+	}
+	#resultat_recherche_site ul li .lien_lien {
+		padding-left: 0px;
+	}
+	
+	--></style>
+
+	<script><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	
+	function chercher_site() {
+		var chercher = $("#recherche_site").attr("value");
+		$("#resultat_recherche_site").html("...").load("index.php?page=rechercher_site&recherche="+chercher);
+	}
+	--></script>
+	
+	
+	<style>
+	</style>
+	
+</head>
+<body class="tags plier">
+
+<INCLURE{fond=inc/entete}>
+
+
+<div id="principale"><div>
+
+	<div id="entete_people">
+
+		<h1 class="urls_vous_suivez">&nbsp;</h1>
+		
+		
+
+<!--
+	<div id="rechercher_site" class="formulaire_recherche">
+		<form action="spip.php?page=recherche" method="get" onsubmit="chercher_site();return false;">
+		<div>
+			<input name="page" value="recherche" type="hidden">
+			<input type="text" class="text" size="10" name="recherche" id="recherche_site" accesskey="4">
+			<input type="image" src="squelettes/imgs/search.png" class="submit" value="&gt;&gt;" title="Rechercher">
+		</div>
+		</form>
+	</div>
+	<div id="resultat_recherche_site"></div>
+
+-->
+
+
+	</div>
+
+	<div id="centre">
+		<div id="tous_messages">
+		<INCLURE{fond=noisettes/contenu_page_sites,id=#ID_AUTEUR,env} />
+		</div>
+
+	</div>
+
+	<aside id="droite">
+	
+	<B_follow_url>
+		<ul>
+	<BOUCLE_follow_url(spip_me_follow_tag){tag like h%}{fusion tag}{id_follow=#ID_AUTEUR}>
+		<li>
+	<span class="lien_lien">[<span class="lien_lien_total"><a href="/sites/(#TAG*|md5)">►</a></span>][<a href="/sites/(#TAG*|md5)]">[(#TAG*|lien_court)]</a></span>
+		</li>
+	</BOUCLE_follow_url>
+		</ul>
+	</B_follow_url>
+
+	</aside>
+
+	<div class="clear-left"></div>
+</div></div>
+</body>
+</html>
+</BOUCLE_auteur>
+#FILTRE{mini_html}

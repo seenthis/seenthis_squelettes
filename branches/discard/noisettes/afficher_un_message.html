@@ -1,0 +1,51 @@
+#CACHE{0}
+<BOUCLE_me(spip_me){id_me=#ID}><article>
+		<a name="message#ID_ME"></a>
+		
+		[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur})]
+		[(#SET{nom_auteur,
+		#INCLURE{fond=noisettes/message_nom_auteur}{id_auteur}})]
+
+		<div class="texte_reponse auteur#ID_AUTEUR">
+
+
+			<div class="stumble">[<a href="http://www.stumbleupon.com/submit?url=(#ID_ME|share_lien)" class="spip_out" rel="nofollow" title="StumbleUpon"><img src="#CHEMIN{imgs/stumble.png}" width="14" height="14" alt=""></a>]</div>
+			<div class="facebook">[<a href="(#ID_ME|share_fb{#[(#TEXTE*)]})" class="spip_out" rel="nofollow" title="Facebook"><img src="#CHEMIN{imgs/facebook.gif}" width="14" height="14" alt=""></a>]</div>
+			<div class="twitter">[<a href="http://twitter.com/intent/tweet?text=(#ID_ME|share_tw{[(#TEXTE*)]}|rawurlencode)" class="spip_out" rel="nofollow" title="Twitter"><img src="#CHEMIN{imgs/twitter.png}" width="16" height="13" alt=""></a>]</div>
+
+
+			<div class="auteur_date">
+				#GET{nom_auteur}
+
+				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)]</time></a></span>
+
+				[(#ID_PARENT|=={0}|?{#INCLURE{fond=noisettes/favoris,id_me}})]
+			</div>
+
+			<div  id="texte#ID">[(#ID_ME|microcache{noisettes/message_texte}|ajouter_embed)]</div>
+		
+
+			[(#REM) plugin seenthis_opencalais]
+			[(#PLUGIN{seenthisoc}|?{
+				[(#INCLURE{fond=noisettes/message_tags_oc,id})]
+			})]
+
+			<div class="commandes">
+				<div class="supprimer"><a
+					onclick="$('#texte#ID').fadeOut().load('index.php?action=delete&amp;id_me=#ID_ME'); return false;"
+					href="#" 
+					rel="^(#ID_AUTEUR<BOUCLE_racine(spip_me){id_me=#ID_PARENT}>|#ID_AUTEUR</BOUCLE_racine>)$"></a>
+				</div>
+				<div class="modifier"><a
+					onclick="$('#texte#ID').load('index.php?page=modifier_me&amp;id_me=#ID_ME&amp;x=' + (new Date()).getTime() ); if ($('#texte#ID').offset().top >= (scrolltop = self['pageYOffset'] || $.boxModel && document.documentElement[ 'scrollTop' ] || document.body[ 'scrollTop' ])) return false;"	
+					href="#message#ID" rel="#ID_AUTEUR"></a>
+				</div>
+				
+				#GET{nom_auteur}
+
+			</div>
+	
+		</div>	
+</article>
+</BOUCLE_me>
+#FILTRE{mini_html}

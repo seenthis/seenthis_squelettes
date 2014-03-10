@@ -1,0 +1,167 @@
+#CACHE{0}
+<BOUCLE_principale(SYNDIC){id_syndic}{tout}>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>[(#TITRE|sinon{#URL_SITE}|textebrut)]</title>
+
+	<meta charset="#CHARSET">
+	<link rel="canonical" href="[(#ID_SYNDIC|generer_url_entite{site}|url_absolue)]">
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr}>
+
+	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
+		[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+		--></style>
+	</BOUCLE_auteur_message>
+		<style><!--
+		<INCLURE{fond=css/couleur}{couleur=54dd24}>
+		--></style>
+	<//B_auteur_message>
+
+
+	<script><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	
+	if (auteur_connecte > 0) {
+		$(document).ready(function(){
+			$("#follow_url").load("index.php?action=bouton_follow_url&id_syndic=#ID_SYNDIC");
+		});
+	}
+	
+	--></script>
+	
+	<style>
+	#enfants_sites {
+		margin-top: 20px;
+		margin-left: -20px;
+		font-size: 90%;
+		max-height: 400px;
+		overflow: auto;
+	}
+	#enfants_sites ul li ul {
+		margin-left: 20px;
+		display: none;
+	}
+	#enfants_sites ul li:hover>ul {
+		display: block;
+	}
+	#entete_people h2 {
+		margin-top: 0;
+	}
+	</style>
+	
+</head>
+<body class="site plier">
+
+<INCLURE{fond=inc/entete}>
+
+
+<div id="principale"><div>
+
+	<div id="entete_people">
+
+
+	[(#SET{url_racine,""})]
+
+
+	<ul class="parents_url">
+	<BOUCLE_parent(SYNDIC){id_syndic=#ID_PARENT}>
+		<BOUCLE_parent2(BOUCLE_parent) />
+	
+		<li>
+			<!-- #ID_PARENT --> 
+				<a href="[(#ID_SYNDIC|generer_url_entite{site})]">[(#URL_SITE|replace{#GET{url_racine}})]</a>
+			[(#SET{url_racine,#URL_SITE})]
+		</li>
+	</BOUCLE_parent>
+	</ul>
+
+
+
+		<div class="outils">
+			<div class="suivre">
+				<div id="follow_url"></div>
+			</div>
+		</div>
+
+
+	[(#TITRE|oui)
+		<h1>#TITRE</h1>
+		<h2>[(#URL_SITE|replace{#GET{url_racine}}|mb_substr{0,40,utf-8})]</h2>
+	]
+
+	[(#TITRE|non)
+		<h1>[(#URL_SITE|replace{#GET{url_racine}}|mb_substr{0,40,utf-8})]</h1>
+	]
+
+	[(#ID_SYNDIC|microcache{noisettes/afficher_enfants_site})]
+
+
+	[(#SET{follow,#ENV{follow}})]
+	[(#ENV{follow}|non)
+		[(#SET{follow,all})]
+	]
+	[(#SESSION{id_auteur}|non)
+		[(#SET{follow,all})]
+	]
+	
+
+		[(#SESSION{id_auteur}|oui)
+		<div class="limite_date">
+		<a href="sites/[(#ID_SYNDIC|parametre_url{follow,#SESSION{login}})]"[(#GET{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
+		|
+		<a href="sites/[(#ID_SYNDIC|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
+		|
+		<a href="[(#ID_SYNDIC|generer_url_entite{site})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+		</div>
+		]
+
+
+	
+	</div>
+
+
+	
+
+	<div id="centre">
+
+		<div id="tous_messages">
+		[(#ENV{debut_messages}|>{10}|non)
+			[(#GET{follow}|=={all}|oui)
+				[(#ID_SYNDIC|microcache{noisettes/contenu_site})]
+			]
+			[(#GET{follow}|=={all}|non)
+				<INCLURE{fond=noisettes/contenu_site}{id=#ID_SYNDIC}{follow=#GET{follow}}>
+			]
+		]
+		[(#ENV{debut_messages}|>{10}|oui)
+				<INCLURE{fond=noisettes/contenu_site}{id=#ID_SYNDIC}{follow=#GET{follow}}>
+		]
+
+		</div>
+	
+	</div>
+	
+	<aside id="droite">
+
+		[(#SESSION{id_auteur}|?{""," "})
+			[(#INCLUDE{fond=noisettes/adsense_site})]
+		]
+
+		[(#REM) plugin seenthis_opencalais]
+		[(#PLUGIN{seenthisoc}|?{
+			[(#INCLURE{fond=noisettes/oc_site,id=#ID_SYNDIC})]
+		})]
+
+	</aside>
+
+	<div class="clear-left"></div>
+</div></div>
+</body>
+</html>
+</BOUCLE_principale>
+#FILTRE{mini_html}

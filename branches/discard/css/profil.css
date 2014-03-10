@@ -1,0 +1,52 @@
+
+.formulaire_profil {
+	background-color: #ded7d7;
+
+
+	h3 {
+		font-weight: normal;
+		margin-left: 100px;
+	}
+
+	ul {
+		li {
+		
+			padding: 20px 20px;
+			margin-left: 250px;
+			clear: left;
+			
+			label {
+				display: block;
+				width: 230px;
+				margin-left: -250px;
+				text-align: right;
+				float: left;
+				font-size: 0.8em;
+				line-height: 1.2em;
+				text-shadow: white 1px 1px 0px;
+			}
+			
+			input.text {
+				display: block;
+				width: 600px;
+				font-size: 1.2em;
+				padding: 3px 5px;
+				border: 1px solid #c4bcbc;
+				-spip-border-radius: 4px;
+			}
+			input[name=nom] {
+				width: 350px;
+				font-size: 1.5em;
+			}
+			
+		}
+	}
+	
+	p.boutons {
+		background-color: #635A5A;
+		padding: 20px;
+		padding-right: 150px;
+		text-align: right;
+	}
+
+}

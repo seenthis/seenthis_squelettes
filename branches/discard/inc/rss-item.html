@@ -1,0 +1,31 @@
+
+<BOUCLE_un_message(spip_me){id_me}{tous}>
+	<item[ xml:lang="(#LANG)"]>
+		<title>[(#TEXTE*|extraire_titre|supprimer_tags|texte_backend)]</title>
+
+		<link>#URL_SITE_SPIP/messages/#ID_ME</link>
+		<guid isPermaLink="true">#URL_SITE_SPIP/messages/#ID_ME</guid>
+		[<dc:date>(#DATE|date_iso)</dc:date>]
+		<dc:format>text/html</dc:format>
+		[<dc:language>(#LANG)</dc:language>]
+<BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID_AUTEUR}>
+		[<dc:creator>(#NOM|supprimer_tags|texte_backend)</dc:creator>]
+</BOUCLE_auteur>
+
+[(#REM)
+	Le bloc qui suit diffuse les mots-cles a la mode RSS
+
+]
+
+		<description>[(#TEXTE|couper{250}|typo|texte_backend)]</description>
+
+[(#REM)
+	Le bloc qui suit diffuse aussi le texte integral de l'article,
+	ce qui permet une syndication plus riche (mais plus "lourde").
+	Fonction desactivable depuis les reglages du site.
+]
+<content:encoded>[(#ID_ME|microcache{noisettes/message_texte}|texte_backend)]</content:encoded>
+
+
+	</item>
+</BOUCLE_un_message>

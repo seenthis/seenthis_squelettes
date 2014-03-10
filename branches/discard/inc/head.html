@@ -1,0 +1,51 @@
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+#INSERT_HEAD
+[<link rel="stylesheet" href="(#CHEMIN{css/reset.css})" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/structure.css}|css_imbriques)" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/graphisme.css}|css_imbriques)" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/messages.css}|css_imbriques)" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/parents_url.css}|css_imbriques)" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{javascript/shadowbox/shadowbox.css})" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/li-scroller.css})" type="text/css" media="all">]
+[<link rel="stylesheet" href="(#CHEMIN{css/profil.css}|css_imbriques)" type="text/css" media="all">]
+
+<script src="prive/javascript/jquery.cookie.js" type="text/javascript"></script>
+<script src="#CHEMIN{javascript/jquery.elastic.js}" type="text/javascript"></script>
+<script src="#CHEMIN{javascript/jquery-fieldselection.js}" type="text/javascript"></script>
+[(#REM)<script src="#CHEMIN{javascript/jquery.oembed.mod.js}" type="text/javascript"></script>]
+[(#REM)<script src="#CHEMIN{javascript/jquery.lazyoembed.js}" type="text/javascript"></script>]
+<script src="#CHEMIN{javascript/jquery.li-scroller.1.0.js}" type="text/javascript"></script>
+<script src="#CHEMIN{javascript/jquery.timeout.js}" type="text/javascript"></script>
+<script src="#CHEMIN{javascript/shadowbox/shadowbox.js}" type="text/javascript"></script>
+<script src="#CHEMIN{javascript/seenthis.js}" type="text/javascript"></script>
+<!--[if lt IE 9]>
+[<script src="(#CHEMIN{javascript/html5.js})" type="text/javascript"></script>]
+[<script src="(#CHEMIN{javascript/css3-mediaqueries.js})" type="text/javascript"></script>]
+<![endif]-->
+
+
+	<script><!--
+	var verif_hash = new Array();
+	var time_verif_hash = 0;
+	var auteur_page = 0;
+	
+	
+	
+	var reghash = new RegExp("[(#EVAL{_REG_HASH}|replace{'\\pN\\pL\\pM','\u0080-\uFFFFFF'})]", "gi");
+	var url_match = /[(#EVAL{_REG_URL}|replace{'\\pN\\pL\\pM','\u0080-\uFFFFFF'})]/gi;
+	var racine_url_match = new RegExp("#EVAL{_REG_DEBUT_URL}", "gi");
+	var fin_url_match = new RegExp("#EVAL{_REG_FIN_URL}", "gi");
+	var reg_people = /#EVAL{_REG_PEOPLE}/g;
+	var isCtrl = false;
+		
+	var texte_effacer = "<:seenthis:effacer:>";
+	var texte_modifier = "<:seenthis:modifier:>";
+	var texte_favori = "<:seenthis:favori:>";
+	
+	Shadowbox.init({
+		language:   "fr"
+	});
+	
+	-->	
+	</script>
+#FILTRE{mini_html}

@@ -1,0 +1,64 @@
+<BOUCLE_principale(ARTICLES){id_article}>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>[(#TITRE|supprimer_numero|textebrut)] [- (#NOM_SITE_SPIP|textebrut)]</title>
+
+	<meta charset="#CHARSET">
+
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr}>
+	
+	<style><!--
+	<INCLURE{fond=css/couleur}{couleur=dcdf03}>
+	
+	
+	.coloration_code {
+		font-size: 85%;
+		border: 1px solid #999;
+		padding: 5px;
+		background-color: #f0f0f0;
+	}
+	--></style>
+	
+
+	<script><!--
+	var auteur_connecte = "[(#SESSION{id_auteur})]";
+	--></script>
+	
+</head>
+<body class="accueil plier">
+
+<INCLURE{fond=inc/entete}>
+
+<div id="principale"><div>
+
+
+	<div id="centre">
+		<header>
+		<div id="tetiere">
+			<h1>[(#TITRE|supprimer_numero)]</h1>
+		</div>
+		</header>
+		<INCLURE{fond=noisettes/mots_lies_general}>
+
+
+		<div id="texte_article" style="padding: 40px;">
+		[(#TEXTE|image_reduire{580})]
+		</div>
+
+
+	</div>
+
+	<aside id="droite">
+	
+			
+	</aside>
+	
+	<INCLURE{fond=inc/footer}>
+	
+</div></div>
+</body>
+</html>
+</BOUCLE_principale>
+#FILTRE{mini_html}

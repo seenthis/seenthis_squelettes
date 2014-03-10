@@ -1,0 +1,59 @@
+#CACHE{0}
+
+<BOUCLE_tous_mots(spip_me_tags spip_me)
+{tag like (#TAG*|likeq)%}
+{!par date}
+{0,500}
+>[(#SET{messages,[(#GET{messages}
+	|concat{[ (#ID_PARENT|replace{^0$}|sinon{#ID_ME})]})]})
+]</BOUCLE_tous_mots>
+
+<BOUCLE_me(ME){id_me IN #GET{messages}|explode{' '}|array_filter}{statut=publi}{doublons pourmots}{!par date}{0,200} />
+
+
+	<BOUCLE_mots(spip_me_tags){id_me IN #DOUBLONS{mepourmots}}
+		{class IN #,oc}
+		>[(#TAG*|compter_mots_lies)]</BOUCLE_mots>
+	<BOUCLE_mots_reponses(spip_me_tags spip_me){spip_me.id_parent IN #DOUBLONS{mepourmots}}
+		{class IN #,oc}
+		>[(#TAG*|compter_mots_lies)]</BOUCLE_mots_reponses>
+
+
+[(#REM)  TODO: remettre la selection OpenCalais des sites ]
+
+[(#SET{follow,#ENV{follow}})]
+[(#ENV{follow}|non)
+	[(#SET{follow,all})]
+]
+
+[(#REM) pas efficace: il faut un critere qui retienne id_me OU parent dans DOUBLONS ]
+
+[(#REM) note : array_slice=4 permet de prendre les 10 mots les plus lies au mot recherche ]
+#SET{parents,#ARRAY}
+<BOUCLE_tag(ME spip_me_tags)
+	{tag IN #REM*|retour_mots_lies|array_slice{0,10}}
+	{statut=publi}
+	{!par date}
+	{0,1000}
+>[(#SET{parents,
+[(#GET{parents}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]</BOUCLE_tag>
+
+
+<B_messages>
+	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+	<ul id="messages">
+<BOUCLE_messages(ME)
+	{id_me IN #GET{parents}}
+	{statut=publi}
+	{follow #ENV{follow}}
+	{!par date}
+	{pagination 25}
+>
+	<li id="message#ID_ME">
+	[(#ID_ME|microcache{noisettes/afficher_message})]
+	</li>
+</BOUCLE_messages>
+	</ul>
+	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+</B_messages>
+#FILTRE{mini_html}

@@ -1,0 +1,80 @@
+.inscription {
+	font-size: 80%;
+}
+.inscription strong {
+	color: white;
+}
+
+#slogan_inscrivez-vous {
+	background-color: [#(#ENV{couleur}|couleur_luminance{0.8})];
+
+	color: [#(#ENV{couleur}|couleur_luminance{0.07})];
+	padding: 20px 40px;
+	
+	a {
+		color: white; 
+		display: block;
+		padding-top: 15px;
+		text-align: right;
+		font-weight: bold;
+	}
+}
+
+.formulaire_inscription {
+	background-color: [#(#ENV{couleur}|couleur_luminance{0.8})];
+	color: white;
+	
+	font-size: 12px;
+	padding: 10px;	
+
+	.explication {
+		display: none;
+	}	
+	legend {
+		display: none;
+	}
+	ul {
+		li {
+			margin-top: 1em;
+			margin-bottom: 1em;
+
+			label {
+				display: block;
+			}
+			.erreur_message {
+				color: #ee9f9f;
+				display: block;
+			}
+			
+			input {
+				margin-top: 3px;
+				font: normal normal normal 13px/normal Arial, sans-serif;
+				padding: 3px 5px;
+				background-color: [#(#ENV{couleur}|couleur_luminance{0.3})];
+				
+				border: 0px;
+				-spip-border-radius: 4px;
+				width: 100px;
+				-spip-transition-property: background-color, width;
+				-spip-transition-duration: 0.1s;
+				
+				
+				. :focus {
+					width: 270px;
+					background-color: white;
+				}
+			}
+		}
+	}
+	p.boutons { 
+		text-align: right;
+		
+		input {
+			padding: 2px 10px;
+			-spip-border-radius: 4px;
+		}
+	}
+
+}
+
+#FILTRE{css_imbriques_decouper}
