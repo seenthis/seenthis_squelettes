@@ -1,6 +1,6 @@
 #CACHE{30*60}
 
-	<BOUCLE_recents(spip_me_tags){!par date}{class='#'}{0,1000}>[(#TAG*|compter_mots_lies)]</BOUCLE_recents>
+	<BOUCLE_recents(me spip_me_tags){!par date}{fusion id_auteur}{class='#'}{0,1000}>[(#TAG*|compter_mots_lies)]</BOUCLE_recents>
 
 	<B_resultat>
 	<div id="scroller">
