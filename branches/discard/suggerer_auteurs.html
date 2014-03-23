@@ -28,7 +28,7 @@
 			<span class="login">@#LOGIN</span>
 		</a>
 		<br><a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a>
-		<a href="#" class="suivre discard ajax" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&discard=oui').fadeOut();$('#suggerer_auteurs').load('index.php?page=suggerer_auteurs');return false;">X</a>
+		<a href="#" class="suivre discard" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&discard=oui').fadeOut();return false;">X</a>
 		</div>
 	</BOUCLE_amis>
 	</div>
@@ -54,7 +54,7 @@
 			<span class="login">@#LOGIN</span>
 		</a>
 		<br><a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a>
-		<a href="#" class="suivre discard ajax" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&discard=oui').fadeOut();$('#suggerer_auteurs').load('index.php?page=suggerer_auteurs');return false;">X</a>
+		<a href="#" class="suivre discard" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&discard=oui').fadeOut();return false;">X</a>
 		</div>
 	
 	</BOUCLE_populaires>

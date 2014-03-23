@@ -15,10 +15,9 @@ function _menage($id_auteur, $id_follow) {
 }
 
 function action_bouton_follow_people() {
-	$id_auteur = _request("id_auteur");
-	$id_follow = $GLOBALS['auteur_session']['id_auteur'];
+	$id_auteur = _request("id_auteur"); //l'auteur vise par l'action
+	$id_follow = $GLOBALS['auteur_session']['id_auteur']; //l'utilisateur connecte
 	$id_block = $id_follow;
-	$id_discard = $id_follow;
 
 	header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 	header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date dans le passé
@@ -33,8 +32,6 @@ function action_bouton_follow_people() {
 	$discard = _request("discard");
 	
 	if($discard == "oui" OR $discard == "non") {
-		$statut_session = $GLOBALS["auteur_session"]["statut"];
-		if ($id_discard < 1) die();
 		$id_auteur = floor(_request("id_auteur"));
 		if ($id_auteur < 1) die();
 
@@ -51,7 +48,6 @@ function action_bouton_follow_people() {
 	}
 
 	if ($block == "oui" OR $block == "non") {
-		$statut_session = $GLOBALS["auteur_session"]["statut"];
 		if ($id_block < 1) die();
 		$id_auteur = floor(_request("id_auteur"));
 		if ($id_auteur < 1) die();
@@ -78,8 +74,6 @@ function action_bouton_follow_people() {
 	
 	
 	if ($follow == "non" OR $follow == "oui") {
-		$statut_session = $GLOBALS["auteur_session"]["statut"];
-		
 		if ($id_follow < 1) die();
 	
 		$id_auteur = floor(_request("id_auteur"));
@@ -109,6 +103,7 @@ function action_bouton_follow_people() {
 	
 	
 	if ($id_follow < 1) die("");
+	if(isset($discard)) die('');
 
 	$query = sql_select("nom", "spip_auteurs", "id_auteur=$id_auteur");
 	if ($row = sql_fetch($query)) {
