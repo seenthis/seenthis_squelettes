@@ -107,6 +107,7 @@ function formulaires_profil_traiter (){
 		"mail_rep_billet" => intval(_request("mail_rep_billet")),
 		"mail_rep_conv" => intval(_request("mail_rep_conv")),
 		"mail_suivre_moi" => intval(_request("mail_suivre_moi")),
+		"mail_mes_billets" => intval(_request("mail_mes_billets")),
 	);
 	
 	// compat plugin OpenID
