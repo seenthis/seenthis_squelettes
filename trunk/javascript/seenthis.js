@@ -357,9 +357,8 @@ $.fn.soundmanager = function() {
 		});
 		
 		$("textarea").live("focus", function() {
-			// $(this).removeAttr("rows").removeAttr("cols");
-			
-			$(this).elastic();
+			var ta = $(this);
+			setTimeout(function() {ta.elastic();}, 100);
 		});
 		
 		$(".texte_message, .texte_reponse").live("mouseenter", function() {
