@@ -215,7 +215,7 @@ function mini_html($texte) {
 
 function logo_auteur_vide ($couleur, $taille) {
 	include_spip("inc/filtres_images");
-	$img = "squelettes/imgs/logo-auteur.png";
+	$img = find_in_path("imgs/logo-auteur.png");
 	
 	$couleur = couleur_luminance($couleur, 0.57);
 	
