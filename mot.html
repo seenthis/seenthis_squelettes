@@ -60,11 +60,10 @@
 
 	<div id="entete_people">
 
-
 		<ul class="parents_url">
 		<BOUCLE_parents(spip_me_tags)
-			{si #ENV{tag}|match{^#}}
-			{tag IN (#ENV{tag}|precurseurs)}
+			{si #ENV*{tag}|match{^#}}
+			{tag IN (#ENV*{tag}|precurseurs)}
 			{fusion tag}
 		>
 		<li><a href="#URL_TAG">[(#TAG|mb_strtolower{UTF-8})]</a></li>
