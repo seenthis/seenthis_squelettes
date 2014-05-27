@@ -1,6 +1,6 @@
 # Les squelettes de seenthis.net
 
-Ce plugin fait partie des éléments nécessaires à l'installation complète d'un site de type seenthis.net.
+Ce plugin fait partie des éléments nécessaires à l'installation complète d'un site de type seenthis.net. Voir la procédure d'installation à l'adresse https://github.com/seenthis/seenthis/blob/master/INSTALL.txt
 
 ## Installation
 
@@ -15,3 +15,6 @@ cd plugins/
 git clone https://github.com/seenthis/seenthis_squelettes.git
 ```
 
+## Signaler un problème
+
+N'hésitez pas à signaler un problème en ouvrant une _issue_ ci-contre ; cependant, si le problème concerne seenthis en général, veuillez le signaler de préférence sur https://github.com/seenthis/seenthis/issues .
