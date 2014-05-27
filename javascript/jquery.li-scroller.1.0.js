@@ -34,7 +34,7 @@ jQuery.fn.liScroll = function(settings) {
 				$strip.animate({left: '-='+ spazio}, tempo, "linear", function(){$strip.css("left", containerWidth); scrollnews(totalTravel, defTiming);});
 				}
 				scrollnews(totalTravel, defTiming);				
-				$strip.hover(function(){
+				$strip.bind('mouseenter mouseleave', function(){
 				jQuery(this).stop();
 				},
 				function(){
