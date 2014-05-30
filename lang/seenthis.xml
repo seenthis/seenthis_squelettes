@@ -6,8 +6,9 @@
 		<traducteur nom="klaus++" lien="http://trad.spip.net/auteur/klaus" />
 		<traducteur nom="oAnth" lien="http://trad.spip.net/auteur/oanth" />
 	</langue>
-	<langue code="en" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=en" total="75" traduits="74" relire="0" modifs="0" nouveaux="1" pourcent="98.67">
+	<langue code="en" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=en" total="75" traduits="75" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="EScott" lien="http://trad.spip.net/auteur/escott" />
+		<traducteur nom="Fil" lien="http://trad.spip.net/auteur/fil" />
 		<traducteur nom="George" lien="http://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
 	<langue code="es" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=es" total="75" traduits="74" relire="0" modifs="0" nouveaux="1" pourcent="98.67">
@@ -17,8 +18,9 @@
 	</langue>
 	<langue code="fr" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=fr" total="75" traduits="75" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 	</langue>
-	<langue code="fr_tu" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="75" traduits="74" relire="0" modifs="0" nouveaux="1" pourcent="98.67">
+	<langue code="fr_tu" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="75" traduits="75" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Cerf" lien="http://trad.spip.net/auteur/cerf" />
+		<traducteur nom="Fil" lien="http://trad.spip.net/auteur/fil" />
 		<traducteur nom="James" lien="http://trad.spip.net/auteur/james" />
 	</langue>
 	<langue code="nl" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=nl" total="75" traduits="74" relire="0" modifs="0" nouveaux="1" pourcent="98.67">
