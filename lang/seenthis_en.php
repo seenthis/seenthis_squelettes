@@ -62,6 +62,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil' => 'settings',
 	'profil_alerte_conversations' => '<b>conversations</b> / someone answers to a post I have already answered to',
 	'profil_alerte_dubien' => '<b>stalker</b> / someone is following me',
+	'profil_alerte_mes_billets' => '<b>my posts</b> / get a copy of my own messages',
 	'profil_alerte_nolife' => '<b>no life</b> / someone that I follow answers to any post',
 	'profil_alerte_nouveaux_billets' => '<b>new posts</b> / an initial text is posted by an author I follow',
 	'profil_alerte_reponses' => '<b>answers to my posts</b> / someone answers one of my initial posts',
