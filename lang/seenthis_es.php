@@ -61,6 +61,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil' => 'preferencias',
 	'profil_alerte_conversations' => '<b>conversaciones</b> / alguien responde a una nota a la cual yo he respondido',
 	'profil_alerte_dubien' => '<b>un amigo propone una nota</b> / alguien que me sigue',
+	'profil_alerte_mes_billets' => '<b>mis notas</b> / recibir una copia de mis propios mensajes',
 	'profil_alerte_nolife' => '<b>nolife</b> / un autor que yo sigo responde a cualquier nota',
 	'profil_alerte_nouveaux_billets' => '<b>nuevas notas</b> / una nota es propuesta por un autor que yo sigo',
 	'profil_alerte_reponses' => '<b>respuestas a mis notas</b> / alguien responde a mis notas',

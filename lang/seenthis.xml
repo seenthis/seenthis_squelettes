@@ -11,9 +11,10 @@
 		<traducteur nom="Fil" lien="http://trad.spip.net/auteur/fil" />
 		<traducteur nom="George" lien="http://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
-	<langue code="es" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=es" total="75" traduits="74" relire="0" modifs="0" nouveaux="1" pourcent="98.67">
+	<langue code="es" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=es" total="75" traduits="75" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="ARNO*" lien="http://trad.spip.net/auteur/arno-7003" />
 		<traducteur nom="Raquel S. Bujaldón" lien="http://trad.spip.net/auteur/raquel-s-bujaldon" />
+		<traducteur nom="severo" lien="http://trad.spip.net/auteur/severo" />
 		<traducteur nom="speciale" lien="http://trad.spip.net/auteur/speciale-2899" />
 	</langue>
 	<langue code="fr" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=fr" total="75" traduits="75" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
