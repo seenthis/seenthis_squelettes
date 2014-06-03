@@ -26,6 +26,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'bookmarklet_descriptif' => 'Bedienungsanleitung: Wenn Sie auf einer Internetseite sind, die Sie verlinken möchten, wählen Sie den Text aus, den sie zitieren möchten. Klicken Sie dann auf das Seenthis-Bookmarklet. Ihr Seenthis-Interface wird geöffnet, und sie sehen Ihren vorausgefüllten Beitrag mit Titel, URL und dem ausgewählten Text der WWW-Seite.',
 	'bookmarklet_titre' => 'Ziehen Sie dieses Bookmarklet in die Bookmark-Leiste Ihres Browsers:',
 
+	// C
+	'changement_email_existe' => 'Diese Adresse wird bereits für ein anderes Konto verwendet',
+	'changement_email_informer' => '@login@ hat eine andere Mailadresse angegeben : "@new@" (als Ersatz für "@old@")',
+	'changement_email_subject' => 'Neue Mailadresse für @login@',
+
 	// E
 	'ecrire_commentaire' => 'Kommentieren',
 	'effacer' => 'Löschen',
@@ -56,6 +61,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil' => 'Einstellungen',
 	'profil_alerte_conversations' => '<b>Diskussionen</b> /jemand antwortet auf einen Beitrag, den ich ebenfalls kommentiert habe',
 	'profil_alerte_dubien' => '<b>Ein Freund</b> / jemand folgt mir',
+	'profil_alerte_mes_billets' => '<b>Meine Beiträge</b> / eine Kopie meiner eigenen Beiträge erhalten',
 	'profil_alerte_nolife' => '<b>nolife</b> / ein Autor, dem ich folge antwortet auf sämtliche Beiträge',
 	'profil_alerte_nouveaux_billets' => '<b>Neuer Beitrag</b> / ein Autor, dem ich folge, hat einen neuen Beitrag veröffentlicht.',
 	'profil_alerte_reponses' => '<b>Antworten auf meine Beiträge</b> / Jemand hat auf auf einen meiner Beiträge geantwortet.',
