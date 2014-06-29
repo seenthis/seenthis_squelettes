@@ -5,5 +5,5 @@
 	<Description>(#DESCRIPTIF_SITE_SPIP|couper{150}|texte_backend)</Description>][(#REM) texte traduisible = xmlns:its="http://www.w3.org/2005/11/its" its:translate="yes" ][
 	<Image height="16" width="16" type="image/x-icon">(#MODELE{favicon}{favicon=#LOGO_SITE_SPIP}|extraire_attribut{href}|url_absolue)</Image>
 	]<InputEncoding>#CHARSET</InputEncoding>[
-	<Url type="text/html" template="(#URL_PAGE{#CONFIG{opensearch/page_recherche,recherche}}|parametre_url{id_rubrique,#CONFIG{opensearch/id_rubrique}}|url_absolue|texte_backend)&amp;recherche={searchTerms}"/>]
+	<Url type="text/html" template="(#VAL{/recherche}|url_absolue|texte_backend)?recherche={searchTerms}"/>]
 </OpenSearchDescription>
