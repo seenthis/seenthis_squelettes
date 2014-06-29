@@ -1,0 +1,9 @@
+[(#CACHE{86400})][(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml version="1.0"[ encoding="(#CHARSET)"]?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+	<ShortName>[(#NOM_SITE_SPIP|couper{16}|texte_backend)]</ShortName>
+	<LongName>[(#NOM_SITE_SPIP|couper{48}|texte_backend)]</LongName>[
+	<Description>(#DESCRIPTIF_SITE_SPIP|couper{150}|texte_backend)</Description>][(#REM) texte traduisible = xmlns:its="http://www.w3.org/2005/11/its" its:translate="yes" ][
+	<Image height="16" width="16" type="image/x-icon">(#MODELE{favicon}{favicon=#LOGO_SITE_SPIP}|extraire_attribut{href}|url_absolue)</Image>
+	]<InputEncoding>#CHARSET</InputEncoding>[
+	<Url type="text/html" template="(#URL_PAGE{#CONFIG{opensearch/page_recherche,recherche}}|parametre_url{id_rubrique,#CONFIG{opensearch/id_rubrique}}|url_absolue|texte_backend)&amp;recherche={searchTerms}"/>]
+</OpenSearchDescription>
