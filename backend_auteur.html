@@ -6,7 +6,7 @@
 ][(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml  version="1.0"[ encoding="(#CHARSET)"] ?>
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID_AUTEUR}>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr='http://purl.org/syndication/thread/1.0' >
-	<title>#NOM (@#LOGIN) - Seenthis[ ((#VARIANTE))]</title>
+	<title>[(#NOM|textebrut) ](@#LOGIN) - Seenthis[ ((#VARIANTE))]</title>
 	<link href="[(#URL_AUTEUR|url_absolue)]"/>
 	<id>[(#URL_AUTEUR|url_absolue)]</id>
 	<updated>[(#DATE|date_iso)]</updated>
