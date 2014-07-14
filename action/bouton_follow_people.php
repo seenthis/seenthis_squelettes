@@ -75,7 +75,7 @@ function action_bouton_follow_people() {
 				"id_auteur" => $id_auteur,
 				"date" => "NOW()"
 			));
-			job_queue_add('notifier_suivre_moi', "notifier_suivre_moi $id_auteur - $id_follow", array($id_auteur, $id_follow));
+			job_queue_add('notifier_suivre_moi', "notifier_suivre_moi $id_auteur - $id_follow", array($id_auteur, $id_follow), 'inc/seenthis_notifier');
 			//notifier_suivre_moi($id_auteur, $id_follow);
 			
 		}
