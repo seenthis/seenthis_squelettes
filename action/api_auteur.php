@@ -32,12 +32,12 @@ function action_api_auteur() {
 				
 
 				header("Content-type: application/atom+xml; charset=utf-8");	
-				if ($debut < 1) echo microcache($id_auteur, "noisettes/atom_messages_auteur");
+				if ($debut < 0) echo microcache($id_auteur, "noisettes/atom_messages_auteur");
 				else {
 					$contenu = recuperer_fond("noisettes/atom_messages_auteur", 
 						array(
 							'id' => $id_auteur,
-							"debut_me" => $debut
+							"debut_messages" => $debut
 						));
 					echo $contenu;
 				}
