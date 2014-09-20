@@ -258,7 +258,7 @@ function couleur_chroma ($coul, $num) {
 
 function copie_locale_safe($source, $mode='auto') {
 	if (!copie_locale($source, 'test')
-	AND $u = parametre_url($source, 'var_hasard', rand(0,10000000))
+	AND $u = parametre_url($source, 'var_hasard', rand(0,10000000), '&')
 	AND $a = copie_locale($u, $mode)) {
 		rename($a, _DIR_RACINE.fichier_copie_locale($source));
 	}
