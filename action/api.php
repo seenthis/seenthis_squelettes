@@ -102,7 +102,7 @@ function action_api_dist() {
 		
 		if (!$id_me) erreur_405("Unexpected error - not saved in base");
 
-		cache_me($id_me);
+		cache_message($id_me);
 
 	}
 	

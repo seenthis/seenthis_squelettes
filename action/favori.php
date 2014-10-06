@@ -41,7 +41,7 @@ function action_favori_dist() {
 		sql_query("DELETE FROM spip_me_share WHERE id_me=$id_me AND id_auteur=$auteur_session");
 	}
 
-	cache_me($id_me);
+	cache_message($id_me);
 	
 	$page = recuperer_fond("noisettes/afficher_message",array("id"=>$id_me),array('trim'=>false));
 
