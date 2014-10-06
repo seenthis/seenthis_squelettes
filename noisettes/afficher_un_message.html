@@ -41,10 +41,7 @@
 					href="#message#ID" rel="#ID_AUTEUR"></a>
 				</div>
 				
-				[(#GET{nom_auteur}|htmlspecialchars)]
-				
-				#DATE_MODIF / #DATE
-				[(#DATE_MODIF|strtotime|moins{#DATE|strtotime}|>{7200}|?{modifié})]
+				#GET{nom_auteur}
 
 			</div>
 	
