@@ -226,7 +226,14 @@ ul#messages, ul.messages {
 				}
 			}
 		}
-		
+
+		.updated:before {
+			content: "(modifi\00E9\ ";
+		}
+		.updated:after {
+			content: ")";
+		}
+
 		.commandes {
 			margin-bottom: 0.5em;
 			margin-top: -0.3em;
