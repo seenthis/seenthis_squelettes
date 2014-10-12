@@ -32,7 +32,7 @@
 
 			<div class="commandes">
 				<div class="supprimer"><a
-					onclick="$('#texte#ID').fadeOut().load('index.php?action=delete&amp;id_me=#ID_ME'); return false;"
+					onclick="confirm(texte_effacer+'?') && $('#texte#ID').fadeOut().load('index.php?action=delete&amp;id_me=#ID_ME'); return false;"
 					href="#" 
 					rel="^(#ID_AUTEUR<BOUCLE_racine(spip_me){id_me=#ID_PARENT}>|#ID_AUTEUR</BOUCLE_racine>)$"></a>
 				</div>
