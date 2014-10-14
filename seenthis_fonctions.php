@@ -285,20 +285,36 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 	// chargement asynchrone ?
 	//
 	if (!$vignette = copie_locale_safe($cvt, 'test')
-	AND $id_me = _request('id_me')
 	AND $GLOBALS['visiteur_session']['id_auteur'] > 0  # eviter sur l'API
 	) {
-		# a noter : ce id_me est le numero du message qu'on cree OU DU PARENT
 		include_spip('inc/acces');
 		$i = 1; #$GLOBALS['visiteur_session']['id_auteur'];
-		$sec = afficher_low_sec($i, "miniature $maxw $cvt $id_me");
+		$sec = afficher_low_sec($i, "miniature $maxw $maxh $cvt");
 		$url = generer_url_action('creer_miniature');
 		$url = parametre_url($url, 'id_auteur', $i);
-		$url = parametre_url($url, 'id_me', $id_me);
 		$url = parametre_url($url, 'img', $cvt);
-		$url = parametre_url($url, 'max', $maxw);
+		$url = parametre_url($url, 'maxw', $maxw);
+		$url = parametre_url($url, 'maxh', $maxh);
 		$url = parametre_url($url, 'sec', $sec);
-		return "<div style=\"max-width:".$maxw."px; max-height:".$maxh."px; min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><a href='$img' class='display_box'$box><img src='$url' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" /></a></div>";
+		return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><img src='$url' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" /></a>";
+	}
+
+	return calculer_miniature($img, $maxw = 300, $maxh = 180);
+}
+
+function calculer_miniature($img, $maxw = 300, $maxh = 180) {
+	include_spip('inc/distant');
+
+	if (preg_match(',\.svg$,i', $img)) {
+		if (defined('_SVG2PNG_SERVER')) {
+			$cvt = parametre_url(_SVG2PNG_SERVER,'url',$img);
+			$box = " target='_blank'";
+		} else {
+			return false;
+		}
+	} else {
+		$cvt = $img;
+		$box = " rel='shadowbox[Portfolio]'";
 	}
 
 	//
@@ -312,16 +328,16 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 	
 	
 	include_spip("inc/filtres_images_mini");
-	$vignetter = image_reduire($vignette, 300, 180);
+	$vignetter = image_reduire($vignette, $maxw, $maxh);
 	
 	if ($vignetter == $vignette) return;
 	
 	$vignette = inserer_attribut($vignetter, "alt", "");
+	list($width, $height) = @getimagesize(extraire_attribut($vignette,'src'));
 
-	if ($width <= $max && $height <= $max)
-		return $vignette;
-
-	return "<a href='$img' class='display_box'$box>$vignette</a>";
+	if ($width <= $maxw && $height <= $maxh) {
+		return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
+	}
 }
 
 
