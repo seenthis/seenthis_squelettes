@@ -58,11 +58,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'montrer_messages' => 'عرض الـ@total@ رسالة',
 
 	// P
-	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المكشاركات. <strong>منتديات</strong> تحت كل مشاركة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.',
+	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المشاركات. <strong>منتديات</strong> تحت كل مشاركة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.',
 	'people' => 'المشاركون',
 	'profil' => 'التفضيلات',
 	'profil_alerte_conversations' => '<b>محادثات</b> / أحدهم ردّ على مشاركة كنت قد رددت عليها بنفسي.',
 	'profil_alerte_dubien' => '<b>الله يكثر الحبايب</b> / هناك من يتبعني',
+	'profil_alerte_mes_billets' => '<b>مشاركاتي</b> / الحصول على نسخة من رسائلي',
 	'profil_alerte_nolife' => '<b>هَوَس</b> / هناك مشترك اتبعه يرد على الرسائل اي كانت',
 	'profil_alerte_nouveaux_billets' => '<b>مشاركات جديدة</b> / مؤلف اتبعه أدخل مشاركة جديدة',
 	'profil_alerte_reponses' => '<b>الردود على رسائلي</b> / أحدهم يرد على رسائلي',
