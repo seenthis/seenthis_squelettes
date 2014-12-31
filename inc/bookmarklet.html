@@ -7,12 +7,19 @@ txt=document.getSelection();
 }else if(document.selection){
 txt=document.selection.createRange().text;
 }
+var logo='';
+var ogImage=document.querySelector('meta[property=\'og:image\']');
+if(ogImage){
+logo=ogImage.getAttribute('content');
+}
 var url=document.location+'';
 void(btw=window.open('http://[(#EVAL{_HOST})]/#ajouter='+
-(encodeURIComponent(titre))+
+encodeURIComponent(titre)+
 '&url_site='+
 encodeURIComponent(url.replace('%2520','+'))+
+'&logo='+
+encodeURIComponent(logo.replace('%2520','+'))+
 '&extrait='+
-(encodeURIComponent(txt))
+encodeURIComponent(txt)
 ))
 #FILTRE{filtre_bookmarklet}

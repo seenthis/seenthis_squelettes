@@ -172,7 +172,7 @@ $.fn.soundmanager = function() {
 	$(function(){
 
 		var vals = {};
-		$.each([ 'content', 'ajouter', 'url_site', 'extrait' ], function () {
+		$.each([ 'content', 'ajouter', 'url_site', 'extrait', 'logo' ], function () {
 			var r;
 			var re = new RegExp ('[#?&]'+ this +'=([^&]*)');
 			if (r = window.location.href.match(re)) {
@@ -188,6 +188,9 @@ $.fn.soundmanager = function() {
 		}
 		if (vals['url_site']) {
 			content += sucrer_utm(vals['url_site'])+"\n";
+		}
+		if (vals['logo']) {
+			content += sucrer_utm(vals['logo'])+"\n";
 		}
 		if (vals['extrait']) {
 			content += "\n❝" + vals['extrait'] + "❞\n";
