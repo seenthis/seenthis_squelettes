@@ -771,4 +771,7 @@ function compte_twitter($id_auteur) {
 	}
 }
 
+function filtre_bookmarklet($texte) {
+	return preg_replace(["/\r|\n/", '~\s~'], ['', '%20'], $texte);
+}
 ?>

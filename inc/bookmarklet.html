@@ -1,0 +1,18 @@
+var titre=document.title;
+var txt='';
+if(window.getSelection){
+txt=window.getSelection();
+}else if(document.getSelection){
+txt=document.getSelection();
+}else if(document.selection){
+txt=document.selection.createRange().text;
+}
+var url=document.location+'';
+void(btw=window.open('http://[(#EVAL{_HOST})]/#ajouter='+
+(encodeURIComponent(titre))+
+'&url_site='+
+encodeURIComponent(url.replace('%2520','+'))+
+'&extrait='+
+(encodeURIComponent(txt))
+))
+#FILTRE{filtre_bookmarklet}
