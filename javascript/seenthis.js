@@ -12,6 +12,8 @@ else if (language.indexOf('ar') > -1) language = "ar";
 else language = "fr";
 
 var traduire_avec_google = "traduire avec Google";
+var isShift = false;
+var isCtrl = false;
 
 $('body').on('mouseenter mouseleave', '#messages li', function() {
 	var me=$(this),r,id_me;
