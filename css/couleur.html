@@ -44,10 +44,9 @@ nav#entete {
 			img {
 				width: 120px;
 				height: 26px;
-				
-				background: url([(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#ENV{couleur}|couleur_luminance{0.45})]}|image_reduire{120}|extraire_attribut{src})]);
-				
-			}			
+				background: url([(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#ENV{couleur}|couleur_luminance{0.45})]}|image_reduire{240}|extraire_attribut{src})]);
+				background-size: 120px;
+			}
 		}
 		@media all and (max-width: 860px) {	
 			height: 35px;
