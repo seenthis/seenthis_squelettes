@@ -1,6 +1,7 @@
-if (langue_visiteur) var language = langue_visiteur;
-else if (navigator.browserLanguage) var language = navigator.browserLanguage;
-else var language = navigator.language;
+var language;
+if (langue_visiteur) language = langue_visiteur;
+else if (navigator.browserLanguage) language = navigator.browserLanguage;
+else language = navigator.language;
 
 if (language.indexOf('fr_tu') > -1) language = "fr_tu";
 else if (language.indexOf('fr') > -1) language = "fr";
@@ -34,10 +35,11 @@ function switch_comments(id_me) {
 
 	$('.repondre').stop().slideUp("fast");
 
-	if (!($('#repondre'+id_me).is(':visible') && ($('#repondre'+id_me).height() > 10)) ) {
+    var message = $('#repondre'+id_me);
+	if (!(message.is(':visible') && (message.height() > 10)) ) {
 		$('.formulaire_poster_message').removeClass('focus');
 		$('#yourmessage'+id_me).hide();
-		$('#repondre'+id_me).stop().slideDown("fast").find('.formulaire_poster_message').addClass('focus').find('textarea').show().focus();
+		message.stop().slideDown("fast").find('.formulaire_poster_message').addClass('focus').find('textarea').show().focus();
 	}
 }
 
@@ -48,11 +50,10 @@ $.fn.soundmanager = function() {
 		$(this).html('<div class="lecture"><button class="play">play</button></div><div class="controles"><div class="track sans_titre"><a title="Ecouter" rel="enclosure" href="' + url_son + '"><span class="fn"> </span></a></div><div class="progress_bar"><div class="position"></div><div class="loading"></div></div><div class="lesinfos"><div class="time"></div><div class="duration"></div></div></div><br style="clear:both;">');
 		sound_manager_init();
 	});
-}
+};
 
 
 	function favoris_actifs() {
-	
 		if (auteur_connecte > 0) {
 			$(".texte_message, .texte_reponse").each(function() {
 				
@@ -80,67 +81,65 @@ $.fn.soundmanager = function() {
 		$(this).slideUp(function(){
 			$(this).remove();
 		});
-	}
+	};
 	
 	$.fn.suivreEdition = function () {
-		area = this;
-			var texte_message = area.val();
-			
+			var area = this;
+			var texteMessage = area.val();
+			var currentForm = area.parent("div").parent("form");
 			var people = "<div class='titre_people'>Auteurs:</div>";
-			var p = texte_message.match(reg_people);
-			
-			if (p) {
-				for(i=0; i<p.length; ++i) {
-					personne = p[i];
-					nom = personne.substr(1,1000);
-					lien = "people/"+nom;
-					people = people +  "<span class='nom'><span class='diese'>@</span><a href=\""+lien+"\" class='spip_out'>"+nom+"</a></span>";
+			var matchPeople = texteMessage.match(reg_people);
+
+			if (matchPeople) {
+				for(i=0; i<matchPeople.length; ++i) {
+					var personne = matchPeople[i];
+					var nomPersonne = personne.substr(1,1000);
+					var lienPersonne = "people/"+nom;
+					people +=  "<span class='nom'><span class='diese'>@</span><a href=\""+lienPersonne+"\" class='spip_out'>"+nomPersonne+"</a></span>";
 				}
-				area.parent("div").parent("form").children(".people").html(people);
-				area.parent("div").parent("form").children(".people").slideDown();
+				currentForm.children(".people").html(people);
+				currentForm.children(".people").slideDown();
 		
 			} else {
-				area.parent("div").parent("form").find(".people").slideUp();			
+				currentForm.find(".people").slideUp();
 			}
 			
 			
 			var tags = "<div class='titre_tags'>Thèmes:</div>";
-			var m = texte_message.match(reghash);
-			
-			
-			if (m) {
-				for(i=0; i<m.length; ++i) {
-					tag = m[i].toLowerCase();
-					lien = tag.substr(1,1000);
-					var affclass = "";
-					
-					tags = tags +  "<span class='hashtag" + affclass + "'><span class='diese'>#</span><a href=\"tag/"+lien+"\" class='spip_out'>"+lien+"</a></span>";
+			var matchTag = texteMessage.match(reghash);
+
+			var tagsHtml = currentForm.find(".tags");
+			if (matchTag) {
+				for(var i=0; i<matchTag.length; ++i) {
+					var tag = matchTag[i].toLowerCase();
+					var lienMessage = tag.substr(1,1000);
+					tags += "<span class='hashtag'><span class='diese'>#</span><a href=\"tag/"+lienMessage+"\" class='spip_out'>"+lienMessage+"</a></span>";
 				}
-				area.parent("div").parent("form").find(".tags").html(tags);
-				area.parent("div").parent("form").find(".tags").slideDown();
+				tagsHtml.html(tags);
+				tagsHtml.slideDown();
 			} else {
-				area.parent("div").parent("form").find(".tags").slideUp();
+				tagsHtml.slideUp();
 			}
 			
 			
 			
 			var liens = "<div class='titre_links'>Liens:</div>";
-			var u = texte_message.match(url_match);
-			if (u) {
-				for(i=0; i < u.length; ++i) {
-					var lien = u[i];
-					var lien_aff = lien.replace(racine_url_match, "<span>$1</span>");
-					var lien_aff = lien_aff.replace(fin_url_match, "<span>$1</span>");
+			var matchUrl = texteMessage.match(url_match);
+			if (matchUrl) {
+				for(i=0; i < matchUrl.length; ++i) {
+					var lienUrl = matchUrl[i];
+					var lienAff = lienUrl.replace(racine_url_match, "<span>$1</span>");
+					lienAff = lienAff.replace(fin_url_match, "<span>$1</span>");
 					
-					liens = liens +  "<div class='lien'>⇧<a href=\""+lien+"\" class='spip_out'>"+lien_aff+"</a></div>";
+					liens = liens +  "<div class='lien'>⇧<a href=\""+lienUrl+"\" class='spip_out'>"+lienAff+"</a></div>";
 				}
-				area.parent("div").parent("form").find(".liens").html(liens);
-				area.parent("div").parent("form").find(".liens").slideDown();
+				currentForm.find(".liens").html(liens);
+				currentForm.find(".liens").slideDown();
 			} else {
-				area.parent("div").parent("form").find(".liens").slideUp();
+				currentForm.find(".liens").slideUp();
 			}
 	
-	}
+	};
 
 	function afficher_traduire() {
 		$("blockquote").each(function() {
@@ -161,8 +160,6 @@ $.fn.soundmanager = function() {
 			}
 		});
 	}
-
-
 
 	function sucrer_utm(u) {
 		u = u.replace(/(http:\/\/twitter.com\/)#!/, "$1");
@@ -233,29 +230,11 @@ $.fn.soundmanager = function() {
 			
 		}
 
-
-		function charger_alertes() {
-			$.get('index.php?page=alertes', function(e) {
-				$.each($('li', e), function(i,j) {
-					var id = $(j).attr('id');
-					if (id && !$("#"+id).is('li'))
-						$('#alertes ul')
-						.prepend($(j).addClass('nouvelle_alerte'));
-				});
-			});
-		}
-
-		var time_alert = $.timeout ( function () {
-				$("#alertes").load("index.php?page=alertes", function() {
-					$("#alertes").slideDown();
-					// charger les nouvelles alertes de temps en temps (3min)
-//					setInterval(charger_alertes, 180000);
-				});
-			}, 500);
+		var bodyElement = $("body");
 
 		if (auteur_connecte > 0) {
-			$('body').on("click", ".bouton_repondre a", function() {
-				id = $(this).attr("rel");
+			bodyElement.on("click", ".bouton_repondre a", function() {
+				var id = $(this).attr("rel");
 				switch_comments(id);
 				return false;
 			});
@@ -270,21 +249,21 @@ $.fn.soundmanager = function() {
 		}
 		
 		
-
-		if ($("body").hasClass("people") &&  auteur_connecte > 0 && auteur_connecte != auteur_page) {
+		if (bodyElement.hasClass("people") &&  auteur_connecte > 0 && auteur_connecte != auteur_page) {
 			$("#follow").load('index.php?action=bouton_follow_people&id_auteur='+auteur_page);
 		}
 
-		if ($("body").hasClass("mot") &&  auteur_connecte > 0) {
-			var tag = $("#follow_mot").attr('data-tag');
-			var type = $("#follow_mot").attr('data-type');
-			$("#follow_mot").load('index.php?action=bouton_follow_mot&tag='+encodeURIComponent(tag));
+		if (bodyElement.hasClass("mot") &&  auteur_connecte > 0) {
+			var followMot = $("#follow_mot");
+			var tag = followMot.attr('data-tag');
+			var type = followMot.attr('data-type');
+			followMot.load('index.php?action=bouton_follow_mot&tag='+encodeURIComponent(tag));
 		}
 
 		favoris_actifs();
 		afficher_traduire();
 		if (language == "ar"){
-			$("body").attr("dir", "rtl").addClass("lang-ar");
+			bodyElement.attr("dir", "rtl").addClass("lang-ar");
 			
 			if ( $("#css_rtl").length>0 ) {
 				$("#css_rtl").attr("rel", "stylesheet");
@@ -294,7 +273,7 @@ $.fn.soundmanager = function() {
 		
 		$("ul#scroll_tags").liScroll();
 		
-		$('body').on("click", "a.spip_out", function() {
+		bodyElement.on("click", "a.spip_out", function() {
 			window.open($(this).attr("href"));
 			return false;
 		});
@@ -304,15 +283,13 @@ $.fn.soundmanager = function() {
 
 		$("#recherche").focus(function() {
 			$("#entete").addClass("rechercher");
-		});
+		})
 
-		$("#recherche").focusout(function() {
+        .focusout(function() {
 			$("#entete").removeClass("rechercher");
 		});
 
-		$('body')
-
-		.on("keydown", 'textarea', function(e) {
+		bodyElement.on("keydown", 'textarea', function(e) {
 			var area = $(this);
 			var keyCode = e.keyCode || 0;
 
@@ -371,7 +348,7 @@ $.fn.soundmanager = function() {
 				$(this).find(".modifier_themes").show();
 			}
 			
-			var rel = $(this).find(".supprimer").children("a").attr("rel");
+			rel = $(this).find(".supprimer").children("a").attr("rel");
 			var reg = 	new RegExp(rel, "gi");
 			if (auteur_connecte.match(reg)) {
 				$(this).find(".supprimer").children("a").show();
@@ -393,7 +370,6 @@ $.fn.soundmanager = function() {
 		};
 		setTimeout(soundmanager, 100);
 		setInterval(soundmanager, 2000);
-
 	});
 
 	/* Activer quand on charge un element de page en Ajax 
