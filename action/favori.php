@@ -33,6 +33,10 @@ function action_favori_dist() {
 				"id_auteur" => $auteur_session
 			)
 		);
+		job_queue_add('notifier_partage', "notifier_partage $auteur_session - $id_me", array($auteur_session, $id_me), 'inc/seenthis_notifier',
+			/* no_duplicate */ TRUE,
+			/* time */ time()+300   // accorder 5 minutes de delai
+		);
 	}
 
 	// partager : supprimer tous les liens

@@ -90,8 +90,14 @@
 					
 				<br><input type="checkbox" name="mail_rep_moi" [(#ENV**{mail_rep_moi}|=={1}|oui)checked="checked"] value="1"> 
 				<:seenthis:profil_alerte_reponses:>
-					
-				<br><input type="checkbox" name="mail_rep_conv" [(#ENV**{mail_rep_conv}|=={1}|oui)checked="checked"] value="1"> 
+
+				<br><input type="checkbox" name="mail_rep_partage" [(#ENV**{mail_rep_partage}|=={1}|oui)checked="checked"] value="1">
+				<:seenthis:profil_alerte_reponse_partage:>
+
+				<br><input type="checkbox" name="mail_partage" [(#ENV**{mail_partage}|=={1}|oui)checked="checked"] value="1">
+				<:seenthis:profil_alerte_partage:>
+
+				<br><input type="checkbox" name="mail_rep_conv" [(#ENV**{mail_rep_conv}|=={1}|oui)checked="checked"] value="1">
 				<:seenthis:profil_alerte_conversations:>
 
 				<br><input type="checkbox" name="mail_rep_billet" [(#ENV**{mail_rep_billet}|=={1}|oui)checked="checked"] value="1"> 
