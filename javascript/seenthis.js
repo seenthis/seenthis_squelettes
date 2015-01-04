@@ -232,6 +232,27 @@ $.fn.soundmanager = function() {
 
 		var bodyElement = $("body");
 
+		/*
+		function charger_alertes() {
+			$.get('index.php?page=alertes', function(e) {
+				$.each($('li', e), function(i,j) {
+					var id = $(j).attr('id');
+					if (id && !$("#"+id).is('li'))
+						$('#alertes ul')
+						.prepend($(j).addClass('nouvelle_alerte'));
+				});
+			});
+		}
+		*/
+
+		$.timeout ( function () {
+			$("#alertes").load("index.php?page=alertes", function() {
+				$("#alertes").slideDown();
+				// charger les nouvelles alertes de temps en temps (3min)
+				// setInterval(charger_alertes, 180000);
+			});
+		}, 500);
+
 		if (auteur_connecte > 0) {
 			bodyElement.on("click", ".bouton_repondre a", function() {
 				var id = $(this).attr("rel");
