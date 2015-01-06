@@ -1,7 +1,11 @@
 #CACHE{0}
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID}>
-			[<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-				<img alt="@#LOGIN" src="(#LOGO_AUTEUR|image_passe_partout{24,24}|image_recadre{24,24}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{24})]})" style="width: 24px; height: 24px;" height="24" width="24">
-			</a>]
+	[<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
+		<img alt="@#LOGIN"
+			src="(#LOGO_AUTEUR|image_passe_partout{24,24}|image_recadre{24,24}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{24})]})"
+			[src="(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]}) 2x"]
+			class="logo_24"
+		>
+	</a>]
 </BOUCLE_auteur>
 #FILTRE{mini_html}
