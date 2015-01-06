@@ -116,8 +116,8 @@ body {
 				left: -6px;
 				
 				img {
-					width: 48px;
-					height: 48px;
+                    width: 48px;
+                    height: 48px;
 					border: 2px solid white;
 					margin: -2px;
 					-spip-box-shadow: 0px 0px 10px #000000;
@@ -826,4 +826,13 @@ nav#entete {
 	width: 100%;
 	height: 59px;
 	background: url(../imgs/loading.gif) top center no-repeat;
+}
+
+img.logo_24 {
+    width: 24px !important;
+    height: 24px !important;
+}
+img.logo_48 {
+    width: 48px !important;
+    height: 48px !important;
 }
