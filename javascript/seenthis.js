@@ -87,27 +87,27 @@ $.fn.suivreEdition = function () {
 	var texteMessage = area.val();
 	var currentForm = area.parent("div").parent("form");
 
-	var people = "<div class='titre_people'>Auteurs:</div>";
-	var matchPeople = texteMessage.match(reg_people);
-	var peopleHtml = currentForm.find(".people");
-	if (matchPeople) {
-		for (i = 0; i < matchPeople.length; ++i) {
-			var personne = matchPeople[i];
+	var matchPersonne = texteMessage.match(reg_personne);
+	var personnesHtml = currentForm.find(".people");
+	var personnes = "<div class='titre_people'>Auteurs:</div>";
+	if (matchPersonne) {
+		for (i = 0; i < matchPersonne.length; ++i) {
+			var personne = matchPersonne[i];
 			var nomPersonne = personne.substr(1, 1000);
-			var lienPersonne = "people/" + nom;
-			people += "<span class='nom'><span class='diese'>@</span><a href=\"" + lienPersonne + "\" class='spip_out'>" + nomPersonne + "</a></span>";
+			var lienPersonne = "people/" + nomPersonne;
+			personnes += "<span class='nom'><span class='diese'>@</span><a href=\"" + lienPersonne + "\" class='spip_out'>" + nomPersonne + "</a></span>";
 		}
-		peopleHtml.html(people);
-		peopleHtml.slideDown();
+		personnesHtml.html(personnes);
+		personnesHtml.slideDown();
 
 	} else {
-		peopleHtml.slideUp();
+		personnesHtml.slideUp();
 	}
 
 	// tags
-	var tags = "<div class='titre_tags'>Thèmes:</div>";
-	var matchTag = texteMessage.match(reghash);
+	var matchTag = texteMessage.match(reg_tag);
 	var tagsHtml = currentForm.find(".tags");
+	var tags = "<div class='titre_tags'>Thèmes:</div>";
 	if (matchTag) {
 		for (var i = 0; i < matchTag.length; ++i) {
 			var tag = matchTag[i].toLowerCase();
@@ -121,20 +121,36 @@ $.fn.suivreEdition = function () {
 	}
 
 	// liens
-	var liens = "<div class='titre_links'>Liens:</div>";
-	var matchUrl = texteMessage.match(url_match);
+	var matchUrl = texteMessage.match(reg_url);
 	var liensHtml = currentForm.find(".liens");
+	var liens = "<div class='titre_links'>Liens:</div>";
+
+	var imagesHtml = currentForm.find(".images");
+	imagesHtml.html("<div class='titre_images'>Images:</div>");
 	if (matchUrl) {
+		var createImage = function(parentDiv, imageUrl){
+			var tmpImg = $('<img>').on('load', function(){
+				tmpImg.appendTo(parentDiv);
+			}).attr('src', imageUrl);
+		};
+
+
 		for (i = 0; i < matchUrl.length; ++i) {
 			var lienUrl = matchUrl[i];
 			var lienAff = lienUrl.replace(racine_url_match, "<span>$1</span>");
 			lienAff = lienAff.replace(fin_url_match, "<span>$1</span>");
 			liens = liens + "<div class='lien'>⇧<a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
+
+			// pour le cas où il s'agit d'une image
+			var imageDiv = $('<div></div>').appendTo(imagesHtml);
+			createImage(imagesHtml, lienUrl);
 		}
 		liensHtml.html(liens);
 		liensHtml.slideDown();
+		imagesHtml.slideDown();
 	} else {
 		liensHtml.slideUp();
+		imagesHtml.slideUp();
 	}
 
 };
@@ -208,7 +224,7 @@ $(function () {
 			window.location.hash = "content=" + content;
 			$.cookie('content', null);
 		}
-		$(".formulaire_principal textarea").val(content);
+		$(".formulaire_principal textarea").val(content).suivreEdition();
 	}
 
 
@@ -303,37 +319,37 @@ $(function () {
 	//$('textarea').autoResize();
 
 
-	$("#recherche").focus(function () {
-		$("#entete").addClass("rechercher");
-	})
-
+	$("#recherche")
+		.focus(function () {
+			$("#entete").addClass("rechercher");
+		})
 		.focusout(function () {
 			$("#entete").removeClass("rechercher");
 		});
 
-	bodyElement.on("keydown", 'textarea', function (e) {
-		var area = $(this);
-		var keyCode = e.keyCode || 0;
+	bodyElement
+		.on("keydown", 'textarea', function (e) {
+			var area = $(this);
+			var keyCode = e.keyCode || 0;
 
-		// (shift ou ctrl) + enter (valider)
-		if (keyCode == 13 && (isShift || isCtrl)) {
-			isShift = false;
-			area.submit();
-			return false;
-		}
-		// shift + tab (citer)
-		if (keyCode == 9 && isShift) {
-			isShift = false;
-			$(this).replaceSelection("\n❝" + $(this).getSelection().text + "❞\n", true);
-			return false;
-		}
+			// (shift ou ctrl) + enter (valider)
+			if (keyCode == 13 && (isShift || isCtrl)) {
+				isShift = false;
+				area.submit();
+				return false;
+			}
+			// shift + tab (citer)
+			if (keyCode == 9 && isShift) {
+				isShift = false;
+				$(this).replaceSelection("\n❝" + $(this).getSelection().text + "❞\n", true);
+				return false;
+			}
 
-		// detecter le shift
-		isShift = (keyCode == 16);
-		// detecter le ctrl
-		isCtrl = (keyCode == 17);
-	})
-
+			// detecter le shift
+			isShift = (keyCode == 16);
+			// detecter le ctrl
+			isCtrl = (keyCode == 17);
+		})
 		.on("keyup", 'textarea', function (e) {
 			isShift = false;
 			var area = $(this);
