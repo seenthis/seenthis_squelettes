@@ -454,6 +454,10 @@ body {
 				}
 		}		
 	}
+	.titre_images {
+		font-size: 0.8em;
+		padding-bottom: 5px;
+	}
 	
 	p.boutons {
 		display: none;
@@ -484,6 +488,20 @@ body {
 		font-size: 0.75em;
 		font-weight: bold;
 	}
+
+	.images {
+		padding-top: 10px;
+		img {
+			max-height: 300px;
+			max-width: 300px;
+            border: 1px solid #ccc;
+
+            background-color: white;
+            padding: 3px;
+            margin-bottom: 3px;
+            -spip-border-radius: 4px;
+        }
+    }
 
 }
 
