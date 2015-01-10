@@ -84,7 +84,7 @@ $.fn.afficher_masques = function () {
 
 $.fn.suivreEdition = function () {
 	var area = this;
-	var texteMessage = area.val();
+	var texteMessage = area.val() || '';
 	var currentForm = area.parent("div").parent("form");
 
 	var matchPersonne = texteMessage.match(reg_personne);
