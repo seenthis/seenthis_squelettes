@@ -87,11 +87,17 @@ $.fn.afficher_masques = function () {
  * @param parentDiv le div parent où ajouter le html
  * @param imageUrl l'url de l'image à ajouter
  * @param elementLien l'élément "lien", à supprimer quand l'image est chargée
- */
-function suivreEditionCreateImage(parentDiv, imageUrl, elementLien){
+ * @param elementImages l'élement qui contient toutes les images
+ * @param elementsLiens l'élement qui contient toutes les liens
+ * */
+function suivreEditionCreateImage(parentDiv, imageUrl, elementLien, elementImages, elementsLiens){
 	var tmpImg = $('<img>').on('load', function(){
 		tmpImg.appendTo(parentDiv);
 		elementLien.remove();
+		elementImages.slideDown();
+		if(elementsLiens.find('.lien').length == 0) {
+			elementsLiens.slideUp('fast');
+		}
 	}).attr('src', imageUrl);
 }
 
@@ -141,7 +147,6 @@ $.fn.suivreEdition = function () {
 	var imagesHtml = currentForm.find(".images");
 	imagesHtml.html("<div class='titre_images'>Images:</div>");
 	if (matchUrl) {
-
 		liensHtml.html(liens);
 		for (i = 0; i < matchUrl.length; ++i) {
 			var lienUrl = matchUrl[i];
@@ -150,14 +155,13 @@ $.fn.suivreEdition = function () {
 
 			var elementLien = $("<div class='lien'>⇧<a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>").appendTo(liensHtml);
 			// pour le cas où il s'agit d'une image
-			suivreEditionCreateImage(imagesHtml, lienUrl, elementLien);
+			suivreEditionCreateImage(imagesHtml, lienUrl, elementLien, imagesHtml, liensHtml);
 		}
 		liensHtml.slideDown();
-		imagesHtml.slideDown();
 	} else {
 		liensHtml.slideUp();
-		imagesHtml.slideUp();
 	}
+	imagesHtml.slideUp();
 
 };
 
