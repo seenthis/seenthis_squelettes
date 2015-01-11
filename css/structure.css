@@ -500,6 +500,7 @@ body {
             padding: 3px;
             margin-bottom: 3px;
             -spip-border-radius: 4px;
+            display: block;
         }
     }
 
