@@ -36,6 +36,14 @@
 			[(#ENV**{message_ok}|table_valeur{ok_me}|oui)
 				<div><textarea name="texte_message" rows="2" cols="60"></textarea></div>
 			]
+			<p class="boutons">
+				
+				[(#REM)
+					<input type="reset" value="<:seenthis:annuler:>">
+				]
+			
+				<input type="submit" value="<:seenthis:envoyer:>">
+			</p>
 
 			[<div class="erreur_message">(#ENV**{erreurs}|table_valeur{texte_message})</div>]
 		
@@ -49,16 +57,7 @@
 			<div style="clear: left;"></div>
             <div class="images"></div>
             <div style="clear: left;"></div>
-		
-			
-				<p class="boutons">
-					
-					[(#REM)
-						<input type="reset" value="<:seenthis:annuler:>">
-					]
-				
-					<input type="submit" value="<:seenthis:envoyer:>">
-				</p>
+
 		</form>
 	</div>
 
