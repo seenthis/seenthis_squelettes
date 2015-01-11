@@ -82,6 +82,19 @@ $.fn.afficher_masques = function () {
 	});
 };
 
+/**
+ * Créé les images pour la fonction suivreEdition.
+ * @param parentDiv le div parent où ajouter le html
+ * @param imageUrl l'url de l'image à ajouter
+ * @param elementLien l'élément "lien", à supprimer quand l'image est chargée
+ */
+function suivreEditionCreateImage(parentDiv, imageUrl, elementLien){
+	var tmpImg = $('<img>').on('load', function(){
+		tmpImg.appendTo(parentDiv);
+		elementLien.remove();
+	}).attr('src', imageUrl);
+}
+
 $.fn.suivreEdition = function () {
 	var area = this;
 	var texteMessage = area.val() || '';
@@ -128,24 +141,17 @@ $.fn.suivreEdition = function () {
 	var imagesHtml = currentForm.find(".images");
 	imagesHtml.html("<div class='titre_images'>Images:</div>");
 	if (matchUrl) {
-		var createImage = function(parentDiv, imageUrl){
-			var tmpImg = $('<img>').on('load', function(){
-				tmpImg.appendTo(parentDiv);
-			}).attr('src', imageUrl);
-		};
 
-
+		liensHtml.html(liens);
 		for (i = 0; i < matchUrl.length; ++i) {
 			var lienUrl = matchUrl[i];
 			var lienAff = lienUrl.replace(racine_url_match, "<span>$1</span>");
 			lienAff = lienAff.replace(fin_url_match, "<span>$1</span>");
-			liens = liens + "<div class='lien'>⇧<a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
 
+			var elementLien = $("<div class='lien'>⇧<a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>").appendTo(liensHtml);
 			// pour le cas où il s'agit d'une image
-			var imageDiv = $('<div></div>').appendTo(imagesHtml);
-			createImage(imagesHtml, lienUrl);
+			suivreEditionCreateImage(imagesHtml, lienUrl, elementLien);
 		}
-		liensHtml.html(liens);
 		liensHtml.slideDown();
 		imagesHtml.slideDown();
 	} else {
