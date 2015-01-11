@@ -383,6 +383,9 @@ $(function () {
 				ta.elastic();
 			}, 100);
 		})
+		.on('blur', 'textarea', function () {
+			$(this).siblings('.elastic').remove();
+		})
 
 		.on("mouseenter", ".texte_message, .texte_reponse", function () {
 
