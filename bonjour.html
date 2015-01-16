@@ -77,7 +77,11 @@
 		</div>
 
 		<div class="logo">
-			<img src="[(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#GET{couleur}|couleur_luminance{0.57})]}|image_reduire{318}|extraire_attribut{src})]" alt="Seenthis">
+			<img 
+				src="[(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#GET{couleur}|couleur_luminance{0.57})]}|image_reduire{318}|extraire_attribut{src})]" 
+				srcset="[(#CHEMIN{imgs/logo-seenthis.png}|image_sepia{[(#GET{couleur}|couleur_luminance{0.57})]}|image_reduire{636}|extraire_attribut{src})] 2x"
+				alt="Seenthis"
+				>
 		</div>
 	</div>
 
@@ -144,7 +148,11 @@
 		<div class="following following_big" style="padding: 20px;">
 		<BOUCLE_follow_people(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{0,50}>
 			<div class="logo_auteur"><a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-				<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="">
+				<img 
+					src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"
+					srcset="[(#LOGO_AUTEUR|image_passe_partout{96,96}|image_recadre{96,96}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{96})]})] 2x"
+					alt=""
+				>
 				<span class="nom">#NOM</span>
 				<span class="login">@#LOGIN</span>
 			</a></div>
