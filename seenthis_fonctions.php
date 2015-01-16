@@ -330,14 +330,13 @@ function calculer_miniature($img, $maxw = 300, $maxh = 180) {
 	include_spip("inc/filtres_images_mini");
 	$vignetter = image_reduire($vignette, $maxw, $maxh);
 	
-	if ($vignetter == $vignette) return;
+	if ($vignetter == $vignette) return $vignette;
 	
 	$vignette = inserer_attribut($vignetter, "alt", "");
 	list($width, $height) = @getimagesize(extraire_attribut($vignette,'src'));
 
-	if ($width <= $maxw && $height <= $maxh) {
-		return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
-	}
+	return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
+
 }
 
 
