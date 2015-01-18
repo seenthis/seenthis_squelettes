@@ -184,6 +184,8 @@ $.fn.suivreEdition = function () {
 		}
 		if(nombreDeLiens > 0) {
 			liensHtml.slideDown();
+		} else {
+			liensHtml.slideUp();
 		}
 		if(nombreDImages > 0) {
 			imagesHtml.slideDown();
