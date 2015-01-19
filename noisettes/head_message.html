@@ -17,8 +17,8 @@
 
 	<BOUCLE_auteur_metadata(AUTEURS){tous}{id_auteur=#ID_AUTEUR}>
 	    <meta name="author" content="[(#NOM)]">
-	    <meta name="twitter:site" content="[(#TWITTER|sinon{@seenthisnet})]">
-		<meta name="twitter:creator" content="[(#TWITTER|sinon{@seenthisnet})]">
+	    [<meta name="twitter:site" content="(#TWITTER)">]
+		[<meta name="twitter:creator" content="(#TWITTER)">]
 		[<meta property="article:author" content="(#FACEBOOK)">]
 	</BOUCLE_auteur_metadata>
 
