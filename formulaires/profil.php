@@ -67,7 +67,6 @@ function formulaires_profil_traiter (){
 		$couleur_ancien = $row["couleur"];
 		$url_site_ancien = $row["url_site"];
 		$copyright_ancien = $row["copyright"];
-		$twitter_ancien = $row["twitter"];
 	}
 
 
@@ -84,6 +83,7 @@ function formulaires_profil_traiter (){
 	$couleur = str_replace("#", "", $couleur);
 	$copyright = _request("copyright");
 	$twitter = _request("twitter");
+	$facebook = _request("facebook");
 
 	$url_site = _request("url_site");
 	$rss = _request("rss");
@@ -101,6 +101,7 @@ function formulaires_profil_traiter (){
 		"url_site" => $url_site,
 		"copyright" => $copyright,
 		"twitter" => $twitter,
+		"facebook" => $facebook,
 		"rss" => $rss,
 		"mail_nouv_billet" => intval(_request("mail_nouv_billet")),
 		"mail_partage" => intval(_request("mail_partage")),
