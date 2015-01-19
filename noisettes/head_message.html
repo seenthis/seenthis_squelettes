@@ -9,8 +9,8 @@
 	[(#TROLL|=={1}|?{<meta name="robots" content="noindex">})]
 	[(#ID_AUTEUR|microcache{noisettes/head_auteur_message})]
     
-	[(#SET{texte_calcule,#TEXTE})]
-	[(#SET{message_img, #GET{texte_calcule}|extraire_balise{img}|extraire_attribut{src}|url_absolue})]
+	[(#SET{texte,#TEXTE})]
+	[(#SET{message_img, #GET{texte}|extraire_balise{img}|extraire_attribut{src}|url_absolue})]
 	[<meta name="twitter:card" content="(#GET{message_img}|?{summary_large_image,summary})">]
     [<meta property="og:image" content="(#GET{message_img})">]
     [<meta property="twitter:image:src" content="(#GET{message_img})">]
@@ -22,8 +22,8 @@
 		[<meta property="article:author" content="(#FACEBOOK)">]
 	</BOUCLE_auteur_metadata>
 
-	[(#SET{titre_metadonnee,#TEXTE*})]
-	[(#SET{description_metadonnee, #GET{texte_star}|extraire_titre{60}})]
+	[(#SET{titre_metadonnee,#GET{texte_star}|extraire_titre{60}})]
+	[(#SET{description_metadonnee, #GET{texte_star}|supprimer_titre{60}|textebrut|couper{256}})]
 	[<meta name="twitter:title" content="(#GET{titre_metadonnee})">]
 	[<meta name="description" content="(#GET{titre_metadonnee})">]
 	[<meta name="twitter:description" content="(#GET{description_metadonnee})">]
