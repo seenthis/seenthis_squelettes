@@ -3,17 +3,36 @@
 <link rel="canonical" href="#URL_SITE_SPIP/messages/#ID_ME">
 <INCLURE{fond=inc/head}{lang=fr}>
 <BOUCLE_principale(spip_me){tout}{id_me=#ENV{id}}>
-	<title>[(#TEXTE*|extraire_titre)]</title>
+	[(#SET{texte_star,#TEXTE*})]
+
+	[<title>(#GET{texte_star}|extraire_titre)</title>]
 	[(#TROLL|=={1}|?{<meta name="robots" content="noindex">})]
 	[(#ID_AUTEUR|microcache{noisettes/head_auteur_message})]
+    
+	[(#SET{texte,#TEXTE})]
+	[(#SET{message_img, #GET{texte}|extraire_balise{img}|extraire_attribut{src}|url_absolue})]
+	[<meta name="twitter:card" content="(#GET{message_img}|?{summary_large_image,summary})">]
+    [<meta property="og:image" content="(#GET{message_img})">]
+    [<meta property="twitter:image:src" content="(#GET{message_img})">]
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="[(#ID_AUTEUR|compte_twitter|sinon{@seenthisnet})]">
-	<meta name="twitter:creator" content="[(#ID_AUTEUR|compte_twitter|sinon{@seenthisnet})]">
-	<meta name="twitter:title" content="[(#TEXTE*|extraire_titre{60})]">
-	<meta name="twitter:description" content="[(#TEXTE*|supprimer_titre{60}|textebrut|couper{256})]">
+	<BOUCLE_auteur_metadata(AUTEURS){tous}{id_auteur=#ID_AUTEUR}>
+	    <meta name="author" content="[(#NOM)]">
+	    [<meta name="twitter:site" content="(#TWITTER)">]
+		[<meta name="twitter:creator" content="(#TWITTER)">]
+		[<meta property="article:author" content="(#FACEBOOK)">]
+	</BOUCLE_auteur_metadata>
+
+	[(#SET{titre_metadonnee,#GET{texte_star}|extraire_titre{60}})]
+	[(#SET{description_metadonnee, #GET{texte_star}|supprimer_titre{60}|textebrut|couper{256}})]
+	[<meta name="twitter:title" content="(#GET{titre_metadonnee})">]
+	[<meta name="description" content="(#GET{titre_metadonnee})">]
+	[<meta name="twitter:description" content="(#GET{description_metadonnee})">]
+	[<meta name="og:description" content="(#GET{description_metadonnee})">]
+    
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="#URL_SITE_SPIP/messages/#ID_ME">
+
 	<BOUCLE_images(spip_syndic spip_me_syndic){id_me=#ENV{id}}{spip_syndic.url_site==(jpg|gif|png)$}{0,1}>
-	[<meta name="twitter:image:src" content="(#URL_SITE)">]
 	</BOUCLE_images>
 </BOUCLE_principale>
 	<title>#NOM_SITE_SPIP</title>
