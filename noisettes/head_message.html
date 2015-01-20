@@ -1,14 +1,10 @@
 #CACHE{0}
 <meta charset="#CHARSET">
 <link rel="canonical" href="#URL_SITE_SPIP/messages/#ID_ME">
-<INCLURE{fond=inc/head}{lang=fr}>
 <BOUCLE_principale(spip_me){tout}{id_me=#ENV{id}}>
 	[(#SET{texte_star,#TEXTE*})]
-
 	[<title>(#GET{texte_star}|extraire_titre)</title>]
 	[(#TROLL|=={1}|?{<meta name="robots" content="noindex">})]
-	[(#ID_AUTEUR|microcache{noisettes/head_auteur_message})]
-    
 	[(#SET{texte,#TEXTE})]
 	[(#SET{message_img, #GET{texte}|extraire_balise{img}|extraire_attribut{src}|url_absolue})]
 	[<meta name="twitter:card" content="(#GET{message_img}|?{summary_large_image,summary})">]
@@ -32,6 +28,8 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:url" content="#URL_SITE_SPIP/messages/#ID_ME">
 
+	[(#ID_AUTEUR|microcache{noisettes/head_auteur_message})]
+
 	<BOUCLE_images(spip_syndic spip_me_syndic){id_me=#ENV{id}}{spip_syndic.url_site==(jpg|gif|png)$}{0,1}>
 	</BOUCLE_images>
 </BOUCLE_principale>
@@ -39,3 +37,4 @@
 	<meta name="robots" content="noindex">
 	[(#VAL{3}|microcache{noisettes/head_auteur_message})]
 <//B_principale>
+<INCLURE{fond=inc/head}{lang=fr}>
