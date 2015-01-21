@@ -8,9 +8,9 @@
 	[(#SET{texte,#TEXTE})]
 	[(#SET{message_img, #GET{texte}|extraire_balise{img}|extraire_attribut{src}|url_absolue})]
 	[<meta name="twitter:card" content="(#GET{message_img}|?{summary_large_image,summary})"/>]
-    [<meta property="og:image" content="(#GET{message_img})"/>]
-    [(#SET{twitter_image_property_name, #GET{message_img}|?{twitter:image:src,twitter:image}})]
-    [<meta property="#GET{twitter_image_property_name}" content="(#GET{message_img})"/>]
+	[<meta property="og:image" content="(#GET{message_img})"/>]
+	[(#SET{twitter_image_property_name, #GET{message_img}|?{twitter:image:src,twitter:image}})]
+	[<meta property="#GET{twitter_image_property_name}" content="(#GET{message_img})"/>]
 
 	<BOUCLE_auteur_metadata(AUTEURS){tous}{id_auteur=#ID_AUTEUR}>
 	    <meta name="author" content="[(#NOM)]"/>
@@ -22,7 +22,7 @@
 	[(#SET{titre_metadonnee,#GET{texte_star}|extraire_titre{60}})]
 	[(#SET{description_metadonnee, #GET{texte_star}|supprimer_titre{60}|textebrut|couper{256}})]
 
-	[<meta name="og:title" content="(#GET{description_metadonnee})"/>]
+	[<meta name="og:title" content="(#GET{titre_metadonnee})"/>]
 	[<meta name="twitter:title" content="(#GET{titre_metadonnee})"/>]
 	[<meta name="description" content="(#GET{titre_metadonnee})"/>]
 	[<meta name="og:description" content="(#GET{description_metadonnee})"/>]
