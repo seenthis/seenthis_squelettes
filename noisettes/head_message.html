@@ -31,6 +31,7 @@
     <meta property="og:locale" content="fr_FR"/>
     <meta property="og:url" content="#URL_SITE_SPIP/messages/#ID_ME"/>
 
+	<INCLURE{fond=inc/head}{lang=fr}>
 	[(#ID_AUTEUR|microcache{noisettes/head_auteur_message})]
 
 	<BOUCLE_images(spip_syndic spip_me_syndic){id_me=#ENV{id}}{spip_syndic.url_site==(jpg|gif|png)$}{0,1}>
@@ -40,4 +41,3 @@
 	<meta name="robots" content="noindex">
 	[(#VAL{3}|microcache{noisettes/head_auteur_message})]
 <//B_principale>
-<INCLURE{fond=inc/head}{lang=fr}>
