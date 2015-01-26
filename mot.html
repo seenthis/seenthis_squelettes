@@ -17,16 +17,15 @@
 	[(#SET{couleur,99baad})]
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
-		<style><!--
-		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
+        [<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
+        <style><!--
 		[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
 		--></style>
 	</BOUCLE_auteur_message>
 		[(#SET{couleur,99baad})]
+		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=99baad})" type="text/css" media="all">]
+		[<link rel="stylesheet" href="(#URL_PAGE{inscription,couleur=99baad})" type="text/css" media="all">]
 		<style><!--
-		<INCLURE{fond=css/couleur}{couleur=#GET{couleur}}>
-		<INCLURE{fond=css/inscription}{couleur=#GET{couleur}}>
-		
 		.formulaire_inscription {
 			display: none;
 		}

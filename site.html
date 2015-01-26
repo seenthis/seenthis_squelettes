@@ -12,14 +12,12 @@
 	<INCLURE{fond=inc/head}{lang=fr}>
 
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
+		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
 		<style><!--
-		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
 		[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
 		--></style>
 	</BOUCLE_auteur_message>
-		<style><!--
-		<INCLURE{fond=css/couleur}{couleur=54dd24}>
-		--></style>
+		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=54dd24})" type="text/css" media="all">]
 	<//B_auteur_message>
 
 

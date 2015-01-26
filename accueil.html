@@ -13,10 +13,9 @@
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
-	
-	<style><!--
-	<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
 
+	[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
+    <style><!--
 	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
 
 
