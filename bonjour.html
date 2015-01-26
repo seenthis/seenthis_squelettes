@@ -14,19 +14,19 @@
 	[(#SET{couleur,dcdf03})]
 	[(#SET{couleur,f11ec1})]
 	[(#SET{couleur,94fe01})]
-	[(#REM)
-		<INCLURE{fond=css/couleur}{couleur=#GET{couleur}}>
-	]
 	--></style>
+	[(#REM)
+		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
+	]
 
 [(#REM) Couleurs de l'auteur 3 ]
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=3}>
 
 	<INCLURE{fond=inc/head}{lang=fr}>
 
+	[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
+	[<link rel="stylesheet" href="(#URL_PAGE{inscription,couleur=#COULEUR})" type="text/css" media="all">]
 	<style><!--
-	<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
-	<INCLURE{fond=css/inscription}{couleur=#COULEUR}>
 	.formulaire_inscription {
 		display: none;
 	}
@@ -42,10 +42,8 @@
 	<script><!--
 	var auteur_connecte = null;
 	--></script>
-	
+	[<link rel="stylesheet" href="(#URL_PAGE{inscription,couleur=#COULEUR})" type="text/css" media="all">]
 	<style>
-	<INCLURE{fond=css/inscription}{couleur=#GET{couleur}}>
-	
 	.formulaire_inscription {
 		display: block;
 	}

@@ -9,12 +9,10 @@
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
+	[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
 	<style><!--
-	<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
-
 	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
-	
-	
+		
 	#resultat_recherche_site {
 		margin-top: 10px;
 		font-size: 80%;

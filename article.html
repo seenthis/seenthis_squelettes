@@ -8,11 +8,10 @@
 
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
-	
+
+	[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#dcdf03})" type="text/css" media="all">]
 	<style><!--
-	<INCLURE{fond=css/couleur}{couleur=dcdf03}>
-	
-	
+
 	.coloration_code {
 		font-size: 85%;
 		border: 1px solid #999;

@@ -7,31 +7,27 @@
 	<title>[(#ENV{recherche}|mb_strtolower{UTF-8}|textebrut)]</title>
 
 	<meta charset="#CHARSET">
-	
+
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT">
-	
+
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
 
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
-		<style><!--
-		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
-		--></style>
+		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
 	</BOUCLE_auteur_message>
 		[(#SET{couleur,dc2400})]
-		<style><!--
-		<INCLURE{fond=css/couleur}{couleur=dc2400}>
-		--></style>
+		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=dc2400})" type="text/css" media="all">]
 	<//B_auteur_message>
 	[(#SET{couleur,dc2400})]
-	
+
 	<script><!--
 	var auteur_connecte = "[(#SESSION{id_auteur})]";
 	var id_mot = "#ID_MOT";
 
 	--></script>
-	
+
 </head>
 <body class="plier mot">
 
@@ -42,11 +38,11 @@
 
 	<div id="entete_people">
 
-	
+
 		<header>
 		<h1>Oopsie daisy! 404 error  [- searching for (#REM|mot_chemin)]</h1>
 		</header>
-	
+
 		<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
 		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{1}|decaler_date)]">Depuis hier</a>
 		|
@@ -62,7 +58,7 @@
 		|
 		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=0000-00-00">Sans limite</a>
 		</div>
-		
+
 		[(#REM)
 			<div class="rss"><a href="index.php?page=backend_mot&id_mot=#ID_MOT">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
 		]
@@ -70,11 +66,11 @@
 	</div>
 
 	<div id="centre">
-		
+
 		[(#INCLURE{fond=inc/inc-recherche}{recherche=[(#REM|mot_chemin)]}{ajax}{env})]
 
 	</div>
-	
+
 	<aside id="droite">
 
 		<div class="following following_big">
@@ -86,7 +82,7 @@
 		</a></div>
 		</BOUCLE_auteurs>
 		</div>
-		
+
 
 
 		[(#SESSION{id_auteur}|?{""," "})

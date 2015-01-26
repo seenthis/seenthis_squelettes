@@ -15,14 +15,10 @@
 
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
-		<style><!--
-		<INCLURE{fond=css/couleur}{couleur=#COULEUR}>
-		--></style>
+		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
 	</BOUCLE_auteur_message>
 		[(#SET{couleur,dcdf03})]
-		<style><!--
-		<INCLURE{fond=css/couleur}{couleur=dcdf03}>
-		--></style>
+		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=dcdf03})" type="text/css" media="all">]
 	<//B_auteur_message>
 	[(#SET{couleur,99baad})]
 	
