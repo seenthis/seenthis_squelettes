@@ -167,7 +167,7 @@ ul#messages, ul.messages {
 				display: none;
 			}
 			
-			.twitter, .facebook, .stumble {
+			.twitter, .facebook {
 				float: right;
 				padding-left: 15px;
 				-spip-opacity: 0.3;
@@ -176,13 +176,10 @@ ul#messages, ul.messages {
 					-spip-opacity: 1;
 				}
 			}
-			.facebook, .stumble {
+			.facebook {
 				padding-left: 5px;
 			}
-			.stumble {
-				display: none;
-			}
-			
+
 			.modifier {
 				float: right;
 				padding-right: 1.5em;

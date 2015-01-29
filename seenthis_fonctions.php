@@ -127,16 +127,6 @@ function mot_chemin($rien) {
 	return $url;
 }
 
-function share_lien($id_me) {
-
-	
-	$me = "http://"._HOST."/messages/$id_me";
-	
-	$me = rawurlencode($me);
-	
-	return $me;
-
-}
 
 function filtrer_rediriger_images($reg) {
 	//return $reg[0];
