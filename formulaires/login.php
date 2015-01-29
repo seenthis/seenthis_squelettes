@@ -131,6 +131,9 @@ function formulaires_login_verifier_dist($cible="",$login="",$prive=null){
 	if (!$session_login) {
 		# pas de login saisi !
 		return array('var_login' => _T('info_obligatoire'));
+	if (!$session_password) {
+		# pas de login saisi !
+		return ['password' => _T('info_obligatoire')];
 	}
 
 	// appeler auth_identifier_login qui va :

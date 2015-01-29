@@ -213,7 +213,7 @@ ul#messages {
 	right: 25px;
 	font-size: 0.9em;
 	
-	.on, .off {
+	#popupAffichee, #popupCachee {
 		position: absolute;
 		top: 0px;
 		right: 0px;
@@ -228,12 +228,12 @@ ul#messages {
 			color: [#(#ENV{couleur}|couleur_luminance{0.85})];
 		}
 	}
-	.off {
+	#popupCachee {
 		.intitule {
 			-spip-border-radius: 4px;
 		}
 	}
-	.on {
+	#popupAffichee {
 		display: none;
 		.intitule {
 			-spip-border-top-left-radius: 4px;
