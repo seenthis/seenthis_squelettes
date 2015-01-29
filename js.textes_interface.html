@@ -78,8 +78,8 @@ function afficher_textes_traduits() {
 	$('.txt_favori').html(traductionSeenThis.texte_favori);
 	$('.bouton_repondre a').html(traductionSeenThis.texte_bouton_reponse);
 	$('.votre_message').html(traductionSeenThis.votre_message);
-	$('.formulaire_poster_message input[type=submit]').attr('value', envoyer_message);
-	$('.formulaire_poster_message input[type=reset]').attr('value', reset_message);
+	$('.formulaire_poster_message input[type=submit]').attr('value', traductionSeenThis.envoyer_message);
+	$('.formulaire_poster_message input[type=reset]').attr('value', traductionSeenThis.reset_message);
 	$('.message_inscription').html(traductionSeenThis.message_inscription);
 
 	$('.raccourci_quote').html(traductionSeenThis.raccourci_quote);
