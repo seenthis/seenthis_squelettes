@@ -1,7 +1,5 @@
 [(#HTTP_HEADER{Content-type: text/javascript[; charset=(#CHARSET)]})]
 
-
-
 [(#SET{lalangue,[(#ENV{lang}|sinon{#VAL|detecter_langue_visiteur})]})]
 // [(#GET{lalangue}|lang_select)]
 
@@ -15,7 +13,6 @@
 		language = "[(#GET{lalangue})]";
 	]
 ]
-
 	function plier_messages() {
 		if ($("body").hasClass("plier")) {
 			$("ul.reponses").each(function() {
@@ -42,106 +39,106 @@
 
 
 function afficher_textes_traduits_une_fois() {
-	$("#entete .accueil a").html(texte_accueil);
-	$("#entete .people a.intitule").html(texte_people);
-	$("#entete .tags a.intitule").html(texte_tags);
-	$("#entete .urls a.intitule").html(texte_urls);
-	$("#entete .profile a.intitule").html(texte_profil);
-	$("#entete .logout a.intitule").html(texte_logout);
+	$('#entete .accueil a').html(traductionSeenThis.texte_accueil);
+	$('#entete .people a.intitule').html(traductionSeenThis.texte_people);
+	$('#entete .tags a.intitule').html(traductionSeenThis.texte_tags);
+	$('#entete .urls a.intitule').html(traductionSeenThis.texte_urls);
+	$('#entete .profile a.intitule').html(traductionSeenThis.texte_profil);
+	$('#entete .logout a.intitule').html(traductionSeenThis.texte_logout);
 
-	$(".vous_suivez").html(texte_abonnements);
-	$(".vous_suivent").html(texte_abonnes);
-	$(".votre_message_public").html(votre_message_public);		
+	$('.vous_suivez').html(traductionSeenThis.texte_abonnements);
+	$('.vous_suivent').html(traductionSeenThis.texte_abonnes);
+	$('.votre_message_public').html(traductionSeenThis.votre_message_public);
 
-	$("h1.auteurs_vous_suivez").html(texte_auteurs_vous_suivez);
-	$("h1.themes_vous_suivez").html(texte_themes_vous_suivez);
-	$("h1.urls_vous_suivez").html(texte_urls_vous_suivez);
-	$(".bouton_suggerer").html(me_suggerer_contacts);
-	$(".beta_publique").html(beta_publique);
-	$("#pave_accueil .interne").html(pave_accueil);
-	$(".slogan_texte").html(slogan_texte);
-	$(".slogan_lien").html(slogan_lien);
+	$('h1.auteurs_vous_suivez').html(traductionSeenThis.texte_auteurs_vous_suivez);
+	$('h1.themes_vous_suivez').html(traductionSeenThis.texte_themes_vous_suivez);
+	$('h1.urls_vous_suivez').html(traductionSeenThis.texte_urls_vous_suivez);
+	$('.bouton_suggerer').html(traductionSeenThis.me_suggerer_contacts);
+	$('.beta_publique').html(traductionSeenThis.beta_publique);
+	$('#pave_accueil .interne').html(traductionSeenThis.pave_accueil);
+	$('.slogan_texte').html(traductionSeenThis.slogan_texte);
+	$('.slogan_lien').html(traductionSeenThis.slogan_lien);
 
-	$("#theme_manuellement").html(theme_manuellement);
-	$("#theme_automatiquement").html(theme_automatiquement);
+	$('#theme_manuellement').html(traductionSeenThis.theme_manuellement);
+	$('#theme_automatiquement').html(traductionSeenThis.theme_automatiquement);
 
 
-	$(".bookmarklet_titre").html(bookmarklet_titre);
-	$(".bookmarklet_descriptif").html(bookmarklet_descriptif);
+	$('.bookmarklet_titre').html(traductionSeenThis.bookmarklet_titre);
+	$('.bookmarklet_descriptif').html(traductionSeenThis.bookmarklet_descriptif);
 	
 	plier_messages();
 }
 
 
 function afficher_textes_traduits() {
-	$(".modifier a").html(texte_modifier);
-	$(".modifier_themes").html(texte_modifier);
-	$(".supprimer a").html(texte_effacer);
-	$(".texte_afficher_themes").html(themes_automatiques);
-	$(".txt_favori").html(texte_favori);
-	$(".bouton_repondre a").html(texte_bouton_reponse);		
-	$(".votre_message").html(votre_message);		
-	$(".formulaire_poster_message input[type=submit]").attr("value", envoyer_message);		
-	$(".formulaire_poster_message input[type=reset]").attr("value", reset_message);		
-	$(".message_inscription").html(message_inscription);
+	$('.modifier a').html(traductionSeenThis.texte_modifier);
+	$('.modifier_themes').html(traductionSeenThis.texte_modifier);
+	$('.supprimer a').html(traductionSeenThis.texte_effacer);
+	$('.texte_afficher_themes').html(traductionSeenThis.themes_automatiques);
+	$('.txt_favori').html(traductionSeenThis.texte_favori);
+	$('.bouton_repondre a').html(traductionSeenThis.texte_bouton_reponse);
+	$('.votre_message').html(traductionSeenThis.votre_message);
+	$('.formulaire_poster_message input[type=submit]').attr('value', envoyer_message);
+	$('.formulaire_poster_message input[type=reset]').attr('value', reset_message);
+	$('.message_inscription').html(traductionSeenThis.message_inscription);
 
-	$(".raccourci_quote").html(raccourci_quote);
-	$(".raccourci_italic").html(raccourci_italic);
-	$(".raccourci_bold").html(raccourci_bold);
-	$(".raccourci_strike").html(raccourci_strike);
-	$(".intitule_connexion").html(intitule_connexion);
-
+	$('.raccourci_quote').html(traductionSeenThis.raccourci_quote);
+	$('.raccourci_italic').html(traductionSeenThis.raccourci_italic);
+	$('.raccourci_bold').html(traductionSeenThis.raccourci_bold);
+	$('.raccourci_strike').html(traductionSeenThis.raccourci_strike);
+	$('.intitule_connexion').html(traductionSeenThis.intitule_connexion);
 }
 
-var texte_modifier = '<:seenthis:modifier:>';
-var texte_effacer = '<:seenthis:effacer:>';
-var texte_favori = '<:seenthis:favori:>';
-var texte_urls = '<:seenthis:urls:>';
-var texte_bouton_reponse = '<:seenthis:ecrire_commentaire:>';
+var traductionSeenThis = {
+	texte_modifier: '<:seenthis:modifier:>',
+	texte_effacer: '<:seenthis:effacer:>',
+	texte_favori: '<:seenthis:favori:>',
+	texte_urls: '<:seenthis:urls:>',
+	texte_bouton_reponse: '<:seenthis:ecrire_commentaire:>',
 
-var raccourci_quote = '<:seenthis:raccourci_quote:>';
-var raccourci_italic = '<:seenthis:raccourci_italic:>';
-var raccourci_bold = '<:seenthis:raccourci_bold:>';
-var raccourci_strike = '<:seenthis:raccourci_strike:>';
+	raccourci_quote: '<:seenthis:raccourci_quote:>',
+	raccourci_italic: '<:seenthis:raccourci_italic:>',
+	raccourci_bold: '<:seenthis:raccourci_bold:>',
+	raccourci_strike: '<:seenthis:raccourci_strike:>',
 
-var envoyer_message = '<:seenthis:envoyer:>';
-var reset_message = '<:seenthis:annuler:>';
-var votre_message = '<:seenthis:votre_message:>';
-var votre_message_public = '<:seenthis:votre_message_public:>';
+	envoyer_message: '<:seenthis:envoyer:>',
+	reset_message: '<:seenthis:annuler:>',
+	votre_message: '<:seenthis:votre_message:>',
+	votre_message_public: '<:seenthis:votre_message_public:>',
 
-var texte_accueil  = '<:seenthis:accueil:>';
-var texte_people  = '<:seenthis:people:>';
-var texte_tags  = '<:seenthis:tags:>';
-var texte_profil  = '<:seenthis:profil:>';
-var beta_publique  = '<:seenthis:beta_publique:>';
-var pave_accueil  = '<:seenthis:pave_accueil:>';
-var themes_automatiques  = '<:seenthis:themes_automatiques:>';
-var intitule_connexion  = '<:seenthis:intitule_connexion:>';
+	texte_accueil : '<:seenthis:accueil:>',
+	texte_people : '<:seenthis:people:>',
+	texte_tags : '<:seenthis:tags:>',
+	texte_profil : '<:seenthis:profil:>',
+	beta_publique : '<:seenthis:beta_publique:>',
+	pave_accueil : '<:seenthis:pave_accueil:>',
+	themes_automatiques : '<:seenthis:themes_automatiques:>',
+	intitule_connexion : '<:seenthis:intitule_connexion:>',
 
-var texte_logout  = '<:seenthis:logout:>';
-var texte_abonnements = '<:seenthis:vous_suivez:>';
-var texte_abonnes = '<:seenthis:vous_suivent:>';
-var me_suggerer_contacts = '<:seenthis:me_suggerer_contacts:>';
+	texte_logout : '<:seenthis:logout:>',
+	texte_abonnements: '<:seenthis:vous_suivez:>',
+	texte_abonnes: '<:seenthis:vous_suivent:>',
+	me_suggerer_contacts: '<:seenthis:me_suggerer_contacts:>',
 
-var texte_auteurs_vous_suivez = '<:seenthis:auteurs_vous_suivez:>';
-var texte_themes_vous_suivez = "<:seenthis:themes_vous_suivez:>";
-var texte_urls_vous_suivez = '<:seenthis:urls_vous_suivez:>';
+	texte_auteurs_vous_suivez: '<:seenthis:auteurs_vous_suivez:>',
+	texte_themes_vous_suivez: '<:seenthis:themes_vous_suivez:>',
+	texte_urls_vous_suivez: '<:seenthis:urls_vous_suivez:>',
 
-var slogan_texte = '<:seenthis:slogan_texte:>';
-var slogan_lien = '<:seenthis:slogan_lien:>';
-var message_inscription = '<:seenthis:message_inscription:>';
+	slogan_texte: '<:seenthis:slogan_texte:>',
+	slogan_lien: '<:seenthis:slogan_lien:>',
+	message_inscription: '<:seenthis:message_inscription:>',
 
-var theme_manuellement = '<:seenthis:theme_manuellement:>';
-var theme_automatiquement = '<:seenthis:theme_automatiquement:>';
+	theme_manuellement: '<:seenthis:theme_manuellement:>',
+	theme_automatiquement: '<:seenthis:theme_automatiquement:>',
 
 
-var traduire_avec_google = '<:seenthis:traduire_avec_google:>';
+	traduire_avec_google: '<:seenthis:traduire_avec_google:>',
 
-var bookmarklet_titre = '<:seenthis:bookmarklet_titre:>';
-var bookmarklet_descriptif = '<:seenthis:bookmarklet_descriptif:>';
+	bookmarklet_titre: '<:seenthis:bookmarklet_titre:>',
+	bookmarklet_descriptif: '<:seenthis:bookmarklet_descriptif:>',
 
-var montrer_messages = '<:seenthis:montrer_messages:>';
-
+	montrer_messages: '<:seenthis:montrer_messages:>'
+};
 
 afficher_textes_traduits_une_fois();
 
