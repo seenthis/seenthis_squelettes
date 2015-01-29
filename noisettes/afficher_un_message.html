@@ -17,7 +17,11 @@
 			<div class="auteur_date">
 				<span class="auteur">#GET{nom_auteur}</span>
 
-				<span class="date"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|journum)]/[(#DATE|mois)]/[(#DATE|annee)]</time></a> [ <span class="updated">(#DATE_MODIF|strtotime|moins{#DATE|strtotime}|>{1800}|?{[<time datetime="(#DATE_MODIF|date_iso)" class="calcul_date">[(#DATE_MODIF|journum)]/[(#DATE_MODIF|mois)]/[(#DATE_MODIF|annee)]</time>]})</span>]</span>
+				<span class="date">
+					<a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|date_seenthis)]</time></a>
+					[(#REM) date modifidée si elle est plus de 30 minutes après la création du message]
+					[<span class="updated">(#DATE_MODIF|strtotime|moins{#DATE|strtotime}|>{1800}|?{[<time datetime="(#DATE_MODIF|date_iso)" class="calcul_date">[(#DATE_MODIF|date_seenthis)]</time>]})</span>]
+				</span>
 
 				[(#ID_PARENT|=={0}|?{#INCLURE{fond=noisettes/favoris,id_me}})]
 			</div>
