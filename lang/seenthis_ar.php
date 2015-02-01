@@ -58,15 +58,17 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'montrer_messages' => 'عرض الـ@total@ رسالة',
 
 	// P
-	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المشاركات. <strong>منتديات</strong> تحت كل مشاركة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.',
+	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المشاركات. <strong>منتديات</strong> تحت كل مداخلة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.',
 	'people' => 'المشاركون',
 	'profil' => 'التفضيلات',
-	'profil_alerte_conversations' => '<b>محادثات</b> / أحدهم ردّ على مشاركة كنت قد رددت عليها بنفسي.',
+	'profil_alerte_conversations' => '<b>محادثات</b> / أحدهم ردّ على مداخلة كنت قد رددت عليها بنفسي.',
 	'profil_alerte_dubien' => '<b>الله يكثر الحبايب</b> / هناك من يتبعني',
-	'profil_alerte_mes_billets' => '<b>مشاركاتي</b> / الحصول على نسخة من رسائلي',
-	'profil_alerte_nolife' => '<b>هَوَس</b> / هناك مشترك اتبعه يرد على الرسائل اي كانت',
-	'profil_alerte_nouveaux_billets' => '<b>مشاركات جديدة</b> / مؤلف اتبعه أدخل مشاركة جديدة',
-	'profil_alerte_reponses' => '<b>الردود على رسائلي</b> / أحدهم يرد على رسائلي',
+	'profil_alerte_mes_billets' => '<b>مداخلاتي</b> / الحصول على نسخة من رسائلي',
+	'profil_alerte_nolife' => '<b>هَوَس</b> / هناك مشترك اتبعه يرد على المداخلات اي كانت',
+	'profil_alerte_nouveaux_billets' => '<b>مداخلات جديدة</b> / مؤلف اتبعه أدخل مشاركة جديدة',
+	'profil_alerte_partage' => '<b>مشاركة</b> / أحدهم وزع إحدى مداخلاتي',
+	'profil_alerte_reponse_partage' => '<b>ردود على مشاركة</b> / أحدهم رد على مداخلة وزغتها ',
+	'profil_alerte_reponses' => '<b>الردود على مداخلاتي</b> / أحدهم يرد على إحدى مداخلاتي',
 	'profil_alertes' => 'إشعارات',
 	'profil_copyleft' => 'حقوق الملكية، الحقوق «المتروكة»',
 	'profil_copyright_classique' => 'لا رخصة محددة (اعتماد حقوق النشر الافتراضية)',
@@ -89,7 +91,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => 'تسجلوا! التسجل سريع ومجاني!',
-	'slogan_texte' => '<strong>شاركوا في النقاش!</strong> في Seenthis، يمكنكم تبويب مقالات والتعليق عليها وكتابة مشاركات والنقاش مع الأصدقاء ومتابعة المؤلفين الذين يهمكم أمرهم...',
+	'slogan_texte' => '<strong>شاركوا في النقاش!</strong> في Seenthis، يمكنكم تبويب مقالات والتعليق عليها وكتابة مداخلات والنقاش مع الأصدقاء ومتابعة المؤلفين الذين يهمكم أمرهم...',
 	'suggestions' => 'اقتراحات:',
 	'suivre_people' => 'متابعة @people@',
 	'suivre_url' => 'متابعة هذا الموقع',
