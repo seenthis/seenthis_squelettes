@@ -21,8 +21,7 @@ function is_url_prive($cible){
 	return strncmp(substr($path,-strlen(_DIR_RESTREINT_ABS)), _DIR_RESTREINT_ABS, strlen(_DIR_RESTREINT_ABS))==0;
 }
 
-function formulaires_login_charger_dist($cible="",$login="",$prive=null)
-{
+function formulaires_login_charger_dist($cible="",$login="",$prive=null){
 	$erreur = _request('var_erreur');
 
 	if (!$login) $login = strval(_request('var_login'));
@@ -106,9 +105,7 @@ function formulaires_login_charger_dist($cible="",$login="",$prive=null)
 
 // Gerer le cas ou un utilisateur ne souhaite pas de cookie
 // on propose alors un formulaire pour s'authentifier via http
-
-function login_auth_http()
-{
+function login_auth_http(){
 	if (!$GLOBALS['ignore_auth_http']
 		AND _request('var_erreur')=='cookie' 
 		AND $_COOKIE['spip_session'] != 'test_echec_cookie'
@@ -123,14 +120,17 @@ function login_auth_http()
 }
 
 function formulaires_login_verifier_dist($cible="",$login="",$prive=null){
-	
 	$session_login = _request('var_login');
 	$session_password = _request('password');
 	$session_remember = _request('session_remember');
 
 	if (!$session_login) {
 		# pas de login saisi !
-		return array('var_login' => _T('info_obligatoire'));
+		return ['var_login' => _T('info_obligatoire')];
+	}
+	if (!$session_password) {
+		# pas de login saisi !
+		return ['password' => _T('info_obligatoire')];
 	}
 
 	// appeler auth_identifier_login qui va :
@@ -141,32 +141,33 @@ function formulaires_login_verifier_dist($cible="",$login="",$prive=null){
 	$auteur = auth_identifier_login($session_login, $session_password);
 	// on arrive ici si on ne s'est pas identifie avec un SSO
 	if (!is_array($auteur)) {
-		$erreurs = array();
-		if (is_string($auteur))
+		$erreurs = [];
+		if (is_string($auteur)) {
 			$erreurs['var_login'] = $auteur;
+		}
 		include_spip('inc/cookie');
-		spip_setcookie("spip_admin", "", time() - 3600);
-		if (strlen($session_password))
+		spip_setcookie('spip_admin', '', time() - 3600);
+		if (strlen($session_password)) {
 			$erreurs['password'] = _T('login_erreur_pass');
-		// sinon c'est un login en deux passe old style (ou js en panne)
-		// pas de message d'erreur
-		else 
+		} else {
+			// sinon c'est un login en deux passe old style (ou js en panne)
+			// pas de message d'erreur
 			$erreurs['password'] = ' ';
-		return
-			$erreurs;
+		}
+		return $erreurs;
 	}
 	// on a ete authentifie, construire la session
 	// en gerant la duree demandee pour son cookie 
-	if ($session_remember !== NULL)
+	if ($session_remember !== NULL) {
 		$auteur['cookie'] = $session_remember;
+	}
 	auth_loger($auteur);
 
 	return (is_null($prive) ? is_url_prive($cible) : $prive)
-	?  login_autoriser() : array();
+	?  login_autoriser() : [];
 }
 
-function login_autoriser()
-{
+function login_autoriser(){
 	include_spip('inc/autoriser');
 	if (!autoriser('ecrire')){
 		$h = generer_url_action('logout','logout=prive&url='.urlencode(self()));

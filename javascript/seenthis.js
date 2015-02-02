@@ -459,6 +459,16 @@ $(function () {
 	};
 	setTimeout(soundmanager, 100);
 	setInterval(soundmanager, 2000);
+
+	// gestion de la popup de connection
+	$('.intitule_connexion').click(function(){
+		$('#popupCachee, #popupAffichee').toggle();
+		return false;
+	});
+	// s'il y a une erreur de login on affiche la popup
+	if($('#formulaire_login ul li.erreur').length > 0) {
+		$('#popupCachee .intitule_connexion').click();
+	}
 });
 
 /* Activer quand on charge un element de page en Ajax
