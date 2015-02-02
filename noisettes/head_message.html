@@ -9,8 +9,7 @@
 	[(#SET{message_img, #GET{texte}|extraire_balise{img}|extraire_attribut{src}|url_absolue})]
 	[<meta name="twitter:card" content="(#GET{message_img}|?{summary_large_image,summary})"/>]
 	[<meta property="og:image" content="(#GET{message_img})"/>]
-	[(#SET{twitter_image_property_name, #GET{message_img}|?{twitter:image:src,twitter:image}})]
-	[<meta property="#GET{twitter_image_property_name}" content="(#GET{message_img})"/>]
+	[<meta property="twitter:image:src" content="(#GET{message_img})"/>]
 
 	<BOUCLE_auteur_metadata(AUTEURS){tous}{id_auteur=#ID_AUTEUR}>
 	    <meta name="author" content="[(#NOM)]"/>
