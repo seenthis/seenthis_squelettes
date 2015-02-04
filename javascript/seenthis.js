@@ -429,18 +429,18 @@ $(function () {
 
 			if (auteur_connecte > 0) {
 				$(this).find(".favori a.inactif").show();
-			}
 
-			var rel = $(this).find(".modifier").children("a").attr("rel");
-			if (auteur_connecte == rel) {
-				$(this).find(".modifier").children("a").show();
-				$(this).find(".modifier_themes").show();
-			}
+				var rel = $(this).find(".modifier").children("a").attr("rel");
+				if (auteur_connecte == rel) {
+					$(this).find(".modifier").children("a").show();
+					$(this).find(".modifier_themes").show();
+				}
 
-			rel = $(this).find(".supprimer").children("a").attr("rel");
-			var reg = new RegExp(rel, "gi");
-			if (auteur_connecte.match(reg)) {
-				$(this).find(".supprimer").children("a").show();
+				rel = $(this).find(".supprimer").children("a").attr("rel");
+				var reg = new RegExp(rel, "gi");
+				if (auteur_connecte.match(reg)) {
+					$(this).find(".supprimer").children("a").show();
+				}
 			}
 
 		})
