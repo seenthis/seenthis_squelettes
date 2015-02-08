@@ -231,7 +231,6 @@ function sucrer_utm(u) {
 }
 
 $(function () {
-
 	var vals = {};
 	$.each(['content', 'ajouter', 'url_site', 'extrait', 'logo'], function () {
 		var r;
@@ -461,7 +460,7 @@ $(function () {
 	setInterval(soundmanager, 2000);
 
 	// gestion de la popup de connection
-	$('.intitule_connexion').click(function(){
+	bodyElement.on('click', '.intitule_connexion', function(){
 		$('#popupCachee, #popupAffichee').toggle();
 		return false;
 	});
