@@ -54,20 +54,20 @@ $.fn.soundmanager = function () {
 
 function favoris_actifs() {
 	if (auteur_connecte > 0) {
-		$(".texte_message, .texte_reponse").each(function () {
-
-			var rel = $(this).find(".favori").children("a.activer_favori").attr("rel");
+		$(".texte_message, .texte_reponse").each(function (_, element) {
+            var $this = $(this);
+            var rel = $this.find(".favori").children("a.activer_favori").attr("rel");
 			var reg = new RegExp(rel, "gi");
 			if (auteur_connecte.match(reg)) {
-				$(this).find(".favori a.activer_favori").addClass("actif");
+				$this.find(".favori a.activer_favori").addClass("actif");
 			} else {
-				if ($(this).find(".favori .survol").length > 0) {
-					$(this).find(".favori a.activer_favori").addClass("abonnes");
+				if ($this.find(".favori .survol").length > 0) {
+					$this.find(".favori a.activer_favori").addClass("abonnes");
 				} else {
-					$(this).find(".favori a.activer_favori").addClass("inactif");
+					$this.find(".favori a.activer_favori").addClass("inactif");
 				}
 			}
-		});
+        });
 	} else {
 		$(".favori").css("display", "none");
 	}
