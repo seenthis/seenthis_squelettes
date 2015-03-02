@@ -9,7 +9,7 @@ body {
 }
 .clear-left {
 	clear: left;
-	height: 1px; 
+	height: 1px;
 	overflow: hidden;
 }
 #principale, .centrer {
@@ -30,10 +30,10 @@ body {
 	-spip-transition-duration: 0.2s;
 
 
-	@media all and (max-width: 1000px) {	
+	@media all and (max-width: 1000px) {
 		width: 90%;
 	}
-	@media all and (max-width: 500px) {	
+	@media all and (max-width: 500px) {
 		width: 100%;
 		border-left: 0px;
 		border-right: 0px;
@@ -49,7 +49,7 @@ body {
 	float: left;
 	width: 660px;
 
-	@media all and (max-width: 1000px) {	
+	@media all and (max-width: 1000px) {
 		width: 100%;
 	}
 	
@@ -63,9 +63,9 @@ body {
 #droite {
 	float: left;
 	width: 300px;
-	@media all and (max-width: 1000px) {	
+	@media all and (max-width: 1000px) {
 		width: 100%;
-	}	
+	}
 	
 	h3 {
 		font-size: 0.8em;
@@ -356,7 +356,7 @@ body {
 	}
 }
 
-#tetiere .formulaire_poster_message { 
+#tetiere .formulaire_poster_message {
 	label {
 		color: black;
 	}
@@ -397,12 +397,12 @@ body {
 	}
 	.people {
 		font-size: 0.8em;
-		display: none;	
+		display: none;
 		padding-top: 5px;
 	}
 	.tags {
 		font-size: 0.8em;
-		display: none;	
+		display: none;
 		padding-top: 5px;
 	}
 	.titre_people, .titre_tags {
@@ -443,7 +443,7 @@ body {
 	
 	}
 	.lien {
-		padding-left: 5em;	
+		padding-left: 5em;
 		
 		 a {
 			font-weight: bold;
@@ -521,7 +521,6 @@ body {
 		-spip-border-radius: 4px;
 		color: white;
 		text-decoration: none;
-		
 	}
 }
 nav#entete {
@@ -534,7 +533,7 @@ nav#entete {
 	-spip-box-sizing: border-box;
 
 	
-	@media all and (max-width: 900px) {	
+	@media all and (max-width: 900px) {
 		padding: 0px;
 	
 	}
@@ -600,16 +599,16 @@ nav#entete {
 		float: left;
 	}
 	
-	@media all and (max-width: 1000px) {	
+	@media all and (max-width: 1000px) {
 		.accueil {
 			display: none;
 		}
 	}
-	@media all and (max-width: 1000px) {	
+	@media all and (max-width: 1000px) {
 		margin-right: 5px;
 	
 	}
-	@media all and (max-width: 900px) {	
+	@media all and (max-width: 900px) {
 		
 		margin-left: 0px;
 		margin-right: 0px;
@@ -664,8 +663,6 @@ nav#entete {
 		margin-left: 15px;
 		margin-right: 25px;
 		margin-top: 3px;
-		
-
 	}
 
 	. .rechercher {
@@ -767,7 +764,7 @@ nav#entete {
 				padding-top: 2px;
 				
 				a img {
-					-spip-border-radius: 3px;				
+					-spip-border-radius: 3px;
 				}
 				
 				a:hover img {
