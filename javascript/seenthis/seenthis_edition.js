@@ -1,14 +1,16 @@
 /**
  * Les urls qu'on a déjà validées comme étant des images, pour éviter l'effet de clignotement
- * @type {{}}
  */
 var suivreEditionImagesValides = {};
+
 /**
  * Les urls qu'on a déjà validées comme n'étant pas des images, pour éviter l'effet de clignotement
- * @type {{}}
  */
 var suivreEditionImagesInvalides = {};
 
+/**
+ * Id du lien actuel, pour avoir un id unique.
+ */
 var idLienActuel = 0;
 
 /**
