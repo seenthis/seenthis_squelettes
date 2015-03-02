@@ -195,5 +195,7 @@ $.fn.suivreEdition = function () {
         wait: 1000,
         captureLength: 0
     });
-
+    if((area.val() || '') != ''){
+        textUpdated();
+    }
 };
