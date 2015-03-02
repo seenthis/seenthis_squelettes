@@ -16,19 +16,6 @@ var traduire_avec_google = "traduire avec Google";
 var isShift = false;
 var isCtrl = false;
 
-$('body').on('mouseenter mouseleave', '#messages li', function () {
-	var me = $(this), r, id_me;
-	if (!(r = (me.attr('id') || '').match(/message(\d+)/))
-		|| me.hasClass('cooked'))
-		return;
-	id_me = r[1];
-	me.addClass('cooking').addClass('cooked');
-
-	//console.log(me);
-	me.removeClass('cooking');
-});
-
-
 function switch_comments(id_me) {
 	$('.yourmessage').show();
 
@@ -118,7 +105,7 @@ $(function () {
 	$.each(['content', 'ajouter', 'url_site', 'extrait', 'logo'], function () {
 		var r;
 		var re = new RegExp('[#?&]' + this + '=([^&]*)');
-		if (r = window.location.href.match(re)) {
+		if (r = window.location.hash.match(re)) {
 			vals[this] = $.trim(decodeURIComponent(r[1]));
 		}
 	});
@@ -141,17 +128,23 @@ $(function () {
 
 	// si on a un content mais qu'on n'est pas loge, l'enregistrer
 	// temporairement dans un cookie, et le restituer apres connexion
-	if ($('#formulaire_login').size()) {
-		if (content)
-			$.cookie('content', content);
+	if ($('#formulaire_login').length > 0) {
+		if (content != '') {
+            $.cookie('content', content);
+        }
 	} else {
 		if ($.cookie('content')) {
 			content = $.cookie('content');
 			window.location.hash = "content=" + content;
 			$.cookie('content', null);
 		}
-		$(".formulaire_principal textarea").val(content);
+        if (content != '') {
+            $(".formulaire_principal textarea").val(content);
+        }
 	}
+    if(content != ''){
+        window.location.hash = '';
+    }
 
     $('textarea').each(function(_, textArea){
         $(textArea).suivreEdition();
