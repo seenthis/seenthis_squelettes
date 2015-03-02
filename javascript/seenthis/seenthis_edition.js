@@ -53,24 +53,19 @@ $.fn.suivreEdition = function () {
     var liensHtml = currentForm.find(".liens");
 
     var masqueLiens = function () {
-        console.log('>masqueLiens');
         if (liensAffiches) {
             liensHtml.slideUp();
             liensAffiches = false;
         }
-        console.log('<masqueLiens');
     };
     var afficheImage = function () {
-        console.log('>afficheImage');
         if (!imagesAffiches) {
             imagesHtml.slideDown();
             imagesAffiches = true;
         }
-        console.log('<afficheImage');
     };
 
     var textUpdated = function () {
-        console.log('update');
         var texteMessage = area.val() || '';
 
         var matchPersonne = texteMessage.match(reg_personne);
