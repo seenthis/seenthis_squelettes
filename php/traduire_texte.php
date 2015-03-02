@@ -24,7 +24,10 @@ function translate_requestCurl($parameters)
 		
 		//print_r($json);
 	
-		if (isset($json["error"])) return false;
+		if (isset($json["error"])) {
+			spip_log($json, 'translate');
+			return false;
+		}
 		return urldecode($json["data"]["translations"][0]["translatedText"]);
 	//	return urldecode($json["responseData"]["translatedText"]);
 
