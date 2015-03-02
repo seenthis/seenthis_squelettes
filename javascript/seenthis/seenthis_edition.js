@@ -138,7 +138,7 @@ $.fn.suivreEdition = function () {
                     if (!suivreEditionImagesInvalides[lienUrl]) {
                         var lienId = 'possibleImage_' + idLienActuel;
                         idLienActuel++;
-                        liens += "<div id='" + lienId + "' class='lien'>⇧<a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
+                        liens += "<div id='" + lienId + "' class='lien'><a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
                         suivreEditionCreateImage(
                             imagesHtml,
                             lienUrl,
@@ -147,7 +147,7 @@ $.fn.suivreEdition = function () {
                             afficheImage,
                             masqueLiens);
                     } else {
-                        liens += "<div class='lien'>⇧<a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
+                        liens += "<div class='lien'><a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
                     }
                 }
             }
