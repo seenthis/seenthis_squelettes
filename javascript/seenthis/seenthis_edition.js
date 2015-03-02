@@ -23,17 +23,20 @@ var idLienActuel = 0;
  * @param afficheImage fonction qui affiche les liens
  */
 function suivreEditionCreateImage(parentDiv, imageUrl, lienId, elementsLiens, afficheImage, masqueLiens) {
-    var tmpImg = $('<img>').on('load', function () {
-        suivreEditionImagesValides[imageUrl] = true;
-        tmpImg.appendTo(parentDiv);
-        $("#" + lienId).remove();
-        afficheImage();
-        if (elementsLiens.find('.lien').length == 0) {
-            masqueLiens();
-        }
-    }).on('error', function () {
-        suivreEditionImagesInvalides[imageUrl] = true;
-    }).attr('src', imageUrl);
+    var tmpImg = $('<img>')
+        .on('load', function () {
+            suivreEditionImagesValides[imageUrl] = true;
+            tmpImg.appendTo(parentDiv);
+            $("#" + lienId).remove();
+            afficheImage();
+            if (elementsLiens.find('.lien').length == 0) {
+                masqueLiens();
+            }
+        })
+        .on('error', function () {
+            suivreEditionImagesInvalides[imageUrl] = true;
+        })
+        .attr('src', imageUrl);
 }
 
 $.fn.suivreEdition = function () {
