@@ -75,7 +75,10 @@ function traduire_texte( $text, $destLang = 'fr', $srcLang = 'en' ) {
 
 	$ltr = lang_dir($destLang, 'ltr','rtl');
 	
-	return "<div dir='$ltr' lang='$destLang'>$trans</div>";
+	if (strlen($trans))
+		return "<div dir='$ltr' lang='$destLang'>$trans</div>";
+	else
+		return false;
 }
 
 function traduire($text, $destLang = 'fr', $srcLang = 'en') {
