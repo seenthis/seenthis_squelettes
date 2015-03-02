@@ -443,16 +443,9 @@ body {
 	}
 	.lien {
 		padding-left: 5em;
-		
 		a {
-			font-weight: bold;
-			color: #555;
-			
-			 span {
-				font-weight: normal;
-				}
+			color: black;
 		}
-
 	}
 	.titre_images {
 		font-size: 0.8em;
