@@ -439,20 +439,19 @@ body {
 	.liens {
 		font-size: 0.8em;
 		padding-top: 5px;
-		color: #777;
-	
 	}
 	.lien {
 		padding-left: 5em;
 		
-		 a {
+		a {
 			font-weight: bold;
 			color: #555;
 			
 			 span {
 				font-weight: normal;
 				}
-		}		
+		}
+
 	}
 	.titre_images {
 		font-size: 0.8em;
