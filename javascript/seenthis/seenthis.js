@@ -16,19 +16,6 @@ var traduire_avec_google = "traduire avec Google";
 var isShift = false;
 var isCtrl = false;
 
-$('body').on('mouseenter mouseleave', '#messages li', function () {
-	var me = $(this), r, id_me;
-	if (!(r = (me.attr('id') || '').match(/message(\d+)/))
-		|| me.hasClass('cooked'))
-		return;
-	id_me = r[1];
-	me.addClass('cooking').addClass('cooked');
-
-	//console.log(me);
-	me.removeClass('cooking');
-});
-
-
 function switch_comments(id_me) {
 	$('.yourmessage').show();
 
