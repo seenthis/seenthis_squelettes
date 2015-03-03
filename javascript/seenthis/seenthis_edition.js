@@ -53,24 +53,19 @@ $.fn.suivreEdition = function () {
     var liensHtml = currentForm.find(".liens");
 
     var masqueLiens = function () {
-        console.log('>masqueLiens');
         if (liensAffiches) {
             liensHtml.slideUp();
             liensAffiches = false;
         }
-        console.log('<masqueLiens');
     };
     var afficheImage = function () {
-        console.log('>afficheImage');
         if (!imagesAffiches) {
             imagesHtml.slideDown();
             imagesAffiches = true;
         }
-        console.log('<afficheImage');
     };
 
     var textUpdated = function () {
-        console.log('update');
         var texteMessage = area.val() || '';
 
         var matchPersonne = texteMessage.match(reg_personne);
@@ -138,7 +133,7 @@ $.fn.suivreEdition = function () {
                     if (!suivreEditionImagesInvalides[lienUrl]) {
                         var lienId = 'possibleImage_' + idLienActuel;
                         idLienActuel++;
-                        liens += "<div id='" + lienId + "' class='lien'>⇧<a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
+                        liens += "<div id='" + lienId + "' class='lien'><a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
                         suivreEditionCreateImage(
                             imagesHtml,
                             lienUrl,
@@ -147,7 +142,7 @@ $.fn.suivreEdition = function () {
                             afficheImage,
                             masqueLiens);
                     } else {
-                        liens += "<div class='lien'>⇧<a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
+                        liens += "<div class='lien'><a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
                     }
                 }
             }

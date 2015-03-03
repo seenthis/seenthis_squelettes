@@ -439,19 +439,13 @@ body {
 	.liens {
 		font-size: 0.8em;
 		padding-top: 5px;
+        display: none;
 	}
 	.lien {
 		padding-left: 5em;
-		
 		a {
-			font-weight: bold;
-			color: #555;
-			
-			 span {
-				font-weight: normal;
-				}
+			color: black;
 		}
-
 	}
 	.titre_images {
 		font-size: 0.8em;
@@ -489,6 +483,7 @@ body {
 	}
 
 	.images {
+        display: none;
 		padding-top: 10px;
 		img {
 			max-height: 300px;
