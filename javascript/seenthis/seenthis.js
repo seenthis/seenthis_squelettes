@@ -154,7 +154,7 @@ $(function () {
 
 	$.ajaxSetup({cache: true});
 	if (langue_visiteur && langue_visiteur != "fr") {
-		$.getScript("index.php?page=js.calcul_date&lang=" + langue_visiteur)
+		$.getScript("index.php?page=js.calcul_date_lang&lang=" + langue_visiteur)
 	}
 	if (langue_visiteur) {
 		$.getScript("index.php?page=js.textes_interface&lang=" + langue_visiteur)
