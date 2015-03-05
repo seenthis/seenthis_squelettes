@@ -105,7 +105,7 @@ $(function () {
 	$.each(['content', 'ajouter', 'url_site', 'extrait', 'logo'], function () {
 		var r;
 		var re = new RegExp('[#?&]' + this + '=([^&]*)');
-		if (r = window.location.hash.match(re)) {
+		if (r = window.location.href.match(re)) {
 			vals[this] = $.trim(decodeURIComponent(r[1]));
 		}
 	});
@@ -142,9 +142,11 @@ $(function () {
             $(".formulaire_principal textarea").val(content);
         }
 	}
-    if(content != ''){
-        window.location.hash = '';
-    }
+	
+	// vider l'URL
+	//if(content != ''){
+	//	window.location.hash = '';
+	//}
 
     $('textarea').each(function(_, textArea){
         $(textArea).suivreEdition();
