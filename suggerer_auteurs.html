@@ -21,13 +21,15 @@
 	<h2><:seenthis:vous_connaissez:></h2>
 	<div class="suggestions">
 	<BOUCLE_amis(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{statut!=5poubelle}{doublons}{0,12}>
-		<div id="suggerer_#ID_AUTEUR" class="logo_auteur ">
-		<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-			<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="">
-			<span class="nom">#NOM</span>
-			<span class="login">@#LOGIN</span>
-		</a>
-		<br><a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a></div>
+		<div id="suggerer_#ID_AUTEUR" class="logo_auteur">
+			<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
+				[(#ID_AUTEUR|microcache{noisettes/image_logo_auteur})]
+				<span class="nom">#NOM</span>
+				<span class="login">@#LOGIN</span>
+			</a>
+			<br>
+			<a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a>
+		</div>
 	</BOUCLE_amis>
 	</div>
 	</B_amis>
@@ -44,14 +46,15 @@
 	<h2><:seenthis:suggestions:></h2>
 	<div class="suggestions">
 	<BOUCLE_populaires(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{statut!=5poubelle}{0,20}>
-		
+
 		<div id="suggerer_#ID_AUTEUR" class="logo_auteur">
-		<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-			<img src="[(#LOGO_AUTEUR|image_passe_partout{48,48}|image_recadre{48,48}|extraire_attribut{src}|sinon{[(#COULEUR|logo_auteur_vide{48})]})]"  alt="">
-			<span class="nom">#NOM</span>
-			<span class="login">@#LOGIN</span>
-		</a>
-		<br><a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a>
+			<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
+				[(#ID_AUTEUR|microcache{noisettes/image_logo_auteur})]
+				<span class="nom">#NOM</span>
+				<span class="login">@#LOGIN</span>
+			</a>
+			<br>
+			<a class="suivre" onclick="$('#suggerer_#ID_AUTEUR').load('index.php?action=bouton_follow_people&id_auteur=#ID_AUTEUR&follow=oui').fadeOut();return false;" href="#">[(#VAL{<:seenthis:suivre_people:>}|replace{"@people@",[@(#LOGIN)]})]</a>
 		</div>
 	
 	</BOUCLE_populaires>
