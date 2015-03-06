@@ -23,7 +23,7 @@
 	<BOUCLE_amis(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{statut!=5poubelle}{doublons}{0,12}>
 		<div id="suggerer_#ID_AUTEUR" class="logo_auteur">
 			<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-				[(#ID_AUTEUR|microcache{noisettes/image_logo_auteur})]
+				[(#ID_AUTEUR|microcache{noisettes/logo_auteur/image_logo_auteur})]
 				<span class="nom">#NOM</span>
 				<span class="login">@#LOGIN</span>
 			</a>
@@ -49,7 +49,7 @@
 
 		<div id="suggerer_#ID_AUTEUR" class="logo_auteur">
 			<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
-				[(#ID_AUTEUR|microcache{noisettes/image_logo_auteur})]
+				[(#ID_AUTEUR|microcache{noisettes/logo_auteur/image_logo_auteur})]
 				<span class="nom">#NOM</span>
 				<span class="login">@#LOGIN</span>
 			</a>
