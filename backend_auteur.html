@@ -13,7 +13,7 @@
 	<link rel="self" href="[(#SELF|url_absolue)]" />
 
 <BOUCLE_messages(DATA){source seenthisbackend,#ENV**,#VARIANTE}{0,25}>
-	[(#VALEUR|microcache{noisettes/atom_me#ENV{twitter}})]
+	[(#VALEUR|microcache{noisettes/atom/atom_me#ENV{twitter}})]
 </BOUCLE_messages>
 </feed>
 </BOUCLE_auteur>
