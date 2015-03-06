@@ -64,7 +64,7 @@
 			<BOUCLE_messages(spip_me){id_me IN #GET{messages_perso}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
 				<li id="message#ID_ME"><a name="message#ID_ME"></a>
 	
-				[(#ID_ME|microcache{noisettes/afficher_message})]
+				[(#ID_ME|microcache{noisettes/message/afficher_message})]
 	
 				</li>
 			</BOUCLE_messages>

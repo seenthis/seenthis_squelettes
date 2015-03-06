@@ -5,8 +5,8 @@
 
 	On va afficher un message d'activite recente par personne suivie.
 
-	GROUP BY ne donnant pas nŽcessairement le MAX(date) pour chaque auteur,
-	et SPIP ne proposant pas les sous-requtes, il faut faire des boucles
+	GROUP BY ne donnant pas nï¿½cessairement le MAX(date) pour chaque auteur,
+	et SPIP ne proposant pas les sous-requï¿½tes, il faut faire des boucles
 
 ]
 
@@ -30,7 +30,7 @@
 		{statut=publi}
 		{!par date}>
 			<li id="message#ID_ME">
-				[(#ID_ME|microcache{noisettes/afficher_message})]
+				[(#ID_ME|microcache{noisettes/message/afficher_message})]
 			</li>
 		</BOUCLE_messages>
 		</ul>

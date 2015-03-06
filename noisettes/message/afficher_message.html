@@ -1,7 +1,7 @@
 ﻿#CACHE{0}
 <BOUCLE_principale(spip_me){id_me=#ENV{id}}{statut=publi}>
 <section class="auteur#ID_AUTEUR">
-	<INCLUDE{fond=noisettes/afficher_un_message}{id=#ID_ME} />
+	<INCLUDE{fond=noisettes/message/afficher_un_message}{id=#ID_ME} />
 
 
 	<B_reponses>
@@ -10,7 +10,7 @@
 	
 	<BOUCLE_reponses(spip_me){id_parent=#ID_ME}{par date}{statut=publi}>
 		<li class="reponse">
-		<INCLUDE{fond=noisettes/afficher_un_message}{id=#ID_ME} />
+		<INCLUDE{fond=noisettes/message/afficher_un_message}{id=#ID_ME} />
 		</li>
 	</BOUCLE_reponses>
 	</ul>
