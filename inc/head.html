@@ -37,7 +37,7 @@
 	var reg_url = /[(#EVAL{_REG_URL}|replace{'\\pN\\pL\\pM','\u0080-\uFFFFFF'})]/gi;
 	var racine_url_match = new RegExp("#EVAL{_REG_DEBUT_URL}", "gi");
 	var fin_url_match = new RegExp("#EVAL{_REG_FIN_URL}", "gi");
-	var reg_personne_local = /\B@([a-zA-Z0-9\.\_\-])$/;
+	var reg_personne_local = /\B@([a-zA-Z0-9\.\_\-]*)$/;
 	var reg_personne = /#EVAL{_REG_PEOPLE}/g;
 	var isCtrl = false;
 		
