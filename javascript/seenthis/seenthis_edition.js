@@ -14,6 +14,11 @@ var suivreEditionImagesInvalides = {};
 var idLienActuel = 0;
 
 /**
+ * Id de l'auteur actuel, pour avoir un id unique.
+ */
+var idAuteurActuel = 0;
+
+/**
  * Créé les images pour la fonction suivreEdition.
  * @param parentDiv le div parent où ajouter le html
  * @param imageUrl l'url de l'image à ajouter
@@ -65,19 +70,44 @@ $.fn.suivreEdition = function () {
         }
     };
 
+	function verifieAuteur(nom, idElement) {
+		$.existeAuteur(nom, function(result){
+			$('#' + idElement).addClass(result ? 'dieseValide' : 'dieseInvalide');
+		})
+
+	}
+
     var textUpdated = function () {
         var texteMessage = area.val() || '';
 
         var matchPersonne = texteMessage.match(reg_personne);
         var personnes = "<div class='titre_people'>Auteurs:</div>";
         if (matchPersonne) {
+			var idAuteursATrouver = [];
             for (i = 0; i < matchPersonne.length; ++i) {
                 var personne = matchPersonne[i];
                 var nomPersonne = personne.substr(1, 1000);
                 var lienPersonne = "people/" + nomPersonne;
-                personnes += "<span class='nom'><span class='diese'>@</span><a href=\"" + lienPersonne + "\" class='spip_out'>" + nomPersonne + "</a></span>";
+
+				var hashClass = 'diese';
+				var idAuteurATrouver = null;
+				if($.loginsAuteurs().hasOwnProperty(nomPersonne)) {
+					hashClass = $.loginsAuteurs()[nomPersonne] ? 'dieseValide' : 'dieseInvalide';
+				} else {
+					idAuteurATrouver = 'auteur_a_trouver_' + idAuteurActuel;
+					idAuteursATrouver.push({nom: nomPersonne, id: idAuteurATrouver});
+					idAuteurActuel++;
+				}
+				personnes += "<span class='nom'>" +
+				"<span " + (idAuteurATrouver ? ("id='" + idAuteurATrouver + "'") : '') + "class='" + hashClass  + "'>@</span>" +
+				"<a href=\"" + lienPersonne + "\" class='spip_out'>" + nomPersonne + "</a>" +
+				"</span>";
             }
             personnesHtml.html(personnes);
+			for (var k = 0; k < idAuteursATrouver.length; k++) {
+				var idAuteurATrouver = idAuteursATrouver[k];
+				verifieAuteur(idAuteurATrouver.nom, idAuteurATrouver.id);
+			}
             if (!personneAffiches) {
                 personnesHtml.slideDown();
                 personneAffiches = true;
@@ -193,4 +223,19 @@ $.fn.suivreEdition = function () {
     if((area.val() || '') != ''){
         textUpdated();
     }
+	$(area).textcomplete([
+		{ // html
+			match: reg_personne_local,
+			search: function (term, callback) {
+				callback($.map($.listeLoginsAuteurs(), function (mention) {
+					return mention.indexOf(term) === 0 ? mention : null;
+				}));
+			},
+			index: 1,
+			replace: function (mention) {
+				return '@' + mention + ' ';
+			}
+		}
+	]);
+
 };

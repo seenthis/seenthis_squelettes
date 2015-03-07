@@ -1,6 +1,6 @@
 #CACHE{0}
 <BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID}>
-	[<div class="logo_auteur">
+	[<div class="logo_auteur"[ data-login-auteur="(#LOGIN)"]>
 		<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)" rel="nofollow">
 			(#ID_AUTEUR|microcache{noisettes/logo_auteur/image_logo_auteur_small})
 		</a>

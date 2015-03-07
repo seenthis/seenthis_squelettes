@@ -432,10 +432,17 @@ body {
 	.hashtag span.diese {
 		color: #777;
 	}
+
 	.nom span.diese {
+		color: black;
+	}
+	.nom span.dieseValide {
+		color: green;
+	}
+	.nom span.dieseInvalide {
 		color: #d8400b;
 	}
-	
+
 	.liens {
 		font-size: 0.8em;
 		padding-top: 5px;
