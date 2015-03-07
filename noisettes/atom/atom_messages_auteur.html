@@ -15,7 +15,7 @@
 <BOUCLE_messages(DATA)
 	{source seenthisaccueil,#ENV**,auteur}
 	{pagination 25}>
-[(#VALEUR|microcache{noisettes/atom_me}|replace{"<entry.*>","<entry>"})]
+[(#VALEUR|microcache{noisettes/atom/atom_me}|replace{"<entry.*>","<entry>"})]
 </BOUCLE_messages>
 
 </feed>

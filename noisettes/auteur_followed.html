@@ -10,7 +10,7 @@
 	<h3><span class="vous_suivent"><:seenthis:vous_suivent:></span> <strong>#TOTAL_BOUCLE</strong></h3>
 
 	<BOUCLE_follow_people(spip_auteurs){id_auteur IN #GET{followed_people}}{statut!=nouveau}{tout}{par troll}{inverse}{0,180}>
-		[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur_small_nofollow})]
+		[(#ID_AUTEUR|microcache{noisettes/logo_auteur/message_logo_auteur_small_nofollow})]
 	</BOUCLE_follow_people>
 	</div>
 	</B_follow>

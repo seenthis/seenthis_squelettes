@@ -47,7 +47,7 @@ function action_favori_dist() {
 
 	cache_message($id_me);
 	
-	$page = recuperer_fond("noisettes/afficher_message",array("id"=>$id_me),array('trim'=>false));
+	$page = recuperer_fond("noisettes/message/afficher_message",array("id"=>$id_me),array('trim'=>false));
 
 	echo $page;
 	

@@ -10,7 +10,7 @@
 	</BOUCLE_follow>
 	
 	<BOUCLE_follow_people(spip_auteurs){id_auteur IN #GET{follow_people}}{tout}{par troll}{inverse}{0,180}>
-		[(#ID_AUTEUR|microcache{noisettes/message_logo_auteur})]
+		[(#ID_AUTEUR|microcache{noisettes/logo_auteur/message_logo_auteur})]
 	</BOUCLE_follow_people>
 	</div>
 	</B_follow>

@@ -130,14 +130,14 @@
 		<div id="tous_messages">
 		[(#ENV{debut_messages}|>{10}|non)
 			[(#GET{follow}|=={all}|oui)
-				[(#ID_SYNDIC|microcache{noisettes/contenu_site})]
+				[(#ID_SYNDIC|microcache{noisettes/contenu/contenu_site})]
 			]
 			[(#GET{follow}|=={all}|non)
-				<INCLURE{fond=noisettes/contenu_site}{id=#ID_SYNDIC}{follow=#GET{follow}}>
+				<INCLURE{fond=noisettes/contenu/contenu_site}{id=#ID_SYNDIC}{follow=#GET{follow}}>
 			]
 		]
 		[(#ENV{debut_messages}|>{10}|oui)
-				<INCLURE{fond=noisettes/contenu_site}{id=#ID_SYNDIC}{follow=#GET{follow}}>
+				<INCLURE{fond=noisettes/contenu/contenu_site}{id=#ID_SYNDIC}{follow=#GET{follow}}>
 		]
 
 		</div>
@@ -147,7 +147,7 @@
 	<aside id="droite">
 
 		[(#SESSION{id_auteur}|?{""," "})
-			[(#INCLUDE{fond=noisettes/adsense_site})]
+			[(#INCLUDE{fond=noisettes/adsense/adsense_site})]
 		]
 
 		[(#REM) plugin seenthis_opencalais]

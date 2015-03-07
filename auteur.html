@@ -64,7 +64,7 @@
 			<BOUCLE_messages(spip_me){id_me IN #GET{messages_perso}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
 				<li id="message#ID_ME"><a name="message#ID_ME"></a>
 	
-				[(#ID_ME|microcache{noisettes/afficher_message})]
+				[(#ID_ME|microcache{noisettes/message/afficher_message})]
 	
 				</li>
 			</BOUCLE_messages>
@@ -76,10 +76,10 @@
 
 
 		[(#ENV{debut_messages}|>{10}|non)
-			[(#ID_AUTEUR|microcache{noisettes/contenu_auteur})]
+			[(#ID_AUTEUR|microcache{noisettes/contenu/contenu_auteur})]
 		]
 		[(#ENV{debut_messages}|>{10}|oui)
-			<INCLURE{fond=noisettes/contenu_auteur}{id=#ID_AUTEUR}{env}>
+			<INCLURE{fond=noisettes/contenu/contenu/contenu_auteur}{id=#ID_AUTEUR}{env}>
 		]
 		
 		</div>
@@ -89,13 +89,13 @@
 	<aside id="droite">
 		[(#SESSION{id_auteur}|?{""," "})
 			<div id="charger_pave_inscription"></div>
-			[(#ID_AUTEUR|microcache{noisettes/adsense_auteur})]
+			[(#ID_AUTEUR|microcache{noisettes/adsense/adsense_auteur})]
 		]
 
 		[(#ID_AUTEUR|microcache{noisettes/auteur_follow_people})]
 		[(#ID_AUTEUR|microcache{noisettes/auteur_followed})]
 		
-		<INCLURE{fond=noisettes/mots_lies_auteur}{id_auteur}{ajaxload}>
+		<INCLURE{fond=noisettes/mots_lies/mots_lies_auteur}{id_auteur}{ajaxload}>
 		
 	</aside>
 

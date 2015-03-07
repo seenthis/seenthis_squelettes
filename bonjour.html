@@ -47,12 +47,6 @@
 	.formulaire_inscription {
 		display: block;
 	}
-	#doodle {
-		width: 960px;
-		margin-left: auto;
-		margin-right: auto;
-		height: 400px;
-	}
 	.interne {
 		[background: url((#CHEMIN{imgs/guillemets-ouvrants.png})) top left no-repeat;]
 	}
@@ -86,14 +80,10 @@
 
 
 	[(#REM) Les tags techniques d'Owni ont tendance à saturer le truc de cochonneries.
-		<INCLURE{fond=noisettes/mots_lies_general}>
+		<INCLURE{fond=noisettes/mots_lies/mots_lies_general}>
 	]
 
 </div>
-
-
-<INCLURE{fond=doodle} />
-
 
 	<div id="centre">
 
@@ -113,7 +103,7 @@
 			{date>#VAL{4}|decaler_date}>
 				<BOUCLE_auteur_message(AUTEURS){tout}{id_auteur}{troll>100}{troll_forcer!=1}>
 				<li id="message#ID_ME"><a name="message#ID_ME"></a>
-					[(#ID_ME|microcache{noisettes/afficher_message})]
+					[(#ID_ME|microcache{noisettes/message/afficher_message})]
 				</li>
 				</BOUCLE_auteur_message>
 			

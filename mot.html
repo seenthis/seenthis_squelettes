@@ -130,7 +130,7 @@
 		]
 
 		<div id="tous_messages">
-			<INCLURE{fond=noisettes/contenu_mot}{env}{follow=#GET{follow}} />
+			<INCLURE{fond=noisettes/contenu/contenu_mot}{env}{follow=#GET{follow}} />
 		</div>
 	</div>
 	
@@ -141,11 +141,11 @@
 		[(#SESSION{id_auteur}|non)
 			<div id="charger_pave_inscription"></div>
 			[(#REM)
-				[(#GET{couleur}|microcache{noisettes/adsense})]
+				[(#GET{couleur}|microcache{noisettes/adsense/adsense})]
 			]
 		]
 
-		<INCLURE{fond=noisettes/mots_lies}{tag}{ajaxload}>
+		<INCLURE{fond=noisettes/mots_lies/mots_lies}{tag}{ajaxload}>
 		
 		
 	</aside>
