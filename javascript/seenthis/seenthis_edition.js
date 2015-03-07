@@ -26,8 +26,9 @@ var idAuteurActuel = 0;
  * @param elementsLiens l'élement qui contient toutes les liens
  * @param masqueLiens fonction qui masque les liens
  * @param afficheImage fonction qui affiche les liens
+ * @param afficheMessageLienDejaPoste function qui sgère les liens déjà postés
  */
-function suivreEditionCreateImage(parentDiv, imageUrl, lienId, elementsLiens, afficheImage, masqueLiens) {
+function suivreEditionCreateImage(parentDiv, imageUrl, lienId, elementsLiens, afficheImage, masqueLiens, afficheMessageLienDejaPoste) {
     var tmpImg = $('<img>')
         .on('load', function () {
             suivreEditionImagesValides[imageUrl] = true;
@@ -38,13 +39,27 @@ function suivreEditionCreateImage(parentDiv, imageUrl, lienId, elementsLiens, af
                 masqueLiens();
             }
         })
-        .on('error', function () {
-            suivreEditionImagesInvalides[imageUrl] = true;
-        })
+		.on('error', function () {
+			// pas une image
+			suivreEditionImagesInvalides[imageUrl] = true;
+			afficheMessageLienDejaPoste(imageUrl, lienId);
+		})
         .attr('src', imageUrl);
 }
 
 $.fn.suivreEdition = function () {
+
+	function afficheMessageLienDejaPoste(url, lienId) {
+		$.messageUrlsPourUrl(url, function (messageUrlsPourUrl) {
+			var htmlLiens = "";
+			for (var i = 0; i < messageUrlsPourUrl.length; i++) {
+				var messageUrl = messageUrlsPourUrl[i];
+				htmlLiens += '<a class="lienDejaPoste" href="' + messageUrl + '">⇗</a>';
+			}
+			$("#" + lienId).append(htmlLiens);
+		});
+	}
+
     var area = this;
     var personneAffiches = false;
     var tagsAffiches = false;
@@ -80,9 +95,10 @@ $.fn.suivreEdition = function () {
     var textUpdated = function () {
         var texteMessage = area.val() || '';
 
+		// personnes
         var matchPersonne = texteMessage.match(reg_personne);
-        var personnes = "<div class='titre_people'>Auteurs:</div>";
         if (matchPersonne) {
+			var personnes = "<div class='titre_people'>Auteurs:</div>";
 			var idAuteursATrouver = [];
             for (i = 0; i < matchPersonne.length; ++i) {
                 var personne = matchPersonne[i];
@@ -121,8 +137,8 @@ $.fn.suivreEdition = function () {
 
         // tags
         var matchTag = texteMessage.match(reg_tag);
-        var tags = "<div class='titre_tags'>Thèmes:</div>";
         if (matchTag) {
+			var tags = "<div class='titre_tags'>Thèmes:</div>";
             for (var i = 0; i < matchTag.length; ++i) {
                 var tag = matchTag[i].toLowerCase();
                 var lienMessage = tag.substr(1, 1000);
@@ -142,12 +158,13 @@ $.fn.suivreEdition = function () {
 
         // liens
         var matchUrl = texteMessage.match(reg_url);
-        var liens = "<div class='titre_links'>Liens:</div>";
-        var images = "<div class='titre_images'>Images:</div>";
-
         if (matchUrl) {
+			var liens = "<div class='titre_links'>Liens:</div>";
+			var images = "<div class='titre_images'>Images:</div>";
             var nombreDeLiens = 0;
             var nombreDImages = 0;
+
+			var liensAVerifier = [];
 
             for (i = 0; i < matchUrl.length; ++i) {
                 var lienUrl = matchUrl[i];
@@ -160,9 +177,9 @@ $.fn.suivreEdition = function () {
                     var lienAff = lienUrl.replace(racine_url_match, "<span>$1</span>");
                     lienAff = lienAff.replace(fin_url_match, "<span>$1</span>");
                     // si c'est un lien pas encore testé il peut s'agir d'une image
+					var lienId = 'possibleImage_' + idLienActuel;
+					idLienActuel++;
                     if (!suivreEditionImagesInvalides[lienUrl]) {
-                        var lienId = 'possibleImage_' + idLienActuel;
-                        idLienActuel++;
                         liens += "<div id='" + lienId + "' class='lien'><a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
                         suivreEditionCreateImage(
                             imagesHtml,
@@ -170,13 +187,19 @@ $.fn.suivreEdition = function () {
                             lienId,
                             liensHtml,
                             afficheImage,
-                            masqueLiens);
+                            masqueLiens,
+							afficheMessageLienDejaPoste);
                     } else {
-                        liens += "<div class='lien'><a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
+                        liens += "<div id='" + lienId + "'class='lien'><a href=\"" + lienUrl + "\" class='spip_out'>" + lienAff + "</a></div>";
+						liensAVerifier.push({url: lienUrl, id: lienId});
                     }
                 }
             }
             liensHtml.html(liens);
+			for (var l = 0; l < liensAVerifier.length; l++) {
+				var lienAVerifier = liensAVerifier[l];
+				afficheMessageLienDejaPoste(lienAVerifier.url, lienAVerifier.id);
+			}
             imagesHtml.html(images);
 
             if (nombreDeLiens > 0) {
