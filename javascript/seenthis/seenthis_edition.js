@@ -221,9 +221,7 @@ $.fn.suivreEdition = function () {
 	};
 
 	$(area).typeWatch({
-		callback: function () {
-			textUpdated();
-		},
+		callback: textUpdated,
 		wait: 1000,
 		captureLength: 0
 	});
