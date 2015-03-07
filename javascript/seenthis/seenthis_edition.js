@@ -236,13 +236,6 @@ $.fn.suivreEdition = function () {
 				return '@' + mention + ' ';
 			}
 		}
-	], {appendTo: 'body'}).overlay([
-		{
-			match: reg_personne,
-			css: {
-				'background-color': '#d8dfea'
-			}
-		}
 	]);
 
 };
