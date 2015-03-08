@@ -110,6 +110,7 @@ $(function () {
 		}
 	});
 	var content = "";
+	var urlSite = null;
 	if (vals['content']) {
 		content += vals['content'];
 	}
@@ -117,10 +118,21 @@ $(function () {
 		content += vals['ajouter'].replace(/@/, ' ') + "\n";
 	}
 	if (vals['url_site']) {
-		content += sucrer_utm(vals['url_site']) + "\n";
+		urlSite = sucrer_utm(vals['url_site']);
+		content += urlSite + "\n";
 	}
 	if (vals['logo']) {
-		content += sucrer_utm(vals['logo']) + "\n";
+		var urlLogo = sucrer_utm(vals['logo']);
+		// certains sites ne mettent pas de http: ou de https: devant les urls des images
+		// on essaie de récupérer celui du lien, sinon on met http
+		if(urlLogo.indexOf('//') == 0) {
+			if(urlSite){
+				urlLogo = urlSite.substring(0, urlSite.indexOf('//')) + urlLogo;
+			} else {
+				urlLogo = 'http:' + urlLogo;
+			}
+		}
+		content += urlLogo + "\n";
 	}
 	if (vals['extrait']) {
 		content += "\n❝" + vals['extrait'] + "❞\n";
@@ -142,11 +154,6 @@ $(function () {
             $(".formulaire_principal textarea").val(content);
         }
 	}
-	
-	// vider l'URL
-	//if(content != ''){
-	//	window.location.hash = '';
-	//}
 
     $('textarea').each(function(_, textArea){
         $(textArea).suivreEdition();
