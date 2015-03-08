@@ -142,11 +142,6 @@ $(function () {
             $(".formulaire_principal textarea").val(content);
         }
 	}
-	
-	// vider l'URL
-	//if(content != ''){
-	//	window.location.hash = '';
-	//}
 
     $('textarea').each(function(_, textArea){
         $(textArea).suivreEdition();
