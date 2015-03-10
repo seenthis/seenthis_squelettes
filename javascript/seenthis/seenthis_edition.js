@@ -228,19 +228,4 @@ $.fn.suivreEdition = function () {
 	if ((area.val() || '') != '') {
 		textUpdated();
 	}
-	$(area).textcomplete([
-		{ // html
-			match: reg_personne_local,
-			search: function (term, callback) {
-				callback($.map($.listeLoginsAuteurs(), function (mention) {
-					return mention.indexOf(term) === 0 ? mention : null;
-				}));
-			},
-			index: 1,
-			replace: function (mention) {
-				return '@' + mention + ' ';
-			}
-		}
-	]);
-
 };
