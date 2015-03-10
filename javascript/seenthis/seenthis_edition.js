@@ -223,7 +223,8 @@ $.fn.suivreEdition = function () {
 	$(area).typeWatch({
 		callback: textUpdated,
 		wait: 1000,
-		captureLength: 0
+		captureLength: 0,
+		highlight: false
 	});
 	if ((area.val() || '') != '') {
 		textUpdated();
