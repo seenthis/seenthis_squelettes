@@ -40,16 +40,18 @@ $(function () {
 		}
 	};
 
-	$.getJSON("spip.php?action=liste_amis", function (data) {
-		var logins = data.logins;
-		for (var i = 0; i < logins.length; i++) {
-			var login = logins[i];
-			if (!friends[login]) {
-				friends[login] = true;
-				friendsList.push(login);
+	if (auteur_connecte > 0) {
+		$.getJSON("spip.php?action=liste_amis", function (data) {
+			var logins = data.logins;
+			for (var i = 0; i < logins.length; i++) {
+				var login = logins[i];
+				if (!friends[login]) {
+					friends[login] = true;
+					friendsList.push(login);
+				}
 			}
-		}
-	});
+		});
+	}
 	$('[data-login-auteur]').each(function (_, element) {
 		var loginAuteur = $(element).attr('data-login-auteur');
 		if (!friends[loginAuteur]) {
