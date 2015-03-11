@@ -10,9 +10,11 @@ function action_messages_lien() {
 	$url = rawurldecode(_request("url"));
 	spip_log($url);
 	$url_messages = array();
+	$q1 = sql_allfetsel('id_syndic', 'spip_syndic', 'url_site = '.sql_quote($url));
+	$q2 = sql_allfetsel ('id_me', 'spip_me_syndic', sql_in('id_syndic', array_map('array_pop', $q1)));
 	$query = sql_allfetsel(
-		'spip_me.id_me as id_me',
-		"spip_me where statut = 'publi' and id_me in (select spip_me_syndic.id_me from spip_me_syndic where spip_me_syndic.id_syndic in (select spip_syndic.id_syndic from spip_syndic where spip_syndic.url_site = ".sql_quote($url)."))", '');
+		'id_me',
+		'spip_me', array("statut = 'publi'", sql_in('id_me', array_map('array_pop', $q2))));
 	foreach ($query as $k => $row) {
 		$url_messages[] = "http://"._HOST."/messages/".$row['id_me'];
 	}
