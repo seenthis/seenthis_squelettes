@@ -10,7 +10,7 @@ function action_messages_lien() {
 	$url = rawurldecode(_request("url"));
 	spip_log($url);
 	$url_messages = array();
-	$q1 = sql_allfetsel('id_syndic', 'spip_syndic', 'url_site = '.sql_quote($url));
+	$q1 = sql_allfetsel('id_syndic', 'spip_syndic', 'url_site = '.sql_quote(preg_replace(',/$,', '', $url)));
 	$q2 = sql_allfetsel ('id_me', 'spip_me_syndic', sql_in('id_syndic', array_map('array_pop', $q1)));
 	$query = sql_allfetsel(
 		'id_me',
