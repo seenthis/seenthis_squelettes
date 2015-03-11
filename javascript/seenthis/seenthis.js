@@ -159,6 +159,22 @@ $(function () {
         $(textArea).suivreEdition();
     });
 
+	$('textarea').textcomplete([
+		{ // html
+			match: reg_personne_local,
+			search: function (term, callback) {
+				callback($.map($.listeLoginsAuteurs(), function (mention) {
+					return (mention.indexOf(term) === 0) ? mention : null;
+				}));
+			},
+			index: 1,
+			replace: function (mention) {
+				return '@' + mention + ' ';
+			}
+		}
+	]);
+
+
 	$.ajaxSetup({cache: true});
 	if (langue_visiteur && langue_visiteur != "fr") {
 		$.getScript("index.php?page=js.calcul_date_lang&lang=" + langue_visiteur)
