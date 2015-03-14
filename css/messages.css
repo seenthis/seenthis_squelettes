@@ -178,6 +178,16 @@ ul#messages, ul.messages {
 			}
 			.facebook {
 				padding-left: 5px;
+				img {
+					width: 14px;
+					height: 14px;
+				}
+			}
+			.twitter {
+				img {
+					width: 16px;
+					height: 13px;
+				}
 			}
 
 			.modifier {

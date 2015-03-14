@@ -22,17 +22,16 @@
 [<script src="(#CHEMIN{javascript/seenthis/seenthis_edition.js})?v=1.7" type="text/javascript"></script>]
 [<script src="(#CHEMIN{javascript/seenthis/seenthis_friends.js})?v=1.7" type="text/javascript"></script>]
 [<script src="(#CHEMIN{javascript/seenthis/seenthis_urls.js})?v=1.7" type="text/javascript"></script>]
+[<script src="(#CHEMIN{javascript/seenthis/seenthis_partage.js})?v=1.7" type="text/javascript"></script>]
 <!--[if lt IE 9]>
 [<script src="(#CHEMIN{javascript/ie9/html5.js})" type="text/javascript"></script>]
 [<script src="(#CHEMIN{javascript/ie9/css3-mediaqueries.js})" type="text/javascript"></script>]
 <![endif]-->
 
-
 	<script><!--
 	var verif_hash = [];
 	var time_verif_hash = 0;
 	var auteur_page = 0;
-	
 	var reg_tag = new RegExp("[(#EVAL{_REG_HASH}|replace{'\\pN\\pL\\pM','\u0080-\uFFFFFF'})]", "gi");
 	var reg_url = /[(#EVAL{_REG_URL}|replace{'\\pN\\pL\\pM','\u0080-\uFFFFFF'})]/gi;
 	var racine_url_match = new RegExp("#EVAL{_REG_DEBUT_URL}", "gi");
@@ -44,7 +43,8 @@
 	var texte_effacer = "<:seenthis:effacer:>";
 	var texte_modifier = "<:seenthis:modifier:>";
 	var texte_favori = "<:seenthis:favori:>";
-	
+	var shortHost = "#EVAL{_SHORT_HOST}";
+
 	Shadowbox.init({
 		language:   "fr"
 	});

@@ -134,9 +134,18 @@
 				</li>
 			</ul>
 
-				<p class="boutons">
-					<input type="submit" value="<:enregistrer:>">
-				</p>
+			<h3><:seenthis:profil_partage:></h3>
+			<ul>
+			<ul>
+				<li>
+				<input type="checkbox" name="liens_partage" [(#ENV**{liens_partage}|=={1}|oui)checked="checked"] value="1">
+				<:seenthis:profil_liens_partage:>
+				</li>
+			</ul>
+
+			<p class="boutons">
+				<input type="submit" value="<:enregistrer:>">
+			</p>
 			
 			
 			<h3><:seenthis:profil_graphisme:></h3>

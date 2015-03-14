@@ -81,8 +81,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_identite' => 'Identité',
 	'profil_langue' => 'Ma langue',
 	'profil_licence' => 'Licence de vos messages',
+	'profil_liens_partage' => 'Afficher les boutons de partage vers Twitter et Facebook',
 	'profil_logo' => 'Logo de l’auteur (carré)',
 	'profil_mexpedier' => 'M’expédier un courrier<br /> électronique quand...',
+	'profil_partage' => 'Partage',
 	'profil_rss' => 'Importer automatiquement un flux d’articles au format ATOM ou RSS',
 
 	// R
