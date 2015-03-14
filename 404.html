@@ -22,10 +22,10 @@
 	<//B_auteur_message>
 	[(#SET{couleur,dc2400})]
 
-	<script><!--
-	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	var id_mot = "#ID_MOT";
+	<INCLURE{fond=inc/head_session}>
 
+	<script><!--
+	var id_mot = "#ID_MOT";
 	--></script>
 
 </head>
