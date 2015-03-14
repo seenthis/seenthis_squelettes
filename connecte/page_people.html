@@ -14,9 +14,10 @@
 	[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
 	--></style>
 
+	<INCLURE{fond=inc/head_session}>
+
 	<script><!--
 	var auteur_page = 0;
-	var auteur_connecte = "[(#SESSION{id_auteur})]";
 	$(document).ready(function() {
 		$(".formulaire_principal textarea").val("[(#ENV{ajouter}|addslashes|replace{'(\n|\r)+','\r'}|replace{'&quot;','\"'}|replace{'&amp;','&'})]");
 	});

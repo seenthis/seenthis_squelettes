@@ -19,27 +19,6 @@ function decodeUchar ($text) {
 }
 
 
-
-function share_tw_url($id_me) {
-	$me = "http://"._SHORT_HOST."/".base_convert($id_me, 10,36);
-	return $me;
-}
-
-function share_tw_texte ($texte, $l=0) {
-	$texte = preg_replace(",([\t\r\n\ ]+),", " ", $texte);
-
-	$texte = mb_substr($texte, 0, 135-$l, "utf-8");
-	$pos = mb_strrpos($texte, " ", "utf-8");
-	
-	if ($pos > 40) {
-		$texte = mb_substr($texte, 0, $pos, "utf-8")."...";
-	}
-	
-	return $texte;
-}
-
-
-
 function calculer_enfants_syndic($id_syndic, $url_racine="", $afficher_url="", $ret="") {
 	
 	$ret[] = $id_syndic;
@@ -79,44 +58,6 @@ function calculer_enfants_syndic($id_syndic, $url_racine="", $afficher_url="", $
 function afficher_enfants_syndic($rien) {
 	return $GLOBALS["afficher_enfants_syndic"];
 }
-
-
-function share_tw($id_me, $texte) {
-	
-	$me = share_tw_url($id_me);
-	$l = strlen($me) + 4;
-	
-	$texte = share_tw_texte ($texte, $l);
-	
-	$texte .= " ".$me;
-
-	return $texte;
-}
-
-
-function share_fb($id_me, $texte) {
-
-
-	$texte = preg_replace(",([\t\r\n\ ]+),", " ", $texte);
-	
-	$me = "http://"._HOST."/messages/$id_me";
-	
-	$l = strlen($me) + 4;
-	
-	$texte = mb_substr($texte, 0, 250-$l, "utf-8");
-	$pos = mb_strrpos($texte, " ", "utf-8");
-	
-	if ($pos > 40) {
-		$texte = mb_substr($texte, 0, $pos, "utf-8")."...";
-	}
-	
-	$texte = rawurlencode($texte);
-	$me = rawurlencode($me);
-	
-	return "http://www.facebook.com/sharer.php?u=$me&amp;t=$texte";
-
-}
-
 
 function mot_chemin($rien) {
 
@@ -463,7 +404,6 @@ function afficher_cc($cc) {
 		return "<a href='http://artlibre.org/licence/lal' class='spip_out by_cc by_lal'>ART LIBRE</a>";
 	}
 }
-
 
 function langue_visiteur($id_auteur) {
 	$query = sql_select("lang", "spip_auteurs", "id_auteur=$id_auteur");

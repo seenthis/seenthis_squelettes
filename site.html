@@ -20,16 +20,14 @@
 		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=54dd24})" type="text/css" media="all">]
 	<//B_auteur_message>
 
+	<INCLURE{fond=inc/head_session}>
 
 	<script><!--
-	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	
 	if (auteur_connecte > 0) {
 		$(document).ready(function(){
 			$("#follow_url").load("index.php?action=bouton_follow_url&id_syndic=#ID_SYNDIC");
 		});
 	}
-	
 	--></script>
 	
 	<style>

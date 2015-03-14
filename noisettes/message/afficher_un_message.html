@@ -1,5 +1,6 @@
 #CACHE{0}
-<BOUCLE_me(spip_me){id_me=#ID}><article>
+<BOUCLE_me(spip_me){id_me=#ID}>
+	<article data-article-id="[(#ID_ME)]">
 		<a name="message#ID_ME"></a>
 
 		[(#ID_AUTEUR|microcache{noisettes/logo_auteur/message_logo_auteur})]
@@ -7,10 +8,6 @@
 		#INCLURE{fond=noisettes/message/message_nom_auteur}{id_auteur}})]
 
 		<div class="texte_reponse auteur#ID_AUTEUR">
-
-			<div class="facebook">[<a href="(#ID_ME|share_fb{#[(#TEXTE*)]})" class="spip_out" rel="nofollow" title="Facebook"><img src="#CHEMIN{imgs/facebook.gif}" width="14" height="14" alt=""></a>]</div>
-			<div class="twitter">[<a href="http://twitter.com/intent/tweet?text=(#ID_ME|share_tw{[(#TEXTE*)]}|rawurlencode)" class="spip_out" rel="nofollow" title="Twitter"><img src="#CHEMIN{imgs/twitter.png}" width="16" height="13" alt=""></a>]</div>
-
 
 			<div class="auteur_date">
 				<span class="auteur">#GET{nom_auteur}</span>
@@ -48,6 +45,6 @@
 			</div>
 	
 		</div>	
-</article>
+	</article>
 </BOUCLE_me>
 #FILTRE{mini_html}

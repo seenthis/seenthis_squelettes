@@ -21,11 +21,11 @@
 		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=dcdf03})" type="text/css" media="all">]
 	<//B_auteur_message>
 	[(#SET{couleur,99baad})]
-	
-	<script><!--
-	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	var id_mot = "#ID_MOT";
 
+	<INCLURE{fond=inc/head_session}>
+
+	<script><!--
+	var id_mot = "#ID_MOT";
 	--></script>
 	
 </head>

@@ -26,9 +26,9 @@
 	
 	--></style>
 
+	<INCLURE{fond=inc/head_session}>
+
 	<script><!--
-	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	
 	function chercher_site() {
 		var chercher = $("#recherche_site").attr("value");
 		$("#resultat_recherche_site").html("...").load("index.php?page=rechercher_site&recherche="+chercher);

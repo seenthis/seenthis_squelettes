@@ -5,11 +5,8 @@
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	[(#ID_ME|microcache{noisettes/head_message})]
 
+	<INCLURE{fond=inc/head_session}>
 
-	<script><!--
-	var auteur_connecte = "[(#SESSION{id_auteur})]";
-	--></script>
-	
 </head>
 <body class="message">
 

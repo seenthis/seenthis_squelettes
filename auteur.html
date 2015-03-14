@@ -6,8 +6,9 @@
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	[(#ID_AUTEUR|microcache{noisettes/head_auteur})]
 
+	<INCLURE{fond=inc/head_session}>
+
 	<script type='text/javascript'><!--
-	var auteur_connecte = "[(#SESSION{id_auteur})]";
 	var auteur_page = "#ID_AUTEUR";
 	--></script>
 	
