@@ -568,7 +568,7 @@ ul#messages, ul.messages {
 			}
 
 			
-			.twitter, .facebook, .stumble {
+			.twitter, .facebook {
 				display: none;
 			}
 			
