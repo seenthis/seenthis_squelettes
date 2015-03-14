@@ -19,14 +19,14 @@ $(function () {
 		return texteArticle.replace(/(\r\n|\n|\r|\t)/gm, " ");
 	}
 
-	if (liensPartages) {
+	if (liensPartageFacebook || liensPartageTwitter) {
 
 		$('article').each(function (_, articleDom) {
 
 			var article = $(articleDom);
 			var elementInsertion = article.find('.texte_reponse');
 
-			if (article.find('.twitter').length == 0) {
+			if (liensPartageTwitter && (article.find('.twitter').length == 0)) {
 				var lienTwitter = $(
 					'<div class="twitter">' +
 					'<a href="#" class="spip_out" title="Twitter">' +
@@ -40,7 +40,7 @@ $(function () {
 					return true;
 				});
 			}
-			if (article.find('.facebook').length == 0) {
+			if (liensPartageFacebook && (article.find('.facebook').length == 0)) {
 				var lienFacebook = $(
 					'<div class="facebook">' +
 					'<a href="#" class="spip_out" title="Facebook">' +
