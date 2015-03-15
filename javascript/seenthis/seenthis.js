@@ -39,20 +39,46 @@ $.fn.soundmanager = function () {
 };
 
 
+function setupFavori(elementDom) {
+	var element = $(elementDom);
+	element.addClass('suiviFavoris');
+	var favori = element.find(".favori");
+	var liensFavori = favori.find("a.activer_favori");
+	var jaiPartage;
+	if (favori.find(".vignettes *[data-id-auteur='" + auteur_connecte + "']").length > 0) {
+		// est ce que j'ai favorité ?
+		liensFavori.addClass("actif");
+		jaiPartage = true;
+	} else if (favori.find(".survol").length > 0) {
+		// est ce que quelqu'un a favorité ?
+		liensFavori.addClass("abonnes");
+		jaiPartage = false;
+	} else {
+		liensFavori.addClass("inactif");
+		jaiPartage = false;
+	}
+	liensFavori.each(function (_, lienFavori) {
+		$(lienFavori).click(function () {
+			favori.hide();
+			var idMessage = favori.closest('article').attr('data-article-id');
+			element.removeClass('suiviFavoris');
+			$('#message' + idMessage).load(
+				'index.php?action=favori&id_me=' + idMessage + '&share=' + (jaiPartage ? -1 : 1) + '&x=' + (new Date()).getTime(),
+				function () {
+					$(this).find(".texte_message, .texte_reponse").each(function (_, elementDom) {
+						setupFavori(elementDom);
+					});
+				});
+
+			return false;
+		});
+	});
+}
+
 function favoris_actifs() {
 	if (auteur_connecte > 0) {
-		$(".texte_message, .texte_reponse").each(function (_, element) {
-			var favori = $(this).find(".favori");
-			var lienFavori = favori.children("a.activer_favori");
-			if (favori.find(".vignettes *[data-id-auteur='" + auteur_connecte + "']").length > 0) {
-				// est ce que j'ai favorité ?
-				lienFavori.addClass("actif");
-			} else if (favori.find(".survol").length > 0) {
-				// est ce que quelqu'un a favorité ?
-				lienFavori.addClass("abonnes");
-			} else {
-				lienFavori.addClass("inactif");
-			}
+		$(".texte_message:not(.suiviFavoris), .texte_reponse:not(.suiviFavoris)").each(function (_, elementDom) {
+			setupFavori(elementDom);
 		});
 	} else {
 		$(".favori").css("display", "none");
