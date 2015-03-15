@@ -42,19 +42,18 @@ $.fn.soundmanager = function () {
 function favoris_actifs() {
 	if (auteur_connecte > 0) {
 		$(".texte_message, .texte_reponse").each(function (_, element) {
-            var $this = $(this);
-            var rel = $this.find(".favori").children("a.activer_favori").attr("rel");
-			var reg = new RegExp(rel, "gi");
-			if (auteur_connecte.match(reg)) {
-				$this.find(".favori a.activer_favori").addClass("actif");
+			var favori = $(this).find(".favori");
+			var lienFavori = favori.children("a.activer_favori");
+			if (favori.find(".vignettes *[data-id-auteur='" + auteur_connecte + "']").length > 0) {
+				// est ce que j'ai favorité ?
+				lienFavori.addClass("actif");
+			} else if (favori.find(".survol").length > 0) {
+				// est ce que quelqu'un a favorité ?
+				lienFavori.addClass("abonnes");
 			} else {
-				if ($this.find(".favori .survol").length > 0) {
-					$this.find(".favori a.activer_favori").addClass("abonnes");
-				} else {
-					$this.find(".favori a.activer_favori").addClass("inactif");
-				}
+				lienFavori.addClass("inactif");
 			}
-        });
+		});
 	} else {
 		$(".favori").css("display", "none");
 	}
