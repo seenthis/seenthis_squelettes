@@ -63,13 +63,7 @@ function setupFavori(elementDom) {
 			var idMessage = favori.closest('article').attr('data-article-id');
 			element.removeClass('suiviFavoris');
 			$('#message' + idMessage).load(
-				'index.php?action=favori&id_me=' + idMessage + '&share=' + (jaiPartage ? -1 : 1) + '&x=' + (new Date()).getTime(),
-				function () {
-					$(this).find(".texte_message, .texte_reponse").each(function (_, elementDom) {
-						setupFavori(elementDom);
-					});
-				});
-
+				'index.php?action=favori&id_me=' + idMessage + '&share=' + (jaiPartage ? -1 : 1) + '&x=' + (new Date()).getTime());
 			return false;
 		});
 	});
