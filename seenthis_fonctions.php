@@ -19,6 +19,11 @@ function decodeUchar ($text) {
 }
 
 
+function share_tw_url($id_me) {
+	$me = "http://"._SHORT_HOST."/".base_convert($id_me, 10,36);
+	return $me;
+}
+
 function calculer_enfants_syndic($id_syndic, $url_racine="", $afficher_url="", $ret="") {
 	
 	$ret[] = $id_syndic;
