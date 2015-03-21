@@ -95,13 +95,13 @@
 			]
 
 			[(#SESSION{id_auteur}|oui)
-			<div class="limite_date">
-				<a href="sites/[(#ID_SYNDIC|parametre_url{follow,#SESSION{login}})]"[(#GET{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
-				|
-				<a href="sites/[(#ID_SYNDIC|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
-				|
-				<a href="[(#ID_SYNDIC|generer_url_entite{site})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
-			</div>
+				<div class="limite_date">
+					<a href="sites/[(#ID_SYNDIC|parametre_url{follow,#SESSION{login}})]"[(#GET{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
+					|
+					<a href="sites/[(#ID_SYNDIC|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
+					|
+					<a href="[(#ID_SYNDIC|generer_url_entite{site})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+				</div>
 			]
 
 		</div>
