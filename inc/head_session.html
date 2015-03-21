@@ -1,6 +1,6 @@
 #CACHE{0}
 <script><!--
 var auteur_connecte = "[(#SESSION{id_auteur})]";
-var liensPartageFacebook = [(#SESSION{liens_partage_fb}|=={1}|?{true, false})] || [(#SESSION{id_auteur}|=={''}|?{true, false})];
-var liensPartageTwitter = [(#SESSION{liens_partage_tw}|=={1}|?{true, false})] || [(#SESSION{id_auteur}|=={''}|?{true, false})];
+var liensPartageFacebook = [(#SESSION{liens_partage_fb}|=={1}|?{true, false})] || (auteur_connecte == '');
+var liensPartageTwitter = [(#SESSION{liens_partage_tw}|=={1}|?{true, false})] || (auteur_connecte == '');
 --></script>
