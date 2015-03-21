@@ -1,34 +1,19 @@
 #CACHE{0}
-
 <BOUCLE_principale(AUTEURS){tout}{id_auteur=#ENV{id}}>
-
-		<B_messages>
+	<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-		<BOUCLE_messages(DATA){source seenthisaccueil,#ENV**,accueil}
-		{pagination 25}>
+	<BOUCLE_messages(DATA){source seenthisaccueil,#ENV**,accueil}{pagination 25}>
 			<li id="message#VALEUR">
 				[(#VALEUR|microcache{noisettes/message/afficher_message})]
 			</li>
-		</BOUCLE_messages>
+	</BOUCLE_messages>
 		</ul>
 		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
-		</B_messages>
+	</B_messages>
 		<ul id="messages">
 			<li>Pas encore de messages</li>
 		</ul>	
-		<//B_messages>
-
+	<//B_messages>
 </BOUCLE_principale>
-
-
-<!-- 
-<div class="limite_date">
-<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,#SESSION{login}})]"[(#ENV{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
-| 
-<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,''})]"[(#ENV{follow}|non)class="actif"]>Messages de mon r&#233;seau</a>
-|
-<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,all})]"[(#ENV{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
-</div>
--->
-
+#FILTRE{mini_html}

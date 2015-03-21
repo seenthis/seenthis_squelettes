@@ -10,7 +10,7 @@
 	<div class="following following_big">
 	
 	<BOUCLE_follow_people(spip_auteurs){id_auteur IN #GET{follow_people}}{tout}{par troll}{inverse}{pagination 100}>
-        [(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
+	        [(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
 	</BOUCLE_follow_people>
 	</div>
 	<div class="clear-left"></div>

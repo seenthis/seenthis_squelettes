@@ -1,14 +1,11 @@
 #CACHE{0}
-
 <B_messages>
 	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 	<ul id="messages">
-<BOUCLE_messages(DATA){source seenthisfollowtags,#ENV*,tags}
-{pagination 25}
->
-	<li id="message#VALEUR">
-		[(#VALEUR|microcache{noisettes/message/afficher_message})]
-	</li>
+<BOUCLE_messages(DATA){source seenthisfollowtags,#ENV*,tags}{pagination 25}>
+		<li id="message#VALEUR">
+			[(#VALEUR|microcache{noisettes/message/afficher_message})]
+		</li>
 </BOUCLE_messages>
 	</ul>
 	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
@@ -17,5 +14,4 @@
 		<li>Pas encore de messages</li>
 	</ul>
 <//B_messages>
-
 #FILTRE{mini_html}

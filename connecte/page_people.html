@@ -29,42 +29,30 @@
 
 <INCLURE{fond=inc/entete}>
 
-
-<div id="principale"><div>
+<div id="principale">
+	<div>
 
 		<div id="entete_people">
-
-			
 			<div id="lien_suggerer_auteurs">
 				<a class="bouton_suggerer" onclick="$(this).hide(); $('#suggerer_auteurs').load('index.php?page=suggerer_auteurs'); return false;" href="#">•</a>
 			</div>
-
-
 			<h1 class="auteurs_vous_suivez">&nbsp;</h1>
-			
 			<div id="suggerer_auteurs"></div>
-			
-	
 		</div>
 
-	<div id="centre">
-		<div id="tous_messages">
-
-		<INCLURE{fond=noisettes/contenu/contenu_page_people}{id=#ID_AUTEUR}{debut_messages}>
-
+		<div id="centre">
+			<div id="tous_messages">
+				<INCLURE{fond=noisettes/contenu/contenu_page_people}{id=#ID_AUTEUR}{debut_messages}>
+			</div>
 		</div>
 
+		<aside id="droite">
+		[(#ID_AUTEUR|microcache{noisettes/auteur_follow_people_big})]
+		</aside>
 
+		<div class="clear-left"></div>
 	</div>
-
-	<aside id="droite">
-
-			[(#ID_AUTEUR|microcache{noisettes/auteur_follow_people_big})]
-			
-	</aside>
-
-	<div class="clear-left"></div>
-</div></div>
+</div>
 </body>
 </html>
 </BOUCLE_auteur>

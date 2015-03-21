@@ -18,8 +18,8 @@
 	
 	
 	<B_amis>
-	<h2><:seenthis:vous_connaissez:></h2>
-	<div class="suggestions">
+		<h2><:seenthis:vous_connaissez:></h2>
+		<div class="suggestions">
 	<BOUCLE_amis(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{statut!=5poubelle}{doublons}{0,12}>
 		<div id="suggerer_#ID_AUTEUR" class="logo_auteur">
 			<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
@@ -43,10 +43,9 @@
 	
 
 	<B_populaires>
-	<h2><:seenthis:suggestions:></h2>
-	<div class="suggestions">
+		<h2><:seenthis:suggestions:></h2>
+		<div class="suggestions">
 	<BOUCLE_populaires(AUTEURS){id_auteur IN #REM|retour_compteur_auteurs}{tout}{statut!=nouveau}{statut!=5poubelle}{0,20}>
-
 		<div id="suggerer_#ID_AUTEUR" class="logo_auteur">
 			<a href="#URL_AUTEUR" title="#NOM (@#LOGIN)">
 				[(#ID_AUTEUR|microcache{noisettes/logo_auteur/image_logo_auteur})]
@@ -63,5 +62,4 @@
 
 &nbsp;
 </BOUCLE_auteur>
-
 #FILTRE{mini_html}

@@ -21,44 +21,34 @@
 
 <INCLURE{fond=inc/entete}>
 
+<div id="principale">
+	<div>
 
-<div id="principale"><div>
-
-	<div id="entete_people">
-
-		<h1 class="themes_vous_suivez">&nbsp;</h1>
-		
-
-	</div>
-
-	<div id="centre">
-		<div id="tous_messages">
-		<INCLURE{fond=noisettes/contenu/contenu_page_tags}{id=#ID_AUTEUR}{env} />
+		<div id="entete_people">
+			<h1 class="themes_vous_suivez">&nbsp;</h1>
 		</div>
 
-
-	</div>
-
-	<aside id="droite">
-
-	<B_follow_tag>
-		<div class="mots_lies">
-		<ul>
-	<BOUCLE_follow_tag(spip_me_follow_tag)
-		{id_follow=#SESSION{id_auteur}}
-		{tag!==^http://}
-		{fusion tag}
-	>
-		<li>[(#TAG|match{^(#|.*:)})]<a href="#URL_TAG"><b>[(#TAG|replace{^(#|.*:)})]</b></a></li>
-	</BOUCLE_follow_tag>
-		</ul>
+		<div id="centre">
+			<div id="tous_messages">
+				<INCLURE{fond=noisettes/contenu/contenu_page_tags}{id=#ID_AUTEUR}{env} />
+			</div>
 		</div>
-	</B_follow_tag>
 
-	</aside>
+		<aside id="droite">
+			<B_follow_tag>
+				<div class="mots_lies">
+					<ul>
+			<BOUCLE_follow_tag(spip_me_follow_tag){id_follow=#SESSION{id_auteur}}{tag!==^http://}{fusion tag}>
+						<li>[(#TAG|match{^(#|.*:)})]<a href="#URL_TAG"><b>[(#TAG|replace{^(#|.*:)})]</b></a></li>
+			</BOUCLE_follow_tag>
+					</ul>
+				</div>
+			</B_follow_tag>
+		</aside>
 
-	<div class="clear-left"></div>
-</div></div>
+		<div class="clear-left"></div>
+	</div>
+</div>
 </body>
 </html>
 </BOUCLE_auteur>

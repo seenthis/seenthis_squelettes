@@ -3,13 +3,7 @@
 <html>
 <head>
 	<title>[(#ENV{recherche}|mb_strtolower{UTF-8}|textebrut)]</title>
-
 	<meta charset="#CHARSET">
-	
-	[(#REM)
-		<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT">
-	]
-	
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
 
@@ -30,90 +24,73 @@
 </head>
 <body class="plier mot">
 
-
 <INCLURE{fond=inc/entete}>
 
-<div id="principale"><div>
+<div id="principale">
+	<div>
 
-	<div id="entete_people">
+		<div id="entete_people">
+			<h1>Statistiques de Seenthis</h1>
+		</div>
 
-	
+		<div id="centre">
 
-		<h1>Statistiques de Seenthis</h1>
-	
-	
+		<ul style="padding: 20px;">
+			<BOUCLE_messages(ME){statut=publi}>
+				[(#ID_ME|stocker_id_me_date{#DATE})]
+			</BOUCLE_messages>
+				<li>[(#TOTAL_BOUCLE)] messages publiés</li>
+			</B_messages>
 
+			<BOUCLE_auteurs(AUTEURS){statut!=nouveau}{tout}/>
+				<li>[(#TOTAL_BOUCLE)] auteurs enregistrés</li>
+			<//B_auteurs>
+
+			[(#SET{auteur_30,0})]
+			<BOUCLE_messages_30(ME){statut=publi}{date>=(#VAL{30}|decaler_date)}>
+				<BOUCLE_auteurs_me(AUTEURS){id_auteur}{tout}{doublons auteur_me}>
+				[(#SET{auteur_30,[(#GET{auteur_30}|plus{1})]})]
+				</BOUCLE_auteurs_me>
+			</BOUCLE_messages_30>
+				<li style="margin-top: 20px;">[(#TOTAL_BOUCLE)] messages publiés dans les 30 derniers jours</li>
+				<li>postés par [(#GET{auteur_30})] auteurs différents</li>
+			</B_messages_30>
+
+			[(#SET{si_reponse,0})]
+			<BOUCLE_messages_30_init(ME){statut=publi}{date>(#VAL{30}|decaler_date)}{id_parent=0}>
+			<BOUCLE_si_reponse(ME){id_parent=#ID_ME}{statut=publi}{0,1}>
+				[(#SET{si_reponse,[(#GET{si_reponse}|plus{1})]})]
+			</BOUCLE_si_reponse></BOUCLE_messages_30_init>
+				<li>dont [(#TOTAL_BOUCLE)] sont des nouveaux fils (pas des réponses)</li>
+			<//B_messages_30_init>
+				<li>dont [(#GET{si_reponse})] ont provoqué une ou plusieurs réponses</li>
+
+			[(#SET{auteur_7,0})]
+			<BOUCLE_messages_7(ME){statut=publi}{date>=(#VAL{7}|decaler_date)}>
+				<BOUCLE_auteurs_me_7(AUTEURS){id_auteur}{tout}{doublons auteur_me_7}>
+					[(#SET{auteur_7,[(#GET{auteur_7}|plus{1})]})]
+				</BOUCLE_auteurs_me_7>
+			</BOUCLE_messages_7>
+				<li style="margin-top: 20px;">[(#TOTAL_BOUCLE)] messages publiés dans les 7 derniers jours</li>
+				<li>postés par [(#GET{auteur_7})] auteurs différents</li>
+			</B_messages_7>
+
+			[(#SET{auteur_2,0})]
+			<BOUCLE_messages_2(ME){statut=publi}{date>=(#VAL{2}|decaler_date)}>
+				<BOUCLE_auteurs_me_2(AUTEURS){id_auteur}{tout}{doublons auteur_me_2}>
+				[(#SET{auteur_2,[(#GET{auteur_2}|plus{1})]})]
+				</BOUCLE_auteurs_me_2>
+			</BOUCLE_messages_2>
+				<li style="margin-top: 20px;">[(#TOTAL_BOUCLE)] messages publiés dans les 2 derniers jours</li>
+				<li>postés par [(#GET{auteur_2})] auteurs différents</li>
+			</B_messages_2>
+		</ul>
+		</div>
+
+		<aside id="droite">&nbsp;</aside>
+		<div class="clear-left"></div>
 	</div>
-
-	
-
-	<div id="centre">
-
-	<ul style="padding: 20px;">
-	
-		<BOUCLE_messages(ME){statut=publi}>
-			[(#ID_ME|stocker_id_me_date{#DATE})]
-		</BOUCLE_messages>
-		<li>[(#TOTAL_BOUCLE)] messages publiés</li>
-		</B_messages>
-		<BOUCLE_auteurs(AUTEURS){statut!=nouveau}{tout}/>
-		<li>[(#TOTAL_BOUCLE)] auteurs enregistrés</li>
-		<//B_auteurs>
-		
-
-
-		[(#SET{auteur_30,0})]
-		<BOUCLE_messages_30(ME){statut=publi}{date>=(#VAL{30}|decaler_date)}>
-			<BOUCLE_auteurs_me(AUTEURS){id_auteur}{tout}{doublons auteur_me}>
-			[(#SET{auteur_30,[(#GET{auteur_30}|plus{1})]})]
-			</BOUCLE_auteurs_me>
-		</BOUCLE_messages_30>
-		<li style="margin-top: 20px;">[(#TOTAL_BOUCLE)] messages publiés dans les 30 derniers jours</li>
-		<li>postés par [(#GET{auteur_30})] auteurs différents</li>
-		</B_messages_30>
-	
-		[(#SET{si_reponse,0})]
-		<BOUCLE_messages_30_init(ME){statut=publi}{date>(#VAL{30}|decaler_date)}{id_parent=0}><BOUCLE_si_reponse(ME){id_parent=#ID_ME}{statut=publi}{0,1}>[(#SET{si_reponse,[(#GET{si_reponse}|plus{1})]})]</BOUCLE_si_reponse></BOUCLE_messages_30_init>
-		<li>dont [(#TOTAL_BOUCLE)] sont des nouveaux fils (pas des réponses)</li>
-		<//B_messages_30_init>
-		<li>dont [(#GET{si_reponse})] ont provoqué une ou plusieurs réponses</li>
-
-		[(#SET{auteur_7,0})]
-		<BOUCLE_messages_7(ME){statut=publi}{date>=(#VAL{7}|decaler_date)}>
-			<BOUCLE_auteurs_me_7(AUTEURS){id_auteur}{tout}{doublons auteur_me_7}>
-			[(#SET{auteur_7,[(#GET{auteur_7}|plus{1})]})]
-			</BOUCLE_auteurs_me_7>
-		</BOUCLE_messages_7>
-		<li style="margin-top: 20px;">[(#TOTAL_BOUCLE)] messages publiés dans les 7 derniers jours</li>
-		<li>postés par [(#GET{auteur_7})] auteurs différents</li>
-		</B_messages_7>
-	
-		[(#SET{auteur_2,0})]
-		<BOUCLE_messages_2(ME){statut=publi}{date>=(#VAL{2}|decaler_date)}>
-			<BOUCLE_auteurs_me_2(AUTEURS){id_auteur}{tout}{doublons auteur_me_2}>
-			[(#SET{auteur_2,[(#GET{auteur_2}|plus{1})]})]
-			</BOUCLE_auteurs_me_2>
-		</BOUCLE_messages_2>
-		<li style="margin-top: 20px;">[(#TOTAL_BOUCLE)] messages publiés dans les 2 derniers jours</li>
-		<li>postés par [(#GET{auteur_2})] auteurs différents</li>
-		</B_messages_2>
-	
-
-
-		
-	</ul>
-
-
-	</div>
-	
-	<aside id="droite">
-
-
-		&nbsp;
-	</aside>
-
-	<div class="clear-left"></div>
-</div></div>
+</div>
 </body>
 </html>
 #FILTRE{mini_html}

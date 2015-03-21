@@ -1,5 +1,4 @@
 #CACHE{0}
-
 <BOUCLE_tous_mots(spip_me_tags spip_me)
 {tag like (#TAG*|likeq)%}
 {!par date}
@@ -42,16 +41,10 @@
 <B_messages>
 	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 	<ul id="messages">
-<BOUCLE_messages(ME)
-	{id_me IN #GET{parents}}
-	{statut=publi}
-	{follow #ENV{follow}}
-	{!par date}
-	{pagination 25}
->
-	<li id="message#ID_ME">
-	[(#ID_ME|microcache{noisettes/message/afficher_message})]
-	</li>
+<BOUCLE_messages(ME){id_me IN #GET{parents}}{statut=publi}{follow #ENV{follow}}{!par date}{pagination 25}>
+		<li id="message#ID_ME">
+			[(#ID_ME|microcache{noisettes/message/afficher_message})]
+		</li>
 </BOUCLE_messages>
 	</ul>
 	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]

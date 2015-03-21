@@ -3,16 +3,9 @@
 <html>
 <head>
 	<title>[(#ENV{recherche}|mb_strtolower{UTF-8}|textebrut)]</title>
-
 	<meta charset="#CHARSET">
-	
-	[(#REM)
-		<link rel="alternate" type="application/rss+xml" title="RSS" href="index.php?page=backend_mot&id_mot=#ID_MOT">
-	]
-	
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
-
 	<BOUCLE_auteur_message(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
 		[(#SET{couleur,#COULEUR})]
 		[<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
@@ -34,71 +27,60 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale"><div>
+<div id="principale">
+	<div>
+		<div id="entete_people">
+			<h1>[<:info_rechercher_02:> (#ENV{recherche}|mb_strtolower{UTF-8})]</h1>
 
-	<div id="entete_people">
+			[(#SESSION{id_auteur}|oui)
+				<div class="limite_date">
+					<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,#SESSION{login}})]"[(#ENV{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
+					|
+					<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,''})]"[(#ENV{follow}|non)class="actif"]>Messages de mon r&#233;seau</a>
+					|
+					<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,all})]"[(#ENV{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+				</div>
+			]
 
-	
-		<h1>[<:info_rechercher_02:> (#ENV{recherche}|mb_strtolower{UTF-8})]</h1>
-	
-		[(#SESSION{id_auteur}|oui)
-		<div class="limite_date">
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,#SESSION{login}})]"[(#ENV{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,''})]"[(#ENV{follow}|non)class="actif"]>Messages de mon r&#233;seau</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,all})]"[(#ENV{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
-		</div>
-		]
+			<div id="enfants_mots">
+				<B_enfants>
+					<ul>
+				<BOUCLE_enfants(spip_me_tags)
+				{tag LIKE #(#ENV{recherche}|likeq)%}
+				{class=#}
+				{fusion tag}
+				{par tag}
+				{0,200}
+				>
+						<li>#<a href="tag/[(#TAG|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus)]">[(#TAG|replace{#}|mb_strtolower{UTF-8})]</a>
+						</li>
+				</BOUCLE_enfants>
+					</ul>
+				</B_enfants>
+			</div>
 
-		[(#REM)
-			<div class="rss"><a href="index.php?page=backend_mot&recherche=[(#ENV{recherche}|rawurlencode)]">RSS: [(#RECHERCHE|mb_strtolower{UTF-8})]</a></div>
-		]
-
-
-		<div id="enfants_mots">
-		<B_enfants>
-			<ul>
-		<BOUCLE_enfants(spip_me_tags)
-		{tag LIKE #(#ENV{recherche}|likeq)%}
-		{class=#}
-		{fusion tag}
-		{par tag}
-		{0,200}
-		>
-			<li>#<a href="tag/[(#TAG|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus)]">[(#TAG|replace{#}|mb_strtolower{UTF-8})]</a>
-			</li>
-		</BOUCLE_enfants>
-			</ul>
-		</B_enfants>
 		</div>
 
+		[(#SET{follow,#ENV{follow}})]
+		[(#SESSION{id_auteur}|non)
+			[(#SET{follow,all})]
+		]
+
+		[(#ENV{age}|oui)
+			[(#SET{age,[(#ENV{age}|decaler_date)]})]
+		]
+
+		<div id="centre">
+			[(#INCLURE{fond=inc/inc-recherche}{follow=#GET{follow}}{age=#GET{age}}{ajax}{env})]
+		</div>
+
+		<aside id="droite">
+			[(#INCLURE{fond=inc/recherche-aside,recherche}{env}{ajaxload})]
+		</aside>
+
+		<div class="clear-left"></div>
 	</div>
-
-
-	[(#SET{follow,#ENV{follow}})]
-	[(#SESSION{id_auteur}|non)
-		[(#SET{follow,all})]
-	]
-	
-	[(#ENV{age}|oui)
-		[(#SET{age,[(#ENV{age}|decaler_date)]})]
-	]
-	
-	
-
-	<div id="centre">
-		
-		[(#INCLURE{fond=inc/inc-recherche}{follow=#GET{follow}}{age=#GET{age}}{ajax}{env})]
-
-	</div>
-	
-	<aside id="droite">
-	[(#INCLURE{fond=inc/recherche-aside,recherche}{env}{ajaxload})]
-	</aside>
-
-	<div class="clear-left"></div>
-</div></div>
+</div>
 </body>
 </html>
 #FILTRE{mini_html}
