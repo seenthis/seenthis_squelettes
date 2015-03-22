@@ -6,53 +6,38 @@
 	[(#ID_ME|microcache{noisettes/head_message})]
 
 	<INCLURE{fond=inc/head_session}>
-
 </head>
 <body class="message">
 
-
 <INCLURE{fond=inc/entete}>
 
-<div id="principale"><div>
-
-	
-		[(#SESSION{id_auteur}|non)
-			<div class="centrer"><INCLURE{fond=slogan}></div>
-		]
-	
-	
-	[(#SESSION{id_auteur}|>{0}|non)
-		[(#ID_ME|microcache{noisettes/entete_auteur_message})]
-	]	
-	
-
-	
-	<div id="centre">
-		<div id="tous_messages">
-		<ul id="messages">
-			<li id="message#ID_ME"><a name="message#ID_ME"></a>
-				[(#ID_ME|microcache{noisettes/message/afficher_message})]
-			</li>
-		</ul>
+<div id="principale">
+	<div>
+		[(#SESSION{id_auteur}|non)<div class="centrer"><INCLURE{fond=slogan}></div>]
+		[(#SESSION{id_auteur}|>{0}|non)[(#ID_ME|microcache{noisettes/entete_auteur_message})]]
+		<div id="centre">
+			<div id="tous_messages">
+				<ul id="messages">
+					<li id="message#ID_ME"><a name="message#ID_ME"></a>
+						[(#ID_ME|microcache{noisettes/message/afficher_message})]
+					</li>
+				</ul>
+			</div>
 		</div>
+
+		<aside id="droite">
+			[(#SESSION{id_auteur}|?{""," "})<div id="charger_pave_inscription"></div>]
+
+			[(#REM) plugin seenthis_opencalais]
+			[(#PLUGIN{seenthisoc}|?{
+				[(#INCLURE{fond=noisettes/oc_message,id=#ID_ME})]
+			})]
+		</aside>
+
+		<INCLURE{fond=inc/footer}>
+
 	</div>
-	
-	<aside id="droite">
-		[(#SESSION{id_auteur}|?{""," "})
-			<div id="charger_pave_inscription"></div>
-			[(#ID_ME|microcache{noisettes/adsense/adsense_me})]
-		]
-
-		[(#REM) plugin seenthis_opencalais]
-		[(#PLUGIN{seenthisoc}|?{
-			[(#INCLURE{fond=noisettes/oc_message,id=#ID_ME})]
-		})]
-
-	</aside>
-
-	<INCLURE{fond=inc/footer}>
-
-</div></div>
+</div>
 </body>
 </html>
 #FILTRE{mini_html}

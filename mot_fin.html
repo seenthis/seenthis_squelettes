@@ -39,9 +39,7 @@
 
 <INCLURE{fond=inc/entete}>
 
-	[(#SESSION{id_auteur}|non)
-		<div class="centrer"><INCLURE{fond=slogan}></div>
-	]
+	[(#SESSION{id_auteur}|non)<div class="centrer"><INCLURE{fond=slogan}></div>]
 	[(#SET{follow,#ENV{follow}})]
 	[(#ENV{follow}|non)
 		[(#SET{follow,all})]
@@ -49,91 +47,57 @@
 	[(#SESSION{id_auteur}|non)
 		[(#SET{follow,all})]
 	]
-	
 
+<div id="principale">
+	<div>
 
-<div id="principale"><div>
+		<div id="entete_people">
+			<ul class="parents_url">
+				<BOUCLE_parents(spip_me_tags)
+					{si #ENV{tag}|match{^#}}
+					{tag IN (#ENV{tag}|precurseurs)}
+					{fusion tag}
+				>
+					<li><a href="#URL_TAG">[(#TAG|mb_strtolower{UTF-8})]</a></li>
+				</BOUCLE_parents>
+			</ul>
 
-	<div id="entete_people">
-
-
-		<ul class="parents_url">
-		<BOUCLE_parents(spip_me_tags)
-			{si #ENV{tag}|match{^#}}
-			{tag IN (#ENV{tag}|precurseurs)}
-			{fusion tag}
-		>
-		<li><a href="#URL_TAG">[(#TAG|mb_strtolower{UTF-8})]</a></li>
-		</BOUCLE_parents>
-		</ul>
-
-		<div class="outils">
-			<div class="suivre">
-				<div id="follow_mot"[ data-tag="(#ENV{tag}|attribut_html)"]></div>
+			<div class="outils">
+				<div class="suivre">
+					<div id="follow_mot"[ data-tag="(#ENV{tag}|attribut_html)"]></div>
+				</div>
+				<div class="rss"><a href="#URL_SITE_SPIP/#URL_TAG/feed[?follow=(#GET{follow}|replace{^(follow|all)$})]">RSS: [(#ENV{tag}|mb_strtolower{UTF-8})]</a></div>
 			</div>
 
-			<div class="rss"><a href="#URL_SITE_SPIP/#URL_TAG/feed[?follow=(#GET{follow}|replace{^(follow|all)$})]">RSS: [(#ENV{tag}|mb_strtolower{UTF-8})]</a></div>
-		</div>
-	
-		<div id="[(#ENV{tag}|match{^#}|?{theme_manuellement,theme_automatiquement})]" class="theme_manu_auto"></div>
+			<div id="[(#ENV{tag}|match{^#}|?{theme_manuellement,theme_automatiquement})]" class="theme_manu_auto"></div>
 
-		<h1>[(#ENV{tag}|mb_strtolower{UTF-8})]</h1>
+			<h1>[(#ENV{tag}|mb_strtolower{UTF-8})]</h1>
 
-
-
-
-		[(#SESSION{id_auteur}|oui)
-		<div class="limite_date">
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,#SESSION{login}})]"[(#GET{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
-		|
-		<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,''})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
-		</div>
-		]
-
-
-
-	</div>
-
-
-	
-	<div id="centre">
-
-
-		[(#REM)
-			[(#SESSION{id_auteur}|?{" ",""})
-				[(#ID_GROUPE|=={1}|oui)
-				<div id="tetiere">
-					[<div class="formulaire_principal">(#FORMULAIRE_POSTER_MESSAGE{0, 0, 0,#ID_MOT})</div>]
-				</div>
-				]
+			[(#SESSION{id_auteur}|oui)
+			<div class="limite_date">
+				<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,#SESSION{login}})]"[(#GET{follow}|=={#SESSION{login}}|oui)class="actif"]>Mes messages</a>
+				|
+				<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
+				|
+				<a href="[(#SELF|parametre_url{debut_messages,''}|parametre_url{follow,''})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+			</div>
 			]
-		]
-
-		<div id="tous_messages">
-		<INCLURE{fond=noisettes/contenu/contenu_mot_fin}{env}{follow=#GET{follow}} />
 		</div>
+
+		<div id="centre">
+			<div id="tous_messages">
+				<INCLURE{fond=noisettes/contenu/contenu_mot_fin}{env}{follow=#GET{follow}} />
+			</div>
+		</div>
+
+		<aside id="droite">
+			[(#SESSION{id_auteur}|non)<div id="charger_pave_inscription"></div>]
+			<INCLURE{fond=noisettes/mots_lies/mots_lies}{tag}{ajaxload}>
+		</aside>
+
+		<div class="clear-left"></div>
 	</div>
-	
-	<aside id="droite">
-
-
-
-		[(#SESSION{id_auteur}|non)
-			<div id="charger_pave_inscription"></div>
-
-
-			[(#GET{couleur}|microcache{noisettes/adsense/adsense})]
-		]
-
-		<INCLURE{fond=noisettes/mots_lies/mots_lies}{tag}{ajaxload}>
-		
-		
-	</aside>
-
-	<div class="clear-left"></div>
-</div></div>
+</div>
 </body>
 </html>
 </BOUCLE_principale>

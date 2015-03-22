@@ -1,18 +1,16 @@
 #CACHE{30*60}
-
-	<BOUCLE_recents(me spip_me_tags)
+<BOUCLE_recents(me spip_me_tags)
 	{!par troll}
 	{date>(#VAL{Y-m-d}|date{#DATE|strtotime|moins{864000}})}
 	{fusion id_auteur}{class='#'}{0,1000}>[(#TAG*|compter_mots_lies)]</BOUCLE_recents>
 
-	<B_resultat>
+<B_resultat>
 	<div id="scroller">
 		<ul id="scroll_tags">
-	<BOUCLE_resultat(spip_me_tags){tag IN (#REM|retour_mots_lies)}{fusion tag}{0,30}>
+<BOUCLE_resultat(spip_me_tags){tag IN (#REM|retour_mots_lies)}{fusion tag}{0,30}>
 			<li>#<a href="[(#URL_TAG)]">[(#TAG|replace{#})]</a></li>
-	</BOUCLE_resultat>
+</BOUCLE_resultat>
 		</ul>
 	</div>
-	</B_resultat>
-
+</B_resultat>
 #FILTRE{mini_html}

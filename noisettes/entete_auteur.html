@@ -1,46 +1,32 @@
 <BOUCLE_principale(AUTEURS){tout}{id_auteur=#ENV{id}}>
 	<div id="bandeau_auteur" onclick="document.location='#URL_AUTEUR'"></div>
-	<div class="centrer"><div id="entete_people">
-		
-		
-		[<div class="logo"><a href="#URL_AUTEUR">(#LOGO_AUTEUR|sinon{[(#COULEUR|logo_auteur_vide{80})]}|image_passe_partout{80,80}|image_recadre{80,80})</a></div>]
+	<div class="centrer">
+		<div id="entete_people">
 
-		<div class="outils">
+			[<div class="logo"><a href="#URL_AUTEUR">(#LOGO_AUTEUR|sinon{[(#COULEUR|logo_auteur_vide{80})]}|image_passe_partout{80,80}|image_recadre{80,80})</a></div>]
 
-			<div class="suivre">
-				<div id="follow"></div>
+			<div class="outils">
+				<div class="suivre">
+					<div id="follow"></div>
+				</div>
+
+				<div class="rss">
+					<a href="#URL_AUTEUR/feed">RSS: #NOM</a>
+				</div>
+				<div class="page_auteur">
+					<a href="#URL_AUTEUR">tous les messages de #NOM</a>
+				</div>
 			</div>
 
-
-			<div class="rss"><a href="#URL_AUTEUR/feed">RSS: #NOM</a></div>
-
-			[(#REM)
-			<div class="messager">
-				<a onclick="$('.tetiere_auteur').slideDown(); $(this).hide(); return false;" href="#">votre message public à #NOM</a>
+			<div class="texte">
+				<h1>#NOM</h1>
+				[<div class="login">@(#LOGIN)</div>]
+				[<div class="bio">(#BIO*|traiter_texte)</div>]
+				[<div class="url_site"><a href="#URL_SITE">(#URL_SITE|lien_court)</a></div>]
 			</div>
-			]
-			
-			<div class="page_auteur">
-				<a href="#URL_AUTEUR">tous les messages de #NOM</a>
-			</div>
-			
-		</div>
-		
 
-
-
-		<div class="texte">
-			<h1>#NOM</h1>
-			[<div class="login">@(#LOGIN)</div>]
-			[<div class="bio">(#BIO*|traiter_texte)</div>]
-			[<div class="url_site"><a href="#URL_SITE">(#URL_SITE|lien_court)</a></div>]
-			
-
-
+			<div class="clear-left"></div>
 
 		</div>
-		
-		<div class="clear-left"></div>
-	
-</div>	</div>
+	</div>
 </BOUCLE_principale>

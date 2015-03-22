@@ -176,8 +176,6 @@ function formulaires_profil_traiter (){
 			supprimer_microcache($id_auteur, "noisettes/head_message");
 			supprimer_microcache($id_auteur, "noisettes/entete_auteur");
 			supprimer_microcache($id_auteur, "noisettes/entete_auteur_message");
-			supprimer_microcache($id_auteur, "noisettes/adsense/adsense_auteur");
-
 			nettoyer_graphisme_auteur($id_auteur);
 			nettoyer_logo_auteur($id_auteur);
 

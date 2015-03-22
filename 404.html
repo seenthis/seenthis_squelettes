@@ -34,60 +34,47 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale"><div>
+<div id="principale">
+	<div>
 
-	<div id="entete_people">
+		<div id="entete_people">
 
+			<header>
+			<h1>Oopsie daisy! 404 error  [- searching for (#REM|mot_chemin)]</h1>
+			</header>
 
-		<header>
-		<h1>Oopsie daisy! 404 error  [- searching for (#REM|mot_chemin)]</h1>
-		</header>
-
-		<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
-		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{1}|decaler_date)]">Depuis hier</a>
-		|
-		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{7}|decaler_date)]">Depuis une semaine</a>
-		|
-		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{31}|decaler_date)]">Depuis un mois</a>
-		|
-		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{92}|decaler_date)]">Depuis trois mois</a>
-		|
-		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{183}|decaler_date)]">Depuis six mois</a>
-		|
-		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{365}|decaler_date)]">Depuis un an</a>
-		|
-		<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=0000-00-00">Sans limite</a>
+			<div class="limite_date" style="font-size: 0.8em; padding-top: 10px;">
+				<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{1}|decaler_date)]">Depuis hier</a>
+				|
+				<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{7}|decaler_date)]">Depuis une semaine</a>
+				|
+				<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{31}|decaler_date)]">Depuis un mois</a>
+				|
+				<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{92}|decaler_date)]">Depuis trois mois</a>
+				|
+				<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{183}|decaler_date)]">Depuis six mois</a>
+				|
+				<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=[(#VAL{365}|decaler_date)]">Depuis un an</a>
+				|
+				<a href="index.php?page=recherche&amp;recherche=[(#REM|mot_chemin|rawurlencode)]&amp;age=0000-00-00">Sans limite</a>
+			</div>
 		</div>
 
-		[(#REM)
-			<div class="rss"><a href="index.php?page=backend_mot&id_mot=#ID_MOT">RSS: [#(#TITRE|mb_strtolower{UTF-8})]</a></div>
-		]
-
-	</div>
-
-	<div id="centre">
-
-		[(#INCLURE{fond=inc/inc-recherche}{recherche=[(#REM|mot_chemin)]}{ajax}{env})]
-
-	</div>
-
-	<aside id="droite">
-
-		<div class="following following_big">
-		<BOUCLE_auteurs(AUTEURS){tous}{recherche}{par points}{inverse}>
-			[(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
-		</BOUCLE_auteurs>
+		<div id="centre">
+			[(#INCLURE{fond=inc/inc-recherche}{recherche=[(#REM|mot_chemin)]}{ajax}{env})]
 		</div>
 
-		[(#SESSION{id_auteur}|?{""," "})
-			[(#GET{couleur}|microcache{noisettes/adsense/adsense})]
-		]
+		<aside id="droite">
+			<div class="following following_big">
+				<BOUCLE_auteurs(AUTEURS){tous}{recherche}{par points}{inverse}>
+					[(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
+				</BOUCLE_auteurs>
+			</div>
+			&nbsp;
+		</aside>
 
-
-		&nbsp;
-	</aside>
-
-</div></div>
+	</div>
+</div>
 </body>
 </html>
 #FILTRE{mini_html}

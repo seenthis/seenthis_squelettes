@@ -37,58 +37,39 @@
 
 <INCLURE{fond=inc/entete}>
 
+<div id="principale">
+	<div>
 
-
-<div id="principale"><div>
-
-	<div id="entete_people">
-
-
-		[(#TAG|match{#}|oui)
-			<div>
-				Ce <b>thème</b> est attribué <b>manuellement</b> par les auteurs des messages.
-			</div>
-		]
-		[(#TAG|match{#}|non)
-			<div>
-				Ce <b>thème</b> a été généré <b>automatiquement</b>.  
-			</div>
-		]
-		<h1>[(#TAG|mb_strtolower{UTF-8})] et thèmes voisins</h1>
-
-
-
-		
-
-	</div>
-
-	[(#SESSION{id_auteur}|non)
-		<INCLURE{fond=slogan}>
-	]
-	<div id="centre">
-
-		<div id="tous_messages">
-		<INCLURE{fond=noisettes/contenu/contenu_mot_flou}{env}{follow=#GET{follow}} />
+		<div id="entete_people">
+			[(#TAG|match{#}|oui)
+				<div>
+					Ce <b>thème</b> est attribué <b>manuellement</b> par les auteurs des messages.
+				</div>
+			]
+			[(#TAG|match{#}|non)
+				<div>
+					Ce <b>thème</b> a été généré <b>automatiquement</b>.
+				</div>
+			]
+			<h1>[(#TAG|mb_strtolower{UTF-8})] et thèmes voisins</h1>
 		</div>
 
+		[(#SESSION{id_auteur}|non)<INCLURE{fond=slogan}>]
+		<div id="centre">
+			<div id="tous_messages">
+				<INCLURE{fond=noisettes/contenu/contenu_mot_flou}{env}{follow=#GET{follow}} />
+			</div>
+		</div>
 
+		<aside id="droite">
+			[(#SESSION{id_auteur}|?{""," "})<div id="charger_pave_inscription"></div>]
+			<INCLURE{fond=noisettes/mots_lies/mots_lies}{tag}{ajaxload}>
+			&nbsp;
+		</aside>
+
+		<div class="clear-left"></div>
 	</div>
-	
-	<aside id="droite">
-
-		[(#SESSION{id_auteur}|?{""," "})
-			<div id="charger_pave_inscription"></div>
-			[(#GET{couleur}|microcache{noisettes/adsense/adsense})]
-		]
-
-		<INCLURE{fond=noisettes/mots_lies/mots_lies}{tag}{ajaxload}>
-		
-		
-		&nbsp;
-	</aside>
-
-	<div class="clear-left"></div>
-</div></div>
+</div>
 </body>
 </html>
 #FILTRE{mini_html}

@@ -1,13 +1,10 @@
 #CACHE{0}
-
-
 [(#SET{follow,#ENV{follow}})]
 [(#ENV{follow}|non)
 	[(#SET{follow,all})]
 ]
 
 <BOUCLE_principale(SYNDIC){id_syndic=#ENV{id}}{tout}>
-
 	[(#SET{tous_sites,[(#ID_SYNDIC|calculer_enfants_syndic{#URL_SITE})]})]
 	#SET{messages, #ARRAY{}}
 	
@@ -21,20 +18,15 @@
 	</BOUCLE_tous_liens>
 
 	<B_messages>
-	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
-	<ul id="messages">
+		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+		<ul id="messages">
 	<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{follow #GET{follow}}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
-		<li id="message#ID_ME">
-			<INCLURE{fond=inc_afficher_message}{id_me}>
-		</li>
+			<li id="message#ID_ME">
+				<INCLURE{fond=inc_afficher_message}{id_me}>
+			</li>
 	</BOUCLE_messages>
-	</ul>
-	
-	
-	
-	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+		</ul>
+		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
 	</B_messages>
-
 </BOUCLE_principale>
-
 #FILTRE{mini_html}

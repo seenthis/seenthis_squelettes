@@ -1,11 +1,5 @@
 #CACHE{60*60}
-
-[(#REM)
-
-	Les mots liés : il s'agit des mots les plus courants dans les 100 derniers messages publiés associés au mot demandé (ainsi qu'à ses enfants), ainsi que dans leurs réponses
-
-]
-
+[(#REM)Les mots liés : il s'agit des mots les plus courants dans les 100 derniers messages publiés associés au mot demandé (ainsi qu'à ses enfants), ainsi que dans leurs réponses]
 
 <BOUCLE_tous_mots(spip_me_tags spip_me){tag like (#TAG*|likeq)%}
 {!par date}
@@ -16,8 +10,6 @@
 ]</BOUCLE_tous_mots>
 
 <BOUCLE_messages(ME){id_me IN #GET{messages}|explode{' '}|array_filter}{statut=publi}{doublons pourmots}{!par date}{0,100} />
-
-
 	<BOUCLE_mots(spip_me_tags){id_me IN #DOUBLONS{mepourmots}}
 		{class IN #,oc}
 		>[(#TAG*|compter_mots_lies)]</BOUCLE_mots>
@@ -29,15 +21,13 @@
 	<div id="mots_lies">
 	<h3>Thèmes liés</h3>
 	<ul>
-<BOUCLE_resultat(DATA){source array,#REM*|retour_mots_lies}
-	{valeur!=#TAG*}{0,40}>
+<BOUCLE_resultat(DATA){source array,#REM*|retour_mots_lies}{valeur!=#TAG*}{0,40}>
 	<li>
-	[<span class="groupe_mot">(#VALEUR|match{^.*:}|mb_strtolower{UTF-8})</span>]
-	[(#VALEUR|match{^#})]<a href="[(#VALEUR|url_tag)]">[(#VALEUR|match{^#}|?{<strong>})][(#VALEUR|replace{#}|replace{^.*:}|mb_strtolower{UTF-8})][(#VALEUR|match{^#}|?{<strong>})]</a>
+		[<span class="groupe_mot">(#VALEUR|match{^.*:}|mb_strtolower{UTF-8})</span>]
+		[(#VALEUR|match{^#})]<a href="[(#VALEUR|url_tag)]">[(#VALEUR|match{^#}|?{<strong>})][(#VALEUR|replace{#}|replace{^.*:}|mb_strtolower{UTF-8})][(#VALEUR|match{^#}|?{<strong>})]</a>
 	</li>
 </BOUCLE_resultat>
 	</ul>
 	</div>
 </B_resultat>
-
 #FILTRE{mini_html}

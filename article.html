@@ -27,33 +27,22 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale"><div>
-
-
-	<div id="centre">
-		<header>
-		<div id="tetiere">
-			<h1>[(#TITRE|supprimer_numero)]</h1>
-		</div>
-		</header>
-		<INCLURE{fond=noisettes/mots_lies/mots_lies_general}>
-
-
-		<div id="texte_article" style="padding: 40px;">
-		[(#TEXTE|image_reduire{580})]
+<div id="principale">
+	<div>
+		<div id="centre">
+			<header>
+				<div id="tetiere">
+					<h1>[(#TITRE|supprimer_numero)]</h1>
+				</div>
+			</header>
+			<INCLURE{fond=noisettes/mots_lies/mots_lies_general}>
+			<div id="texte_article" style="padding: 40px;">[(#TEXTE|image_reduire{580})]</div>
 		</div>
 
-
+		<aside id="droite"></aside>
+		<INCLURE{fond=inc/footer}>
 	</div>
-
-	<aside id="droite">
-	
-			
-	</aside>
-	
-	<INCLURE{fond=inc/footer}>
-	
-</div></div>
+</div>
 </body>
 </html>
 </BOUCLE_principale>

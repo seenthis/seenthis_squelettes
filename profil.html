@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	[(#ID_AUTEUR|microcache{noisettes/head_auteur})]
 
@@ -25,15 +24,13 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale"><div>
-
+<div id="principale">
+	<div>
 		[(#ID_AUTEUR|microcache{noisettes/entete_auteur})]
-		
 		[(#FORMULAIRE_PROFIL)]
-		
-
-	<div class="clear-left"></div>
-</div></div>
+		<div class="clear-left"></div>
+	</div>
+</div>
 </body>
 </html>
 </BOUCLE_auteur>

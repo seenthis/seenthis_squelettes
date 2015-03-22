@@ -1,5 +1,4 @@
 #CACHE{0}
-
 [(#REM)  TODO: remettre la selection OpenCalais des sites ]
 
 [(#SET{follow,#ENV{follow}})]
@@ -17,20 +16,13 @@
 >[(#SET{parents,
 [(#GET{parents}|push{[(#ID_PARENT|>{0}|?{#ID_PARENT,#ID_ME})]})]})]</BOUCLE_tag>
 
-
 <B_messages>
 	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 	<ul id="messages">
-<BOUCLE_messages(ME)
-	{id_me IN #GET{parents}}
-	{statut=publi}
-	{follow #ENV{follow}}
-	{!par date}
-	{pagination 25}
->
-	<li id="message#ID_ME">
-	[(#ID_ME|microcache{noisettes/message/afficher_message})]
-	</li>
+<BOUCLE_messages(ME){id_me IN #GET{parents}}{statut=publi}{follow #ENV{follow}}{!par date}{pagination 25}>
+		<li id="message#ID_ME">
+			[(#ID_ME|microcache{noisettes/message/afficher_message})]
+		</li>
 </BOUCLE_messages>
 	</ul>
 	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]

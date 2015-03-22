@@ -1,24 +1,20 @@
 #CACHE{0}
-
 <BOUCLE_principale(AUTEURS){id_auteur}{tout}>
 	<BOUCLE_messages(ME){follow #ID_AUTEUR}{par date}{inverse}{id_parent=0}{0,500}{statut=publi}{doublons me} />
-
 	<BOUCLE_tags(spip_me_tags){id_me IN #DOUBLONS{meme}}{class!=url}>
 	[(#TAG*|compter_mots_lies)]</BOUCLE_tags>
 
 	<B_resultat>
-	<div id="mots_lies">
-	<h3>thèmes fréquemment utilisés</h3>
-	<ul>
+		<div id="mots_lies">
+		<h3>thèmes fréquemment utilisés</h3>
+		<ul>
 	<BOUCLE_resultat(DATA){source table, (#REM|retour_mots_lies)}{0,200}>
-	<li>[(#VALEUR*|compter_mots_titre{#VALEUR})]
-		[(#VALEUR*|match{#}|?{<strong>#})]<a href="tag/[(#VALEUR|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus)]">[(#VALEUR|replace{#})]</a>[(#VALEUR|match{#}|?{</strong>})]
-	</li>
+			<li>[(#VALEUR*|compter_mots_titre{#VALEUR})]
+				[(#VALEUR*|match{#}|?{<strong>#})]<a href="tag/[(#VALEUR|replace{#}|mb_strtolower{UTF-8}|urlencode_1738_plus)]">[(#VALEUR|replace{#})]</a>[(#VALEUR|match{#}|?{</strong>})]
+			</li>
 	</BOUCLE_resultat>
-	</ul>
-
-	</div>
+		</ul>
+		</div>
 	</B_resultat>
-
 </BOUCLE_principale>
 #FILTRE{mini_html}
