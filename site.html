@@ -126,13 +126,10 @@
 		</div>
 
 		<aside id="droite">
-			[(#SESSION{id_auteur}|?{""," "})[(#INCLUDE{fond=noisettes/adsense/adsense_site})]]
-
 			[(#REM) plugin seenthis_opencalais]
 			[(#PLUGIN{seenthisoc}|?{
 				[(#INCLURE{fond=noisettes/oc_site,id=#ID_SYNDIC})]
 			})]
-
 		</aside>
 		<div class="clear-left"></div>
 	</div>
