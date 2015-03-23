@@ -102,6 +102,7 @@ function traduire($text, $destLang = 'fr', $srcLang = 'en') {
 		 //echo "NOUVEAU";
 		$trad = traduire_texte( $text, $destLang, $srcLang );
 		if ($trad) {
+			spip_log('['.$destLang."] $text \n === $trad", 'translate');
 			sql_insertq("spip_traductions",
 				array(
 					"hash" => $hash,
