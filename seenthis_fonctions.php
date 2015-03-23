@@ -10,7 +10,6 @@ include_spip('inc/seenthis_data');
 
 function unichr($u) {
 	return html_entity_decode('&#x' . intval($u) . ';', ENT_NOQUOTES, "UTF-8");
-    return mb_convert_encoding('&#x' . intval($u) . ';', 'UTF-8', 'HTML-ENTITIES');
 }
 
 
@@ -65,11 +64,9 @@ function afficher_enfants_syndic($rien) {
 }
 
 function mot_chemin($rien) {
-
 	$url = parse_url($_SERVER["REQUEST_URI"]);
 	$url = $url["path"];
-	$url = substr($url, strrpos($url, "/")+1, 1000);	
-	
+	$url = substr($url, strrpos($url, "/")+1, 1000);
 	return $url;
 }
 
@@ -260,17 +257,17 @@ function calculer_miniature($img, $maxw = 300, $maxh = 180) {
 
 	list($width, $height) = @getimagesize($vignette);
 
-	if (($width * $height) < 300) return;
-	
-	
+	if (($width * $height) < 300) {
+		return;
+	}
+
 	include_spip("inc/filtres_images_mini");
 	$vignetter = image_reduire($vignette, $maxw, $maxh);
 	
-	if ($vignetter == $vignette) return $vignette;
-	
+	if ($vignetter == $vignette) {
+		return $vignette;
+	}
 	$vignette = inserer_attribut($vignetter, "alt", "");
-	list($width, $height) = @getimagesize(extraire_attribut($vignette,'src'));
-
 	return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
 
 }
@@ -332,7 +329,6 @@ function retour_mots_lies($rien) {
 			$ret[] = $id_mot;
 		}
 	}
-	
 	return $ret;
 }
 
@@ -396,16 +392,12 @@ function decaler_date ($age) {
 function afficher_cc($cc) {
 	if (preg_match("/^BY/", $cc)) {
 		$lien = strtolower($cc);
-		
-		
 		return "<a href='http://creativecommons.org/licenses/$lien/3.0/' class='spip_out by_cc'>CC $cc</a>";
 	}
 	else if ($cc == "CC0") {
-		$lien = strtolower($cc);
 		return "<a href='http://creativecommons.org/publicdomain/zero/1.0/' class='spip_out by_cc by_zero'>PUBLIC DOMAIN</a>";
 	}
 	else if ($cc == "LAL") {
-		$lien = strtolower($cc);
 		return "<a href='http://artlibre.org/licence/lal' class='spip_out by_cc by_lal'>ART LIBRE</a>";
 	}
 }
@@ -429,22 +421,24 @@ function langue_visiteur($id_auteur) {
 }
 function detecter_langue_visiteur($rien) {
 
-	if (isset($HTTP_ACCEPT_LANGUAGE)) $langues = $HTTP_ACCEPT_LANGUAGE;
-	else if (isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) $langues = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
-	else return;
+	if (isset($HTTP_ACCEPT_LANGUAGE)) {
+		$langues = $HTTP_ACCEPT_LANGUAGE;
+	} else if (isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
+		$langues = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+	} else {
+		return;
+	}
 	
-	if (strlen ($langues) < 1) return;
+	if (strlen ($langues) < 1) {
+		return;
+	}
 	
 	$langues = explode(",", $langues);
 	
 	$i = 0;
 	$choix = false;
-	
-	$choix = false;
-	
 	while ($i < count($langues) && !$choix) {
-	
-		$langue = $langues[$i];	
+		$langue = $langues[$i];
 		if (preg_match("/^fr_tu/", $langue) > 0) $choix = "fr_tu";
 		else if (preg_match("/^fr/", $langue) > 0) $choix = "fr";
 		else if (preg_match("/^en/", $langue) > 0) $choix = "en";
@@ -461,9 +455,10 @@ function detecter_langue_visiteur($rien) {
 	}
 	
 	// Par défaut: angliche
-	if (!$choix) $choix = "en";
-	
-	if ($choix) return $choix;
+	if (!$choix) {
+		$choix = "en";
+	}
+	return $choix;
 }
 
 
