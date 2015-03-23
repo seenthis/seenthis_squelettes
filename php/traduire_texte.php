@@ -9,28 +9,24 @@ function translate_requestCurl($parameters)
 	$parameters_explode = explode("&", $parameters);
 	$nombre_param = count($parameters_explode);
 	
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url_page);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_REFERER, !empty($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "");
-		curl_setopt($ch,CURLOPT_POST,nombre_param);
-		curl_setopt($ch,CURLOPT_POSTFIELDS,$parameters);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-HTTP-Method-Override: GET')); 
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		$body = curl_exec($ch);
-		curl_close($ch);
-		
-		$json = json_decode( $body, true );
-		
-		//print_r($json);
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url_page);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_REFERER, !empty($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "");
+	curl_setopt($ch,CURLOPT_POST,nombre_param);
+	curl_setopt($ch,CURLOPT_POSTFIELDS,$parameters);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-HTTP-Method-Override: GET')); 
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	$body = curl_exec($ch);
+	curl_close($ch);
 	
-		if (isset($json["error"])) {
-			spip_log($json, 'translate');
-			return false;
-		}
-		return urldecode($json["data"]["translations"][0]["translatedText"]);
-	//	return urldecode($json["responseData"]["translatedText"]);
+	$json = json_decode( $body, true );
 
+	if (isset($json["error"])) {
+		spip_log($json, 'translate');
+		return false;
+	}
+	return urldecode($json["data"]["translations"][0]["translatedText"]);
 }
 
 function translate_requestCurl_bing($apikey, $text, $srcLang, $destLang) {
@@ -62,15 +58,27 @@ function traduire_texte( $text, $destLang = 'fr', $srcLang = 'en' ) {
 	$destLang = urlencode( $destLang );
 	$srcLang = urlencode( $srcLang );
 
-	if (defined("_BING_APIKEY")) {
+	if (defined('_BING_APIKEY')) {
 		//echo "BING";
 		$trans = translate_requestCurl_bing(_BING_APIKEY, $text, $srcLang, $destLang);
-	} else {
-		//echo "GOOGLE";
-//		GET "https://www.googleapis.com/language/translate/v2?
-
-		//$trans = translate_requestCurl( "v=1.0&key="._GOOGLETRANSLATE_APIKEY."&q=".rawurlencode($text)."&langpair=$srcLang%7C$destLang" );
+	}
+	
+	else if (defined('_GOOGLETRANSLATE_APIKEY')) {
 		$trans = translate_requestCurl("key="._GOOGLETRANSLATE_APIKEY."&source=$srcLang&target=$destLang&q=".rawurlencode($text));
+	}
+	
+	else if (defined('_TRANSLATESHELL_CMD')) {
+		$descriptorspec = array(
+			0 => array("pipe", "r"),
+			1 => array("pipe", "w")
+		);
+		$cmd = proc_open(_TRANSLATESHELL_CMD.' -b '.escapeshellarg(':'.$destLang), $descriptorspec, $pipes);
+		if (is_resource($cmd)) {
+			$trans = preg_replace(',<.*?>,msS', ' ', $text); // remove <p>
+			fwrite($pipes[0], html2unicode($trans)) && fclose($pipes[0]);
+			$trans = stream_get_contents($pipes[1]);
+			fclose($pipes[1]);
+		}
 	}
 
 	$ltr = lang_dir($destLang, 'ltr','rtl');
@@ -96,7 +104,7 @@ function traduire($text, $destLang = 'fr', $srcLang = 'en') {
 	
 	if ($row = sql_fetch($query)) {
 		$trad = $row["texte"];
-		// echo "EN BASE";
+		# echo "EN BASE : ".$hash;
 		return $trad;
 	} else {
 		 //echo "NOUVEAU";
