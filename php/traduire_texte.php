@@ -139,7 +139,7 @@ function translate_line($l, $destLang) {
 function traduire($text, $destLang = 'fr', $srcLang = 'en') {
 	if (defined("_BING_APIKEY")) {
 		$text = mb_substr($text, 0, 10000, "UTF-8");
-	} else {
+	} else if (defined("_GOOGLETRANSLATE_APIKEY")) {
 		$text = mb_substr($text, 0, 4500, "UTF-8");
 	}
 	
