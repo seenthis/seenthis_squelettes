@@ -68,17 +68,7 @@ function traduire_texte( $text, $destLang = 'fr', $srcLang = 'en' ) {
 	}
 	
 	else if (defined('_TRANSLATESHELL_CMD')) {
-		$descriptorspec = array(
-			0 => array("pipe", "r"),
-			1 => array("pipe", "w")
-		);
-		$cmd = proc_open(_TRANSLATESHELL_CMD.' -b '.escapeshellarg(':'.$destLang), $descriptorspec, $pipes);
-		if (is_resource($cmd)) {
-			$trans = preg_replace(',<.*?>,msS', ' ', $text); // remove <p>
-			fwrite($pipes[0], html2unicode($trans)) && fclose($pipes[0]);
-			$trans = stream_get_contents($pipes[1]);
-			fclose($pipes[1]);
-		}
+		$trans = translate_shell($text, $destLang);
 	}
 
 	$ltr = lang_dir($destLang, 'ltr','rtl');
@@ -88,6 +78,63 @@ function traduire_texte( $text, $destLang = 'fr', $srcLang = 'en' ) {
 	else
 		return false;
 }
+
+function translate_shell($text, $destLang = 'fr') {
+	$prep = str_replace("\n", " ", html2unicode($text));
+	$prep = preg_split(",<p\b[^>]*>,i", $prep);
+	$trans = array();
+	foreach($prep as $k => $line) {
+		if ($k>0) $trans[] = '<p>';
+		$line = preg_replace(",<[^>]*>,i", " ", $line);
+		// max line = 1000 chars
+		$a = array();
+		while (mb_strlen($line) > 1000) {
+			$debut = mb_substr($line, 0, 600);
+			$suite = mb_substr($line, 600);
+			$point = strpos($suite, '.');
+
+			// chercher une fin de phrase pas trop loin
+			// ou a defaut, une virgule ; au pire un espace
+			if ($point === false) {
+				$point = strpos(preg_replace('/[,;?:!]/', ' ', $suite), ' ');
+			}
+			if ($point === false) {
+				$point = strpos($suite, ' ');
+			}
+			if ($point === false) {
+				$point = 0;
+			}
+			$a[] = trim($debut . mb_substr($suite, 0, 1 + $point));
+			$line = mb_substr($line, 600 + 1 + $point);
+		}
+		$a[] = trim($line);
+		foreach($a as $l) {
+			spip_log("IN: ".$l, 'translate');
+			$trad = translate_line($l, $destLang);
+			spip_log("OUT: ".$trad, 'translate');
+			$trans[] = $trad;
+		}
+	}
+
+	return join("\n", $trans);
+}
+
+function translate_line($l, $destLang) {
+	if (strlen(trim($l)) == 0) return '';
+	$descriptorspec = array(
+		0 => array("pipe", "r"),
+		1 => array("pipe", "w")
+	);
+	$cmd = _TRANSLATESHELL_CMD.' -b '.':'.escapeshellarg($destLang);
+	$cmdr = proc_open($cmd, $descriptorspec, $pipes);
+	if (is_resource($cmdr)) {
+		fwrite($pipes[0], $l) && fclose($pipes[0]);
+		$trad = stream_get_contents($pipes[1]);
+		fclose($pipes[1]);
+	}
+	return $trad;
+}
+
 
 function traduire($text, $destLang = 'fr', $srcLang = 'en') {
 	if (defined("_BING_APIKEY")) {
