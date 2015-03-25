@@ -111,7 +111,7 @@ function filtrer_rediriger_css($reg) {
 function filtrer_rediriger_background($reg) {
 	$lien = $reg[1];
 	
-	if ( ! preg_match(",^http,", $lien)) {
+	if ( ! preg_match(",^http|data,", $lien)) {
 		$code = substr(md5($lien), 0, 1);
 		$code = hexdec($code) % 4;
 		$lien = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
