@@ -229,6 +229,7 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 		$url = parametre_url($url, 'maxw', $maxw);
 		$url = parametre_url($url, 'maxh', $maxh);
 		$url = parametre_url($url, 'sec', $sec);
+
 		return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><img src='$url' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" /></a>";
 	}
 
@@ -267,7 +268,14 @@ function calculer_miniature($img, $maxw = 300, $maxh = 180) {
 	if ($vignetter == $vignette) {
 		return $vignette;
 	}
+
 	$vignette = inserer_attribut($vignetter, "alt", "");
+
+	// preparer l'image pour photoswipe
+	$vignette = inserer_attribut($vignette, "data-photo-src", $img);
+	$vignette = inserer_attribut($vignette, "data-photo-h", $height);
+	$vignette = inserer_attribut($vignette, "data-photo-w", $width);
+
 	return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
 
 }
