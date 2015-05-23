@@ -175,7 +175,9 @@ $(function () {
 	} else {
 		if ($.cookie('content')) {
 			content = $.cookie('content');
-			window.location.hash = "content=" + content;
+			try {
+				window.location.hash = "content=" + content;
+			} catch(e) {};
 			$.cookie('content', null);
 		}
         if (content != '') {
