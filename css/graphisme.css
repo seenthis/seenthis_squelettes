@@ -469,5 +469,11 @@ footer {
 	background: white !important;
 }
 .pswp__top-bar {
-    height: 35px !important;
+	height: 35px !important;
+}
+.pswp__button--close {
+	background-position: 0 -49px
+}
+.pswp__button--zoom {
+	background-position: -88px -5px;
 }
