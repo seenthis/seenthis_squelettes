@@ -1,8 +1,8 @@
 <?php
 
-
 function action_creer_miniature_dist() {
 	include_spip('inc/acces');
+	include_spip('inc/filtres');
 	if ($img = _request('img')
 	AND $maxw = _request('maxw')
 	AND $maxh = _request('maxh')
@@ -15,9 +15,8 @@ function action_creer_miniature_dist() {
 		AND $image = calculer_miniature($img, $maxw, $maxh)
 		AND $miniature = extraire_balise($image,'img')) {
 			spip_log('fin copie locale '.$img, 'distant');
-			include_spip('inc/headers');
-			$mini = extraire_attribut($miniature,'src');
-			redirige_par_entete($mini);
+			echo $image;
+			exit;
 		}
 
 		# si l'image n'existe pas (ou n'est pas accessible)
@@ -28,7 +27,7 @@ function action_creer_miniature_dist() {
 	else
 		spip_log('acces interdit', 'distant');
 
-	header('Content-Type: image/png');
-	readfile(find_in_path('imgs/verif_no.png'));
+	echo inserer_attribut('<img />', 'src', find_in_path('imgs/verif_no.png'));
+	exit;
 }
 
