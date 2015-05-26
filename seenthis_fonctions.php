@@ -281,12 +281,16 @@ function calculer_miniature($img, $maxw = 300, $maxh = 180) {
 	$vignette = inserer_attribut($vignetter, "alt", "");
 
 	// preparer l'image pour photoswipe
-	$vignette = inserer_attribut($vignette, "data-photo-src", $img);
+	$vignette = inserer_attribut($vignette, "data-photo", $img);
 	$vignette = inserer_attribut($vignette, "data-photo-h", $height);
 	$vignette = inserer_attribut($vignette, "data-photo-w", $width);
 
-	return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
+	// on veut avoir le lien (pour pouvoir "copier le lien")
+	// mais faut-il toujours ouvrir l'image ? la box s'en charge
+	// quand c'est nécessaire (pour zoomer)
+	$onclick = " onclick='return false;'";
 
+	return "<a$onclick href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";;
 }
 
 
