@@ -473,11 +473,13 @@ ul#messages, ul.messages {
 				padding: 3px;
 				margin-bottom: 3px;
 				-spip-border-radius: 4px;
+				cursor: initial;
 			}
-			. :hover {
-				img {
-					border: 1px solid #666;
-				}
+			img.photoshow {
+				cursor: zoom-in;
+			}
+			img.photoshow:hover {
+				border: 1px solid #666;
 			}
 		}
 		.bouton_repondre {

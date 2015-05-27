@@ -211,7 +211,7 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 		}
 	} else {
 		$cvt = $img;
-		$box = " rel='shadowbox[Portfolio]'";
+		$box = "";
 	}
 
 	//
@@ -228,8 +228,18 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 		$url = parametre_url($url, 'img', $cvt);
 		$url = parametre_url($url, 'maxw', $maxw);
 		$url = parametre_url($url, 'maxh', $maxh);
-		$url = parametre_url($url, 'sec', $sec);
-		return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px; background-image: url(".find_in_path('imgs/image-loading.gif')."); background-repeat: no-repeat;\"><img src='$url' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" /></a>";
+		$url = parametre_url($url, 'sec', $sec, '\\x26');
+		
+		$selecteur = md5($img);
+
+		$vignette = "<span class='$selecteur'><img src='".find_in_path('imgs/image-loading.gif')."' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" /></span>"
+		."<script>
+		$('." . $selecteur . "').load('".$url."');
+		</script>";
+
+		// preparer l'image pour photoswipe (mais on n'en connait pas les dimensions)
+
+		return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
 	}
 
 	return calculer_miniature($img, $maxw = 300, $maxh = 180);
@@ -247,7 +257,7 @@ function calculer_miniature($img, $maxw = 300, $maxh = 180) {
 		}
 	} else {
 		$cvt = $img;
-		$box = " rel='shadowbox[Portfolio]'";
+		$box = "";
 	}
 
 	//
@@ -267,9 +277,20 @@ function calculer_miniature($img, $maxw = 300, $maxh = 180) {
 	if ($vignetter == $vignette) {
 		return $vignette;
 	}
-	$vignette = inserer_attribut($vignetter, "alt", "");
-	return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
 
+	$vignette = inserer_attribut($vignetter, "alt", "");
+
+	// preparer l'image pour photoswipe
+	$vignette = inserer_attribut($vignette, "data-photo", $img);
+	$vignette = inserer_attribut($vignette, "data-photo-h", $height);
+	$vignette = inserer_attribut($vignette, "data-photo-w", $width);
+
+	// on veut avoir le lien (pour pouvoir "copier le lien")
+	// mais faut-il toujours ouvrir l'image ? la box s'en charge
+	// quand c'est nécessaire (pour zoomer)
+	$onclick = " onclick='return false;'";
+
+	return "<a$onclick href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";;
 }
 
 

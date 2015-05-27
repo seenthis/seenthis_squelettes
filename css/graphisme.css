@@ -459,3 +459,21 @@ footer {
 .lienDejaPoste {
 	margin-left: 5px;
 }
+
+/* pour photoswipe */
+.pswp__bg {
+	opacity: 0.6 !important;
+	background: #ddd;
+}
+.pswp__img {
+	background: white !important;
+}
+.pswp__top-bar {
+	height: 35px !important;
+}
+.pswp__button--close {
+	background-position: 0 -49px
+}
+.pswp__button--zoom {
+	background-position: -88px -5px;
+}
