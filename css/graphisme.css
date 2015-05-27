@@ -460,6 +460,19 @@ footer {
 	margin-left: 5px;
 }
 
+/* Cacher la fin des textes longs */
+.overflow {
+	height:600px;
+	overflow:hidden;
+	border-bottom:5px solid #cccccc;
+	width:100%;
+	margin-top: 0;
+}
+
+.overflow:hover {
+background-color:#eeeeee;
+}
+
 /* pour photoswipe */
 .pswp__bg {
 	opacity: 0.6 !important;
