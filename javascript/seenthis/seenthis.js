@@ -349,8 +349,8 @@ $(function () {
 	// cacher la fin des messages très longs.
 	$('body:not(".message") div.texte > div').each(function(){
 		if($(this).height() > 1000){
-			$(this).css({cursor:'pointer'}).addClass('overflow').click(function(){
-				$(this).toggleClass('overflow');
+			$(this).addClass('overflow').one('click', function(){
+				$(this).removeClass('overflow');
 			});
 		}	
 	});

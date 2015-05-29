@@ -467,6 +467,7 @@ footer {
 	border-bottom:5px solid #cccccc;
 	width:100%;
 	margin-top: 0;
+	cursor: pointer;
 }
 
 .overflow:hover {
