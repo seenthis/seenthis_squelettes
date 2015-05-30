@@ -465,7 +465,7 @@ ul#messages, ul.messages {
 		
 		.display_box, .images {
 			margin-right: 0.5em;
-			
+			margin-bottom: 11px;
 			img {
 				border: 1px solid #ccc;
 
