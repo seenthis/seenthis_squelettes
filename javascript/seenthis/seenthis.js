@@ -16,6 +16,8 @@ var traduire_avec_google = "traduire avec Google";
 var isShift = false;
 var isCtrl = false;
 
+var blacklistlogo = new RegExp('^(https?:)?//(www\.)?(.\.ytimg\.com)/');
+
 function switch_comments(id_me) {
 	$('.yourmessage').show();
 
@@ -135,6 +137,11 @@ $(function () {
 		var re = new RegExp('[#?&]' + this + '=([^&]*)');
 		if (r = window.location.href.match(re)) {
 			vals[this] = $.trim(decodeURIComponent(r[1]));
+			// blacklist de sites dont on ne veut pas prendre le logo
+			console.log(this,vals[this]);
+			if (this == 'logo' && vals[this].match(blacklistlogo)) {
+				vals[this] = '';
+			}
 		}
 	});
 	var content = "";
