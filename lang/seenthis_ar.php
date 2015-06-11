@@ -79,8 +79,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_identite' => 'الهوية',
 	'profil_langue' => 'اللغة المفضلة',
 	'profil_licence' => 'رخصة رسائلك',
+	'profil_liens_partage_fb' => 'عرض أزرار المشارة مع فيسبوك',
+	'profil_liens_partage_tw' => 'عرض أزرار المشاركة مع تويتر',
 	'profil_logo' => 'رمز المؤلف (مربّع)',
 	'profil_mexpedier' => 'أريد تلقي رسالة<br> إلكترونية عندما...',
+	'profil_partage' => 'مشاركة',
 	'profil_rss' => 'جلب آلي لتدفق المقالات بتنسيق ATOM او RSS',
 
 	// R
