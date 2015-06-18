@@ -323,7 +323,10 @@ $(function () {
 			}, 100);
 		})
 		.on('blur', 'textarea', function () {
-			$(this).siblings('.elastic').remove();
+			var siblings = $(this).siblings('.elastic');
+			setTimeout(function () {
+				siblings.remove();
+			}, 100);
 		})
 
 		.on("mouseenter", ".texte_message, .texte_reponse", function () {
