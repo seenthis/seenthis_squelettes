@@ -316,19 +316,12 @@ $(function () {
 			return false;
 		})
 
-		.on('focus', 'textarea', function () {
+		.one('focus', 'textarea', function () {
 			var ta = $(this);
 			setTimeout(function () {
 				ta.elastic();
 			}, 100);
 		})
-		.on('blur', 'textarea', function () {
-			var siblings = $(this).siblings('.elastic');
-			setTimeout(function () {
-				siblings.remove();
-			}, 100);
-		})
-
 		.on("mouseenter", ".texte_message, .texte_reponse", function () {
 
 			if (auteur_connecte > 0) {
