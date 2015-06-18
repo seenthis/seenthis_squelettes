@@ -138,6 +138,8 @@ $(function () {
 					imagesHtml.slideDown();
 					imagesAffiches = true;
 				}
+				var minheight = Math.max(parseInt(currentForm.height())||0, parseInt(currentForm.css('min-height')||0));
+				currentForm.css('min-height', '' + minheight + 'px');
 			};
 
 			function masqueSiAffiche(variable, element) {
