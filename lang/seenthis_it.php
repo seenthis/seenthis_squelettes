@@ -11,10 +11,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'Z' => 'ZZzZZzzz',
 
 	// A
-	'accueil' => 'Home
-',
-	'annuler' => 'Annullare
-',
+	'accueil' => 'Home',
+	'annuler' => 'Annullare',
 	'auteur_block' => 'Bloccare @people@',
 	'auteur_block_you' => 'Questo autore ti ha bloccato. Non puoi commentare i suoi messaggi.',
 	'auteur_ne_plus_block' => 'Sbloccare @people@',
@@ -63,8 +61,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// P
 	'pave_accueil' => 'Dello <strong>short-blogging</strong> senza limite di caratteri. Delle <strong>raccomandazioni di link</strong>. Degli <strong>automatismi</strong> per redigere facilmente i tuoi messaggi. Dei <strong>forums</strong> sotto ogni post. Delle <strong>rassegne stampa d’attualità</strong>. Una <strong>tematizzazione</strong> avanzata.',
 	'people' => 'autori',
-	'profil' => 'preferenze
-',
+	'profil' => 'preferenze',
 	'profil_alerte_conversations' => '<b>conversazioni</b> / qualcuno risponde a un post a cui io stesso ho risposto',
 	'profil_alerte_dubien' => '<b>un amico che ti vuole bene</b> / qualcuno che mi segue',
 	'profil_alerte_mes_billets' => '<b>mie pubblicazioni</b> / ricevere una copia dei miei post ',
