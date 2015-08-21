@@ -24,7 +24,7 @@
 		<traducteur nom="Fil" lien="http://trad.spip.net/auteur/fil" />
 		<traducteur nom="James" lien="http://trad.spip.net/auteur/james" />
 	</langue>
-	<langue code="it" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=it" total="80" traduits="80" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+	<langue code="it" url="http://trad.spip.net/tradlang_module/seenthis?lang_cible=it" total="80" traduits="75" relire="0" modifs="5" nouveaux="0" pourcent="93.75">
 		<traducteur nom="CDB_77" lien="http://trad.spip.net/auteur/cdb_77" />
 		<traducteur nom="Fil" lien="http://trad.spip.net/auteur/fil" />
 		<traducteur nom="kent1" lien="http://trad.spip.net/auteur/kent1" />

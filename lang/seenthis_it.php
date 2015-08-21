@@ -23,7 +23,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
 	'beta_publique' => '<strong>Seenthis è nella versione beta pubblica.</strong><br />Puoi iscriverti e partecipare, grazie per la tua pazienza in questa fase.',
-	'bookmarklet_descriptif' => 'Per utilizzarlo: quando visiti la pagina con un articolo che vuoi citare, seleziona l’estratto del testo da citare, e clicca sul tuo bookmarklet. La tua interfaccia Seenthis si aprirà e il tuo messaggio sarà già compilato con il titolo della pagina, l’URL e la citazione.',
+	'bookmarklet_descriptif' => 'Come utilizzarlo: quando visiti la pagina con un articolo che vuoi citare, seleziona l’estratto del testo da citare, e clicca sul tuo bookmarklet. La tua interfaccia Seenthis si aprirà e il tuo post sarà già compilato con il titolo della pagina, l’URL e la citazione.', # MODIF
 	'bookmarklet_titre' => 'Trascina questo bookmarklet nella tua barra dei preferiti:',
 
 	// C
@@ -32,8 +32,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'changement_email_subject' => 'Nuovo indirizzo email per @login@',
 
 	// E
-	'ecrire_commentaire' => 'Scrivere un commento',
-	'effacer' => 'cancellare',
+	'ecrire_commentaire' => 'Scrivi un commento', # MODIF
+	'effacer' => 'cancella', # MODIF
 	'envoyer' => 'Invia (shift+enter)',
 
 	// F
@@ -44,7 +44,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'intitule_connexion' => 'connessione',
 
 	// L
-	'logout' => 'disconnettersi',
+	'logout' => 'logout', # MODIF
 
 	// M
 	'me_suggerer_contacts' => 'Suggeriscimi dei contatti',
@@ -69,7 +69,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_alerte_nouveaux_billets' => '<b>nuovi post</b> / un nuovo post è stato pubblicato da un autore che seguo',
 	'profil_alerte_partage' => '<b>condivisione</b> / qualcuno ha condiviso il mio post',
 	'profil_alerte_reponse_partage' => '<b>risposta a una condivisione</b> / qualcuno ha rispoto a un post che ho condiviso',
-	'profil_alerte_reponses' => '<b>risposta ai miei post</b> / qualcuno ha risposto ai miei post',
+	'profil_alerte_reponses' => '<b>risposta ai miei post</b> / qualcuno ha risposto al mio post',
 	'profil_alertes' => 'Avvisi',
 	'profil_copyleft' => 'Copyright, Copyleft',
 	'profil_copyright_classique' => 'Nessuna licenza specifica (diritti d’autore predefiniti)',
@@ -116,7 +116,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'urls_vous_suivez' => 'I siti che segui',
 
 	// V
-	'votre_message' => 'Il tuo messaggio',
+	'votre_message' => 'Il tuo post', # MODIF
 	'votre_message_public' => 'Il tuo messaggio pubblico a',
 	'vous_connaissez' => 'Potresti conoscere:',
 	'vous_suivent' => 'abbonati',
