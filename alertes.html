@@ -24,6 +24,7 @@
 		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur)
 		{spip_me_auteur.id_auteur=#ID_AUTEUR}
 		{id_auteur!=#SESSION{id_auteur}}
+		{statut=publi}
 		{!par date}{0,25}>
 			[(#ID_ME|stocker_id_me)]
 		</BOUCLE_liens_vers_moi>
