@@ -23,7 +23,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
 	'beta_publique' => '<strong>Seenthis è nella versione beta pubblica.</strong><br />Puoi iscriverti e partecipare, grazie per la tua pazienza in questa fase.',
-	'bookmarklet_descriptif' => 'Come utilizzarlo: quando visiti la pagina con un articolo che vuoi citare, seleziona l’estratto del testo da citare, e clicca sul tuo bookmarklet. La tua interfaccia Seenthis si aprirà e il tuo post sarà già compilato con il titolo della pagina, l’URL e la citazione.', # MODIF
+	'bookmarklet_descriptif' => 'Come utilizzarlo: quando visiti la pagina con un articolo che vuoi citare, seleziona l’estratto del testo da citare, e clicca sul tuo bookmarklet. La tua interfaccia Seenthis si aprirà e il tuo post sarà già compilato con il titolo della pagina, l’URL e la citazione.',
 	'bookmarklet_titre' => 'Trascina questo bookmarklet nella tua barra dei preferiti:',
 
 	// C
@@ -32,8 +32,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'changement_email_subject' => 'Nuovo indirizzo email per @login@',
 
 	// E
-	'ecrire_commentaire' => 'Scrivi un commento', # MODIF
-	'effacer' => 'cancella', # MODIF
+	'ecrire_commentaire' => 'Scrivi un commento',
+	'effacer' => 'cancella',
 	'envoyer' => 'Invia (shift+enter)',
 
 	// F
@@ -44,7 +44,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'intitule_connexion' => 'connessione',
 
 	// L
-	'logout' => 'logout', # MODIF
+	'logout' => 'logout',
 
 	// M
 	'me_suggerer_contacts' => 'Suggeriscimi dei contatti',
@@ -116,7 +116,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'urls_vous_suivez' => 'I siti che segui',
 
 	// V
-	'votre_message' => 'Il tuo post', # MODIF
+	'votre_message' => 'Il tuo post',
 	'votre_message_public' => 'Il tuo messaggio pubblico a',
 	'vous_connaissez' => 'Potresti conoscere:',
 	'vous_suivent' => 'abbonati',
