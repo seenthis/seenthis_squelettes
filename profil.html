@@ -28,15 +28,20 @@
 	<div>
 		[(#ID_AUTEUR|microcache{noisettes/entete_auteur})]
 		[(#FORMULAIRE_PROFIL)]
+
+		[(#REM)  -- # FORMULAIRE_SUPPRIMER_PROFIL --]
+
 		<div class="clear-left"></div>
 	</div>
+
+
 </div>
 </body>
 </html>
 </BOUCLE_auteur>
 <?php
 	include_spip('inc/headers');
-	redirige_par_entete('http://'._HOST.'/');
+	redirige_par_entete(_HTTPS.'://'._HOST.'/');
 ?>
 <//B_auteur>
 

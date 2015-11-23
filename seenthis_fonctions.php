@@ -19,7 +19,7 @@ function decodeUchar ($text) {
 
 
 function share_tw_url($id_me) {
-	$me = "http://"._SHORT_HOST."/".base_convert($id_me, 10,36);
+	$me = _HTTPS."://"._SHORT_HOST."/".base_convert($id_me, 10,36);
 	return $me;
 }
 
@@ -78,7 +78,7 @@ function filtrer_rediriger_images($reg) {
 	if ( ! preg_match(",^http,", $lien)) {
 		$code = substr(md5($lien), 0, 1);
 		$code = hexdec($code) % 4;		
-		$lien = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
+		$lien = _HTTPS."://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
 	}
 	return " src='$lien'" ;
 }
@@ -93,12 +93,12 @@ function filtrer_rediriger_css($reg) {
 	if ( ! preg_match(",^http,", $lien)) {
 		$code = substr(md5($lien), 0, 1);
 		$code = hexdec($code) % 4;		
-		$lien = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
+		$lien = _HTTPS."://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
 
 		if ( ! preg_match(",^http,", $lien_ar)) {
 			$code = substr(md5($lien_ar), 0, 1);
 			$code = hexdec($code) % 4;		
-			$lien_ar = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien_ar;
+			$lien_ar = _HTTPS."://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien_ar;
 			
 			// De cette façon, ne créer l'alternative RTL qu'une fois
 			$ret = "<link rel='alternate stylesheet'  media='$media' href='$lien_ar' type='text/css' id='css_rtl'>\n" ;
@@ -114,7 +114,7 @@ function filtrer_rediriger_background($reg) {
 	if ( ! preg_match(",^http|data,", $lien)) {
 		$code = substr(md5($lien), 0, 1);
 		$code = hexdec($code) % 4;
-		$lien = "http://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
+		$lien = _HTTPS."://".str_replace('%s', $code, _STATIC_HOST).'/'.$lien;
 	}
 	return "url($lien)" ;
 }

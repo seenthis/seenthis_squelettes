@@ -13,7 +13,7 @@ if(ogImage){
 logo=ogImage.getAttribute('content');
 }
 var url=document.location+'';
-void(btw=window.open('http://[(#EVAL{_HOST})]/#ajouter='+
+void(btw=window.open('#EVAL{_HTTPS}://[(#EVAL{_HOST})]/#ajouter='+
 encodeURIComponent(titre)+
 '&url_site='+
 encodeURIComponent(url.replace('%2520','+'))+
