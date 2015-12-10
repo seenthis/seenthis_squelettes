@@ -13,6 +13,14 @@ if(ogImage){
 logo=ogImage.getAttribute('content');
 }
 var url=document.location+'';
+var canonicalUrl=document.querySelector("link[rel='canonical']");
+if(canonicalUrl){
+url=canonicalUrl.href;
+}else{
+var ogUrl=document.querySelector('meta[property=\'og:url\']');
+if(ogUrl){
+url=ogUrl.getAttribute('content');
+}}
 void(btw=window.open('#EVAL{_HTTPS}://[(#EVAL{_HOST})]/#ajouter='+
 encodeURIComponent(titre)+
 '&url_site='+
