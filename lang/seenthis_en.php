@@ -101,6 +101,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'suivre_url' => 'Follow this site',
 	'suivre_url_stop' => 'Stop following this site',
 	'suivre_url_you' => 'You are following this site',
+	'supprimer_mon_profil' => 'Delete my profile',
+	'supprimer_mon_profil_au_revoir' => 'Deleting... goodbye!',
+	'supprimer_mon_profil_irreversible' => 'Delete your profile (irreversible)',
+	'supprimer_mon_profil_login' => 'Please enter your login to confirm the request',
+	'supprimer_veuillez_saisir' => 'Verify your login',
 
 	// T
 	'tags' => 'tags',
