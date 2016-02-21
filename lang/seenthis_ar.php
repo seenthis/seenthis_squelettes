@@ -102,6 +102,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'suivre_url' => 'متابعة هذا الموقع',
 	'suivre_url_stop' => 'إيقاف متابعة هذا الموقع',
 	'suivre_url_you' => 'تتابعون هذا الموقع',
+	'supprimer_mon_profil' => 'حذف تفضيلاتي',
+	'supprimer_mon_profil_au_revoir' => 'قيد الحذف... وداعاً!',
+	'supprimer_mon_profil_irreversible' => 'حذف تفضيلاتي (لا يمكن التراجع)',
+	'supprimer_mon_profil_login' => 'الرجاء إدخال المعرّف لتأكيد الطلب',
+	'supprimer_veuillez_saisir' => 'التأكد من المعرّف',
 
 	// T
 	'tags' => 'المواضيع',
