@@ -25,10 +25,10 @@
 		<div id="centre">
 			<div id="tous_messages">
 				#SET{messages_perso, #ARRAY{}}
-				<BOUCLE_mes_messages(spip_me spip_me_auteur)
+				<BOUCLE_mes_messages(ME spip_me_auteur)
 					{spip_me_auteur.id_auteur=(#ID_AUTEUR|sinon{0})}
-					{spip_me.id_auteur=#SESSION{id_auteur}}
-					{spip_me.id_auteur!=#ID_AUTEUR}>
+					{id_auteur=#SESSION{id_auteur}}
+					{id_auteur!=#ID_AUTEUR}>
 						[(#ID_PARENT|>{0}|?{" ",""})
 							[(#SET{messages_perso, #GET{messages_perso}|push{#ID_PARENT}})]
 						]
