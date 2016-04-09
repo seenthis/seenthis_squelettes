@@ -31,7 +31,7 @@
 	
 		[(#REM) Les reponses des gens que je suis ]
 		#SET{people, #ARRAY{}}
-		<BOUCLE_follow(spip_me_follow){id_follow=#ID_AUTEUR}
+		<BOUCLE_follow(ME_FOLLOW){id_follow=#ID_AUTEUR}
 		>[(#SET{people,#GET{people}|push{#ID_AUTEUR}})]</BOUCLE_follow>
 		<BOUCLE_messages_follow(ME){id_auteur IN #GET{people}}{par date}{inverse}{doublons}{statut=publi}{id_parent>0}{0,25}
 		>[(#ID_ME|stocker_id_me)]</BOUCLE_messages_follow>
