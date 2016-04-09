@@ -29,7 +29,7 @@
 
 [(#REM) note : array_slice=4 permet de prendre les 10 mots les plus lies au mot recherche ]
 #SET{parents,#ARRAY}
-<BOUCLE_tag(ME spip_me_tags)
+<BOUCLE_tag(ME me_tags)
 	{tag IN #REM*|retour_mots_lies|array_slice{0,10}}
 	{statut=publi}
 	{!par date}
