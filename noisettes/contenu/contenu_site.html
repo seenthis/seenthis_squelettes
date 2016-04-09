@@ -20,7 +20,7 @@
 	<B_messages>
 		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 		<ul id="messages">
-	<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{par date}{follow #GET{follow}}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
+	<BOUCLE_messages(ME){id_me IN #GET{messages}}{par date}{follow #GET{follow}}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
 			<li id="message#ID_ME">
 				<INCLURE{fond=inc_afficher_message}{id_me}>
 			</li>
