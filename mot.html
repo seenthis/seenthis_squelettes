@@ -48,7 +48,7 @@
 
 		<div id="entete_people">
 			<ul class="parents_url">
-			<BOUCLE_parents(spip_me_tags)
+			<BOUCLE_parents(ME_TAGS)
 				{si #ENV*{tag}|match{^#}}
 				{tag IN (#ENV*{tag}|precurseurs)}
 				{fusion tag}

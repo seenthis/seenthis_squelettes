@@ -2,7 +2,7 @@
 #SET{messages, #ARRAY{}}
 [(#REM) todo: remettre OpenCalais sur les sites ; ne marche plus ]
 
-<BOUCLE_tous_liens(spip_me spip_me_tags){tag}{off!=oui}>
+<BOUCLE_tous_liens(ME me_tags){tag}{off!=oui}>
 	[(#ID_PARENT|>{0}|?{" ",""})
 		[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
 	]
