@@ -1,5 +1,5 @@
 #CACHE{0}
-<BOUCLE_tous_mots(spip_me_tags spip_me)
+<BOUCLE_tous_mots(ME_TAGS me)
 {tag like (#TAG*|likeq)%}
 {!par date}
 {0,500}
@@ -10,10 +10,10 @@
 <BOUCLE_me(ME){id_me IN #GET{messages}|explode{' '}|array_filter}{statut=publi}{doublons pourmots}{!par date}{0,200} />
 
 
-	<BOUCLE_mots(spip_me_tags){id_me IN #DOUBLONS{mepourmots}}
+	<BOUCLE_mots(ME_TAGS){id_me IN #DOUBLONS{mepourmots}}
 		{class IN #,oc}
 		>[(#TAG*|compter_mots_lies)]</BOUCLE_mots>
-	<BOUCLE_mots_reponses(spip_me_tags spip_me){spip_me.id_parent IN #DOUBLONS{mepourmots}}
+	<BOUCLE_mots_reponses(ME_TAGS me){me.id_parent IN #DOUBLONS{mepourmots}}
 		{class IN #,oc}
 		>[(#TAG*|compter_mots_lies)]</BOUCLE_mots_reponses>
 
@@ -29,7 +29,7 @@
 
 [(#REM) note : array_slice=4 permet de prendre les 10 mots les plus lies au mot recherche ]
 #SET{parents,#ARRAY}
-<BOUCLE_tag(ME spip_me_tags)
+<BOUCLE_tag(ME me_tags)
 	{tag IN #REM*|retour_mots_lies|array_slice{0,10}}
 	{statut=publi}
 	{!par date}

@@ -37,28 +37,29 @@
 
 </div>
 
-	[<p class='envoi_message_ok'>(#ENV**{message_ok}|table_valeur{texte})</p>
-		<script><!--
+[<p class='envoi_message_ok'>(#ENV**{message_ok}|table_valeur{texte})</p>
+	<script><!--
+	if (window.jQuery) {
 		$(function() {
-
 			if ("[(#ENV**{message_ok}|table_valeur{maj})]" > 0) {
 				setTimeout(function () {
 					$("#message[(#ENV**{message_ok}|table_valeur{pave})]")
-							.html("<div class='loading_icone'></div>")
-							.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{pave})]");
+						.html("<div class='loading_icone'></div>")
+						.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{pave})]");
 				}, 30);
 			} else if ("[(#ENV**{message_ok}|table_valeur{ok_parent})]" > 0) {
 				$("#message[(#ENV**{message_ok}|table_valeur{ok_parent})]").find(".formulaire_poster_message").hide();
 				$("#message[(#ENV**{message_ok}|table_valeur{ok_parent})]")
-						.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_parent})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]")
-						.slideDown();
+					.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_parent})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]")
+					.slideDown();
 			} else {
 				$(".formulaire_poster_message").removeClass("focus").find("textarea").hide();
 				$("#messages").prepend("<li id='message[(#ENV**{message_ok}|table_valeur{ok_me})]'></li>");
 				$("#message[(#ENV**{message_ok}|table_valeur{ok_me})]")
-						.html("<div class='loading_icone'></div>")
-						.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_me})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]");
+					.html("<div class='loading_icone'></div>")
+					.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_me})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]");
 			}
 		});
-		--></script>
-	]
+	}
+	--></script>
+]

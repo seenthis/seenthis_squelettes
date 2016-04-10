@@ -21,7 +21,7 @@
 		</BOUCLE_reponses>
 
 		[(#REM) Les messages qui me mentionnent ]
-		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur)
+		<BOUCLE_liens_vers_moi(ME spip_me_auteur)
 		{spip_me_auteur.id_auteur=#ID_AUTEUR}
 		{id_auteur!=#SESSION{id_auteur}}
 		{statut=publi}
@@ -31,17 +31,17 @@
 	
 		[(#REM) Les reponses des gens que je suis ]
 		#SET{people, #ARRAY{}}
-		<BOUCLE_follow(spip_me_follow){id_follow=#ID_AUTEUR}
+		<BOUCLE_follow(ME_FOLLOW){id_follow=#ID_AUTEUR}
 		>[(#SET{people,#GET{people}|push{#ID_AUTEUR}})]</BOUCLE_follow>
-		<BOUCLE_messages_follow(spip_me){id_auteur IN #GET{people}}{par date}{inverse}{doublons}{statut=publi}{id_parent>0}{0,25}
+		<BOUCLE_messages_follow(ME){id_auteur IN #GET{people}}{par date}{inverse}{doublons}{statut=publi}{id_parent>0}{0,25}
 		>[(#ID_ME|stocker_id_me)]</BOUCLE_messages_follow>
 
 
 		<ul>
-		<BOUCLE_alertes(spip_me){id_me IN (#VAL|retour_id_me)}{par date}{inverse}{0,25}>
+		<BOUCLE_alertes(ME){id_me IN (#VAL|retour_id_me)}{par date}{inverse}{0,25}>
 			[(#SET{id_me,#ID_ME})]
 			[(#SET{texte,[(#TEXTE*|replace{"https?://(www\.)*?(\S{1,18}?)\S*?","$2…",UuimsS}|trim|couper{100}|typo)]})]
-			<BOUCLE_parent(spip_me){id_me = #ID_PARENT}>
+			<BOUCLE_parent(ME){id_me = #ID_PARENT}>
 				[(#SET{id_me,#ID_ME})]
 				[(#SET{auteur_parent,#ID_AUTEUR})]
 				
