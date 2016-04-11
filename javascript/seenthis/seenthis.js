@@ -138,7 +138,6 @@ $(function () {
 		if (r = window.location.href.match(re)) {
 			vals[this] = $.trim(decodeURIComponent(r[1]));
 			// blacklist de sites dont on ne veut pas prendre le logo
-			console.log(this,vals[this]);
 			if (this == 'logo' && vals[this].match(blacklistlogo)) {
 				vals[this] = '';
 			}
