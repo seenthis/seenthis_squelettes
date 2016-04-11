@@ -6,19 +6,24 @@
 	<description>
 		Squelettes de Seenthis
 	</description>
+	<categorie>squelette</categorie>
 	<prefix>seenthissq</prefix>
 
 	<fonctions>seenthis_fonctions.php</fonctions>
 
-	<necessite id="seenthis">
+	<pipeline>
+		<nom>post_insertion</nom>
+		<inclure>seenthis_pipelines.php</inclure>
+	</pipeline>
 
-	<necessite id="SPIP" version="[2.1.0;]">
+	<necessite id="seenthis" />
 
-	<necessite id="microcache">
-	<necessite id="css_imbriques">
-	<necessite id="inclureajaxload">
-	<necessite id="calcul_date">
-	<utilise id="gravatar">
+	<necessite id="SPIP" version="[2.1.0;]" />
+
+	<necessite id="microcache" />
+	<necessite id="css_imbriques" />
+	<necessite id="inclureajaxload" />
+	<necessite id="calcul_date" />
+	<utilise id="gravatar" />
 
 </plugin>
-
