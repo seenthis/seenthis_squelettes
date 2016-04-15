@@ -307,14 +307,6 @@ $(function () {
 			$(this).parents(".formulaire_poster_message").addClass('focus');
 		})
 
-		.on("click", 'input[type=reset]', function () {
-			$('.formulaire_poster_message').removeClass('focus');
-			$(this).parents(".formulaire_poster_message").find("textarea").val("");
-			$('.yourmessage').show();
-			$('.repondre').hide();
-			return false;
-		})
-
 		.one('focus', 'textarea', function () {
 			var ta = $(this);
 			setTimeout(function () {

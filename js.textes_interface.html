@@ -78,7 +78,6 @@ function afficher_textes_traduits() {
 	$('.bouton_repondre a').html(traductionSeenThis.texte_bouton_reponse);
 	$('.votre_message').html(traductionSeenThis.votre_message);
 	$('.formulaire_poster_message input[type=submit]').attr('value', traductionSeenThis.envoyer_message);
-	$('.formulaire_poster_message input[type=reset]').attr('value', traductionSeenThis.reset_message);
 	$('#formulaire_inscription').prepend('<div class="message_inscription">' + traductionSeenThis.message_inscription + '</div>');
 
 	$('.raccourci_quote').html(traductionSeenThis.raccourci_quote);
@@ -99,7 +98,6 @@ var traductionSeenThis = {
 	raccourci_bold: '<:seenthis:raccourci_bold:>',
 
 	envoyer_message: '<:seenthis:envoyer:>',
-	reset_message: '<:seenthis:annuler:>',
 	votre_message: '<:seenthis:votre_message:>',
 	votre_message_public: '<:seenthis:votre_message_public:>',
 

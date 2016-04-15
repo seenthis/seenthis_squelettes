@@ -257,19 +257,6 @@ footer {
 			
 		}
 
-		input[type=reset] {
-			float: left;
-			
-			background-color: #bbb;
-			color: #888;
-
-			. :hover {
-				background-color: #ddd;
-				color: #666;
-			}
-
-		}
-
 		input[type=submit] {
 			
 			background-color: #666;

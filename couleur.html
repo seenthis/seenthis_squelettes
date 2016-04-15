@@ -111,16 +111,6 @@ nav#entete {
 	label {
 		color: [#(#ENV{couleur}|couleur_luminance{0.8})];
 	}
-	p.boutons {
-		input[type=reset] {
-				background-color: [#(#ENV{couleur}|couleur_luminance{0.4})];
-				color: [#(#ENV{couleur}|couleur_luminance{0.85})];
-				
-				. :hover {
-					background-color: [#(#ENV{couleur}|couleur_luminance{0.1})];
-				}
-		}
-	}
 
 }
 ul#messages {
