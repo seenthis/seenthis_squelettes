@@ -264,8 +264,6 @@ $(function () {
 		return false;
 	});
 
-	//$('textarea').autoResize();
-
 
 	$("#recherche")
 		.focus(function () {
@@ -372,7 +370,6 @@ $(function () {
 /* Activer quand on charge un element de page en Ajax
  pour les trucs qui ne fonctionnent pas en mode live */
 $(document).ajaxComplete(function () {
-	//$('textarea').autoResize();
 	favoris_actifs();
 });
 
