@@ -267,7 +267,7 @@ footer {
 		}
 	}
 	
-	.erreur_message {
+	.reponse_formulaire_erreur {
 		margin-top: 3px;
 		color: #e70606;
 		font-size: 0.75em;

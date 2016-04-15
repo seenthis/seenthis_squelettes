@@ -365,7 +365,7 @@ body {
 .formulaire_poster_message {
 	margin-bottom: 0.5em;
 
-	.envoi_message_ok {
+	.reponse_formulaire_ok {
 		display: none;
 	}
 
@@ -471,7 +471,7 @@ body {
 		}
 	}
 	
-	.erreur_message {
+	.reponse_formulaire_erreur {
 		margin-top: 3px;
 		color: #e70606;
 		font-size: 0.75em;
