@@ -61,15 +61,15 @@
 				
 					<b>[(#NOM|typo)]</b>
 					<a href="#URL_ME">
-					[(#ID_PARENT|=={0}|?{" ",""})
+					[(#ID_PARENT|=={0}|oui)
 						a posté un message
 					]
 					
-					[(#ID_PARENT|=={0}|?{""," "})
-						[(#ID_AUTEUR|=={#GET{auteur_parent}}|?{" ",""})
+					[(#ID_PARENT|=={0}|non)
+						[(#ID_AUTEUR|=={#GET{auteur_parent}}|oui)
 							a commenté son propre message
 						]
-						[(#ID_AUTEUR|=={#GET{auteur_parent}}|?{""," "})
+						[(#ID_AUTEUR|=={#GET{auteur_parent}}|non)
 							a répondu à [<b>(#GET{nom_auteur_parent})</b>]
 						]
 					]

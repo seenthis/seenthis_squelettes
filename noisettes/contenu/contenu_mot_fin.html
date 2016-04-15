@@ -3,10 +3,10 @@
 [(#REM) todo: remettre OpenCalais sur les sites ; ne marche plus ]
 
 <BOUCLE_tous_liens(ME me_tags){tag}{off!=oui}>
-	[(#ID_PARENT|>{0}|?{" ",""})
+	[(#ID_PARENT|>{0}|oui)
 		[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
 	]
-	[(#ID_PARENT|>{0}|?{""," "})
+	[(#ID_PARENT|>{0}|non)
 		[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
 	]
 </BOUCLE_tous_liens>

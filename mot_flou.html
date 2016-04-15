@@ -62,7 +62,7 @@
 		</div>
 
 		<aside id="droite">
-			[(#SESSION{id_auteur}|?{""," "})<div id="charger_pave_inscription"></div>]
+			[(#SESSION{id_auteur}|non)<div id="charger_pave_inscription"></div>]
 			<INCLURE{fond=noisettes/mots_lies/mots_lies}{tag}{ajaxload}>
 			&nbsp;
 		</aside>

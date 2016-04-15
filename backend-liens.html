@@ -29,10 +29,10 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 		#SET{liens, #ARRAY{}}
 		
 		<BOUCLE_messages_perso(ME){id_auteur}{par date}{inverse}{id_parent=0}{statut=publi}>
-				[(#ID_PARENT|>{0}|?{" ",""})
+				[(#ID_PARENT|>{0}|oui)
 					[(#SET{messages, #GET{messages}|push{#ID_PARENT}})]		
 				]
-				[(#ID_PARENT|>{0}|?{""," "})
+				[(#ID_PARENT|>{0}|non)
 					[(#SET{messages, #GET{messages}|push{#ID_ME}})]		
 				]
 		</BOUCLE_messages_perso>
