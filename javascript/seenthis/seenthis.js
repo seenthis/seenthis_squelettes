@@ -309,7 +309,7 @@ $(function () {
 			var ta = $(this);
 			setTimeout(function () {
 				ta.elastic();
-			}, 100);
+			}, 200);
 		})
 		.on("mouseenter", ".texte_message, .texte_reponse", function () {
 
