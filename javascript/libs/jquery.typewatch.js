@@ -1,16 +1,12 @@
 /*
- *	TypeWatch 2.2.1
- *
- *	Examples/Docs: github.com/dennyferra/TypeWatch
- *
- *  Copyright(c) 2014
- *	Denny Ferrassoli - dennyferra.com
- *   Charles Christolini
- *
- *  Dual licensed under the MIT and GPL licenses:
- *  http://www.opensource.org/licenses/mit-license.php
- *  http://www.gnu.org/licenses/gpl.html
- */
+*	TypeWatch 3
+*
+*	Examples/Docs: github.com/dennyferra/TypeWatch
+*  
+*  Dual licensed under the MIT and GPL licenses:
+*  http://www.opensource.org/licenses/mit-license.php
+*  http://www.gnu.org/licenses/gpl.html
+*/
 
 !function(root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -22,82 +18,87 @@
     }
 }(this, function($) {
     'use strict';
-    $.fn.typeWatch = function(o) {
-        // The default input types that are supported
-        var _supportedInputTypes =
-            ['TEXT', 'TEXTAREA', 'PASSWORD', 'TEL', 'SEARCH', 'URL', 'EMAIL', 'DATETIME', 'DATE', 'MONTH', 'WEEK', 'TIME', 'DATETIME-LOCAL', 'NUMBER', 'RANGE'];
+	$.fn.typeWatch = function(o) {
+		// The default input types that are supported
+		var _supportedInputTypes =
+			['TEXT', 'TEXTAREA', 'PASSWORD', 'TEL', 'SEARCH', 'URL', 'EMAIL', 'DATETIME', 'DATE', 'MONTH', 'WEEK', 'TIME', 'DATETIME-LOCAL', 'NUMBER', 'RANGE', 'DIV'];
 
-        // Options
-        var options = $.extend({
-            wait: 750,
-            callback: function() { },
-            highlight: true,
-            captureLength: 2,
-            inputTypes: _supportedInputTypes
-        }, o);
+		// Options
+		var options = $.extend({
+			wait: 750,
+			callback: function() { },
+			highlight: true,
+			captureLength: 2,
+			allowSubmit: false,
+			inputTypes: _supportedInputTypes
+		}, o);
 
-        function checkElement(timer, override) {
-            var value = $(timer.el).val();
+		function checkElement(timer, override) {
+			var value = timer.type === 'DIV' 
+				? jQuery(timer.el).html()
+				: jQuery(timer.el).val();
 
-            // Fire if text >= options.captureLength AND text != saved text OR if override AND text >= options.captureLength
-            if ((value.length >= options.captureLength && value.toUpperCase() != timer.text)
-                || (override && value.length >= options.captureLength))
-            {
-                timer.text = value.toUpperCase();
-                timer.cb.call(timer.el, value);
-            }
-        };
+			// If has capture length and has changed value
+			// Or override and has capture length or allowSubmit option is true
+			// Or capture length is zero and changed value
+			if ((value.length >= options.captureLength && value != timer.text)
+				|| (override && (value.length >= options.captureLength || options.allowSubmit))
+				|| (value.length == 0 && timer.text))
+			{
+				timer.text = value;
+				timer.cb.call(timer.el, value);
+			}
+		};
 
-        function watchElement(elem) {
-            var elementType = elem.type.toUpperCase();
-            if ($.inArray(elementType, options.inputTypes) >= 0) {
+		function watchElement(elem) {
+			var elementType = (elem.type || elem.nodeName).toUpperCase();
+			if (jQuery.inArray(elementType, options.inputTypes) >= 0) {
+				
+				// Allocate timer element
+				var timer = {
+					timer: null,
+					text: (elementType === 'DIV') ? jQuery(elem).html() : jQuery(elem).val(),
+					cb: options.callback,
+					el: elem,
+					type: elementType,
+					wait: options.wait
+				};
 
-                // Allocate timer element
-                var timer = {
-                    timer: null,
-                    text: $(elem).val().toUpperCase(),
-                    cb: options.callback,
-                    el: elem,
-                    wait: options.wait
-                };
+				// Set focus action (highlight)
+				if (options.highlight && elementType !== 'DIV')
+					jQuery(elem).focus(function() { this.select(); });
 
-                // Set focus action (highlight)
-                if (options.highlight) {
-                    $(elem).focus(
-                        function() {
-                            this.select();
-                        });
-                }
+				// Key watcher / clear and reset the timer
+				var startWatch = function(evt) {
+					var timerWait = timer.wait;
+					var overrideBool = false;
+					var evtElementType = elementType;
 
-                // Key watcher / clear and reset the timer
-                var startWatch = function(evt) {
-                    var timerWait = timer.wait;
-                    var overrideBool = false;
-                    var evtElementType = this.type.toUpperCase();
+					// If enter key is pressed and not a TEXTAREA or DIV
+					if (typeof evt.keyCode != 'undefined' && evt.keyCode == 13
+						&& evtElementType !== 'TEXTAREA' && elementType !== 'DIV')
+					{
+						console.log('OVERRIDE');
+						timerWait = 1;
+						overrideBool = true;
+					}
 
-                    // If enter key is pressed and not a TEXTAREA and matched inputTypes
-                    if (typeof evt.keyCode != 'undefined' && evt.keyCode == 13 && evtElementType != 'TEXTAREA' && $.inArray(evtElementType, options.inputTypes) >= 0) {
-                        timerWait = 1;
-                        overrideBool = true;
-                    }
+					var timerCallbackFx = function() {
+						checkElement(timer, overrideBool)
+					}
 
-                    var timerCallbackFx = function() {
-                        checkElement(timer, overrideBool)
-                    }
+					// Clear timer
+					clearTimeout(timer.timer);
+					timer.timer = setTimeout(timerCallbackFx, timerWait);
+				};
 
-                    // Clear timer
-                    clearTimeout(timer.timer);
-                    timer.timer = setTimeout(timerCallbackFx, timerWait);
-                };
+				jQuery(elem).on('keydown paste cut input', startWatch);
+			}
+		};
 
-                $(elem).on('keydown paste cut input', startWatch);
-            }
-        };
-
-        // Watch Each Element
-        return this.each(function() {
-            watchElement(this);
-        });
-
-    };
+		// Watch each element
+		return this.each(function() {
+			watchElement(this);
+		});
+	};
 });
