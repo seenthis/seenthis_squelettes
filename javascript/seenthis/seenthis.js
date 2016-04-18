@@ -335,8 +335,6 @@ $(function () {
 			$(this).find(".modifier").children("a").hide();
 			$(this).find(".favori a.inactif").hide();
 		});
-	//afficher_oe();
-
 
 	// cacher la fin des messages très longs.
 	$('body:not(".message") div.texte > div').each(function(){
