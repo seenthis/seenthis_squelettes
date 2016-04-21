@@ -46,7 +46,7 @@
 						.load('index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_parent})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]')
 						.slideDown();
 				} else {
-					$('.formulaire_poster_message').removeClass('focus').find('textarea').hide();
+					$('.formulaire_poster_message').removeClass('focus');
 					$('#messages').prepend('<li id="message[(#ENV**{message_ok}|table_valeur{ok_me})]"></li>');
 					$('#message[(#ENV**{message_ok}|table_valeur{ok_me})]')
 						.html('<div class="loading_icone"></div>')
