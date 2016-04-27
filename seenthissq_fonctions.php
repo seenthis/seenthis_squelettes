@@ -722,7 +722,7 @@ function compte_twitter($id_auteur) {
 }
 
 function filtre_bookmarklet($texte) {
-	return preg_replace(["/\r|\n/", '~\s~'], ['', '%20'], $texte);
+	return preg_replace(array("/\r|\n/", '~\s~'), array('', '%20'), $texte);
 }
 
 function filtre_date_seenthis($date) {
