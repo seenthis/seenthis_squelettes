@@ -6,20 +6,19 @@
 
 ][(#HTTP_HEADER{Content-type: text/plain[; charset=(#CHARSET)]})]
 [\[(#NOM_SITE_SPIP|concat{'\] : ',<:form_forum_identifiants:>}|nettoyer_titre_email)]
-
+#SET{url_site,#URL_SITE_SPIP/}
+#SET{url_confirm,#ENV{url_confirm}|parametre_url{redirect,#GET{url_site}}}
 <:form_forum_message_auto:>
 
 <:form_forum_bonjour{nom=#ENV{nom}}:>
 
-<:form_forum_confirmer_email{url_confirm=#ENV{url_confirm}}:>
+<:form_forum_confirmer_email{url_confirm=#GET{url_confirm}}:>
 
-#SET{url_site,#URL_SITE_SPIP/}
-#SET{url_login,#URL_PAGE{login}|url_absolue}
 [(#ENV{mode}|=={6forum}|oui)
-<:form_forum_voici1{nom_site_spip=#NOM_SITE_SPIP,adresse_site=#GET{url_site},adresse_login=#GET{url_login}}:>
+<:form_forum_voici1{nom_site_spip=#NOM_SITE_SPIP,adresse_site=#GET{url_site},adresse_login=#GET{url_site}}:>
 ]
 [(#ENV{mode}|=={6forum}|non)
-<:form_forum_voici2{nom_site_spip=#NOM_SITE_SPIP,adresse_site=#GET{url_site},adresse_login=#GET{url_login}}:>
+<:form_forum_voici2{nom_site_spip=#NOM_SITE_SPIP,adresse_site=#GET{url_site},adresse_login=#GET{url_site}}:>
 ]
 
 
