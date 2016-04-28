@@ -177,14 +177,14 @@
 				</li>
 			
 			</ul>
-
+			[(#PLUGIN{seenthis_importer_flux}|oui)
 			<h3><:seenthis:profil_rss:></h3>
 			
 			<ul>
 				<li><label><:sites:entree_adresse_fichier_syndication:></label>
 					<input type="text" placeholder="http://" class="text" name="rss" value="[(#ENV*{rss})]" />
 				</li>
-			</ul>
+			</ul>]
 
 			<p class="boutons">
 				<input type="submit" value="<:enregistrer:>">
