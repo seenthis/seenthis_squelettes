@@ -17,7 +17,7 @@
 	.auteurs_conseiller {
 		font-weight: normal;
 		font-size: 0.9em;
-		width: 580px;
+		max-width: 580px;
 	}
 	.auteurs_conseiller p {
 		margin: 0.5em 0;
@@ -41,9 +41,9 @@
 					<a class="bouton_suggerer" onclick="$(this).hide(); $('#suggerer_auteurs').load('index.php?page=suggerer_auteurs'); return false;" href="#">Me suggérer des contacts</a>
 				</div>
 
-				<h3 class="auteurs_conseiller">
+				<div class="auteurs_conseiller">
 					<:seenthis:message_suggerer:>
-				</h3>
+				</div>
 				<div id="suggerer_auteurs"></div>
 			</div>
 		<//B_test5>
