@@ -330,6 +330,9 @@ body {
 	.outils {
 		float: right;
 		width: 260px;
+		@media all and (max-width: 900px) {
+			width: auto;
+		}
 		
 		.rss {
 			margin-bottom: 4px;
