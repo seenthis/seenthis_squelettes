@@ -17,4 +17,4 @@ git clone https://github.com/seenthis/seenthis_squelettes.git
 
 ## Signaler un problème
 
-N'hésitez pas à signaler un problème en ouvrant une _issue_ ci-contre ; cependant, si le problème concerne seenthis en général, veuillez le signaler de préférence sur https://github.com/seenthis/seenthis/issues .
+N'hésitez pas à signaler un problème en ouvrant une _issue_ sur https://github.com/seenthis/seenthis_squelettes/issues .
