@@ -117,5 +117,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'vous_suivent' => 'abonnenter',
 	'vous_suivez' => 'abonnementer'
 );
-
-?>
