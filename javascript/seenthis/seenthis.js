@@ -247,7 +247,6 @@ $(function () {
 	}
 
 	favoris_actifs();
-	afficher_traduire();
 	if (language == "ar") {
 		bodyElement.attr("dir", "rtl").addClass("lang-ar");
 
