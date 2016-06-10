@@ -63,7 +63,9 @@ function afficher_enfants_syndic($rien) {
 	return $GLOBALS["afficher_enfants_syndic"];
 }
 
+// que faire quand on a une 404 : on cherche sur le dernier mot de l'URL
 function mot_chemin($rien) {
+	if (_request('recherche')) return _request('recherche'); // si on a ?recherche=xxx, chercher xxx
 	$url = parse_url($_SERVER["REQUEST_URI"]);
 	$url = $url["path"];
 	$url = substr($url, strrpos($url, "/")+1, 1000);
