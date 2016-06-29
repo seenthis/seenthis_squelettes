@@ -146,6 +146,8 @@ if (auteur_page > 0) {
 	$("#charger_pave_inscription").load("index.php?page=pave_inscription&lang=[(#GET{lalangue})]");
 }
 
+afficher_traduire();
+
 $(document).ajaxComplete(function(e, xhr, settings){
 	afficher_traduire();
 	afficher_textes_traduits();
