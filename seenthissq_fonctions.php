@@ -64,6 +64,7 @@ function afficher_enfants_syndic($rien) {
 }
 
 function mot_chemin($rien) {
+	if (_request('recherche')) return _request('recherche'); // si on a ?recherche=xxx, chercher xxx
 	$url = parse_url($_SERVER["REQUEST_URI"]);
 	$url = $url["path"];
 	$url = substr($url, strrpos($url, "/")+1, 1000);
@@ -413,13 +414,13 @@ function decaler_date ($age) {
 function afficher_cc($cc) {
 	if (preg_match("/^BY/", $cc)) {
 		$lien = strtolower($cc);
-		return "<a href='http://creativecommons.org/licenses/$lien/3.0/' class='spip_out by_cc'>CC $cc</a>";
+		return "<a href='https://creativecommons.org/licenses/$lien/3.0/' class='spip_out by_cc'>CC $cc</a>";
 	}
 	else if ($cc == "CC0") {
-		return "<a href='http://creativecommons.org/publicdomain/zero/1.0/' class='spip_out by_cc by_zero'>PUBLIC DOMAIN</a>";
+		return "<a href='https://creativecommons.org/publicdomain/zero/1.0/' class='spip_out by_cc by_zero'>PUBLIC DOMAIN</a>";
 	}
 	else if ($cc == "LAL") {
-		return "<a href='http://artlibre.org/licence/lal' class='spip_out by_cc by_lal'>ART LIBRE</a>";
+		return "<a href='http://artlibre.org/' class='spip_out by_cc by_lal'>ART LIBRE</a>";
 	}
 }
 
