@@ -46,6 +46,7 @@
 				<B_enfants>
 					<ul>
 				<BOUCLE_enfants(spip_me_tags)
+				{si (#ENV{recherche}|strlen|>{3})}
 				{tag LIKE #(#ENV{recherche}|likeq)%}
 				{class=#}
 				{fusion tag}
