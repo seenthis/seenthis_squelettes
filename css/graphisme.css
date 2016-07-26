@@ -115,11 +115,9 @@ footer {
 	}
 	a {
 		display: block;
-		float: left;
 		text-decoration: none;
 		padding: 3px 10px 3px 30px;
 		color: #999;
-
 		-spip-border-radius: 6px;
 		margin-top: 2px;
 

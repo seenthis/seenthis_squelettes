@@ -293,16 +293,25 @@ body {
 	
 	.logo {
 		float: left;
-		
 		img {
 			-spip-border-radius: 4px;
 		}
+		@media all and (max-width: 900px) {
+			float: right;
+			margin-left: 20px;
+			img { width: 40px; height: 40px; }
+		}
 	}
 	.texte {
-		margin-left: 100px;
+		float: left;
+		margin-left: 20px;
 		margin-top: -5px;
 		width: 480px;
-
+		@media all and (max-width: 900px) {
+			float: none;
+			width: auto;
+			margin-left: 0;
+		}
 		
 		h1 {
 			font-size: 1.4em;
@@ -330,8 +339,11 @@ body {
 	.outils {
 		float: right;
 		width: 260px;
-		@media all and (max-width: 900px) {
+		@media all and (max-width: 1000px) {
+			float: none;
 			width: auto;
+			. * { display: inline-block; vertical-align: middle; }
+			. br { display: none; }
 		}
 		
 		.rss {
