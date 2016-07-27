@@ -633,6 +633,11 @@ nav#entete {
 			margin-right: 10px;
 		}
 	}
+	@media all and (max-width: 500px) {
+		.seenthis {
+			margin-left: 5px;
+		}
+	}
 	
 	div.perso {
 		a {
@@ -679,6 +684,19 @@ nav#entete {
 			form {
 				input.text {
 					width: 160px;
+				}
+			}
+		}
+		@media all and (max-width: 500px) {
+			div.liens {
+				margin-left: 2px;
+				margin-right: 2px;
+			}
+			.formulaire_recherche {
+				form {
+					input.text {
+						width: 80px;
+					}
 				}
 			}
 		}
