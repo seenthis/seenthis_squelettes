@@ -636,6 +636,11 @@ nav#entete {
 	@media all and (max-width: 500px) {
 		.seenthis {
 			margin-left: 5px;
+			margin-right: 5px !important;
+		}
+		div.liens {
+			margin-left: 2px !important;
+			margin-right: 2px !important;
 		}
 	}
 	
@@ -687,15 +692,11 @@ nav#entete {
 				}
 			}
 		}
-		@media all and (max-width: 500px) {
-			div.liens {
-				margin-left: 2px;
-				margin-right: 2px;
-			}
+		@media all and (max-width: 480px) {
 			.formulaire_recherche {
 				form {
 					input.text {
-						width: 80px;
+						width: 50px;
 					}
 				}
 			}
