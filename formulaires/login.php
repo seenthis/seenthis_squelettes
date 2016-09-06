@@ -163,6 +163,9 @@ function formulaires_login_verifier_dist($cible="",$login="",$prive=null){
 	}
 	auth_loger($auteur);
 
+	// mettre a jour le champ spip_auteurs.en_ligne
+	sql_update('spip_auteurs', array('en_ligne' => 'NOW()'), 'id_auteur='.$auteur['id_auteur']);
+
 	return (is_null($prive) ? is_url_prive($cible) : $prive)
 	?  login_autoriser() : [];
 }
