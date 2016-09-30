@@ -39,8 +39,8 @@ function seenthissq_trig_auth_trace($flux){
 	if ($flux['args']['date'] == '0000-00-00 00:00:00') {
 		include_spip('inc/session');
 		// si c'est l'auteur actuellement connecté qui se déconnecte
-		if (session_get('id_auteur') and ($flux['args']['row']['id_auteur'] == session_get('id_auteur')) {
-			sql_updateq('spip_auteurs', array('en_ligne' => date('Y-m-d H:i:s')), "id_auteur=" . $flux['args']['row']['id_auteur']);
+		if (session_get('id_auteur') and $flux['args']['row']['id_auteur'] == session_get('id_auteur')) {
+			sql_updateq('spip_auteurs', array('en_ligne' => date('Y-m-d H:i:s')), 'id_auteur=' . $flux['args']['row']['id_auteur']);
 		}
 	}
 	return $flux;
