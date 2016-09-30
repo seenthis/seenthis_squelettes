@@ -12,6 +12,7 @@
 	<auteur>ARNO*</auteur>
 
 	<pipeline nom="post_insertion" inclure="seenthissq_pipelines.php" />
+	<pipeline nom="trig_auth_trace" inclure="seenthissq_pipelines.php" />
 
 	<necessite nom="seenthis" />
 	<necessite nom="microcache" />
