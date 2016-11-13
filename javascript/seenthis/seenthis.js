@@ -34,7 +34,7 @@ function switch_comments(id_me) {
 $.fn.soundmanager = function () {
 	return $(this)
 		.each(function () {
-			var url_son = $(this).find('source[type="audio/mpeg"]').attr('src');
+			var url_son = $(this).find('source').attr('src');
 			$(this).html('<div class="lecture"><button class="play">play</button></div><div class="controles"><div class="track sans_titre"><a title="Ecouter" rel="enclosure" href="' + url_son + '"><span class="fn"> </span></a></div><div class="progress_bar"><div class="position"></div><div class="loading"></div></div><div class="lesinfos"><div class="time"></div><div class="duration"></div></div></div><br style="clear:both;">');
 			sound_manager_init();
 		});
