@@ -5,9 +5,11 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 	<BOUCLE_messages(ME){follow me}{id_parent=0}{statut=publi}{par date}{inverse}>
 	<thread href="#URL_SITE_SPIP/messages/#ID_ME">
 		[(#ID_ME|microcache{noisettes/afficher_me_xml})]
+	<BOUCLE_test(CONDITION){si #ENV{reponses}|=={non}|non}>
 	<BOUCLE_reponses(ME){id_parent=#ID_ME}{par date}{statut=publi}>
 		[(#ID_ME|microcache{noisettes/afficher_me_xml})]
 	</BOUCLE_reponses>
+	</BOUCLE_test>
 	</thread></BOUCLE_messages>
 </messages></BOUCLE_auteur>
 	<messages>Erreur</messages>
