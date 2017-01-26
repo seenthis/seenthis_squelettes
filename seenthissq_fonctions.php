@@ -603,7 +603,7 @@ function liste_me_follow($quoi, $env_follow) {
 	// si le mode n'est pas precisé explicitement dans le critere,
 	// se baser sur l'env
 	if (!$quoi) $quoi = $env_follow;
-	$me = $GLOBALS['visiteur_session']['id_auteur'];
+	$me = isset($GLOBALS['visiteur_session']['id_auteur']) ? $GLOBALS['visiteur_session']['id_auteur'] : 0;
 
 	// critère {follow #ID_AUTEUR}
 	if (is_numeric($quoi)) {
@@ -624,7 +624,7 @@ function liste_me_follow($quoi, $env_follow) {
 				return '0=1';
 		case 'follow':
 		case '':
-			$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
+			$id_auteur = isset($GLOBALS['visiteur_session']['id_auteur']) ? $GLOBALS['visiteur_session']['id_auteur'] : 0;
 			if ($id_auteur > 0) {
 				$suivi = liste_follow($id_auteur);
 				$suivi[] = $id_auteur;
