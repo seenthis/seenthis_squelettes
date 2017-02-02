@@ -263,8 +263,6 @@ $(function () {
 		return false;
 	});
 
-	//$('textarea').autoResize();
-
 
 	$("#recherche")
 		.focus(function () {
@@ -306,19 +304,11 @@ $(function () {
 			$(this).parents(".formulaire_poster_message").addClass('focus');
 		})
 
-		.on("click", 'input[type=reset]', function () {
-			$('.formulaire_poster_message').removeClass('focus');
-			$(this).parents(".formulaire_poster_message").find("textarea").val("");
-			$('.yourmessage').show();
-			$('.repondre').hide();
-			return false;
-		})
-
 		.one('focus', 'textarea', function () {
 			var ta = $(this);
 			setTimeout(function () {
 				ta.elastic();
-			}, 100);
+			}, 200);
 		})
 		.on("mouseenter", ".texte_message, .texte_reponse", function () {
 
@@ -344,8 +334,6 @@ $(function () {
 			$(this).find(".modifier").children("a").hide();
 			$(this).find(".favori a.inactif").hide();
 		});
-	//afficher_oe();
-
 
 	// cacher la fin des messages très longs.
 	$('body:not(".message") div.texte > div').each(function(){
@@ -379,7 +367,6 @@ $(function () {
 /* Activer quand on charge un element de page en Ajax
  pour les trucs qui ne fonctionnent pas en mode live */
 $(document).ajaxComplete(function () {
-	//$('textarea').autoResize();
 	favoris_actifs();
 });
 

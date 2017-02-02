@@ -8,7 +8,7 @@
 
 [(#REM) pas efficace: il faut un critere qui retienne id_me OU parent dans DOUBLONS ]
 #SET{parents,#ARRAY}
-<BOUCLE_tag(ME spip_me_tags)
+<BOUCLE_tag(ME me_tags)
 	{tag like (#TAG*|likeq)%}
 	{statut=publi}
 	{!par date}

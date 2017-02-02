@@ -129,8 +129,8 @@ function formulaires_profil_traiter (){
 		$profil['pass'] = _nano_sha256($profil['alea_actuel'].$pass);
 	};
 
-	include_spip('inc/modifier');
-	revision_auteur($id_auteur, $profil);
+	include_spip('action/editer_auteur');
+	auteur_modifier($id_auteur, $profil);
 
 
 	if ($lang != $lang_ancien) {

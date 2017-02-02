@@ -47,8 +47,9 @@
 		[(#SESSION{id_auteur}|non)<div class="centrer"><INCLURE{fond=slogan}></div>]
 
 		<div id="entete_people">
+			<B_parents>
 			<ul class="parents_url">
-			<BOUCLE_parents(spip_me_tags)
+			<BOUCLE_parents(ME_TAGS)
 				{si #ENV*{tag}|match{^#}}
 				{tag IN (#ENV*{tag}|precurseurs)}
 				{fusion tag}
@@ -56,6 +57,7 @@
 				<li><a href="#URL_TAG">[(#TAG|mb_strtolower{UTF-8})]</a></li>
 			</BOUCLE_parents>
 			</ul>
+			</B_parents>
 
 			<div class="outils">
 				<div class="suivre">

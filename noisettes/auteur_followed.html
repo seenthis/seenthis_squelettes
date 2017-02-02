@@ -2,7 +2,7 @@
 #SET{followed_people, #ARRAY{}}
 
 <B_follow>
-<BOUCLE_follow(spip_me_follow){id_auteur=#ENV{id}}>
+<BOUCLE_follow(ME_FOLLOW){id_auteur=#ENV{id}}>
 	[(#SET{followed_people, #GET{followed_people}|push{#ID_FOLLOW}})]
 </BOUCLE_follow>
 	<div class="followed">

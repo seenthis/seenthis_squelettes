@@ -2,16 +2,11 @@
 #HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
 #HTTP_HEADER{"Pragma: no-cache"}
 
-<div class='formulaire_spip formulaire_profil'>
+<div class="formulaire_spip formulaire_profil">
 
-	
-	[(#EDITABLE|oui)
-	]
 	<div class="cadre">
-	
-		[(#REM) pour IE qui sinon se perd dans l'ajax !, ne pas retirer]<br class='bugajaxie'>
-	
-		<form method='post' action='#ENV{action}' enctype='multipart/form-data'>
+		
+		<form method="post" action="#ENV{action}" enctype="multipart/form-data">
 			#ACTION_FORMULAIRE{#ENV{action}}
 
 			<h3><:seenthis:profil_identite:></h3>
@@ -32,8 +27,8 @@
 				</li>
 
 				#SET{erreurs,#ENV**{erreurs}|table_valeur{email}}
-				<li class="editer_xxx obligatoire[ (#GET{erreurs}|oui)erreur]">
-					[<span class='erreur_message'>(#GET{erreurs})</span>]
+				<li class="editer editer_email[ (#GET{erreurs}|oui)erreur]">
+					[<span class="erreur_message">(#GET{erreurs})</span>]
 					<label>Email</label>
 					<input type="text" class="text" name="email" value="[(#ENV**{email})]">
 				</li>
@@ -50,7 +45,7 @@
 			<h3><:connexion_ldap:></h3>
 			<ul>
 				<li id="login">
-					<label><:login_login2:></label>
+					<label><:item_login:></label>
 					<input type="text" class="text" name="login" value="#ENV{login}" disabled="disabled">
 				</li>
 				<li id="password">
@@ -169,7 +164,7 @@
 					[(#SESSION{id_auteur}|fichier_bandeau|image_reduire{150})
 						<div><input type="submit" value="<:supprimer:>" name="supprimer_bandeau"></div>
 					]
-					[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{image_bandeau})</span>]
+					[<span class="erreur_message">(#ENV**{erreurs}|table_valeur{image_bandeau})</span>]
 					<input type="file" name="image_bandeau">
 				</li>
 			
@@ -182,21 +177,19 @@
 				</li>
 			
 			</ul>
-
+			[(#PLUGIN{seenthis_importer_flux}|oui)
 			<h3><:seenthis:profil_rss:></h3>
 			
 			<ul>
-				<li><label><:entree_adresse_fichier_syndication:></label>
+				<li><label><:sites:entree_adresse_fichier_syndication:></label>
 					<input type="text" placeholder="http://" class="text" name="rss" value="[(#ENV*{rss})]" />
 				</li>
-			</ul>
+			</ul>]
 
-	
-				<p class="boutons">
-					<input type="submit" value="<:enregistrer:>">
-				</p>
+			<p class="boutons">
+				<input type="submit" value="<:enregistrer:>">
+			</p>
 		</form>
 	</div>
-
 
 </div>

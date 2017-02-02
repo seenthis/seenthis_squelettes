@@ -1,7 +1,7 @@
 #CACHE{0}
 <BOUCLE_principale(AUTEURS){id_auteur}{tout}>
 	<BOUCLE_messages(ME){follow #ID_AUTEUR}{par date}{inverse}{id_parent=0}{0,500}{statut=publi}{doublons me} />
-	<BOUCLE_tags(spip_me_tags){id_me IN #DOUBLONS{meme}}{class!=url}>
+	<BOUCLE_tags(ME_TAGS){id_me IN #DOUBLONS{meme}}{class!=url}>
 	[(#TAG*|compter_mots_lies)]</BOUCLE_tags>
 
 	<B_resultat>
