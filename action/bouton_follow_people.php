@@ -105,19 +105,19 @@ function action_bouton_follow_people() {
 		$query_lien = sql_select("id_auteur", "spip_me_follow", "id_follow=$id_follow AND id_auteur=$id_auteur");
 		if ($row_lien = sql_fetch($query_lien)) {
 			echo "<div>"._T("seenthis:auteur_vous_suivez", array("people" => $nom))."</div>";
-			echo "<a href='#' class='no' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&follow=non&id_auteur=$id_auteur'); return false;\">"._T("seenthis:auteur_ne_plus_suivre", array("people"=>"<strong>$nom</strong>"))."</a>";
+			echo "<a href='#' class='follow no' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&follow=non&id_auteur=$id_auteur'); return false;\">"._T("seenthis:auteur_ne_plus_suivre", array("people"=>"<strong>$nom</strong>"))."</a>";
 		} else {
-			echo "<a href='#' class='yes' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&follow=oui&id_auteur=$id_auteur'); return false;\">"._T("seenthis:suivre_people", array("people"=>"<strong>$nom</strong>"))."</a>";
+			echo "<a href='#' class='follow yes' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&follow=oui&id_auteur=$id_auteur'); return false;\">"._T("seenthis:suivre_people", array("people"=>"<strong>$nom</strong>"))."</a>";
 		}
 
 		echo "<br style='clear:both;'><br>";
 
 		$query_block = sql_select("id_auteur", "spip_me_block", "id_block=$id_block AND id_auteur=$id_auteur");
 		if ($row_block = sql_fetch($query_block)) {
-			echo "<div class='no'>"._T("seenthis:auteur_vous_block", array("people" => $nom))."</div>";
-			echo "<a href='#' class='yes' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&block=non&id_auteur=$id_auteur'); return false;\">"._T("seenthis:auteur_ne_plus_block", array("people"=>"<strong>$nom</strong>"))."</a>";
+			echo "<div class='block no'>"._T("seenthis:auteur_vous_block", array("people" => $nom))."</div>";
+			echo "<a href='#' class='block yes' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&block=non&id_auteur=$id_auteur'); return false;\">"._T("seenthis:auteur_ne_plus_block", array("people"=>"<strong>$nom</strong>"))."</a>";
 		} else {
-			echo "<a href='#' class='no' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&block=oui&id_auteur=$id_auteur'); return false;\">"._T("seenthis:auteur_block", array("people"=>"<strong>$nom</strong>"))."</a>";
+			echo "<a href='#' class='block no' onclick=\"$('#follow').load('index.php?action=bouton_follow_people&block=oui&id_auteur=$id_auteur'); return false;\">"._T("seenthis:auteur_block", array("people"=>"<strong>$nom</strong>"))."</a>";
 		}
 	}
 }
