@@ -30,7 +30,7 @@ function calculer_enfants_syndic($id_syndic, $url_racine="", $afficher_url="", $
 	
 		
 	
-	$query = sql_select("*", "spip_syndic", "id_parent=$id_syndic");
+	$query = sql_select("*", "spip_syndic", "id_parent=$id_syndic", /* group by */ '', /* order by*/ '', /* limit */ '0,100');
 	$total = sql_count($query);
 	
 	if ($afficher_url) {
