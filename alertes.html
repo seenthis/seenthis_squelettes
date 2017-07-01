@@ -5,6 +5,13 @@
 
 		#SET{alertes, #ARRAY{}}
 
+		#SET{bloques, #ARRAY{}}
+		<BOUCLE_block(spip_me_block){id_block=#ID_AUTEUR}>
+			<BOUCLE_vus2(AUTEURS){id_auteur}{tous}>
+			[(#SET{bloques,#GET{bloques}|push{#ID_AUTEUR}})]
+			</BOUCLE_vus2>
+		</BOUCLE_block>
+
 		[(#REM) Les reponses recentes a un de mes messages ]
 		[(#REM) probleme : ici on ne regarde que les reponses
 		        aux 300 messages les plus recents ]
@@ -14,16 +21,25 @@
 		{doublons} /> 
 		<BOUCLE_reponses(ME){id_parent IN #DOUBLONS{me}}
 			{id_auteur!=#SESSION{id_auteur}}
+			{id_auteur !IN #GET{bloques}}
 			{statut=publi}
 			{!par date}{0,25}
 		>
 			[(#ID_ME|stocker_id_me)]
 		</BOUCLE_reponses>
 
-		[(#REM) Les messages qui me mentionnent ]
+		[(#REM) Les messages qui me mentionnent sauf si on a bloque l'auteur ]
+		#SET{bloques, #ARRAY{}}
+		<BOUCLE_block(spip_me_block){id_block=#ID_AUTEUR}>
+			<BOUCLE_vus2(AUTEURS){id_auteur}{tous}>
+			[(#SET{bloques,#GET{bloques}|push{#ID_AUTEUR}})]
+			</BOUCLE_vus2>
+		</BOUCLE_block>
+	
 		<BOUCLE_liens_vers_moi(spip_me spip_me_auteur)
 		{spip_me_auteur.id_auteur=#ID_AUTEUR}
 		{id_auteur!=#SESSION{id_auteur}}
+		{id_auteur !IN #GET{bloques}}
 		{statut=publi}
 		{!par date}{0,25}>
 			[(#ID_ME|stocker_id_me)]
