@@ -676,7 +676,8 @@ function liste_follow($id_auteur) {
 // http://www.w3.org/TR/xml/#charsets
 function filtre_cdata($t) {
 	if (preg_match(',[<>&\x0-\x8\xb-\xc\xe-\x1f],u', $t)) {
-		$t = preg_replace('/[\x0-\x8\xb-\xc\xe-\x1f]/ue', '"&#x".bin2hex(\'$0\').";"', $t);
+		$t = preg_replace_callback('/[\x0-\x8\xb-\xc\xe-\x1f]/u',
+			create_function('$x','return "&#x".bin2hex(\'$x[0]\').";";'), $t);
 		return "<![CDATA[" . str_replace(']]>', ']]]]><![CDATA[>', $t).']]>';
 	} else
 		return $t;
