@@ -130,7 +130,7 @@ function formulaires_profil_traiter (){
 	};
 
 	include_spip('action/editer_auteur');
-	auteur_modifier($id_auteur, $profil);
+	auteur_modifier($id_auteur, $profil, true);
 
 
 	if ($lang != $lang_ancien) {
