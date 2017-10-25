@@ -77,6 +77,7 @@ Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’
 	'profil_alerte_partage' => '<b>partage</b> / quelqu’un a partagé un de mes billets',
 	'profil_alerte_reponse_partage' => '<b>réponses à un partage</b> / quelqu’un répond à un billet que j’ai partagé',
 	'profil_alerte_reponses' => '<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets',
+	'profil_alerte_tag_suivi' => '<b>tag suivi</b> / un nouveau billet contient un tag que je suis',
 	'profil_alertes' => 'Alertes',
 	'profil_copyleft' => 'Copyright, copyleft',
 	'profil_copyright_classique' => 'Pas de licence spécifique (droits d’auteur par défaut)',

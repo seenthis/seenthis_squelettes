@@ -111,6 +111,7 @@ function formulaires_profil_traiter (){
 		"mail_rep_conv" => intval(_request("mail_rep_conv")),
 		"mail_suivre_moi" => intval(_request("mail_suivre_moi")),
 		"mail_mes_billets" => intval(_request("mail_mes_billets")),
+		"mail_tag_suivi" => intval(_request("mail_tag_suivi")),
 		"liens_partage_fb" => intval(_request("liens_partage_fb")),
 		"liens_partage_tw" => intval(_request("liens_partage_tw")),
 	);
