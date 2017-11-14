@@ -40,6 +40,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
 	'favori' => 'مشاركة',
+	'flux_desactive_texte' => 'اهلاً @nom@،
+تم ايقاف تدفق RSS/ATOM الآلي لأنكم لم تتصلوا بالموقع منذ مدة غير قصيرة.
+يمكن اعادة تفعيله في صفحة التفضيلات، بإزالة النجمة التي أضيفت في بداية عنوانه. ',
+	'flux_desactive_titre' => 'استيراد التدفق متوقف في الموقع @nom_site@',
 
 	// I
 	'insecable_typo' => ' ',
