@@ -66,14 +66,14 @@ Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’
 	'montrer_messages' => 'montrer les @total@ messages',
 
 	// N
-	'notif_me_nouveau' => '@nom_auteur a posté un nouveau billet',
-	'notif_me_reponse' => '@nom_auteur a répondu à un de ses billets',
-	'notif_me_reponse_a' => '@nom_auteur a répondu à un billet de @nom_auteur_init',
-	'notif_message_footer' => '\n\n---------\nPour ne plus recevoir d’alertes de @seenthis,\n vous pouvez régler vos préférences dans votre profil\n@url\n\n',
-	'notif_partage_titre' => '@nom_aut_partage (@@login_aut_partage) a partagé un de vos billets sur @seenthis.',
-	'notif_partage_texte' => 'Bonjour @nom_dest,\n\n@nom_aut_partage (@@login_aut_partage) a partagé un de vos billets sur @seenthis.',
-	'notif_suivremoi_titre' => '@nom_aut (@@login_aut) vous suit sur @seenthis.',
-	'notif_suivremoi_texte' => 'Bonjour @nom_dest,\n\n@nom_aut (@@login_aut) vous suit sur @seenthis.',
+	'notif_me_nouveau' => '@nom_auteur@ a posté un nouveau billet',
+	'notif_me_reponse' => '@nom_auteur@ a répondu à un de ses billets',
+	'notif_me_reponse_a' => '@nom_auteur@ a répondu à un billet de @nom_auteur_init@',
+	'notif_message_footer' => "\n\n---------\nPour ne plus recevoir d’alertes de @seenthis@,\n vous pouvez régler vos préférences dans votre profil\n@url@\n\n",
+	'notif_partage_titre' => '@nom_aut_partage@ (@@login_aut_partage@) a partagé un de vos billets sur @seenthis@.',
+	'notif_partage_texte' => "Bonjour @nom_dest@,\n\n@nom_aut_partage (@@login_aut_partage@) a partagé un de vos billets sur @seenthis@.",
+	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) vous suit sur @seenthis@.',
+	'notif_suivremoi_texte' => "Bonjour @nom_dest@,\n\n@nom_aut@ (@@login_aut@) vous suit sur @seenthis@.",
 
 	// P
 	'pave_accueil' => 'Du <strong>short-blogging</strong> sans limite de caractères. De la <strong>recommandation de liens</strong>. Des <strong>automatismes</strong> pour rédiger facilement vos messages. Des <strong>forums</strong> sous chaque billet. De la <strong>veille d’actualité</strong>. Une <strong>thématisation</strong> avancée.',
