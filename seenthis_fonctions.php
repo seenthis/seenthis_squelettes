@@ -249,7 +249,7 @@ function afficher_miniature($img, $maxw = 400, $maxh = 400) {
 	return calculer_miniature($img, $maxw, $maxh);
 }
 
-function calculer_miniature($img, $maxw = 400, $maxh = 400) {
+function calculer_miniature($img, $maxw = 600, $maxh = 400) {
 	include_spip('inc/distant');
 
 	if (preg_match(',\.svg$,i', $img)) {
