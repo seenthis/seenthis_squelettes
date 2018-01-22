@@ -200,7 +200,7 @@ function copie_locale_safe($source, $mode='auto') {
 	return copie_locale($source, $mode);
 }
 
-function afficher_miniature($img, $maxw = 300, $maxh = 180) {
+function afficher_miniature($img, $maxw = 400, $maxh = 400) {
 	include_spip('inc/distant');
 
 	if (preg_match(',\.svg$,i', $img)) {
@@ -231,6 +231,7 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 		$url = parametre_url($url, 'maxh', $maxh);
 		$url = parametre_url($url, 'sec', $sec, '\\x26');
 		
+		
 		$selecteur = md5($img);
 
 		$vignette = "<span class='$selecteur'><img src='".find_in_path('imgs/image-loading.gif')."' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" /></span>"
@@ -243,10 +244,10 @@ function afficher_miniature($img, $maxw = 300, $maxh = 180) {
 		return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
 	}
 
-	return calculer_miniature($img, $maxw = 300, $maxh = 180);
+	return calculer_miniature($img, $maxw, $maxh);
 }
 
-function calculer_miniature($img, $maxw = 300, $maxh = 180) {
+function calculer_miniature($img, $maxw = 400, $maxh = 400) {
 	include_spip('inc/distant');
 
 	if (preg_match(',\.svg$,i', $img)) {
@@ -268,9 +269,11 @@ function calculer_miniature($img, $maxw = 300, $maxh = 180) {
 
 	list($width, $height) = @getimagesize($vignette);
 
+	/*
 	if (($width * $height) < 300) {
 		return;
 	}
+	*/
 
 	include_spip("inc/filtres_images_mini");
 	$vignetter = image_reduire($vignette, $maxw, $maxh);
@@ -285,13 +288,18 @@ function calculer_miniature($img, $maxw = 300, $maxh = 180) {
 	$vignette = inserer_attribut($vignette, "data-photo", $img);
 	$vignette = inserer_attribut($vignette, "data-photo-h", $height);
 	$vignette = inserer_attribut($vignette, "data-photo-w", $width);
+	$vignette = vider_attribut($vignette, "width");
+	$vignette = vider_attribut($vignette, "height");
+	$vignette = vider_attribut($vignette, "style");
+
+	$prop = $height / $width * 100;
 
 	// on veut avoir le lien (pour pouvoir "copier le lien")
 	// mais faut-il toujours ouvrir l'image ? la box s'en charge
 	// quand c'est nécessaire (pour zoomer)
 	$onclick = " onclick='return false;'";
 
-	return "<a$onclick href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";;
+	return "<a$onclick href='$img' class='display_box'$box><span class='image' style='padding-bottom:$prop%'>$vignette</span></a>";;
 }
 
 
