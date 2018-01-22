@@ -218,6 +218,7 @@ function afficher_miniature($img, $maxw = 400, $maxh = 400) {
 	//
 	// chargement asynchrone ?
 	//
+	/*
 	if (!$vignette = copie_locale_safe($cvt, 'test')
 	AND $GLOBALS['visiteur_session']['id_auteur'] > 0  # eviter sur l'API
 	) {
@@ -234,15 +235,16 @@ function afficher_miniature($img, $maxw = 400, $maxh = 400) {
 		
 		$selecteur = md5($img);
 
-		$vignette = "<span class='$selecteur'><img src='".find_in_path('imgs/image-loading.gif')."' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" /></span>"
-		."<script>
-		$('." . $selecteur . "').load('".$url."');
-		</script>";
+		$vignette = "<span class='$selecteur'><img src='".find_in_path('imgs/image-loading.gif')."' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" />"
+		."<script>\$.get('".$url."', function(data){\$('." . $selecteur . "').replaceWith(data);})
+		</script></span>";
 
+		// $('." . $selecteur . "').load('".$url."');
 		// preparer l'image pour photoswipe (mais on n'en connait pas les dimensions)
 
-		return "<a href='$img' class='display_box'$box style=\"display:block; max-width:${maxw}px; max-height:${maxh}px;min-height:30px;\">$vignette</a>";
+		return "$vignette";
 	}
+	*/
 
 	return calculer_miniature($img, $maxw, $maxh);
 }
