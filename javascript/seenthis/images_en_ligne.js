@@ -114,9 +114,9 @@ function calculer_portfolio_ligne () {
 
 					if (!hauteur_boite) {
 						if (rapport) {
-							hauteur_boite = taille_max * rapport * 1.5;
+							hauteur_boite = taille_max * rapport * 1.7;
 						} else {
-							var hauteur_boite = taille_max * 1.5;
+							var hauteur_boite = taille_max * 1.7;
 						}
 					}
 					//hauteur_boite = Math.round(hauteur);
@@ -133,7 +133,7 @@ function calculer_portfolio_ligne () {
 					}
 										
 					if (i ==  num_deb && !rapport) {
-						t.css(m_left,  ( l_max - total_ligne)/2 );
+						//t.css(m_left,  ( l_max - total_ligne)/2 );
 						t.css("clear", "both");
 					} else {
 						t.css(m_left, "");
