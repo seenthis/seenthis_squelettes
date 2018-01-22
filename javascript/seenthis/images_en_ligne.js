@@ -4,15 +4,6 @@ if (typeof portfolio_ligne_taille === 'undefined') var portfolio_ligne_taille = 
 
 
 function calculer_portfolio_ligne () {
-	
-	/* Concaténer les div.seenthis_pics qui se suivent */
-	/* Rendu inutile par post_echappe_html_propre */
-	$("div.seenthis_pics + div.seenthis_pics").each(function() {
-		var t = $(this);
-		var contenu = t.html();
-		t.prev("div.seenthis_pics").append(contenu);
-		t.remove();
-	});
 
 	/* Fonction principale: aligner les images sur des lignes */
 	$(".seenthis_pics").each(function() {
@@ -26,15 +17,14 @@ function calculer_portfolio_ligne () {
 	
 		$(this).css("border", 0).css("padding-bottom", -1*portfolio_ligne_marge+"px")
 			.find("a").css(m_right, portfolio_ligne_marge+"px").css("overflow", "hidden")
-			.css("margin-bottom", portfolio_ligne_marge+"px")
-			.css("clear", "");
+			.css("margin-bottom", portfolio_ligne_marge+"px").css("clear", "none");
 		
 		// Eviter les problèmes d'arrondi…
 		$(this).width("auto");
 		var l_max = Math.floor($(this).width());
 		$(this).width(l_max);
 		var taille_max = portfolio_ligne_taille;
-		
+				
 		if (l_max > 1400) taille_max *= 1.2;
 		else if (l_max <= 1024 && l_max > 768) taille_max *= 0.9;
 		else if (l_max <= 768 && l_max > 520) taille_max *= 0.8;
@@ -57,7 +47,7 @@ function calculer_portfolio_ligne () {
 			h_cont = $(this).find("img").attr("data-photo-h");
 			
 			r_cont[num] = l_cont / h_cont;
-			
+						
 			l_temp = r_cont[num] * taille_max;
 			
 			

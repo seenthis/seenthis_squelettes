@@ -469,10 +469,11 @@ ul#messages, ul.messages {
 			a {
 				float: left;
 				display: block;
-				width: 49%;
+				width: 32.3%;
 				margin-right: 1%;
+				margin-bottom: 10px;
 				
-				. :nth-child(2n+1) {
+				. :nth-child(3n+1) {
 					clear: left;
 				}
 				
