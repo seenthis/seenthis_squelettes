@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de http://trad.spip.net/tradlang_module/seenthis?lang_cible=ar
+// extrait automatiquement de https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar
 // ** ne pas modifier le fichier **
 
 if (!defined('_ECRIRE_INC_VERSION')) {
@@ -40,6 +40,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
 	'favori' => 'مشاركة',
+	'flux_desactive_texte' => 'اهلاً @nom@،
+تم ايقاف تدفق RSS/ATOM الآلي لأنكم لم تتصلوا بالموقع منذ مدة غير قصيرة.
+يمكن اعادة تفعيله في صفحة التفضيلات، بإزالة النجمة التي أضيفت في بداية عنوانه. ',
+	'flux_desactive_titre' => 'استيراد التدفق متوقف في الموقع @nom_site@',
 
 	// I
 	'insecable_typo' => ' ',
