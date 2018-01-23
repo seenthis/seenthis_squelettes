@@ -45,19 +45,19 @@
 				setTimeout(function () {
 					$("#message[(#ENV**{message_ok}|table_valeur{pave})]")
 							.html("<div class='loading_icone'></div>")
-							.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{pave})]");
+							.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{pave})]", calculer_portfolio_ligne);
 				}, 30);
 			} else if ("[(#ENV**{message_ok}|table_valeur{ok_parent})]" > 0) {
 				$("#message[(#ENV**{message_ok}|table_valeur{ok_parent})]").find(".formulaire_poster_message").hide();
 				$("#message[(#ENV**{message_ok}|table_valeur{ok_parent})]")
-						.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_parent})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]")
+						.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_parent})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]", calculer_portfolio_ligne)
 						.slideDown();
 			} else {
 				$(".formulaire_poster_message").removeClass("focus").find("textarea").hide();
 				$("#messages").prepend("<li id='message[(#ENV**{message_ok}|table_valeur{ok_me})]'></li>");
 				$("#message[(#ENV**{message_ok}|table_valeur{ok_me})]")
 						.html("<div class='loading_icone'></div>")
-						.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_me})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]");
+						.load("index.php?page=inc_afficher_message&id_me=[(#ENV**{message_ok}|table_valeur{ok_me})]&nouveau=[(#ENV**{message_ok}|table_valeur{ok_me})]", calculer_portfolio_ligne);
 			}
 		});
 		--></script>
