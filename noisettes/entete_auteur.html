@@ -5,6 +5,13 @@
 
 			[<div class="logo"><a href="#URL_AUTEUR">(#LOGO_AUTEUR|sinon{[(#COULEUR|logo_auteur_vide{80})]}|image_passe_partout{80,80}|image_recadre{80,80})</a></div>]
 
+			<div class="texte">
+				<h1>#NOM</h1>
+				[<div class="login">@(#LOGIN)</div>]
+				[<div class="bio">(#BIO*|traiter_texte)</div>]
+				[<div class="url_site"><a href="#URL_SITE">(#URL_SITE|lien_court)</a></div>]
+			</div>
+
 			<div class="outils">
 				<div class="suivre">
 					<div id="follow"></div>
@@ -17,15 +24,6 @@
 					<a href="#URL_AUTEUR">tous les messages de #NOM</a>
 				</div>
 			</div>
-
-			<div class="texte">
-				<h1>#NOM</h1>
-				[<div class="login">@(#LOGIN)</div>]
-				[<div class="bio">(#BIO*|traiter_texte)</div>]
-				[<div class="url_site"><a href="#URL_SITE">(#URL_SITE|lien_court)</a></div>]
-			</div>
-
-			<div class="clear-left"></div>
 
 		</div>
 	</div>

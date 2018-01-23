@@ -293,16 +293,25 @@ body {
 	
 	.logo {
 		float: left;
-		
 		img {
 			-spip-border-radius: 4px;
 		}
+		@media all and (max-width: 900px) {
+			float: right;
+			margin-left: 20px;
+			img { width: 40px; height: 40px; }
+		}
 	}
 	.texte {
-		margin-left: 100px;
+		float: left;
+		margin-left: 20px;
 		margin-top: -5px;
 		width: 480px;
-
+		@media all and (max-width: 900px) {
+			float: none;
+			width: auto;
+			margin-left: 0;
+		}
 		
 		h1 {
 			font-size: 1.4em;
@@ -330,8 +339,11 @@ body {
 	.outils {
 		float: right;
 		width: 260px;
-		@media all and (max-width: 900px) {
+		@media all and (max-width: 1000px) {
+			float: none;
 			width: auto;
+			. * { display: inline-block; vertical-align: middle; }
+			. br { display: none; }
 		}
 		
 		.rss {
@@ -621,6 +633,16 @@ nav#entete {
 			margin-right: 10px;
 		}
 	}
+	@media all and (max-width: 500px) {
+		.seenthis {
+			margin-left: 5px;
+			margin-right: 5px !important;
+		}
+		div.liens {
+			margin-left: 2px !important;
+			margin-right: 2px !important;
+		}
+	}
 	
 	div.perso {
 		a {
@@ -667,6 +689,15 @@ nav#entete {
 			form {
 				input.text {
 					width: 160px;
+				}
+			}
+		}
+		@media all and (max-width: 480px) {
+			.formulaire_recherche {
+				form {
+					input.text {
+						width: 50px;
+					}
 				}
 			}
 		}
