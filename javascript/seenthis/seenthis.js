@@ -65,7 +65,8 @@ function setupFavori(elementDom) {
 			var idMessage = favori.closest('article').attr('data-article-id');
 			element.removeClass('suiviFavoris');
 			$('#message' + idMessage).load(
-				'index.php?action=favori&id_me=' + idMessage + '&share=' + (jaiPartage ? -1 : 1) + '&x=' + (new Date()).getTime());
+				'index.php?action=favori&id_me=' + idMessage + '&share=' + (jaiPartage ? -1 : 1) + '&x=' + (new Date()).getTime(),
+				calculer_portfolio_ligne);
 			return false;
 		});
 	});
