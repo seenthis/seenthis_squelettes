@@ -466,6 +466,19 @@ ul#messages, ul.messages {
 		.seenthis_pics {
 			-spip-clear: fix;
 			
+			
+			. .seenthis_pics_2 {
+				a {
+					width: 49%;
+				}
+			}
+			. .seenthis_pics_1 {
+				a {
+					width: 60%;
+					margin-right: 0;
+				}
+			}
+			
 			a {
 				float: left;
 				display: block;
