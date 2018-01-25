@@ -218,7 +218,6 @@ function afficher_miniature($img, $maxw = 400, $maxh = 400) {
 	//
 	// chargement asynchrone ?
 	//
-	/*
 	if (!$vignette = copie_locale_safe($cvt, 'test')
 	AND $GLOBALS['visiteur_session']['id_auteur'] > 0  # eviter sur l'API
 	) {
@@ -236,7 +235,7 @@ function afficher_miniature($img, $maxw = 400, $maxh = 400) {
 		$selecteur = md5($img);
 
 		$vignette = "<span class='$selecteur'><img src='".find_in_path('imgs/image-loading.gif')."' alt=\"". attribut_html($img)."\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" />"
-		."<script>\$.get('".$url."', function(data){\$('." . $selecteur . "').replaceWith(data);})
+		."<script>\$.get('".$url."', function(data){\$('." . $selecteur . "').replaceWith(data);calculer_portfolio_ligne();})
 		</script></span>";
 
 		// $('." . $selecteur . "').load('".$url."');
@@ -244,7 +243,6 @@ function afficher_miniature($img, $maxw = 400, $maxh = 400) {
 
 		return "$vignette";
 	}
-	*/
 
 	return calculer_miniature($img, $maxw, $maxh);
 }
@@ -280,9 +278,11 @@ function calculer_miniature($img, $maxw = 600, $maxh = 400) {
 	include_spip("inc/filtres_images_mini");
 	$vignetter = image_reduire($vignette, $maxw, $maxh);
 	
+	/*
 	if ($vignetter == $vignette) {
 		return $vignette;
 	}
+	*/
 
 	$vignette = inserer_attribut($vignetter, "alt", "");
 
