@@ -616,6 +616,11 @@ ul#messages, ul.messages {
 				clear: left;
 				position: relative;
 				border-bottom: 1px solid white;
+
+				opacity: 1;
+				height: auto;
+
+				transition: opacity 0.4s;
 				
 				
 				. :last-child {
@@ -703,7 +708,9 @@ ul#messages, ul.messages {
 				}
 				
 				. .masquer {
-					display: none;
+					opacity: 0;
+					height: 0;
+					overflow: hidden;
 				}
 				. .lienshow {
 					padding-top: 13px;

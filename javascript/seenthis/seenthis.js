@@ -83,12 +83,8 @@ function favoris_actifs() {
 }
 
 $.fn.afficher_masques = function () {
-	$(this).parents('ul.reponses').children('.masquer').each(function () {
-		$(this).fadeIn();
-	});
-	$(this).slideUp(function () {
-		$(this).remove();
-	});
+	$(this).parents('ul.reponses').children('li.masquer').removeClass('masquer');
+	$(this).remove();
 };
 
 function afficher_traduire() {
