@@ -466,6 +466,19 @@ ul#messages, ul.messages {
 		.seenthis_pics {
 			-spip-clear: fix;
 			
+			
+			. .seenthis_pics_2 {
+				a {
+					width: 49%;
+				}
+			}
+			. .seenthis_pics_1 {
+				a {
+					width: 60%;
+					margin-right: 0;
+				}
+			}
+			
 			a {
 				float: left;
 				display: block;
@@ -603,6 +616,11 @@ ul#messages, ul.messages {
 				clear: left;
 				position: relative;
 				border-bottom: 1px solid white;
+
+				opacity: 1;
+				height: auto;
+
+				transition: opacity 0.4s;
 				
 				
 				. :last-child {
@@ -690,7 +708,9 @@ ul#messages, ul.messages {
 				}
 				
 				. .masquer {
-					display: none;
+					opacity: 0;
+					height: 0;
+					overflow: hidden;
 				}
 				. .lienshow {
 					padding-top: 13px;

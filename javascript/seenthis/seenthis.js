@@ -65,7 +65,8 @@ function setupFavori(elementDom) {
 			var idMessage = favori.closest('article').attr('data-article-id');
 			element.removeClass('suiviFavoris');
 			$('#message' + idMessage).load(
-				'index.php?action=favori&id_me=' + idMessage + '&share=' + (jaiPartage ? -1 : 1) + '&x=' + (new Date()).getTime());
+				'index.php?action=favori&id_me=' + idMessage + '&share=' + (jaiPartage ? -1 : 1) + '&x=' + (new Date()).getTime(),
+				calculer_portfolio_ligne);
 			return false;
 		});
 	});
@@ -82,12 +83,8 @@ function favoris_actifs() {
 }
 
 $.fn.afficher_masques = function () {
-	$(this).parents('ul.reponses').children('.masquer').each(function () {
-		$(this).fadeIn();
-	});
-	$(this).slideUp(function () {
-		$(this).remove();
-	});
+	$(this).parents('ul.reponses').children('li.masquer').removeClass('masquer');
+	$(this).remove();
 };
 
 function afficher_traduire() {
