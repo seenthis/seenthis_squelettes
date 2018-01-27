@@ -15,7 +15,9 @@
 				<span class="date">
 					<a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|date_seenthis)]</time></a>
 					[(#REM) date modifidée si elle est plus de 30 minutes après la création du message]
+					[(#REM) supprimer… 
 					[<span class="updated">(#DATE_MODIF|strtotime|moins{#DATE|strtotime}|>{1800}|?{[<time datetime="(#DATE_MODIF|date_iso)" class="calcul_date">[(#DATE_MODIF|date_seenthis)]</time>]})</span>]
+					]
 				</span>
 
 				[(#ID_PARENT|=={0}|?{#INCLURE{fond=noisettes/favoris,id_me}})]
