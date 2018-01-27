@@ -200,7 +200,7 @@ function copie_locale_safe($source, $mode='auto') {
 	return copie_locale($source, $mode);
 }
 
-function afficher_miniature($img, $maxw = 400, $maxh = 400) {
+function afficher_miniature($img, $maxw = 600, $maxh = 700) {
 	include_spip('inc/distant');
 
 	if (preg_match(',\.svg$,i', $img)) {
@@ -247,7 +247,7 @@ function afficher_miniature($img, $maxw = 400, $maxh = 400) {
 	return calculer_miniature($img, $maxw, $maxh);
 }
 
-function calculer_miniature($img, $maxw = 600, $maxh = 400) {
+function calculer_miniature($img, $maxw = 600, $maxh = 700) {
 	include_spip('inc/distant');
 
 	if (preg_match(',\.svg$,i', $img)) {
