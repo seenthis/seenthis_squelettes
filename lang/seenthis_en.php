@@ -40,6 +40,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
 	'favori' => 'share',
+	'flux_desactive_texte' => 'Hello @nom@,
+Automated import of your RSS/ATOM feed has been disabled because it has been quiet some time since you visited the site.
+You can enable it again in your preferences, by deleting the star which was added at the beginning of its address.',
+	'flux_desactive_titre' => 'Import of your feed is disabled on @nom_site@',
 
 	// I
 	'insecable_typo' => '',
@@ -62,14 +66,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'pave_accueil' => '<strong>Short-blogging</strong> with no text limit. <strong>Curation and web survey</strong>. Cool <strong>automatic</strong> text layout. <strong>Forums</strong> under each post. Advanced and automatic <strong>thematisation</strong>.',
 	'people' => 'people',
 	'profil' => 'settings',
-	'profil_alerte_conversations' => '<b>conversations</b> / someone answers to a post I have already answered to',
+	'profil_alerte_conversations' => '<b>conversations</b> / someone is replying to a post I have already replied to',
 	'profil_alerte_dubien' => '<b>stalker</b> / someone is following me',
 	'profil_alerte_mes_billets' => '<b>my posts</b> / get a copy of my own messages',
-	'profil_alerte_nolife' => '<b>no life</b> / someone that I follow answers to any post',
+	'profil_alerte_nolife' => '<b>no life</b> / someone that I follow replies to any post',
 	'profil_alerte_nouveaux_billets' => '<b>new posts</b> / an initial text is posted by an author I follow',
 	'profil_alerte_partage' => '<b>share</b> / someone shared one of my posts',
-	'profil_alerte_reponse_partage' => '<b>answer to my share</b> / someone answers a post I shared',
-	'profil_alerte_reponses' => '<b>answers to my posts</b> / someone answers one of my initial posts',
+	'profil_alerte_reponse_partage' => '<b>replies to my share</b> / someone replies to a post I shared',
+	'profil_alerte_reponses' => '<b>replies to my posts</b> / someone replies to one of my initial posts',
 	'profil_alertes' => 'Notifications',
 	'profil_copyleft' => 'Copyright, copyleft',
 	'profil_copyright_classique' => 'No specific licence (exclusive copyright)',
