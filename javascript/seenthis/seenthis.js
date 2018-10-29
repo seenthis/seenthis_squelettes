@@ -114,8 +114,10 @@ function afficher_traduire() {
 function sucrer_utm(u) {
 	// twitter/#!/truc
 	u = u.replace(/(http:\/\/twitter.com\/)#!/, "$1");
-	// &utm_xxx =
+	// &utm_xxx=
 	u = u.replace(/([\?\&]|\&amp;)utm\_.*/, "");
+	// &fbclid=
+	u = u.replace(/([\?\&]|\&amp;)fbclid.*/, "");
 	// #.UQk2gR0q7bM mais pas #.jpg
 	u = u.replace(/#xtor.*$/, "");
 	// remplace les points à la fin par des %2E
