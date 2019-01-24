@@ -92,7 +92,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => 'Schrijf je in, het is gratis en snel !',
-	'slogan_texte' => '<strong>Neem deel aan de discussie !</strong> Op Seenthis, kan je artikels verwjizen, commentaren schrijven, boodschappen uiten, met vrienden discusseren, auteurs volgen die je interesseren...',
+	'slogan_texte' => '<strong>Neem deel aan de discussie !</strong> Op Seenthis, kan je artikelen verwijzen, commentaren schrijven, boodschappen uiten, met vrienden discusseren, auteurs volgen die je interesseren...',
 	'suggestions' => 'Suggesties :',
 	'suivre_people' => '@people@ volgen',
 	'suivre_url' => 'De website volgen',
