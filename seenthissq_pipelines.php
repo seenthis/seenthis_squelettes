@@ -45,3 +45,22 @@ function seenthissq_trig_auth_trace($flux){
 	}
 	return $flux;
 }
+
+/**
+ * Optimiser la base de donnée en supprimant les liens orphelins
+ *
+ * @param array $flux
+ * @return array
+ */
+function seenthissq_optimiser_base_disparus($flux) {
+	$n = &$flux['data'];
+	# les followers dont le compte auteur a été supprimé
+	$res = sql_select("F.id_follow AS id",
+		"spip_me_follow AS F
+		        LEFT JOIN spip_auteurs AS auteur
+		          ON F.id_follow=auteur.id_auteur",
+		"auteur.id_auteur IS NULL");
+
+	$n += optimiser_sansref('spip_me_follow', 'id_follow', $res);
+	return $flux;
+}
