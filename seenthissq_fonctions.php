@@ -267,41 +267,46 @@ function calculer_miniature($img, $maxw = 600, $maxh = 700) {
 	//
 	$vignette = copie_locale_safe($cvt);
 
-	list($width, $height) = @getimagesize($vignette);
+	if ($srcsize = @getimagesize($vignette)) {
+		$width = $srcsize[0];
+		$height = $srcsize[1];
 
-	/*
-	if (($width * $height) < 300) {
-		return;
+		/*
+		if (($width * $height) < 300) {
+			return;
+		}
+		*/
+
+		include_spip("inc/filtres_images_mini");
+		$vignetter = image_reduire($vignette, $maxw, $maxh);
+		
+		/*
+		if ($vignetter == $vignette) {
+			return $vignette;
+		}
+		*/
+
+		$vignette = inserer_attribut($vignetter, "alt", "");
+
+		// preparer l'image pour photoswipe
+		$vignette = inserer_attribut($vignette, "data-photo", $img);
+		$vignette = inserer_attribut($vignette, "data-photo-h", $height);
+		$vignette = inserer_attribut($vignette, "data-photo-w", $width);
+		$vignette = vider_attribut($vignette, "width");
+		$vignette = vider_attribut($vignette, "height");
+		$vignette = vider_attribut($vignette, "style");
+
+		$prop = $height / $width * 100;
+
+		// on veut avoir le lien (pour pouvoir "copier le lien")
+		// mais faut-il toujours ouvrir l'image ? la box s'en charge
+		// quand c'est nécessaire (pour zoomer)
+		$onclick = " onclick='return false;'";
+
+		return "<a$onclick href='$img' class='display_box'$box><span class='image' style='padding-bottom:$prop%'>$vignette</span></a>";
+	} else {
+		return '';
 	}
-	*/
-
-	include_spip("inc/filtres_images_mini");
-	$vignetter = image_reduire($vignette, $maxw, $maxh);
-	
-	/*
-	if ($vignetter == $vignette) {
-		return $vignette;
-	}
-	*/
-
-	$vignette = inserer_attribut($vignetter, "alt", "");
-
-	// preparer l'image pour photoswipe
-	$vignette = inserer_attribut($vignette, "data-photo", $img);
-	$vignette = inserer_attribut($vignette, "data-photo-h", $height);
-	$vignette = inserer_attribut($vignette, "data-photo-w", $width);
-	$vignette = vider_attribut($vignette, "width");
-	$vignette = vider_attribut($vignette, "height");
-	$vignette = vider_attribut($vignette, "style");
-
-	$prop = $height / $width * 100;
-
-	// on veut avoir le lien (pour pouvoir "copier le lien")
-	// mais faut-il toujours ouvrir l'image ? la box s'en charge
-	// quand c'est nécessaire (pour zoomer)
-	$onclick = " onclick='return false;'";
-
-	return "<a$onclick href='$img' class='display_box'$box><span class='image' style='padding-bottom:$prop%'>$vignette</span></a>";;
 }
 
 
