@@ -185,7 +185,6 @@ function formulaires_profil_traiter (){
 
 	$nom_bandeau = $_FILES['image_bandeau']['name'];
 	if (strlen($nom_bandeau) > 0) {
-		include_spip("inc/filtres_images") ;
 		$size = getimagesize($_FILES['image_bandeau']['tmp_name']);
 
 		$largeur = $size[0];
@@ -213,7 +212,6 @@ function formulaires_profil_traiter (){
 	if (strlen($nom_fond) > 0) {
 		if (!preg_match(",\.(jpe?g|png|gif)$,i", $nom_fond))	$errors["image_fond"] = "Mauvais format.";
 		else {
-			include_spip("inc/filtres_images") ;
 			$size = getimagesize($_FILES['image_fond']['tmp_name']);
 			
 			$largeur = $size[0];
