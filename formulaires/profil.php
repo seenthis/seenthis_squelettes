@@ -242,7 +242,6 @@ function formulaires_profil_traiter (){
 	if (strlen($nom_logo) > 0) {
 		if (!preg_match(",\.(jpe?g|png|gif)$,i", $nom_logo))	$errors["image_logo"] = "Mauvais format.";
 		else {
-			include_spip("inc/filtres_images") ;
 			$size = getimagesize($_FILES['image_logo']['tmp_name']);
 			
 			$largeur = $size[0];
