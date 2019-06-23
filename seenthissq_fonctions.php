@@ -148,7 +148,7 @@ function mini_html($texte) {
 
 
 function logo_auteur_vide ($couleur, $taille) {
-	include_spip("inc/filtres_images");
+	include_spip("filtres/couleurs");
 	$img = find_in_path("imgs/logo-auteur.png");
 	
 	$couleur = couleur_luminance($couleur, 0.57);
@@ -162,17 +162,17 @@ function logo_auteur_vide ($couleur, $taille) {
 }
 
 function couleur_chroma ($coul, $num) {
-	include_spip("inc/filtres_images");
+	include_spip("filtres/images_lib");
 
 	$pos = substr($num, 0, strpos($num, "/")) -  1;
 	$tot = substr($num, strpos($num, "/")+1, strlen($num));
 	
-	$couleurs = couleur_hex_to_dec($coul);
+	$couleurs = _couleur_hex_to_dec($coul);
 	$r= $couleurs["red"];
 	$g= $couleurs["green"];
 	$b= $couleurs["blue"];
 
-	$hsv = couleur_rgb2hsv($r,$g,$b);
+	$hsv = _couleur_rgb2hsv($r,$g,$b);
 	$h = $hsv["h"];
 	$s = $hsv["s"];
 	$v = $hsv["v"];
@@ -180,12 +180,12 @@ function couleur_chroma ($coul, $num) {
 	$h = $h + (1/$tot)*$pos;
 	if ($h > 1) $h = $h - 1;
 					
-	$rgb = couleur_hsv2rgb($h,$s,$v);
+	$rgb = _couleur_hsv2rgb($h,$s,$v);
 	$r = $rgb["r"];
 	$g = $rgb["g"];
 	$b = $rgb["b"];
 	
-	$couleurs = couleur_dec_to_hex($r, $g, $b);
+	$couleurs = _couleur_dec_to_hex($r, $g, $b);
 	
 	return $couleurs;
 }
