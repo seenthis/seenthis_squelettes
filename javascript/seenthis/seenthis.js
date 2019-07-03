@@ -173,15 +173,15 @@ $(function () {
 	// temporairement dans un cookie, et le restituer apres connexion
 	if ($('#formulaire_login').length > 0) {
 		if (content != '') {
-            $.cookie('content', content);
+            Cookies.set('content', content);
         }
 	} else {
-		if ($.cookie('content')) {
-			content = $.cookie('content');
+		if (Cookies.get('content')) {
+			content = Cookies.get('content');
 			try {
 				window.location.hash = "content=" + content;
 			} catch(e) {};
-			$.cookie('content', null);
+			Cookies.set('content', null);
 		}
         if (content != '') {
             $(".formulaire_principal textarea").val(content);
@@ -197,10 +197,10 @@ $(function () {
 	}
 	else {
 		var lang_id = "";
-		if ($.cookie('lang_id')) lang_id = $.cookie('lang_id');
+		if (Cookies.get('lang_id')) lang_id = Cookies.get('lang_id');
 		else {
 			lang_id = Math.floor(Math.random() * 1000000);
-			$.cookie('lang_id', lang_id, {expires: 1});
+			Cookies.set('lang_id', lang_id, {expires: 1});
 		}
 
 		$.getScript("index.php?page=js.textes_interface&lang_id=" + lang_id)
