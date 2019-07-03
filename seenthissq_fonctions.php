@@ -149,6 +149,7 @@ function mini_html($texte) {
 
 function logo_auteur_vide ($couleur, $taille) {
 	include_spip("filtres/couleurs");
+	include_spip("filtres/images_transforme");
 	$img = find_in_path("imgs/logo-auteur.png");
 	
 	$couleur = couleur_luminance($couleur, 0.57);
