@@ -23,7 +23,7 @@ function share_tw_url($id_me) {
 	return $me;
 }
 
-function calculer_enfants_syndic($id_syndic, $url_racine="", $afficher_url="", $ret="") {
+function calculer_enfants_syndic($id_syndic, $url_racine = '', $afficher_url = '', $ret = array()) {
 	
 	$ret[] = $id_syndic;
 //	if (!$afficher_url) $afficher_url = $url_racine;
