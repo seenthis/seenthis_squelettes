@@ -40,6 +40,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
 	'favori' => 'partager',
+	'flux_desactive_texte' => 'Bonjour @nom@,
+L’import automatique de ton flux RSS/ATOM a été désactivé car cela fait un moment que tu ne t’es pas connecté au site.
+Tu peux le réactiver depuis ta page de préférences, en supprimant l’étoile ajoutée au début de son adresse.',
+	'flux_desactive_titre' => 'Import de ton flux désactivé sur @nom_site@',
 
 	// I
 	'insecable_typo' => ' ',
@@ -71,6 +75,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_alerte_mes_billets' => '<b>mes billets</b> / recevoir une copie de mes propres messages',
 	'profil_alerte_nolife' => '<b>nolife</b> / un auteur que je suis répond à n’importe quel billet',
 	'profil_alerte_nouveaux_billets' => '<b>nouveaux billets</b> / un nouveau billet est posté par un auteur que je suis',
+	'profil_alerte_partage' => '<b>partage</b> / quelqu’un a partagé un de mes billets',
+	'profil_alerte_reponse_partage' => '<b>réponses à un partage</b> / quelqu’un répond à un billet que j’ai partagé',
 	'profil_alerte_reponses' => '<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets',
 	'profil_alertes' => 'Alertes',
 	'profil_copyleft' => 'Copyright, copyleft',
@@ -82,8 +88,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_identite' => 'Identité',
 	'profil_langue' => 'Ma langue',
 	'profil_licence' => 'Licence de tes messages',
+	'profil_liens_partage_fb' => 'Afficher les boutons de partage vers Facebook',
+	'profil_liens_partage_tw' => 'Afficher les boutons de partage vers Twitter',
 	'profil_logo' => 'Logo de l’auteur (carré)',
 	'profil_mexpedier' => 'M’expédier un courrier<br> électronique quand...',
+	'profil_partage' => 'Partage',
 	'profil_rss' => 'Importer automatiquement un flux d’articles au format ATOM ou RSS',
 
 	// R
@@ -100,6 +109,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'suivre_url' => 'Suivre ce site',
 	'suivre_url_stop' => 'Ne plus suivre ce site',
 	'suivre_url_you' => 'Tu suis ce site',
+	'supprimer_mon_profil' => 'Supprimer mon profil',
+	'supprimer_mon_profil_au_revoir' => 'Suppression en cours… au revoir !',
+	'supprimer_mon_profil_irreversible' => 'Supprimer mon profil (irréversible)',
+	'supprimer_mon_profil_login' => 'Saisis ton login pour confirmer la demande',
+	'supprimer_veuillez_saisir' => 'Vérifies ton login',
 
 	// T
 	'tags' => 'thèmes',

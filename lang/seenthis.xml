@@ -22,10 +22,11 @@
 	</langue>
 	<langue code="fr" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr" total="87" traduits="87" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 	</langue>
-	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="87" traduits="75" relire="0" modifs="0" nouveaux="12" pourcent="86.21">
+	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="87" traduits="87" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
 		<traducteur nom="Fil" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="James" lien="https://trad.spip.net/auteur/james" />
+		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
 	</langue>
 	<langue code="it" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=it" total="87" traduits="80" relire="0" modifs="0" nouveaux="7" pourcent="91.95">
 		<traducteur nom="CDB_77" lien="https://trad.spip.net/auteur/cdb_77" />
