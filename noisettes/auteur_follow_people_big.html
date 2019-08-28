@@ -2,7 +2,7 @@
 <BOUCLE_principale(AUTEURS){id_auteur=#ENV{id}}{tout}>
 	#SET{follow_people, #ARRAY{}}
 
-	<BOUCLE_follow(spip_me_follow){id_follow=#ID_AUTEUR}>
+	<BOUCLE_follow(ME_FOLLOW){id_follow=#ID_AUTEUR}>
 		[(#SET{follow_people, #GET{follow_people}|push{#ID_AUTEUR}})]		
 	</BOUCLE_follow>
 	

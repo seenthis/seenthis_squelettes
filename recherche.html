@@ -45,7 +45,7 @@
 			<div id="enfants_mots">
 				<B_enfants>
 					<ul>
-				<BOUCLE_enfants(spip_me_tags)
+				<BOUCLE_enfants(ME_TAGS)
 				{si (#ENV{recherche}|strlen|>{3})}
 				{tag LIKE #(#ENV{recherche}|likeq)%}
 				{class=#}

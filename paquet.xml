@@ -1,0 +1,26 @@
+<paquet
+	prefix="seenthissq"
+	categorie="squelette"
+	version="2.2.0"
+	etat="stable"
+	compatibilite="[3.0.0;["
+	logo="prive/logo/logo_seenthis_squelettes.png"
+>	
+
+	<nom>Squelettes Seenthis</nom>
+	<!-- Squelettes de Seenthis -->
+
+	<auteur>ARNO*</auteur>
+
+	<pipeline nom="post_insertion" inclure="seenthissq_pipelines.php" />
+	<pipeline nom="trig_auth_trace" inclure="seenthissq_pipelines.php" />
+	<pipeline nom="optimiser_base_disparus" inclure="seenthissq_pipelines.php" />
+
+	<necessite nom="seenthis" />
+	<necessite nom="microcache" />
+	<necessite nom="css_imbriques" />
+	<necessite nom="inclureajaxload" />
+	<necessite nom="calcul_date" />
+
+	<utilise nom="gravatar" />
+</paquet>

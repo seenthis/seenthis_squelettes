@@ -10,7 +10,7 @@
 ]
 
 #SET{messages,#ARRAY{}}
-<BOUCLE_follow(spip_me)
+<BOUCLE_follow(ME)
 	{id_auteur IN (#ENV{id}|liste_follow)}
 	{statut=publi}
 	{!par date}
@@ -24,7 +24,7 @@
 <B_messages>
 	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 	<ul id="messages">
-<BOUCLE_messages(spip_me){id_me IN #GET{messages}}{pagination 25}{statut=publi}{!par date}>
+<BOUCLE_messages(ME){id_me IN #GET{messages}}{pagination 25}{statut=publi}{!par date}>
 		<li id="message#ID_ME">
 			[(#ID_ME|microcache{noisettes/message/afficher_message})]
 		</li>

@@ -23,7 +23,7 @@ function share_tw_url($id_me) {
 	return $me;
 }
 
-function calculer_enfants_syndic($id_syndic, $url_racine="", $afficher_url="", $ret="") {
+function calculer_enfants_syndic($id_syndic, $url_racine = '', $afficher_url = '', $ret = array()) {
 	
 	$ret[] = $id_syndic;
 //	if (!$afficher_url) $afficher_url = $url_racine;
@@ -148,7 +148,8 @@ function mini_html($texte) {
 
 
 function logo_auteur_vide ($couleur, $taille) {
-	include_spip("inc/filtres_images");
+	include_spip("filtres/couleurs");
+	include_spip("filtres/images_transforme");
 	$img = find_in_path("imgs/logo-auteur.png");
 	
 	$couleur = couleur_luminance($couleur, 0.57);
@@ -162,17 +163,17 @@ function logo_auteur_vide ($couleur, $taille) {
 }
 
 function couleur_chroma ($coul, $num) {
-	include_spip("inc/filtres_images");
+	include_spip("filtres/images_lib");
 
 	$pos = substr($num, 0, strpos($num, "/")) -  1;
 	$tot = substr($num, strpos($num, "/")+1, strlen($num));
 	
-	$couleurs = couleur_hex_to_dec($coul);
+	$couleurs = _couleur_hex_to_dec($coul);
 	$r= $couleurs["red"];
 	$g= $couleurs["green"];
 	$b= $couleurs["blue"];
 
-	$hsv = couleur_rgb2hsv($r,$g,$b);
+	$hsv = _couleur_rgb2hsv($r,$g,$b);
 	$h = $hsv["h"];
 	$s = $hsv["s"];
 	$v = $hsv["v"];
@@ -180,12 +181,12 @@ function couleur_chroma ($coul, $num) {
 	$h = $h + (1/$tot)*$pos;
 	if ($h > 1) $h = $h - 1;
 					
-	$rgb = couleur_hsv2rgb($h,$s,$v);
+	$rgb = _couleur_hsv2rgb($h,$s,$v);
 	$r = $rgb["r"];
 	$g = $rgb["g"];
 	$b = $rgb["b"];
 	
-	$couleurs = couleur_dec_to_hex($r, $g, $b);
+	$couleurs = _couleur_dec_to_hex($r, $g, $b);
 	
 	return $couleurs;
 }
@@ -267,41 +268,46 @@ function calculer_miniature($img, $maxw = 600, $maxh = 700) {
 	//
 	$vignette = copie_locale_safe($cvt);
 
-	list($width, $height) = @getimagesize($vignette);
+	if ($srcsize = @getimagesize($vignette)) {
+		$width = $srcsize[0];
+		$height = $srcsize[1];
 
-	/*
-	if (($width * $height) < 300) {
-		return;
+		/*
+		if (($width * $height) < 300) {
+			return;
+		}
+		*/
+
+		include_spip("inc/filtres_images_mini");
+		$vignetter = image_reduire($vignette, $maxw, $maxh);
+		
+		/*
+		if ($vignetter == $vignette) {
+			return $vignette;
+		}
+		*/
+
+		$vignette = inserer_attribut($vignetter, "alt", "");
+
+		// preparer l'image pour photoswipe
+		$vignette = inserer_attribut($vignette, "data-photo", $img);
+		$vignette = inserer_attribut($vignette, "data-photo-h", $height);
+		$vignette = inserer_attribut($vignette, "data-photo-w", $width);
+		$vignette = vider_attribut($vignette, "width");
+		$vignette = vider_attribut($vignette, "height");
+		$vignette = vider_attribut($vignette, "style");
+
+		$prop = $height / $width * 100;
+
+		// on veut avoir le lien (pour pouvoir "copier le lien")
+		// mais faut-il toujours ouvrir l'image ? la box s'en charge
+		// quand c'est nécessaire (pour zoomer)
+		$onclick = " onclick='return false;'";
+
+		return "<a$onclick href='$img' class='display_box'$box><span class='image' style='padding-bottom:$prop%'>$vignette</span></a>";
+	} else {
+		return '';
 	}
-	*/
-
-	include_spip("inc/filtres_images_mini");
-	$vignetter = image_reduire($vignette, $maxw, $maxh);
-	
-	/*
-	if ($vignetter == $vignette) {
-		return $vignette;
-	}
-	*/
-
-	$vignette = inserer_attribut($vignetter, "alt", "");
-
-	// preparer l'image pour photoswipe
-	$vignette = inserer_attribut($vignette, "data-photo", $img);
-	$vignette = inserer_attribut($vignette, "data-photo-h", $height);
-	$vignette = inserer_attribut($vignette, "data-photo-w", $width);
-	$vignette = vider_attribut($vignette, "width");
-	$vignette = vider_attribut($vignette, "height");
-	$vignette = vider_attribut($vignette, "style");
-
-	$prop = $height / $width * 100;
-
-	// on veut avoir le lien (pour pouvoir "copier le lien")
-	// mais faut-il toujours ouvrir l'image ? la box s'en charge
-	// quand c'est nécessaire (pour zoomer)
-	$onclick = " onclick='return false;'";
-
-	return "<a$onclick href='$img' class='display_box'$box><span class='image' style='padding-bottom:$prop%'>$vignette</span></a>";;
 }
 
 
@@ -613,7 +619,7 @@ function liste_me_follow($quoi, $env_follow) {
 	// si le mode n'est pas precisé explicitement dans le critere,
 	// se baser sur l'env
 	if (!$quoi) $quoi = $env_follow;
-	$me = $GLOBALS['visiteur_session']['id_auteur'];
+	$me = isset($GLOBALS['visiteur_session']['id_auteur']) ? $GLOBALS['visiteur_session']['id_auteur'] : 0;
 
 	// critère {follow #ID_AUTEUR}
 	if (is_numeric($quoi)) {
@@ -634,7 +640,7 @@ function liste_me_follow($quoi, $env_follow) {
 				return '0=1';
 		case 'follow':
 		case '':
-			$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
+			$id_auteur = isset($GLOBALS['visiteur_session']['id_auteur']) ? $GLOBALS['visiteur_session']['id_auteur'] : 0;
 			if ($id_auteur > 0) {
 				$suivi = liste_follow($id_auteur);
 				$suivi[] = $id_auteur;
@@ -686,7 +692,8 @@ function liste_follow($id_auteur) {
 // http://www.w3.org/TR/xml/#charsets
 function filtre_cdata($t) {
 	if (preg_match(',[<>&\x0-\x8\xb-\xc\xe-\x1f],u', $t)) {
-		$t = preg_replace('/[\x0-\x8\xb-\xc\xe-\x1f]/ue', '"&#x".bin2hex(\'$0\').";"', $t);
+		$t = preg_replace_callback('/[\x0-\x8\xb-\xc\xe-\x1f]/u',
+			create_function('$x','return "&#x".bin2hex(\'$x[0]\').";";'), $t);
 		return "<![CDATA[" . str_replace(']]>', ']]]]><![CDATA[>', $t).']]>';
 	} else
 		return $t;
@@ -733,7 +740,7 @@ function compte_twitter($id_auteur) {
 }
 
 function filtre_bookmarklet($texte) {
-	return preg_replace(["/\r|\n/", '~\s~'], ['', '%20'], $texte);
+	return preg_replace(array("/\r|\n/", '~\s~'), array('', '%20'), $texte);
 }
 
 function filtre_date_seenthis($date) {

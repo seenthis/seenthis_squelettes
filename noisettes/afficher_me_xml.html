@@ -7,7 +7,7 @@
 
 		<B_mots>
 			<tags>
-		<BOUCLE_mots(spip_me_tags){id_me}{class='#'}{fusion tag}{par tag}>
+		<BOUCLE_mots(ME_TAGS){id_me}{class='#'}{fusion tag}{par tag}>
 				[<tag href="[(#URL_TAG|url_absolue)]">(#TAG*|replace{#}|cdata)</tag>]
 		</BOUCLE_mots>
 			</tags>
@@ -15,7 +15,7 @@
 
 		<B_liens>
 			<urls>
-		<BOUCLE_liens(spip_me_tags){id_me}{class=url}{fusion tag}>
+		<BOUCLE_liens(ME_TAGS){id_me}{class=url}{fusion tag}>
 			[<url href="[(#URL_TAG|url_absolue)]">(#TAG*|cdata)</url>]
 		</BOUCLE_liens>
 			</urls>

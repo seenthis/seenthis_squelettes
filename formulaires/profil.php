@@ -111,6 +111,7 @@ function formulaires_profil_traiter (){
 		"mail_rep_conv" => intval(_request("mail_rep_conv")),
 		"mail_suivre_moi" => intval(_request("mail_suivre_moi")),
 		"mail_mes_billets" => intval(_request("mail_mes_billets")),
+		"mail_tag_suivi" => intval(_request("mail_tag_suivi")),
 		"liens_partage_fb" => intval(_request("liens_partage_fb")),
 		"liens_partage_tw" => intval(_request("liens_partage_tw")),
 	);
@@ -129,8 +130,8 @@ function formulaires_profil_traiter (){
 		$profil['pass'] = _nano_sha256($profil['alea_actuel'].$pass);
 	};
 
-	include_spip('inc/modifier');
-	revision_auteur($id_auteur, $profil);
+	include_spip('action/editer_auteur');
+	auteur_modifier($id_auteur, $profil, true);
 
 
 	if ($lang != $lang_ancien) {
@@ -184,7 +185,6 @@ function formulaires_profil_traiter (){
 
 	$nom_bandeau = $_FILES['image_bandeau']['name'];
 	if (strlen($nom_bandeau) > 0) {
-		include_spip("inc/filtres_images") ;
 		$size = getimagesize($_FILES['image_bandeau']['tmp_name']);
 
 		$largeur = $size[0];
@@ -212,7 +212,6 @@ function formulaires_profil_traiter (){
 	if (strlen($nom_fond) > 0) {
 		if (!preg_match(",\.(jpe?g|png|gif)$,i", $nom_fond))	$errors["image_fond"] = "Mauvais format.";
 		else {
-			include_spip("inc/filtres_images") ;
 			$size = getimagesize($_FILES['image_fond']['tmp_name']);
 			
 			$largeur = $size[0];
@@ -243,7 +242,6 @@ function formulaires_profil_traiter (){
 	if (strlen($nom_logo) > 0) {
 		if (!preg_match(",\.(jpe?g|png|gif)$,i", $nom_logo))	$errors["image_logo"] = "Mauvais format.";
 		else {
-			include_spip("inc/filtres_images") ;
 			$size = getimagesize($_FILES['image_logo']['tmp_name']);
 			
 			$largeur = $size[0];

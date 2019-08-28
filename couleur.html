@@ -111,16 +111,6 @@ nav#entete {
 	label {
 		color: [#(#ENV{couleur}|couleur_luminance{0.8})];
 	}
-	p.boutons {
-		input[type=reset] {
-				background-color: [#(#ENV{couleur}|couleur_luminance{0.4})];
-				color: [#(#ENV{couleur}|couleur_luminance{0.85})];
-				
-				. :hover {
-					background-color: [#(#ENV{couleur}|couleur_luminance{0.1})];
-				}
-		}
-	}
 
 }
 ul#messages {
@@ -313,6 +303,7 @@ ul#messages {
 	float: right;
 	width: 260px;
 	padding-top: 10px;
+	margin: 0 0 1em 1em;
 }
 .bouton_suggerer {
 	padding: 7px 15px;
@@ -320,6 +311,9 @@ ul#messages {
 	text-decoration: none;
 }
 
+[(#CHEMIN{css/perso_couleur.css.html}|oui)
+[(#INCLURE{fond=css/perso_couleur.css,couleur})]
+]
 
 #FILTRE{css_imbriques_decouper}
 #FILTRE{compacte_css}

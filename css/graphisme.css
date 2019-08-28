@@ -10,6 +10,8 @@ body {
 	
 	img {
 		border: 0px;
+		max-width: 100%;
+		height: auto;
 	}
 	
 	a {
@@ -115,11 +117,9 @@ footer {
 	}
 	a {
 		display: block;
-		float: left;
 		text-decoration: none;
 		padding: 3px 10px 3px 30px;
 		color: #999;
-
 		-spip-border-radius: 6px;
 		margin-top: 2px;
 
@@ -257,19 +257,6 @@ footer {
 			
 		}
 
-		input[type=reset] {
-			float: left;
-			
-			background-color: #bbb;
-			color: #888;
-
-			. :hover {
-				background-color: #ddd;
-				color: #666;
-			}
-
-		}
-
 		input[type=submit] {
 			
 			background-color: #666;
@@ -280,7 +267,7 @@ footer {
 		}
 	}
 	
-	.erreur_message {
+	.reponse_formulaire_erreur {
 		margin-top: 3px;
 		color: #e70606;
 		font-size: 0.75em;

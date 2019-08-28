@@ -1,6 +1,6 @@
 #CACHE{0}
 
-<BOUCLE_me(spip_me){id_me=#ID}{statut=publi}>
+<BOUCLE_me(ME){id_me=#ID}{statut=publi}>
 <entry>
 	[<id>urn:uuid:(#UUID)</id>]
 	<title>[(#TEXTE*|extraire_titre|texte_backend)]</title>
@@ -21,7 +21,7 @@
 	<BOUCLE_liens(SITES spip_me_syndic) {spip_me_syndic.id_me=#ID_ME}>
 	<link rel="related" href="#URL_SITE"[ title="(#TITRE|replace{'"', "'"}|texte_backend)"][ hreflang="(#LANG)"]/>
 	</BOUCLE_liens>
-	<BOUCLE_tags(spip_me_tags){id_me}{class IN '#','oc'}{fusion tag}>
+	<BOUCLE_tags(ME_TAGS){id_me}{class IN '#','oc'}{fusion tag}>
 	<category term="[(#TAG*|replace{'"', "'"}|replace{#}|texte_backend)]" label="[(#TAG*|replace{'"', "'"}|replace{#}|replace{^.*:}|texte_backend)]" scheme="[(#URL_TAG|url_absolue{#EVAL{_HTTPS}://#EVAL{_HOST}/})]"/></BOUCLE_tags>
 </entry>
 </BOUCLE_me>

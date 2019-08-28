@@ -25,14 +25,14 @@
 		<div id="centre">
 			<div id="tous_messages">
 				#SET{messages_perso, #ARRAY{}}
-				<BOUCLE_mes_messages(spip_me spip_me_auteur)
+				<BOUCLE_mes_messages(ME spip_me_auteur)
 					{spip_me_auteur.id_auteur=(#ID_AUTEUR|sinon{0})}
-					{spip_me.id_auteur=#SESSION{id_auteur}}
-					{spip_me.id_auteur!=#ID_AUTEUR}>
-						[(#ID_PARENT|>{0}|?{" ",""})
+					{id_auteur=#SESSION{id_auteur}}
+					{id_auteur!=#ID_AUTEUR}>
+						[(#ID_PARENT|>{0}|oui)
 							[(#SET{messages_perso, #GET{messages_perso}|push{#ID_PARENT}})]
 						]
-						[(#ID_PARENT|>{0}|?{""," "})
+						[(#ID_PARENT|>{0}|non)
 							[(#SET{messages_perso, #GET{messages_perso}|push{#ID_ME}})]
 						]
 				</BOUCLE_mes_messages>
@@ -45,7 +45,7 @@
 					<div id="messages_perso" style="display: none;">
 						[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 						<ul class="messages">
-				<BOUCLE_messages(spip_me){id_me IN #GET{messages_perso}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
+				<BOUCLE_messages(ME){id_me IN #GET{messages_perso}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
 							<li id="message#ID_ME"><a name="message#ID_ME"></a>
 								[(#ID_ME|microcache{noisettes/message/afficher_message})]
 							</li>
@@ -59,7 +59,7 @@
 		</div>
 
 		<aside id="droite">
-			[(#SESSION{id_auteur}|?{""," "})<div id="charger_pave_inscription"></div>]
+			[(#SESSION{id_auteur}|non)<div id="charger_pave_inscription"></div>]
 			[(#ID_AUTEUR|microcache{noisettes/auteur_follow_people})]
 			[(#ID_AUTEUR|microcache{noisettes/auteur_followed})]
 			<INCLURE{fond=noisettes/mots_lies/mots_lies_auteur}{id_auteur}{ajaxload}>

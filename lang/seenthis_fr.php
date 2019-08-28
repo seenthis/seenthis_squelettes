@@ -40,7 +40,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'favori' => 'partager',
 	'flux_desactive_texte' => 'Bonjour @nom@,
 L’import automatique de votre flux RSS/ATOM a été désactivé car cela fait un moment que vous ne vous êtes pas connecté au site.
-Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’étoile ajoutée au début de son adresse.',
+Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’étoile ajoutée au début de son adresse ou en cliquant sur le lien suivant @url@',
 	'flux_desactive_titre' => 'Import de votre flux désactivé sur @nom_site@',
 
 	// I
@@ -65,6 +65,16 @@ Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’
 	'modifier' => 'modifier',
 	'montrer_messages' => 'montrer les @total@ messages',
 
+	// N
+	'notif_me_nouveau' => '@nom_auteur@ a posté un nouveau billet',
+	'notif_me_reponse' => '@nom_auteur@ a répondu à un de ses billets',
+	'notif_me_reponse_a' => '@nom_auteur@ a répondu à un billet de @nom_auteur_init@',
+	'notif_message_footer' => "\n\n---------\nPour ne plus recevoir d’alertes de @seenthis@,\nvous pouvez régler vos préférences dans votre profil\n@url@\n\n",
+	'notif_partage_titre' => '@nom_aut_partage@ (@@login_aut_partage@) a partagé un de vos billets sur @seenthis@.',
+	'notif_partage_texte' => "Bonjour @nom_dest@,\n\n@nom_aut_partage (@@login_aut_partage@) a partagé un de vos billets sur @seenthis@.",
+	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) vous suit sur @seenthis@.',
+	'notif_suivremoi_texte' => "Bonjour @nom_dest@,\n\n@nom_aut@ (@@login_aut@) vous suit sur @seenthis@.",
+
 	// P
 	'pave_accueil' => 'Du <strong>short-blogging</strong> sans limite de caractères. De la <strong>recommandation de liens</strong>. Des <strong>automatismes</strong> pour rédiger facilement vos messages. Des <strong>forums</strong> sous chaque billet. De la <strong>veille d’actualité</strong>. Une <strong>thématisation</strong> avancée.',
 	'people' => 'auteurs',
@@ -77,6 +87,7 @@ Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’
 	'profil_alerte_partage' => '<b>partage</b> / quelqu’un a partagé un de mes billets',
 	'profil_alerte_reponse_partage' => '<b>réponses à un partage</b> / quelqu’un répond à un billet que j’ai partagé',
 	'profil_alerte_reponses' => '<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets',
+	'profil_alerte_tag_suivi' => '<b>tag suivi</b> / un nouveau billet contient un tag que je suis',
 	'profil_alertes' => 'Alertes',
 	'profil_copyleft' => 'Copyright, copyleft',
 	'profil_copyright_classique' => 'Pas de licence spécifique (droits d’auteur par défaut)',

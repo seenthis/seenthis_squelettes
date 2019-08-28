@@ -39,10 +39,6 @@
 </body>
 </html>
 </BOUCLE_auteur>
-<?php
-	include_spip('inc/headers');
-	redirige_par_entete(_HTTPS.'://'._HOST.'/');
-?>
+[(#REM|sinon_interdire_acces{#URL_SITE_SPIP,401})]
 <//B_auteur>
-
 #FILTRE{mini_html}

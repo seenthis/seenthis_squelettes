@@ -126,11 +126,11 @@ function formulaires_login_verifier_dist($cible="",$login="",$prive=null){
 
 	if (!$session_login) {
 		# pas de login saisi !
-		return ['var_login' => _T('info_obligatoire')];
+		return array('var_login' => _T('info_obligatoire'));
 	}
 	if (!$session_password) {
 		# pas de login saisi !
-		return ['password' => _T('info_obligatoire')];
+		return array('password' => _T('info_obligatoire'));
 	}
 
 	// appeler auth_identifier_login qui va :
@@ -141,7 +141,7 @@ function formulaires_login_verifier_dist($cible="",$login="",$prive=null){
 	$auteur = auth_identifier_login($session_login, $session_password);
 	// on arrive ici si on ne s'est pas identifie avec un SSO
 	if (!is_array($auteur)) {
-		$erreurs = [];
+		$erreurs = array();
 		if (is_string($auteur)) {
 			$erreurs['var_login'] = $auteur;
 		}
@@ -167,7 +167,7 @@ function formulaires_login_verifier_dist($cible="",$login="",$prive=null){
 	sql_update('spip_auteurs', array('en_ligne' => 'NOW()'), 'id_auteur='.$auteur['id_auteur']);
 
 	return (is_null($prive) ? is_url_prive($cible) : $prive)
-	?  login_autoriser() : [];
+	?  login_autoriser() : array();
 }
 
 function login_autoriser(){
