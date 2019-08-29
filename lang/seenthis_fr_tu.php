@@ -42,7 +42,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'favori' => 'partager',
 	'flux_desactive_texte' => 'Bonjour @nom@,
 L’import automatique de ton flux RSS/ATOM a été désactivé car cela fait un moment que tu ne t’es pas connecté au site.
-Tu peux le réactiver depuis ta page de préférences, en supprimant l’étoile ajoutée au début de son adresse.',
+Tu peux le réactiver depuis ta page de préférences, en supprimant l’étoile ajoutée au début de son adresse.', # MODIF
 	'flux_desactive_titre' => 'Import de ton flux désactivé sur @nom_site@',
 
 	// I

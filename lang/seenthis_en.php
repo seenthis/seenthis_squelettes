@@ -42,7 +42,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'favori' => 'share',
 	'flux_desactive_texte' => 'Hello @nom@,
 Automated import of your RSS/ATOM feed has been disabled because it has been quiet some time since you visited the site.
-You can enable it again in your preferences, by deleting the star which was added at the beginning of its address.',
+You can enable it again in your preferences, by deleting the star which was added at the beginning of its address.', # MODIF
 	'flux_desactive_titre' => 'Import of your feed is disabled on @nom_site@',
 
 	// I
