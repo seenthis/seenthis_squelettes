@@ -31,7 +31,7 @@ function action_api_dist() {
 		$xml = trim($xml);
 	}
 	else if ($method == "POST") {	
-		$xml = trim($GLOBALS["HTTP_RAW_POST_DATA"]);
+		$xml = trim(isset($GLOBALS["HTTP_RAW_POST_DATA"]) ? isset($GLOBALS["HTTP_RAW_POST_DATA"]) : file_get_contents('php://input'));
 
 		$contenttype = $_SERVER["CONTENT_TYPE"];
 		if (!preg_match(",application\/(atom\+)?xml,", $contenttype)) {
