@@ -12,7 +12,6 @@ else if (language.indexOf('es') > -1) language = "es";
 else if (language.indexOf('ar') > -1) language = "ar";
 else language = "fr";
 
-var traduire_avec_google = "traduire avec Google";
 var isShift = false;
 var isCtrl = false;
 
@@ -94,7 +93,7 @@ function afficher_traduire() {
 		var langue = me.attr("lang");
 		if (langue != "" && langue != language) {
 			var contenu = encodeURIComponent(me.html());
-			me.append("<div class='traduire'><a href='#'>" + traduire_avec_google + "</a></div>");
+			me.append("<div class='traduire'><a href='#'>" + traductionSeenThis.traduire_avec_google + "</a></div>");
 			me.find(".traduire").bind("click", function () {
 				me.attr("lang", "").find(".traduire").remove();
 				me.html("<div class='loading_icone'></div>");
