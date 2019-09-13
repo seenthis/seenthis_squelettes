@@ -179,10 +179,10 @@ $(function () {
 	} else {
 		if (Cookies.get('content')) {
 			content = Cookies.get('content');
+			Cookies.remove('content');
 			try {
 				window.location.hash = "content=" + content;
 			} catch(e) {};
-			Cookies.set('content', null);
 		}
         if (content != '') {
             $(".formulaire_principal textarea").val(content);
