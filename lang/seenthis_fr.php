@@ -13,6 +13,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// A
 	'accueil' => 'Accueil',
 	'annuler' => 'Annuler',
+	'aucun_message' => 'Aucun message',
 	'auteur_block' => 'Bloquer @people@',
 	'auteur_block_you' => 'Cet auteur vous a bloqué. Vous ne pouvez pas commenter ses messages.',
 	'auteur_ne_plus_block' => 'Débloquer @people@',
