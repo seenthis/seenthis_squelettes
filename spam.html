@@ -26,6 +26,8 @@
 <INCLURE{fond=inc/entete}>
 
 <div id="principale">
+[(#REM) visiteur non connecté, oust ! ]
+[(#SESSION{id_auteur}|sinon_interdire_acces{#URL_SITE_SPIP,401})]
 	<div>
 		<div id="centre">
 			<header>
