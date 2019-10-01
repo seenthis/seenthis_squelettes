@@ -1,12 +1,13 @@
-<B_new>
+#SET{auteurs,#ARRAY}<BOUCLE_new(AUTEURS){!par id_auteur}{tout}{statut IN 6forum,1comite}{0,100}>#SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}</BOUCLE_new>
+<B_me>
 	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 	<ul id="messages">
-		<BOUCLE_new(AUTEURS){!par id_auteur}{tout}{statut=6forum}{0,100}{pagination 25}><BOUCLE_messages(ME){id_auteur}{statut=publi}{id_parent=0}{!par date}{0,1}>
+		<BOUCLE_me(ME){id_auteur IN #GET{auteurs}}{fusion id_auteur}{statut=publi}{id_parent=0}{!par date}{pagination 25}>
 		<li id="message#ID_ME">
 			[(#ID_ME|microcache{noisettes/message/afficher_message})]
 		</li>
-		</BOUCLE_messages></BOUCLE_new>
+		</BOUCLE_me>
 	</ul>
 	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
-</B_new>
+</B_me>
 #FILTRE{mini_html}
