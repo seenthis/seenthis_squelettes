@@ -37,10 +37,10 @@
 		</div>
 		<aside id="droite">
 			#SET{auteurs,#ARRAY}
-			<BOUCLE_bingo1(AUTEURS){tout}{statut=1comite}{nom==case|.*doll.*|pharmacy|laser|astrolo.*|iphone|batter.*|vpn}>
+			<BOUCLE_bingo1(AUTEURS){tout}{statut=6forum}{nom==case|.*doll.*|pharmacy|laser|astrolo.*|iphone|batter.*|vpn}>
 			#SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}
 			</BOUCLE_bingo1>
-			<BOUCLE_bingo2(AUTEURS){tout}{statut=1comite}{bio==case|.*doll.*|pharmacy|laser|astrolo.*|iphone|batter.*|vpn}>
+			<BOUCLE_bingo2(AUTEURS){tout}{statut=6forum}{bio==case|.*doll.*|pharmacy|laser|astrolo.*|iphone|batter.*|vpn}>
 			#SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}
 			</BOUCLE_bingo2>
 			<B_bingo>

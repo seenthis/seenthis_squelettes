@@ -1,7 +1,7 @@
 <B_new>
 	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
 	<ul id="messages">
-		<BOUCLE_new(AUTEURS){!par id_auteur}{tout}{statut=1comite}{0,100}{pagination 25}><BOUCLE_messages(ME){id_auteur}{statut=publi}{id_parent=0}{!par date}{0,1}>
+		<BOUCLE_new(AUTEURS){!par id_auteur}{tout}{statut=6forum}{0,100}{pagination 25}><BOUCLE_messages(ME){id_auteur}{statut=publi}{id_parent=0}{!par date}{0,1}>
 		<li id="message#ID_ME">
 			[(#ID_ME|microcache{noisettes/message/afficher_message})]
 		</li>
