@@ -21,6 +21,7 @@
 	<necessite nom="css_imbriques" />
 	<necessite nom="inclureajaxload" />
 	<necessite nom="calcul_date" />
+	<necessite nom="photoswipe" compatibilite="[0.4.0;]" />
 
 	<utilise nom="gravatar" />
 </paquet>
