@@ -2,9 +2,9 @@
 <BOUCLE_bingo1(AUTEURS){tout}{statut IN 6forum,1comite}{nom==#EVAL{_SEENTHIS_REG_SPAM}}>
 #SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}
 </BOUCLE_bingo1>
-<BOUCLE_bingo2(AUTEURS){tout}{statut IN 6forum,1comite}{bio==#EVAL{_SEENTHIS_REG_SPAM}}>
+<BOUCLE_b(AUTEURS){tout}{statut IN 6forum,1comite}{bio==#EVAL{_SEENTHIS_REG_SPAM}}>
 #SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}
-</BOUCLE_bingo2>
+</BOUCLE_b>
 <B_bingo>
 <h2>Usual suspects</h2>
 <div class="following following_big">
@@ -15,3 +15,14 @@
 [<div class="pagination">(#PAGINATION)</div>]
 <div class="clear-left"></div>
 </B_bingo>
+<BOUCLE_m(AUTEURS me){statut IN 6forum,1comite}{me.id_me>0}{doublons} />
+<B_muets>
+<h2>Comptes muets</h2>
+<div class="following following_big">
+        <BOUCLE_muets(AUTEURS me){statut IN 6forum,1comite}{doublons}{!par id_auteur}{pagination 20}>
+        [(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
+        </BOUCLE_muets>
+</div>
+[<div class="pagination">(#PAGINATION)</div>]
+<div class="clear-left"></div>
+</B_muets>
