@@ -5,7 +5,7 @@
 <BOUCLE_b(AUTEURS){tout}{statut IN 6forum,1comite}{bio==#EVAL{_SEENTHIS_REG_SPAM}}>
 #SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}
 </BOUCLE_b>
-<BOUCLE_c(AUTEURS){tout}{statut IN 6forum,1comite}{url_site LIKE %nom%}>
+<BOUCLE_c(AUTEURS){tout}{statut IN 6forum,1comite}{where url_site LIKE CONCAT('%',login,'%')}>
 #SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}
 </BOUCLE_c>
 <B_bingo>
