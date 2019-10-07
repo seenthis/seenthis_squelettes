@@ -18,11 +18,10 @@
 [<div class="pagination">(#PAGINATION)</div>]
 <div class="clear-left"></div>
 </B_bingo>
-<BOUCLE_m(AUTEURS me){statut IN 6forum,1comite}{me.id_me>0}{doublons} />
 <B_muets>
 <h2>Comptes muets + url_site</h2>
 <div class="following following_big">
-        <BOUCLE_muets(AUTEURS){url_site!=''}{statut IN 6forum,1comite}{doublons}{!par id_auteur}{pagination 20}>
+        <BOUCLE_muets(AUTEURS me){url_site!=''}{statut IN 6forum,1comite}{!id_me>0}{!par id_auteur}{pagination 20}>
         [(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
         </BOUCLE_muets>
 </div>
