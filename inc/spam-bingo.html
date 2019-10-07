@@ -10,6 +10,7 @@
 </BOUCLE_c>
 <B_bingo>
 <h2>Usual suspects</h2>
+#ANCRE_PAGINATION
 <div class="following following_big">
 	<BOUCLE_bingo(AUTEURS){tout}{id_auteur IN #GET{auteurs}}{!par id_auteur}{pagination 20}>
 	[(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
@@ -18,13 +19,3 @@
 [<div class="pagination">(#PAGINATION)</div>]
 <div class="clear-left"></div>
 </B_bingo>
-<B_muets>
-<h2>Comptes muets + url_site</h2>
-<div class="following following_big">
-        <BOUCLE_muets(AUTEURS me){url_site!=''}{statut IN 6forum,1comite}{!id_me>0}{!par id_auteur}{pagination 20}>
-        [(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
-        </BOUCLE_muets>
-</div>
-[<div class="pagination">(#PAGINATION)</div>]
-<div class="clear-left"></div>
-</B_muets>
