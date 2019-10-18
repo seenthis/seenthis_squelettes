@@ -277,7 +277,7 @@ $(function () {
 
 			// (shift ou ctrl) + enter (valider)
 			if (keyCode == 13 && (isShift || isCtrl)) {
-				isShift = false;
+				isShift = isCtrl = false;
 				area.submit();
 				return false;
 			}
@@ -294,7 +294,7 @@ $(function () {
 			isCtrl = (keyCode == 17);
 		})
 		.on("keyup", 'textarea', function (e) {
-			isShift = false;
+			isShift = isCtrl = false;
 		})
 
 		.on("click", '.formulaire_poster_message  textarea', function () {
