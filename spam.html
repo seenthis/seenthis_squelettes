@@ -1,0 +1,49 @@
+#CACHE{0}
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>[(#NOM_SITE_SPIP|textebrut)] - Spam ?</title>
+
+	<meta charset="#CHARSET">
+	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
+	<INCLURE{fond=inc/head}{lang=fr}>
+
+	[(#SET{couleur,99baad})]
+	<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}|sinon{0}}{tout}>
+		[(#SET{couleur,#COULEUR})]
+        [<link rel="stylesheet" href="(#URL_PAGE{couleur,couleur=#COULEUR})" type="text/css" media="all">]
+        <style><!--
+		[(#ID_AUTEUR|microcache{noisettes/css_auteur})]
+		--></style>
+	</BOUCLE_auteur>
+
+	<INCLURE{fond=inc/head_session}>
+	
+</head>
+<body class="people plier">
+
+<INCLURE{fond=inc/entete}>
+
+<div id="principale">
+[(#REM) visiteur non connecté, oust ! ]
+[(#SESSION{id_auteur}|sinon_interdire_acces{#URL_SITE_SPIP,401})]
+	<div>
+		<div id="centre">
+			<header>
+				<div id="tetiere">
+					<h1>Spam ?</h1>
+				</div>
+			</header>
+			<INCLURE{fond=noisettes/contenu/contenu_page_spam,env,ajax}>
+		</div>
+		<aside id="droite">
+			<INCLURE{fond=inc/spam-bingo,ajax,env} />
+			<INCLURE{fond=inc/spam-muets,ajax,env} />
+		</aside>
+		<INCLURE{fond=inc/footer}>
+	</div>
+</div>
+</body>
+</html>
+#FILTRE{mini_html}

@@ -1,0 +1,18 @@
+#SET{auteurs,#ARRAY}
+<BOUCLE_a(AUTEURS){tout}{statut IN 6forum,1comite}{nom==#EVAL{_SEENTHIS_REG_SPAM}}>
+#SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}
+</BOUCLE_a>
+<BOUCLE_b(AUTEURS){tout}{statut IN 6forum,1comite}{bio==#EVAL{_SEENTHIS_REG_SPAM}}>
+#SET{auteurs,#GET{auteurs}|push{#ID_AUTEUR}}
+</BOUCLE_b>
+<B_bingo>
+<h2>Usual suspects</h2>
+#ANCRE_PAGINATION
+<div class="following following_big">
+	<BOUCLE_bingo(AUTEURS){tout}{id_auteur IN #GET{auteurs}}{!par id_auteur}{pagination 20}>
+	[(#ID_AUTEUR|microcache{noisettes/afficher_un_auteur})]
+	</BOUCLE_bingo>
+</div>
+[<div class="pagination">(#PAGINATION)</div>]
+<div class="clear-left"></div>
+</B_bingo>
