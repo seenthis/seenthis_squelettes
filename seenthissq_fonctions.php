@@ -6,7 +6,7 @@ defined('_HOST')||define('_HOST', $_SERVER['HTTP_HOST']);
 defined('_STATIC_HOST')||define('_STATIC_HOST', _HOST);
 
 if (!defined('_SEENTHIS_REG_SPAM')) {
-	define('_SEENTHIS_REG_SPAM', "case|.*doll.*|pharmacy|laser|.*astrolo.*|iphone|batter.*|vpn|wedding|marriage|manager|management|seo|weed|dating|insurance|marketing|cleaning|vashikaran");
+	define('_SEENTHIS_REG_SPAM', "case|.*doll.*|pharmacy|laser|.*astrolo.*|iphone|batter.*|vpn|wedding|marriage|manager|management|seo|weed|dating|insurance|marketing|cleaning|vashikaran|jammer");
 }
 
 include_spip("php/traduire_texte");
