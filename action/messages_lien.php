@@ -11,7 +11,7 @@ function action_messages_lien() {
 	spip_log($url);
 	$url_messages = array();
 	// virer le http/https en début d'url + le slash final
-	$url = preg_replace(',/$,', '', preg_replace(',^(https?://)?,i', '',$url));
+	$url = preg_replace(',/$,', '', preg_replace(',^(https?://)?,i', '', $url));
 	$id_possibles = sql_allfetsel('id_me', 'spip_me_tags', 'class = '.sql_quote('url').' and tag LIKE '.sql_quote('%' . $url));
 	$id_publies = sql_allfetsel(
 		'id_me',
