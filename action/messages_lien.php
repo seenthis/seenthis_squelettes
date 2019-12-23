@@ -10,7 +10,9 @@ function action_messages_lien() {
 	$url = rawurldecode(_request("url"));
 	spip_log($url);
 	$url_messages = array();
-	$id_possibles = sql_allfetsel('id_me', 'spip_me_tags', 'class = '.sql_quote('url').' and tag = '.sql_quote(preg_replace(',/$,', '', $url)));
+	// virer le http/https en début d'url + le slash final
+	$url = preg_replace(',/$,', '', preg_replace(',^(https?://)?,i', '',$url));
+	$id_possibles = sql_allfetsel('id_me', 'spip_me_tags', 'class = '.sql_quote('url').' and tag LIKE '.sql_quote('%' . $url));
 	$id_publies = sql_allfetsel(
 		'id_me',
 		'spip_me', array("statut = 'publi'", sql_in('id_me', array_map('array_pop', $id_possibles))));
