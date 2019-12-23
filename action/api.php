@@ -12,7 +12,7 @@ function action_api_dist() {
 	}
 
 	$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
-	if ($id_auteur < 1) erreur_405("Unknown user", 401);
+	if ($id_auteur < 1) erreur_405("The username and/or password used for authentication are invalid", 401);
 
 	$method = $_SERVER["REQUEST_METHOD"];
 	
