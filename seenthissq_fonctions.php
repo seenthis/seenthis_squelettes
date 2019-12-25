@@ -30,9 +30,12 @@ function share_tw_url($id_me) {
 function calculer_enfants_syndic($id_syndic, $url_racine = '', $afficher_url = '', $ret = array()) {
 	
 	$ret[] = $id_syndic;
-//	if (!$afficher_url) $afficher_url = $url_racine;
 	
-		
+	// si on a la même url en http & https, ajouter le doublon au tableau de retour
+	$lien_flou = preg_replace(',/$,', '', preg_replace(',^(https?://)?,i', '', $url_racine));
+	if ($doublon = sql_getfetsel('id_syndic', 'spip_syndic', "id_syndic != $id_syndic AND url_site LIKE ".sql_quote('%' . $lien_flou))) {
+		$ret[] = $doublon;
+	}
 	
 	$query = sql_select("*", "spip_syndic", "id_parent=$id_syndic", /* group by */ '', /* order by*/ '', /* limit */ '0,100');
 	$total = sql_count($query);
