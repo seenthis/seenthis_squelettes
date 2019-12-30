@@ -15,6 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// A
 	'accueil' => 'الرئيسية',
 	'annuler' => 'إلغاء',
+	'aucun_message' => 'لا توجد اي رسالة',
 	'auteur_block' => 'حظر @people@',
 	'auteur_block_you' => 'هذا المشارك صدّك. لايمكنك لتعليق على رسائله.',
 	'auteur_ne_plus_block' => 'إزالة حظر @people@',
@@ -42,7 +43,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'favori' => 'مشاركة',
 	'flux_desactive_texte' => 'اهلاً @nom@،
 تم ايقاف تدفق RSS/ATOM الآلي لأنكم لم تتصلوا بالموقع منذ مدة غير قصيرة.
-يمكن اعادة تفعيله في صفحة التفضيلات، بإزالة النجمة التي أضيفت في بداية عنوانه. ', # MODIF
+يمكن اعادة تفعيله في صفحة التفضيلات، بإزالة النجمة التي أضيفت في بداية عنوانه او النقر على الرابط التالي @url@. ',
 	'flux_desactive_titre' => 'استيراد التدفق متوقف في الموقع @nom_site@',
 
 	// I
@@ -63,6 +64,26 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'modifier' => 'تعديل',
 	'montrer_messages' => 'عرض الـ@total@ رسالة',
 
+	// N
+	'notif_me_nouveau' => '@nom_auteur@ وضع مداخلة جديدة',
+	'notif_me_reponse' => '@nom_auteur@ ردّ على احدى مداخلاته',
+	'notif_me_reponse_a' => '@nom_auteur@ ردّ على احدى مداخلات @nom_auteur_init@',
+	'notif_message_footer' => '
+---------
+لإيقاف التنبيهات من @seenthis@,
+يمكنكم تعديل تفضيلاتكم في صهحتكم الشخصية
+@url@
+
+',
+	'notif_partage_texte' => 'أهلاً @nom_dest@,
+
+@nom_aut_partage (@@login_aut_partage@) a partagé un de vos billets sur @seenthis@.',
+	'notif_partage_titre' => '@nom_aut_partage@ (@@login_aut_partage@) وزع احدى مداخلاتكم على @seenthis@.',
+	'notif_suivremoi_texte' => 'أهلاً @nom_dest@,
+
+@nom_aut@ (@@login_aut@) يتبعكم على @seenthis@.',
+	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) يتبعكم على @seenthis@.',
+
 	// P
 	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المشاركات. <strong>منتديات</strong> تحت كل مداخلة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.',
 	'people' => 'المشاركون',
@@ -75,6 +96,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_alerte_partage' => '<b>مشاركة</b> / أحدهم وزع إحدى مداخلاتي',
 	'profil_alerte_reponse_partage' => '<b>ردود على مشاركة</b> / أحدهم رد على مداخلة وزغتها ',
 	'profil_alerte_reponses' => '<b>الردود على مداخلاتي</b> / أحدهم يرد على إحدى مداخلاتي',
+	'profil_alerte_tag_suivi' => '<b>وسم متابع</b> / مداخلة جديدة تحتوي على وسم أتبعه',
 	'profil_alertes' => 'إشعارات',
 	'profil_copyleft' => 'حقوق الملكية، الحقوق «المتروكة»',
 	'profil_copyright_classique' => 'لا رخصة محددة (اعتماد حقوق النشر الافتراضية)',
