@@ -1,12 +1,12 @@
 <traduction module="seenthis" gestionnaire="salvatore" url="https://trad.spip.net" source="https://github.com/seenthis/seenthis_squelettes/trunk/lang/" reference="fr">
-	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="97" traduits="86" relire="0" modifs="1" nouveaux="10" pourcent="88.66">
+	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="97" traduits="97" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
 	<langue code="de" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=de" total="97" traduits="75" relire="0" modifs="0" nouveaux="22" pourcent="77.32">
 		<traducteur nom="klaus++" lien="https://trad.spip.net/auteur/klaus" />
 		<traducteur nom="oAnth" lien="https://trad.spip.net/auteur/oanth" />
 	</langue>
-	<langue code="en" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=en" total="97" traduits="86" relire="0" modifs="1" nouveaux="10" pourcent="88.66">
+	<langue code="en" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=en" total="97" traduits="89" relire="0" modifs="0" nouveaux="8" pourcent="91.75">
 		<traducteur nom="EScott" lien="https://trad.spip.net/auteur/escott" />
 		<traducteur nom="Fil" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
