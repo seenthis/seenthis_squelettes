@@ -15,6 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// A
 	'accueil' => 'Home',
 	'annuler' => 'Cancel',
+	'aucun_message' => 'No messages',
 	'auteur_block' => 'Block @people@',
 	'auteur_block_you' => 'This user has blocked your comments.',
 	'auteur_ne_plus_block' => 'Un-block @people@',
@@ -42,7 +43,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'favori' => 'share',
 	'flux_desactive_texte' => 'Hello @nom@,
 Automated import of your RSS/ATOM feed has been disabled because it has been quiet some time since you visited the site.
-You can enable it again in your preferences, by deleting the star which was added at the beginning of its address.', # MODIF
+You can enable it again in your preferences, by deleting the star which was added at the beginning of its address or by clicking on the following link @url@',
 	'flux_desactive_titre' => 'Import of your feed is disabled on @nom_site@',
 
 	// I
@@ -61,6 +62,15 @@ You can enable it again in your preferences, by deleting the star which was adde
 				<p>After you’ve followed five authors, this message will go away. The “Suggest Contacts” button is always available on your “@people” page.</p>',
 	'modifier' => 'modify',
 	'montrer_messages' => 'show the @total@ messages',
+
+	// N
+	'notif_message_footer' => '
+---------
+To stop receiving notifications from @seenthis@,
+you can set your preferences accordingly in your profile
+@url@
+
+',
 
 	// P
 	'pave_accueil' => '<strong>Short-blogging</strong> with no text limit. <strong>Curation and web survey</strong>. Cool <strong>automatic</strong> text layout. <strong>Forums</strong> under each post. Advanced and automatic <strong>thematisation</strong>.',
