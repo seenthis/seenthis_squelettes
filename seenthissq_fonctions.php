@@ -33,7 +33,7 @@ function calculer_enfants_syndic($id_syndic, $url_racine = '', $afficher_url = '
 	
 	// si on a la même url en http & https, ajouter le doublon au tableau de retour
 	$lien_flou = preg_replace(',/$,', '', preg_replace(',^(https?://)?,i', '', $url_racine));
-	if ($doublon = sql_getfetsel('id_syndic', 'spip_syndic', "id_syndic != $id_syndic AND url_site LIKE ".sql_quote('%' . $lien_flou))) {
+	if ($doublon = sql_getfetsel('id_syndic', 'spip_syndic', "id_syndic != $id_syndic and (url_site = ".sql_quote('http://' . $lien_flou)." or url_site = ".sql_quote('https://' . $lien_flou).")")) {
 		$ret[] = $doublon;
 	}
 	
