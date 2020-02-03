@@ -1,4 +1,10 @@
-<traduction module="seenthis" gestionnaire="salvatore" url="https://trad.spip.net" source="https://github.com/seenthis/seenthis_squelettes/trunk/lang/" reference="fr">
+<traduction
+	module="seenthis"
+	id="seenthis--seenthis_squelettes-00e1c"
+	gestionnaire="salvatore"
+	url="https://trad.spip.net"
+	source="https://github.com/seenthis/seenthis_squelettes/trunk/lang"
+	reference="fr">
 	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="97" traduits="97" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
@@ -20,8 +26,7 @@
 		<traducteur nom="severo" lien="https://trad.spip.net/auteur/severo" />
 		<traducteur nom="speciale" lien="https://trad.spip.net/auteur/speciale-2899" />
 	</langue>
-	<langue code="fr" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr" total="97" traduits="97" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
-	</langue>
+	<langue code="fr" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr" total="97" traduits="97" relire="0" modifs="0" nouveaux="0" pourcent="100.00" />
 	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="97" traduits="86" relire="0" modifs="1" nouveaux="10" pourcent="88.66">
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
 		<traducteur nom="Fil" lien="https://trad.spip.net/auteur/fil" />
