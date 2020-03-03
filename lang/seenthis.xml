@@ -13,8 +13,8 @@
 		<traducteur nom="oAnth" lien="https://trad.spip.net/auteur/oanth" />
 	</langue>
 	<langue code="en" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=en" total="97" traduits="89" relire="0" modifs="0" nouveaux="8" pourcent="91.75">
+		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="EScott" lien="https://trad.spip.net/auteur/escott" />
-		<traducteur nom="Fil" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
 	<langue code="eo" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=eo" total="97" traduits="44" relire="0" modifs="0" nouveaux="53" pourcent="45.36">
@@ -28,14 +28,14 @@
 	</langue>
 	<langue code="fr" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr" total="97" traduits="97" relire="0" modifs="0" nouveaux="0" pourcent="100.00" />
 	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="97" traduits="86" relire="0" modifs="1" nouveaux="10" pourcent="88.66">
+		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
-		<traducteur nom="Fil" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="James" lien="https://trad.spip.net/auteur/james" />
 		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
 	</langue>
 	<langue code="it" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=it" total="97" traduits="80" relire="0" modifs="0" nouveaux="17" pourcent="82.47">
 		<traducteur nom="CDB_77" lien="https://trad.spip.net/auteur/cdb_77" />
-		<traducteur nom="Fil" lien="https://trad.spip.net/auteur/fil" />
+		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="nl" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=nl" total="97" traduits="74" relire="0" modifs="0" nouveaux="23" pourcent="76.29">
