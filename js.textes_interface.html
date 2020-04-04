@@ -29,7 +29,9 @@
 							$(this).addClass("masquer");
 						}
 					});
-					$(this).prepend("<li class='reponse lienshow' onclick=\"$(this).afficher_masques();\">"+ traductionSeenThis.montrer_messages.replace("@total@", total) +"</li>");
+					var aff_masq = "<li class='reponse lienshow' onclick=\"$(this).afficher_masques();\">"+ traductionSeenThis.montrer_messages.replace("@total@", total) ;
+					aff_masq += "<span class='msg_masquer'>" + traductionSeenThis.masquer_messages + "</span></li>"
+					$(this).prepend(aff_masq);
 				}
 			});
 		}
@@ -134,7 +136,8 @@ var traductionSeenThis = {
 	bookmarklet_titre: '<:seenthis:bookmarklet_titre|texte_script:>',
 	bookmarklet_descriptif: '<:seenthis:bookmarklet_descriptif|texte_script:>',
 
-	montrer_messages: '<:seenthis:montrer_messages|texte_script:>'
+	montrer_messages: '<:seenthis:montrer_messages|texte_script:>',
+	masquer_messages: '<:seenthis:masquer_messages|texte_script:>'
 };
 
 afficher_textes_traduits_une_fois();

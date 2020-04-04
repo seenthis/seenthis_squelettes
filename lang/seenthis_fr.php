@@ -52,6 +52,7 @@ Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’
 	'logout' => 'se déconnecter',
 
 	// M
+	'masquer_messages' => 'masquer les messages',
 	'me_suggerer_contacts' => 'Me suggérer des contacts',
 	'message_inscription' => '<strong>Inscription gratuite et immédiate</strong><br />Dès l’enregistrement, votre mot de passe vous est expédié par email.',
 	'message_suggerer' => '
