@@ -82,15 +82,7 @@ function favoris_actifs() {
 }
 
 $.fn.afficher_masques = function () {
-<<<<<<< HEAD
 	$(this).parents('ul.reponses').children('li:lt(-2)').toggleClass('masquer');
-=======
-//	var max = count($(this).parents('ul.reponses').children('li'));
-	//console.log('max = ' + max);
-	$(this).parents('ul.reponses').children('li:lt(-2)').toggleClass('masquer');
-	//$(this).remove();
-	//$(this).on('click', plier_messages());
->>>>>>> ajout du texte pour la fermeture des commentaires dépliés + modif du JS pour faire une bascule + ajout de la chaîne de langue
 };
 
 function afficher_traduire() {
