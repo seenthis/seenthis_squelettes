@@ -82,11 +82,7 @@ function favoris_actifs() {
 }
 
 $.fn.afficher_masques = function () {
-//	var max = count($(this).parents('ul.reponses').children('li'));
-	//console.log('max = ' + max);
 	$(this).parents('ul.reponses').children('li:lt(-2)').toggleClass('masquer');
-	//$(this).remove();
-	//$(this).on('click', plier_messages());
 };
 
 function afficher_traduire() {
