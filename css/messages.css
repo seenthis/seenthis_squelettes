@@ -736,6 +736,11 @@ ul#messages, ul.messages {
 					. :hover {
 						color: white;
 					}
+
+					. .masquer {
+						padding-bottom: 5px;
+						padding-top: 8px;
+					}
 				}
 			}
 		}
