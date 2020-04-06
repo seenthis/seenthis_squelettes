@@ -29,7 +29,7 @@
 							$(this).addClass("masquer");
 						}
 					});
-					var aff_masq = "<li class='reponse lienshow' onclick=\"$(this).afficher_masques();\">"+ traductionSeenThis.montrer_messages.replace("@total@", total) ;
+					var aff_masq = "<li class='reponse lienshow' onclick=\"$(this).afficher_masques();\"><span class='msg_afficher'>"+ traductionSeenThis.montrer_messages.replace("@total@", total) + "</span>";
 					aff_masq += "<span class='msg_masquer'>" + traductionSeenThis.masquer_messages + "</span></li>"
 					$(this).prepend(aff_masq);
 				}
