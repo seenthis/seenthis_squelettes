@@ -19,7 +19,7 @@
 	</BOUCLE_auteur_metadata>
 
 	[(#SET{titre_metadonnee,#GET{texte_star}|extraire_titre{60}|attribut_html{false}})]
-	[(#SET{description_metadonnee, #GET{texte_star}|supprimer_titre{60, 256}|attribut_html{false}})]
+	[(#SET{description_metadonnee, #GET{texte_star}|supprimer_titre{60}|couper{256}|attribut_html{false}})]
 
 	[<meta name="og:title" content="(#GET{titre_metadonnee})"/>]
 	[<meta name="twitter:title" content="(#GET{titre_metadonnee})"/>]
