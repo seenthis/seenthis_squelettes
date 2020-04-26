@@ -5,7 +5,7 @@
 	[<id>urn:uuid:(#UUID)</id>]
 	<title>[(#TEXTE*|extraire_titre{240}|texte_backend)]</title>
 	<author><BOUCLE_auteur(AUTEURS){tout}{id_auteur=#ID_AUTEUR}>
-		<name>#NOM [(@(#LOGIN))]</name>
+		<name>[(#NOM|textebrut) ] [(@(#LOGIN))]</name>
 		<uri>[(#URL_AUTEUR|url_absolue{#EVAL{_HTTPS}://#EVAL{_HOST}/})]</uri>
 		<email>#LOGIN@#EVAL{_HOST}</email>
 		</BOUCLE_auteur>
