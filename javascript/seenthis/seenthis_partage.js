@@ -34,7 +34,7 @@ $(function () {
 						'</a></div>').prependTo(elementInsertion);
 					lienTwitter.click(function () {
 						var urlPrepare = urlCourte(article);
-						var textePrepare = preparerMessage(texteArticle(article), 140 - (urlPrepare.length + 1));
+						var textePrepare = preparerMessage(texteArticle(article), 280 - (urlPrepare.length + 1));
 						textePrepare += " " + urlPrepare;
 						lienTwitter.find('a').attr('href', "http://twitter.com/intent/tweet?text=" + encodeURIComponent(textePrepare));
 						return true;
