@@ -14,8 +14,8 @@ $(function () {
 		return "http://" + shortHost + "/" + idArticle;
 	}
 
-	function texteArticle(article) {
-		$('meta[name="twitter:description"]').attr('content');
+	function texteArticle() {
+		return $('meta[name="twitter:title"]').attr('content') + ' ' + $('meta[name="twitter:description"]').attr('content');
 	}
 
 	if (liensPartageFacebook || liensPartageTwitter) {
@@ -33,7 +33,7 @@ $(function () {
 						'</a></div>').prependTo(elementInsertion);
 					lienTwitter.click(function () {
 						var urlPrepare = urlCourte(article);
-						var textePrepare = preparerMessage(texteArticle(article), 280 - (urlPrepare.length + 1));
+						var textePrepare = preparerMessage(texteArticle(), 280 - (urlPrepare.length + 1));
 						textePrepare += " " + urlPrepare;
 						lienTwitter.find('a').attr('href', "http://twitter.com/intent/tweet?text=" + encodeURIComponent(textePrepare));
 						return true;
@@ -46,7 +46,7 @@ $(function () {
 						'<img src="plugins/seenthis_squelettes/imgs/facebook.gif" srcset="plugins/seenthis_squelettes/imgs/facebook.x2.png 2x" alt="">' +
 						'</a></div>').prependTo(elementInsertion);
 					lienFacebook.click(function () {
-						var textePrepare = preparerMessage(texteArticle(article), 250);
+						var textePrepare = preparerMessage(texteArticle(), 250);
 						var urlPrepare = urlCourte(article);
 						lienFacebook.find('a').attr('href', "http://www.facebook.com/sharer.php?u=" + encodeURIComponent(urlPrepare) + "&amp;t=" + encodeURIComponent(textePrepare));
 						return true;
