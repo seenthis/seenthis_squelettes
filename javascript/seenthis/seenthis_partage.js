@@ -15,8 +15,7 @@ $(function () {
 	}
 
 	function texteArticle(article) {
-		var texteArticle = article.find('.texte').text();
-		return texteArticle.replace(/(\r\n|\n|\r|\t)/gm, " ");
+		$('meta[name="twitter:description"]').attr('content');
 	}
 
 	if (liensPartageFacebook || liensPartageTwitter) {
