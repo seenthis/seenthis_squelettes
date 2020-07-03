@@ -5,7 +5,7 @@
 ]
 
 <BOUCLE_principale(SYNDIC){id_syndic=#ENV{id}}{tout}>
-	[(#SET{tous_sites,[(#ID_SYNDIC|calculer_enfants_syndic{#URL_SITE})]})]
+	[(#SET{tous_sites,[(#ID_SYNDIC|calculer_enfants_syndic{#URL_SITE,'',#ARRAY,true})]})]
 	#SET{messages, #ARRAY{}}
 	
 	<BOUCLE_tous_liens(ME spip_me_syndic){spip_me_syndic.id_syndic IN #GET{tous_sites}}>

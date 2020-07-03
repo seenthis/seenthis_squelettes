@@ -27,7 +27,7 @@ function share_tw_url($id_me) {
 	return $me;
 }
 
-function calculer_enfants_syndic($id_syndic, $url_racine = '', $afficher_url = '', $ret = array()) {
+function calculer_enfants_syndic($id_syndic, $url_racine = '', $afficher_url = '', $ret = array(), $nolimit = false) {
 	
 	$ret[] = $id_syndic;
 	
@@ -37,7 +37,7 @@ function calculer_enfants_syndic($id_syndic, $url_racine = '', $afficher_url = '
 		$ret[] = $doublon;
 	}
 	
-	$query = sql_select("*", "spip_syndic", "id_parent=$id_syndic", /* group by */ '', /* order by*/ 'date desc', /* limit */ '0,100');
+	$query = sql_select("*", "spip_syndic", "id_parent=$id_syndic", /* group by */ '', /* order by*/ 'date desc', /* limit */ $nolimit ? '' : '0,100');
 	$total = sql_count($query);
 	
 	if ($afficher_url) {
