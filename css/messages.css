@@ -707,11 +707,23 @@ ul#messages, ul.messages {
 					}
 				}
 				
-				. .masquer {
+				. .masquer:not(:first-of-type) {
 					opacity: 0;
 					height: 0;
 					overflow: hidden;
 				}
+				. .masquer {
+					.msg_afficher {
+						display: none;
+					}
+					.msg_masquer {
+						display: inline;
+					}
+				}
+				.msg_masquer {
+					display: none;
+				}
+
 				. .lienshow {
 					padding-top: 13px;
 					padding-left: 103px;
