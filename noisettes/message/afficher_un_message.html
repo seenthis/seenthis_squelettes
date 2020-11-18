@@ -5,7 +5,7 @@
 
 		[(#ID_AUTEUR|microcache{noisettes/logo_auteur/message_logo_auteur})]
 		[(#SET{nom_auteur,
-		#INCLURE{fond=noisettes/message/message_nom_auteur}{id_auteur}})]
+		#INCLURE{fond=noisettes/message/message_nom_auteur,id_auteur,viarss}})]
 
 		<div class="texte_reponse auteur#ID_AUTEUR">
 
@@ -42,7 +42,7 @@
 					href="#message#ID" rel="#ID_AUTEUR"></a>
 				</div>
 				
-				<span class="auteur">#GET{nom_auteur}[(#VIARSS|oui)via RSS]</span>
+				<span class="auteur">#GET{nom_auteur}</span>
 
 			</div>
 	
