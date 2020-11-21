@@ -226,8 +226,9 @@ function afficher_miniature($img, $maxw = 600, $maxh = 700) {
 	//
 	// chargement asynchrone ?
 	//
+	include_spip('inc/session');
 	if (!$vignette = copie_locale_safe($cvt, 'test')
-	AND $GLOBALS['visiteur_session']['id_auteur'] > 0  # eviter sur l'API
+	AND session_get('id_auteur') > 0  # eviter sur l'API
 	) {
 		include_spip('inc/acces');
 		$i = 1; #$GLOBALS['visiteur_session']['id_auteur'];
