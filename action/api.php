@@ -11,7 +11,8 @@ function action_api_dist() {
 			erreur_405("Please use https");
 	}
 
-	$id_auteur = $GLOBALS['visiteur_session']['id_auteur'];
+	include_spip('inc/session');
+	$id_auteur = session_get('id_auteur');
 	if ($id_auteur < 1) erreur_405("The username and/or password used for authentication are invalid", 401);
 
 	$method = $_SERVER["REQUEST_METHOD"];
