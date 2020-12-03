@@ -77,7 +77,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 ',
 	'notif_partage_texte' => 'أهلاً @nom_dest@,
 
-@nom_aut_partage (@@login_aut_partage@) a partagé un de vos billets sur @seenthis@.',
+@nom_aut_partage@ (@@login_aut_partage@) a partagé un de vos billets sur @seenthis@.',
 	'notif_partage_titre' => '@nom_aut_partage@ (@@login_aut_partage@) وزع احدى مداخلاتكم على @seenthis@.',
 	'notif_suivremoi_texte' => 'أهلاً @nom_dest@,
 
