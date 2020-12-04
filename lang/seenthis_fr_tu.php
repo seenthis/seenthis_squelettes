@@ -80,7 +80,7 @@ tu peux régler tes préférences dans ton profil
 ',
 	'notif_partage_texte' => 'Bonjour @nom_dest@,
 
-@nom_aut_partage@ (@@login_aut_partage@) a partagé un de tes billets sur @seenthis@.',
+@nom_aut_partage (@@login_aut_partage@) a partagé un de tes billets sur @seenthis@.', # MODIF
 	'notif_partage_titre' => '@nom_aut_partage@ (@@login_aut_partage@) a partagé un de tes billets sur @seenthis@.',
 	'notif_suivremoi_texte' => 'Bonjour @nom_dest@,
 

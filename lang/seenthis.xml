@@ -5,7 +5,7 @@
 	url="https://trad.spip.net"
 	source="https://github.com/seenthis/seenthis_squelettes/trunk/lang"
 	reference="fr">
-	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="98" traduits="97" relire="0" modifs="0" nouveaux="1" pourcent="98.98">
+	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="98" traduits="96" relire="0" modifs="1" nouveaux="1" pourcent="97.96">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
 	<langue code="de" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=de" total="98" traduits="75" relire="0" modifs="0" nouveaux="23" pourcent="76.53">
@@ -27,7 +27,7 @@
 		<traducteur nom="speciale" lien="https://trad.spip.net/auteur/speciale-2899" />
 	</langue>
 	<langue code="fr" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr" total="98" traduits="98" relire="0" modifs="0" nouveaux="0" pourcent="100.00" />
-	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="98" traduits="97" relire="0" modifs="0" nouveaux="1" pourcent="98.98">
+	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="98" traduits="96" relire="0" modifs="1" nouveaux="1" pourcent="97.96">
 		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
 		<traducteur nom="James" lien="https://trad.spip.net/auteur/james" />
