@@ -16,7 +16,7 @@ function action_messages_lien() {
 		'id_me',
 		'spip_me', array("statut = 'publi'", sql_in('id_me', array_map('array_pop', $id_possibles))));
 	foreach ($id_publies as $k => $row) {
-		$url_messages[] = _HTTPS."://"._HOST."/messages/".$row['id_me'];
+		$url_messages[] = url_absolue(generer_url_entite($row['id_me'], 'me', '', '', true));
 	}
 	header('Content-Type: text/json; charset=utf-8');
 	header("Cache-Control: public, max-age=60");
