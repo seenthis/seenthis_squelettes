@@ -11,7 +11,7 @@
 
 <INCLURE{fond=inc/entete}>
 
-<div id="principale">
+<div id="principale"><BOUCLE_parent(ME){id_me}>[(#ID_PARENT|=={0}|sinon_interdire_acces{#URL_ME{#ID_PARENT},301})]</BOUCLE_parent>
 	<div>
 		[(#SESSION{id_auteur}|non)<div class="centrer"><INCLURE{fond=slogan}></div>]
 		[(#SESSION{id_auteur}|>{0}|non)[(#ID_ME|microcache{noisettes/entete_auteur_message})]]
