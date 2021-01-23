@@ -15,12 +15,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler' => 'Annuler',
 	'aucun_message' => 'Aucun message',
 	'auteur_block' => 'Bloquer @people@',
-	'auteur_block_you' => 'Cet auteur vous a bloqué. Vous ne pouvez pas commenter ses messages.',
+	'auteur_block_you' => 'Cette personne vous a bloqué. Vous ne pouvez pas commenter ses messages.',
 	'auteur_ne_plus_block' => 'Débloquer @people@',
 	'auteur_ne_plus_suivre' => 'Ne plus suivre @people@',
 	'auteur_vous_block' => 'Vous avez bloqué @people@',
 	'auteur_vous_suivez' => 'Vous suivez @people@',
-	'auteurs_vous_suivez' => 'Les auteurs que vous suivez',
+	'auteurs_vous_suivez' => 'Les personnes que vous suivez',
 
 	// B
 	'beta_publique' => '<strong>Seenthis est en beta publique.</strong><br />Vous pouvez vous inscrire et participer, merci pour votre patience et votre bonne volonté durant cette phase.',
@@ -56,14 +56,14 @@ Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’
 	'me_suggerer_contacts' => 'Me suggérer des contacts',
 	'message_inscription' => '<strong>Inscription gratuite et immédiate</strong><br />Dès l’enregistrement, votre mot de passe vous est expédié par email.',
 	'message_suggerer' => '
-				<strong>Nouveau sur Seenthis ? Vous devriez commencer par suivre des auteurs.</strong>
+				<strong>Nouveau sur Seenthis ? Vous devriez commencer par suivre des personnes.</strong>
 				<p>Cliquez sur le bouton « Me suggérer des contacts » ci-contre, et 
-				visitez les pages des auteurs proposés. Si un auteur vous intéresse, suivez-le en cliquant, 
-				en haut de page, sur « Suivre cet auteur ».
+				visitez les pages des personnes proposés. Si une personne vous intéresse, suivez-le en cliquant, 
+				en haut de page, sur « Suivre cet personne ».
 				Puis revenez sur cette page, recommencez l’opération, les propositions s’affineront au fur et
-				à mesure de votre propre sélection d’auteurs.</p>
-				<p>Ce message disparaîtra lorsque vous suivrez cinq auteurs. 
-				Rendez-vous ensuite  sur l’onglet « @auteurs » pour obtenir des suggestions d’auteurs.</p>',
+				à mesure de votre propre sélection de personnes.</p>
+				<p>Ce message disparaîtra lorsque vous suivrez cinq personnes. 
+				Rendez-vous ensuite  sur l’onglet « @personnes » pour obtenir des suggestions de personnes.</p>',
 	'modifier' => 'modifier',
 	'montrer_messages' => 'montrer les @total@ messages',
 
@@ -90,13 +90,13 @@ vous pouvez régler vos préférences dans votre profil
 
 	// P
 	'pave_accueil' => 'Du <strong>short-blogging</strong> sans limite de caractères. De la <strong>recommandation de liens</strong>. Des <strong>automatismes</strong> pour rédiger facilement vos messages. Des <strong>forums</strong> sous chaque billet. De la <strong>veille d’actualité</strong>. Une <strong>thématisation</strong> avancée.',
-	'people' => 'auteurs',
+	'people' => 'personnes',
 	'profil' => 'préférences',
 	'profil_alerte_conversations' => '<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu',
 	'profil_alerte_dubien' => '<b>un ami qui vous veut du bien</b> / quelqu’un me suit',
 	'profil_alerte_mes_billets' => '<b>mes billets</b> / recevoir une copie de mes propres messages',
-	'profil_alerte_nolife' => '<b>nolife</b> / un auteur que je suis répond à n’importe quel billet',
-	'profil_alerte_nouveaux_billets' => '<b>nouveaux billets</b> / un nouveau billet est posté par un auteur que je suis',
+	'profil_alerte_nolife' => '<b>nolife</b> / une personne que je suis répond à n’importe quel billet',
+	'profil_alerte_nouveaux_billets' => '<b>nouveaux billets</b> / un nouveau billet est posté par une personne que je suis',
 	'profil_alerte_partage' => '<b>partage</b> / quelqu’un a partagé un de mes billets',
 	'profil_alerte_reponse_partage' => '<b>réponses à un partage</b> / quelqu’un répond à un billet que j’ai partagé',
 	'profil_alerte_reponses' => '<b>réponses à mes billets</b> / quelqu’un répond à un de mes billets',
@@ -113,7 +113,7 @@ vous pouvez régler vos préférences dans votre profil
 	'profil_licence' => 'Licence de vos messages',
 	'profil_liens_partage_fb' => 'Afficher les boutons de partage vers Facebook',
 	'profil_liens_partage_tw' => 'Afficher les boutons de partage vers Twitter',
-	'profil_logo' => 'Logo de l’auteur (carré)',
+	'profil_logo' => 'Logo de la personne (carré)',
 	'profil_mexpedier' => 'M’expédier un courrier<br /> électronique quand...',
 	'profil_partage' => 'Partage',
 	'profil_rss' => 'Importer automatiquement un flux d’articles au format ATOM ou RSS',
@@ -126,7 +126,7 @@ vous pouvez régler vos préférences dans votre profil
 
 	// S
 	'slogan_lien' => 'Inscrivez-vous, c’est gratuit et rapide !',
-	'slogan_texte' => '<strong>Participez à la discussion !</strong> Sur Seenthis, vous pouvez référencer des articles, les commenter, écrire des billets, discuter avec vos amis, suivre les auteurs qui vous intéressent...',
+	'slogan_texte' => '<strong>Participez à la discussion !</strong> Sur Seenthis, vous pouvez référencer des articles, les commenter, écrire des billets, discuter avec vos amis, suivre les personnes qui vous intéressent...',
 	'suggestions' => 'Suggestions :',
 	'suivre_people' => 'Suivre @people@',
 	'suivre_url' => 'Suivre ce site',
@@ -141,7 +141,7 @@ vous pouvez régler vos préférences dans votre profil
 	// T
 	'tags' => 'thèmes',
 	'theme_automatiquement' => 'Ce <b>thème</b> a été généré <b>automatiquement</b>.',
-	'theme_manuellement' => 'Ce <b>thème</b> est attribué <b>manuellement</b> par les auteurs des messages.',
+	'theme_manuellement' => 'Ce <b>thème</b> est attribué <b>manuellement</b> par les personnes des messages.',
 	'themes_automatiques' => 'thèmes automatiques',
 	'themes_vous_suivez' => 'Les thèmes que vous suivez',
 	'tous_les_messages_de' => 'Tous les messages de @people@',
