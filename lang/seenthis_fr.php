@@ -59,7 +59,7 @@ Vous pouvez le réactiver depuis votre page de préférences, en supprimant l’
 				<strong>Nouveau sur Seenthis ? Vous devriez commencer par suivre des personnes.</strong>
 				<p>Cliquez sur le bouton « Me suggérer des contacts » ci-contre, et 
 				visitez les pages des personnes proposés. Si une personne vous intéresse, suivez-le en cliquant, 
-				en haut de page, sur « Suivre cet personne ».
+				en haut de page, sur « Suivre cette personne ».
 				Puis revenez sur cette page, recommencez l’opération, les propositions s’affineront au fur et
 				à mesure de votre propre sélection de personnes.</p>
 				<p>Ce message disparaîtra lorsque vous suivrez cinq personnes. 
