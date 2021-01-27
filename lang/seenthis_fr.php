@@ -93,7 +93,7 @@ vous pouvez régler vos préférences dans votre profil
 	'people' => 'personnes',
 	'profil' => 'préférences',
 	'profil_alerte_conversations' => '<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu',
-	'profil_alerte_dubien' => '<b>un ami qui vous veut du bien</b> / quelqu’un me suit',
+	'profil_alerte_dubien' => '<b>une personne qui vous veut du bien</b> / quelqu’un me suit',
 	'profil_alerte_mes_billets' => '<b>mes billets</b> / recevoir une copie de mes propres messages',
 	'profil_alerte_nolife' => '<b>nolife</b> / une personne que je suis répond à n’importe quel billet',
 	'profil_alerte_nouveaux_billets' => '<b>nouveaux billets</b> / un nouveau billet est posté par une personne que je suis',
@@ -126,7 +126,7 @@ vous pouvez régler vos préférences dans votre profil
 
 	// S
 	'slogan_lien' => 'Inscrivez-vous, c’est gratuit et rapide !',
-	'slogan_texte' => '<strong>Participez à la discussion !</strong> Sur Seenthis, vous pouvez référencer des articles, les commenter, écrire des billets, discuter avec vos amis, suivre les personnes qui vous intéressent...',
+	'slogan_texte' => '<strong>Participez à la discussion !</strong> Sur Seenthis, vous pouvez référencer des articles, les commenter, écrire des billets, discuter avec vos contacts, suivre les personnes qui vous intéressent...',
 	'suggestions' => 'Suggestions :',
 	'suivre_people' => 'Suivre @people@',
 	'suivre_url' => 'Suivre ce site',
