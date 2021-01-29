@@ -18,12 +18,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'auteur_block' => '@people@ blokkeren',
 	'auteur_block_you' => 'Deze auteur heeft u geblokkeerd. Op zijn berichten mag je geen commentaar schrijven.
 
-',
+', # MODIF
 	'auteur_ne_plus_block' => '@people@ toestaan',
 	'auteur_ne_plus_suivre' => '@people@ niet meer volgen',
 	'auteur_vous_block' => 'Je hebt @people@ geblokkeerd',
 	'auteur_vous_suivez' => 'Je volgt @people@',
-	'auteurs_vous_suivez' => 'De auteurs die je volgt',
+	'auteurs_vous_suivez' => 'De auteurs die je volgt', # MODIF
 
 	// B
 	'beta_publique' => '<strong>Seenthis is in openbaar beta-ontwikkelingsphase.</strong><br />Je mag je inschrijven en medoen, wees al bedankt voor je geduld en goede wil tijdens dit phase.',
@@ -57,18 +57,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 				<p>Klik hiernaast op het knopje “Stel mij contacten voor” en bezoek de pagina’s van de auteurs. Wanner een auteur je interesseert, mag je in het top van de pagina op “Die auteur volgen” klikken.
 				Kom dan terug op huidige pagine om het een paar keer herbeginnen. Hoe meer je auteurs heeft geselecteerd, hoe beter de voorstellingen progressief zouden moeten worden.</p>
 				<p>Dit boodschap wordt geborgen op het moment je meer dans 5 auteurs hebt gekozen. 
-				Om meer suggesties van auteurs te krijgen, surf dan naar het tab “@auteurs”.</p>',
+				Om meer suggesties van auteurs te krijgen, surf dan naar het tab “@auteurs”.</p>', # MODIF
 	'modifier' => 'wijzigen ',
 	'montrer_messages' => 'Wijs de @total@ boodschappen',
 
 	// P
 	'pave_accueil' => '<strong>Short blogging</strong> zonder aantal caracters beperking. <strong>Links aanbeveling</strong>. <strong>Automatische behandelingen</strong> om je boodschappen makkelijk te schrijven. <strong>Forums</strong> onder ieder biljet. <strong>Opvolging van actualiteiten</strong>. Geavanceerde <strong>thematisering</strong>.',
-	'people' => 'auteurs',
+	'people' => 'auteurs', # MODIF
 	'profil' => 'voorkeuren',
 	'profil_alerte_conversations' => '<b>gesprekken</b> / iemand beantwoord een biljet waarop ik ook geantwoord heb',
-	'profil_alerte_dubien' => '<b>een vriend die u ondersteunt</b> / iemand volgt mij',
-	'profil_alerte_nolife' => '<b>nolife</b> / wanner een auteur die ik volg reageert op een of ander biljet',
-	'profil_alerte_nouveaux_billets' => '<b>nieuwe biljetten</b> / een nieuwe biljet wordt gepubliceerd door een auteur die ik volg',
+	'profil_alerte_dubien' => '<b>een vriend die u ondersteunt</b> / iemand volgt mij', # MODIF
+	'profil_alerte_nolife' => '<b>nolife</b> / wanner een auteur die ik volg reageert op een of ander biljet', # MODIF
+	'profil_alerte_nouveaux_billets' => '<b>nieuwe biljetten</b> / een nieuwe biljet wordt gepubliceerd door een auteur die ik volg', # MODIF
 	'profil_alerte_reponses' => '<b>antwoorden op mijn biljetten</b> / iemand antwoord op een uit mijn biljetten',
 	'profil_alertes' => 'Kennisgevingen',
 	'profil_copyleft' => 'Copyright, copyleft',
@@ -80,7 +80,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_identite' => 'Identiteit',
 	'profil_langue' => 'Mijn taal',
 	'profil_licence' => 'Licentie van je berichten',
-	'profil_logo' => 'Auteur’s logo (vierkant)',
+	'profil_logo' => 'Auteur’s logo (vierkant)', # MODIF
 	'profil_mexpedier' => 'Stuur mij een email op<br> wanneer...',
 	'profil_rss' => 'Een ATOM of RSS artikelenstroom   automatisch invoeren',
 
@@ -92,7 +92,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => 'Schrijf je in, het is gratis en snel !',
-	'slogan_texte' => '<strong>Neem deel aan de discussie !</strong> Op Seenthis, kan je artikelen verwijzen, commentaren schrijven, boodschappen uiten, met vrienden discusseren, auteurs volgen die je interesseren...',
+	'slogan_texte' => '<strong>Neem deel aan de discussie !</strong> Op Seenthis, kan je artikelen verwijzen, commentaren schrijven, boodschappen uiten, met vrienden discusseren, auteurs volgen die je interesseren...', # MODIF
 	'suggestions' => 'Suggesties :',
 	'suivre_people' => '@people@ volgen',
 	'suivre_url' => 'De website volgen',
@@ -102,7 +102,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// T
 	'tags' => 'thema’s',
 	'theme_automatiquement' => 'Dit <b>thema</b> werd <b>automatisch</b> geselecteerd.',
-	'theme_manuellement' => 'Dit <b>thema</b> wordt <b>manueel</b> door de auteurs van de berichten toegekend.',
+	'theme_manuellement' => 'Dit <b>thema</b> wordt <b>manueel</b> door de auteurs van de berichten toegekend.', # MODIF
 	'themes_automatiques' => 'automatische thema’s',
 	'themes_vous_suivez' => 'Thema’s dat je volgt',
 	'tous_les_messages_de' => 'Alle boodschappen van @people@',

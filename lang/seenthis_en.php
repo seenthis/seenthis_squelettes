@@ -17,12 +17,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler' => 'Cancel',
 	'aucun_message' => 'No messages',
 	'auteur_block' => 'Block @people@',
-	'auteur_block_you' => 'This user has blocked your comments.',
+	'auteur_block_you' => 'This user has blocked your comments.', # MODIF
 	'auteur_ne_plus_block' => 'Un-block @people@',
 	'auteur_ne_plus_suivre' => 'Stop following @people@',
 	'auteur_vous_block' => 'You have blocked @people@',
 	'auteur_vous_suivez' => 'Your are following @people@',
-	'auteurs_vous_suivez' => 'The people you are following',
+	'auteurs_vous_suivez' => 'The people you are following', # MODIF
 
 	// B
 	'beta_publique' => '<strong>Seenthis Beta version.</strong><br />You can subscribe and participate. Thank you for your patience during this phase.',
@@ -59,7 +59,7 @@ You can enable it again in your preferences, by deleting the star which was adde
 	'message_suggerer' => '
 				<strong>New to Seenthis? You should begin by following some people.</strong>
 				<p>Click on the “Suggest Contacts” button to see the pages of other authors you might like. You can follow an author by clicking on the “Follow...” button at the top of their page. The more choices you make, the more accurate the contact suggestions will be!</p>
-				<p>After you’ve followed five authors, this message will go away. The “Suggest Contacts” button is always available on your “@people” page.</p>',
+				<p>After you’ve followed five authors, this message will go away. The “Suggest Contacts” button is always available on your “@people” page.</p>', # MODIF
 	'modifier' => 'modify',
 	'montrer_messages' => 'show the @total@ messages',
 
@@ -74,13 +74,13 @@ you can set your preferences accordingly in your profile
 
 	// P
 	'pave_accueil' => '<strong>Short-blogging</strong> with no text limit. <strong>Curation and web survey</strong>. Cool <strong>automatic</strong> text layout. <strong>Forums</strong> under each post. Advanced and automatic <strong>thematisation</strong>.',
-	'people' => 'people',
+	'people' => 'people', # MODIF
 	'profil' => 'settings',
 	'profil_alerte_conversations' => '<b>conversations</b> / someone is replying to a post I have already replied to',
-	'profil_alerte_dubien' => '<b>stalker</b> / someone is following me',
+	'profil_alerte_dubien' => '<b>stalker</b> / someone is following me', # MODIF
 	'profil_alerte_mes_billets' => '<b>my posts</b> / get a copy of my own messages',
-	'profil_alerte_nolife' => '<b>no life</b> / someone that I follow replies to any post',
-	'profil_alerte_nouveaux_billets' => '<b>new posts</b> / an initial text is posted by an author I follow',
+	'profil_alerte_nolife' => '<b>no life</b> / someone that I follow replies to any post', # MODIF
+	'profil_alerte_nouveaux_billets' => '<b>new posts</b> / an initial text is posted by an author I follow', # MODIF
 	'profil_alerte_partage' => '<b>share</b> / someone shared one of my posts',
 	'profil_alerte_reponse_partage' => '<b>replies to my share</b> / someone replies to a post I shared',
 	'profil_alerte_reponses' => '<b>replies to my posts</b> / someone replies to one of my initial posts',
@@ -96,7 +96,7 @@ you can set your preferences accordingly in your profile
 	'profil_licence' => 'Licence of your messages',
 	'profil_liens_partage_fb' => 'Display Facebook share buttons',
 	'profil_liens_partage_tw' => 'Display Twitter share buttons',
-	'profil_logo' => 'Author’s picture (square)',
+	'profil_logo' => 'Author’s picture (square)', # MODIF
 	'profil_mexpedier' => 'Send me an email when...',
 	'profil_partage' => 'Share',
 	'profil_rss' => 'Automatically import a RSS or Atom feed',
@@ -109,7 +109,7 @@ you can set your preferences accordingly in your profile
 
 	// S
 	'slogan_lien' => 'Sign up, it’s free!',
-	'slogan_texte' => '<strong>Take part in the discussion!</strong> On Seenthis, you can recommend articles, comment, discuss with your friends, follow authors...',
+	'slogan_texte' => '<strong>Take part in the discussion!</strong> On Seenthis, you can recommend articles, comment, discuss with your friends, follow authors...', # MODIF
 	'suggestions' => 'Suggestions:',
 	'suivre_people' => 'Follow @people@',
 	'suivre_url' => 'Follow this site',
@@ -124,7 +124,7 @@ you can set your preferences accordingly in your profile
 	// T
 	'tags' => 'tags',
 	'theme_automatiquement' => 'This <b>theme</b> is <b>automatically</b> generated.',
-	'theme_manuellement' => 'This <b>theme</b> is attributed <b>manually</b> by the authors of the messages.',
+	'theme_manuellement' => 'This <b>theme</b> is attributed <b>manually</b> by the authors of the messages.', # MODIF
 	'themes_automatiques' => 'automatic tags',
 	'themes_vous_suivez' => 'The tags you follow',
 	'tous_les_messages_de' => 'All of @people@’s messages',

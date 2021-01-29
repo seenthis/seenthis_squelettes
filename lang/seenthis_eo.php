@@ -13,12 +13,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'accueil' => 'Ĉefpâgo',
 	'annuler' => 'Nuligi',
 	'auteur_block' => 'Bloki @people@',
-	'auteur_block_you' => 'Tiu aŭtoro blokis vin. Vi ne povas komenti liajn aŭ ŝiajn mesaĝojn.',
+	'auteur_block_you' => 'Tiu aŭtoro blokis vin. Vi ne povas komenti liajn aŭ ŝiajn mesaĝojn.', # MODIF
 	'auteur_ne_plus_block' => 'Malbloki @people@',
 	'auteur_ne_plus_suivre' => 'Ne plu sekvi @people@',
 	'auteur_vous_block' => 'Vi blokis @people@',
 	'auteur_vous_suivez' => 'Vi sekvas @people@',
-	'auteurs_vous_suivez' => 'Aŭtoroj, kiujn vi sekvas',
+	'auteurs_vous_suivez' => 'Aŭtoroj, kiujn vi sekvas', # MODIF
 
 	// B
 	'beta_publique' => '<strong>Seenthis estas betaversio.</strong><br />Vi povas registriĝi kaj partopreni, dankon pro via pacienco kaj bonvolo dum tiu momento.',
@@ -46,7 +46,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'montrer_messages' => 'montri la @total@ mesaĝoj',
 
 	// P
-	'people' => 'aŭtoroj',
+	'people' => 'aŭtoroj', # MODIF
 	'profil' => 'agordoj',
 
 	// R

@@ -17,12 +17,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler' => 'إلغاء',
 	'aucun_message' => 'لا توجد اي رسالة',
 	'auteur_block' => 'حظر @people@',
-	'auteur_block_you' => 'هذا المشارك صدّك. لايمكنك لتعليق على رسائله.',
+	'auteur_block_you' => 'هذا المشارك صدّك. لايمكنك لتعليق على رسائله.', # MODIF
 	'auteur_ne_plus_block' => 'إزالة حظر @people@',
 	'auteur_ne_plus_suivre' => 'التوقف عن متابعة @people@',
 	'auteur_vous_block' => 'قمت بحظر @people@',
 	'auteur_vous_suivez' => 'المتابَعون @people@',
-	'auteurs_vous_suivez' => 'المشاركون المتابَعون',
+	'auteurs_vous_suivez' => 'المشاركون المتابَعون', # MODIF
 
 	// B
 	'beta_publique' => '<strong>Seenthis لا يزال في نسخة بيتا عمومية.</strong><br>يمكنكم التسجيل والمشاركة. نشكركم على صبركم خلال هذه المرحلة.',
@@ -60,7 +60,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 				<p>أنقروا على زر «اقتراحات المتابعة»،  وقوموا بزيارة صفحات المشاركين المقترحين. اذا لفت انتباهكم أحد المشاركين، قوموا بتتبعه بالنقر على «تتبع هذا المشارك»، في أعلى الصفحة. 
 							ثم عودوا الى هذه الصفحة وأعيدوا العملية، سيتم صقل الاقتراحات تباعاً كلما ازداد اختياركم لمشاركين.</p>
 				<p>ستختفي هذه الرسالة عندما يصل عدد المشاركين الذين تتبعونهم الى خمسة. 
-				سيظل زر «اقتراحات المتابعة» متوافراً في صفحة «@المشاركون».</p>',
+				سيظل زر «اقتراحات المتابعة» متوافراً في صفحة «@المشاركون».</p>', # MODIF
 	'modifier' => 'تعديل',
 	'montrer_messages' => 'عرض الـ@total@ رسالة',
 
@@ -86,13 +86,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// P
 	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المشاركات. <strong>منتديات</strong> تحت كل مداخلة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.',
-	'people' => 'المشاركون',
+	'people' => 'المشاركون', # MODIF
 	'profil' => 'التفضيلات',
 	'profil_alerte_conversations' => '<b>محادثات</b> / أحدهم ردّ على مداخلة كنت قد رددت عليها بنفسي.',
-	'profil_alerte_dubien' => '<b>الله يكثر الحبايب</b> / هناك من يتبعني',
+	'profil_alerte_dubien' => '<b>الله يكثر الحبايب</b> / هناك من يتبعني', # MODIF
 	'profil_alerte_mes_billets' => '<b>مداخلاتي</b> / الحصول على نسخة من رسائلي',
-	'profil_alerte_nolife' => '<b>هَوَس</b> / هناك مشترك اتبعه يرد على المداخلات اي كانت',
-	'profil_alerte_nouveaux_billets' => '<b>مداخلات جديدة</b> / مؤلف اتبعه أدخل مشاركة جديدة',
+	'profil_alerte_nolife' => '<b>هَوَس</b> / هناك مشترك اتبعه يرد على المداخلات اي كانت', # MODIF
+	'profil_alerte_nouveaux_billets' => '<b>مداخلات جديدة</b> / مؤلف اتبعه أدخل مشاركة جديدة', # MODIF
 	'profil_alerte_partage' => '<b>مشاركة</b> / أحدهم وزع إحدى مداخلاتي',
 	'profil_alerte_reponse_partage' => '<b>ردود على مشاركة</b> / أحدهم رد على مداخلة وزغتها ',
 	'profil_alerte_reponses' => '<b>الردود على مداخلاتي</b> / أحدهم يرد على إحدى مداخلاتي',
@@ -109,7 +109,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_licence' => 'رخصة رسائلك',
 	'profil_liens_partage_fb' => 'عرض أزرار المشارة مع فيسبوك',
 	'profil_liens_partage_tw' => 'عرض أزرار المشاركة مع تويتر',
-	'profil_logo' => 'رمز المؤلف (مربّع)',
+	'profil_logo' => 'رمز المؤلف (مربّع)', # MODIF
 	'profil_mexpedier' => 'أريد تلقي رسالة<br> إلكترونية عندما...',
 	'profil_partage' => 'مشاركة',
 	'profil_rss' => 'جلب آلي لتدفق المقالات بتنسيق ATOM او RSS',
@@ -122,7 +122,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => 'تسجلوا! التسجل سريع ومجاني!',
-	'slogan_texte' => '<strong>شاركوا في النقاش!</strong> في Seenthis، يمكنكم تبويب مقالات والتعليق عليها وكتابة مداخلات والنقاش مع الأصدقاء ومتابعة المؤلفين الذين يهمكم أمرهم...',
+	'slogan_texte' => '<strong>شاركوا في النقاش!</strong> في Seenthis، يمكنكم تبويب مقالات والتعليق عليها وكتابة مداخلات والنقاش مع الأصدقاء ومتابعة المؤلفين الذين يهمكم أمرهم...', # MODIF
 	'suggestions' => 'اقتراحات:',
 	'suivre_people' => 'متابعة @people@',
 	'suivre_url' => 'متابعة هذا الموقع',
@@ -137,7 +137,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// T
 	'tags' => 'المواضيع',
 	'theme_automatiquement' => 'تم إنشاء هذا <b>الموضوع</b> <b>آلياً</b>.',
-	'theme_manuellement' => 'تم تحديد هذا <b>الموضوع</b> <b>يدوياً</b> من مؤلفي الرسائل.',
+	'theme_manuellement' => 'تم تحديد هذا <b>الموضوع</b> <b>يدوياً</b> من مؤلفي الرسائل.', # MODIF
 	'themes_automatiques' => 'المواضيع الآلية',
 	'themes_vous_suivez' => 'المواضيع المتابَعة',
 	'tous_les_messages_de' => 'كل راسائل @people@',

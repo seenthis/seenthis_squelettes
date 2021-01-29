@@ -16,12 +16,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'accueil' => 'Forside',
 	'annuler' => 'Avbryt',
 	'auteur_block' => 'Blokker @people@',
-	'auteur_block_you' => 'Denne bidragsyteren har blokkert deg. Du kan ikke kommentere innleggene hans',
+	'auteur_block_you' => 'Denne bidragsyteren har blokkert deg. Du kan ikke kommentere innleggene hans', # MODIF
 	'auteur_ne_plus_block' => 'Lås opp @people@',
 	'auteur_ne_plus_suivre' => 'Slutt å følge @people@',
 	'auteur_vous_block' => 'Du har blokkert @people@',
 	'auteur_vous_suivez' => 'Du følger @people@',
-	'auteurs_vous_suivez' => 'Bidragsytere du følger',
+	'auteurs_vous_suivez' => 'Bidragsytere du følger', # MODIF
 
 	// B
 	'beta_publique' => '<strong>Seenthis er i beta-versjon.</strong><br>Du kan registrere deg og delta: Takk for din tålmodighet og godvilje i løpet av denne fasen.',
@@ -50,19 +50,19 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 				<p><p> Klikk på knappen "foreslå bidragsytere" for å se sidene til de foreslåtte bidragsyterne. Du kan følge bidragsytere med å klikke på "Følg denne bidragsyter."
 				Gå deretter tilbake til denne siden, prøv dette på nytt, forslagene vil bli stadig mer presise. </ p>
 				<p>Denne meldingen forsvinner når du følger fem bidragsyter.
-				Deretter går du til fanen "@bidragsyter" for å få forslag til bidragsyter</p>',
+				Deretter går du til fanen "@bidragsyter" for å få forslag til bidragsyter</p>', # MODIF
 	'modifier' => 'endre',
 	'montrer_messages' => 'vis alle @total@ innlegg',
 
 	// P
 	'pave_accueil' => '<strong> "Short-blogging" </ strong> ubegrenset antall tegn. <strong> Anbefalte lenker </ strong>. Automatiseringer <strong> </ strong> for å skrive innlegg enkelt. <strong> Forum </ strong> under hvert innlegg. <strong> Like før nyheten </ strong>. Avansert <strong>tema</ strong>.',
-	'people' => 'bidragsytere',
+	'people' => 'bidragsytere', # MODIF
 	'profil' => 'innstillinger',
 	'profil_alerte_conversations' => '<b> samtaler </ b> / noen svarer på et innlegg jeg har svart på',
-	'profil_alerte_dubien' => '<b>en venn som ønsker deg godt</ b> / noen følger meg',
-	'profil_alerte_nolife' => '<b>"nolife"</b> /  En bidragsyter jeg føler svarer på et innlegg',
+	'profil_alerte_dubien' => '<b>en venn som ønsker deg godt</ b> / noen følger meg', # MODIF
+	'profil_alerte_nolife' => '<b>"nolife"</b> /  En bidragsyter jeg føler svarer på et innlegg', # MODIF
 	'profil_alerte_nouveaux_billets' => '<b>nye inlegg</b> /et nytt innlegg er lagt ut av en bidragsyter jeg følger
-',
+', # MODIF
 	'profil_alerte_reponses' => '<b> svar på mine meldinger </ b> / noen svarer på en av mine meldinger',
 	'profil_alertes' => 'Varsler',
 	'profil_copyleft' => 'Copyright, copyleft',
@@ -74,7 +74,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_identite' => 'ID',
 	'profil_langue' => 'Mitt språk',
 	'profil_licence' => 'Dine innleggs lisens',
-	'profil_logo' => 'logo bidragsyter (firekant)',
+	'profil_logo' => 'logo bidragsyter (firekant)', # MODIF
 	'profil_mexpedier' => 'Send meg en e-post <br>når  ...',
 	'profil_rss' => 'Importer automatisk artikler med RSS eller ATOM',
 
@@ -86,7 +86,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => 'Registrer deg, det er gratis og enkelt!',
-	'slogan_texte' => '<strong>Bli med i diskusjonen!</strong> På Seenthis kan du henvise til artikler, kommentere, skrive notater, diskutere med venner og følge de bidragsyterne du er interessert i ...',
+	'slogan_texte' => '<strong>Bli med i diskusjonen!</strong> På Seenthis kan du henvise til artikler, kommentere, skrive notater, diskutere med venner og følge de bidragsyterne du er interessert i ...', # MODIF
 	'suggestions' => 'Anbefalinger:',
 	'suivre_people' => 'Følg @people@',
 	'suivre_url' => 'Følg denne nettsiden',
@@ -98,7 +98,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'theme_automatiquement' => 'Dette <b>temaet</ b> er <b>automatisk</ b> generert.',
 	'theme_manuellement' => 'Dette <b>temaet</b>  tilordnes <b>manuelt</b> av meldingenes bidragsytere.
 
-',
+', # MODIF
 	'themes_automatiques' => 'Automatiske temaer',
 	'themes_vous_suivez' => 'Temaene du følger
 

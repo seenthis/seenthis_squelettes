@@ -16,12 +16,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'accueil' => 'Inicio',
 	'annuler' => 'Anular',
 	'auteur_block' => 'Bloquear @people@',
-	'auteur_block_you' => 'Este autor lo ha bloqueado. Usted no puede comentar sus mensajes.',
+	'auteur_block_you' => 'Este autor lo ha bloqueado. Usted no puede comentar sus mensajes.', # MODIF
 	'auteur_ne_plus_block' => 'Desbloquear @people@',
 	'auteur_ne_plus_suivre' => 'Dejar de seguir a @people@',
 	'auteur_vous_block' => 'Usted ha bloqueado a @people@',
 	'auteur_vous_suivez' => 'Usted sigue @people@',
-	'auteurs_vous_suivez' => 'Autores que usted sigue',
+	'auteurs_vous_suivez' => 'Autores que usted sigue', # MODIF
 
 	// B
 	'beta_publique' => '<strong>Seenthis está en beta pública.</strong><br />Usted puede inscribirse y participar. Gracias por su paciencia y su buena voluntad durante esta fase.',
@@ -53,19 +53,19 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_inscription' => '<strong>Inscripción gratis e inmediata. </strong><br /> Usted recibirá su contraseña en contados minutos.',
 	'message_suggerer' => '<strong>¿Nuevo en Seenthis? Usted debería comenzar siguiendo algunos autores.</strong>
 <p>Pulse el botón 2Sugerirme contactos" y visite las páginas de los autores propuestos. Si un autor le interesa, sígalo pulsando en el botón "Seguir este autor". Reinicie esta operación y las propuestas se harán en relación a su selección de autores.</p>
-<p>Este mensaje desaparecerá una vez que usted siga a cinco autores. Para encontrar más autores, pulse el botón "@autores".</p>',
+<p>Este mensaje desaparecerá una vez que usted siga a cinco autores. Para encontrar más autores, pulse el botón "@autores".</p>', # MODIF
 	'modifier' => 'modificar',
 	'montrer_messages' => 'mostrar los @total@ mensajes',
 
 	// P
 	'pave_accueil' => '<strong>Short-blogging</strong> sin límite de caracteres. <strong>Recomendación de enlaces</strong>. <strong>Automatismos</strong> para redactar fácilmente los mensajes. <strong>Foros</strong> en todas las notas. <strong>Agenda de actualidad</strong>. Una <strong>tematización</strong> avanzada.',
-	'people' => 'autores',
+	'people' => 'autores', # MODIF
 	'profil' => 'preferencias',
 	'profil_alerte_conversations' => '<b>conversaciones</b> / alguien responde a una nota a la cual yo he respondido',
-	'profil_alerte_dubien' => '<b>un amigo propone una nota</b> / alguien que me sigue',
+	'profil_alerte_dubien' => '<b>un amigo propone una nota</b> / alguien que me sigue', # MODIF
 	'profil_alerte_mes_billets' => '<b>mis notas</b> / recibir una copia de mis propios mensajes',
-	'profil_alerte_nolife' => '<b>nolife</b> / un autor que yo sigo responde a cualquier nota',
-	'profil_alerte_nouveaux_billets' => '<b>nuevas notas</b> / una nota es propuesta por un autor que yo sigo',
+	'profil_alerte_nolife' => '<b>nolife</b> / un autor que yo sigo responde a cualquier nota', # MODIF
+	'profil_alerte_nouveaux_billets' => '<b>nuevas notas</b> / una nota es propuesta por un autor que yo sigo', # MODIF
 	'profil_alerte_reponses' => '<b>respuestas a mis notas</b> / alguien responde a mis notas',
 	'profil_alertes' => 'Alertas',
 	'profil_copyleft' => 'Copyright, copyleft',
@@ -77,7 +77,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_identite' => 'Identidad',
 	'profil_langue' => 'Mi idioma',
 	'profil_licence' => 'Licencia de sus mensajes',
-	'profil_logo' => 'Avatar del autor (cuadrado)',
+	'profil_logo' => 'Avatar del autor (cuadrado)', # MODIF
 	'profil_mexpedier' => 'Enviarme un correo<br /> electrónico cuando…',
 	'profil_rss' => 'Importar automáticamente una fuente de artículos en formato ATOM o RSS',
 
@@ -89,7 +89,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => '¡Inscríbase, es gratuito, indoloro y rápido!',
-	'slogan_texte' => '<strong>¡Participar en la discusión!</strong> En Seenthis, usted puede sugerir artículos, referenciarlos, comentarlos, escribir notas, discutir con sus amigos y seguir a autores que le interesen…',
+	'slogan_texte' => '<strong>¡Participar en la discusión!</strong> En Seenthis, usted puede sugerir artículos, referenciarlos, comentarlos, escribir notas, discutir con sus amigos y seguir a autores que le interesen…', # MODIF
 	'suggestions' => 'Sugerencias:',
 	'suivre_people' => 'Seguir a @people@',
 	'suivre_url' => 'Seguir este sitio',
@@ -99,7 +99,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// T
 	'tags' => 'temas',
 	'theme_automatiquement' => 'Este <b>tema</b> ha sido atribuido<b>automaticamente</b>.',
-	'theme_manuellement' => 'Este <b>tema</b> ha sido atribuido <b>manualmente</b> por los autores de los mensajes.',
+	'theme_manuellement' => 'Este <b>tema</b> ha sido atribuido <b>manualmente</b> por los autores de los mensajes.', # MODIF
 	'themes_automatiques' => 'temas automáticos ',
 	'themes_vous_suivez' => 'Temas que usted sigue',
 	'tous_les_messages_de' => 'Todos los mensajes de @people@',
