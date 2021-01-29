@@ -155,6 +155,6 @@ vous pouvez régler vos préférences dans votre profil
 	'votre_message' => 'Votre message',
 	'votre_message_public' => 'Votre message public à ',
 	'vous_connaissez' => 'Vous connaissez peut-être :',
-	'vous_suivent' => 'abonnés',
+	'vous_suivent' => 'abonné⋅es',
 	'vous_suivez' => 'abonnements'
 );
