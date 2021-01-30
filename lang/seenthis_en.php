@@ -138,6 +138,6 @@ you can set your preferences accordingly in your profile
 	'votre_message' => 'Your message',
 	'votre_message_public' => 'Your public message to ',
 	'vous_connaissez' => 'You may know:',
-	'vous_suivent' => 'followers',
+	'vous_suivent' => 'followers', # MODIF
 	'vous_suivez' => 'following'
 );

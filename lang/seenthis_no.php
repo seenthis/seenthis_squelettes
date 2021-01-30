@@ -114,6 +114,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'votre_message' => 'Din melding',
 	'votre_message_public' => 'Din offentlige melding til',
 	'vous_connaissez' => 'Kanskje kjenner du:',
-	'vous_suivent' => 'abonnenter',
+	'vous_suivent' => 'abonnenter', # MODIF
 	'vous_suivez' => 'abonnementer'
 );

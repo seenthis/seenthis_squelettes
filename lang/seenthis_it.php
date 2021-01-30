@@ -121,6 +121,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'votre_message' => 'Il tuo post',
 	'votre_message_public' => 'Il tuo messaggio pubblico a',
 	'vous_connaissez' => 'Potresti conoscere:',
-	'vous_suivent' => 'abbonati',
+	'vous_suivent' => 'abbonati', # MODIF
 	'vous_suivez' => 'abbonamenti'
 );

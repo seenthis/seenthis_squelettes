@@ -5,46 +5,46 @@
 	url="https://trad.spip.net"
 	source="https://github.com/seenthis/seenthis_squelettes/trunk/lang"
 	reference="fr">
-	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="98" traduits="86" relire="0" modifs="11" nouveaux="1" pourcent="87.76">
+	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="98" traduits="85" relire="0" modifs="12" nouveaux="1" pourcent="86.73">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
-	<langue code="de" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=de" total="98" traduits="65" relire="0" modifs="10" nouveaux="23" pourcent="66.33">
+	<langue code="de" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=de" total="98" traduits="64" relire="0" modifs="11" nouveaux="23" pourcent="65.31">
 		<traducteur nom="klaus++" lien="https://trad.spip.net/auteur/klaus" />
 		<traducteur nom="oAnth" lien="https://trad.spip.net/auteur/oanth" />
 	</langue>
-	<langue code="en" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=en" total="98" traduits="79" relire="0" modifs="10" nouveaux="9" pourcent="80.61">
+	<langue code="en" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=en" total="98" traduits="78" relire="0" modifs="11" nouveaux="9" pourcent="79.59">
 		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="EScott" lien="https://trad.spip.net/auteur/escott" />
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
-	<langue code="eo" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=eo" total="98" traduits="41" relire="0" modifs="3" nouveaux="54" pourcent="41.84">
+	<langue code="eo" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=eo" total="98" traduits="40" relire="0" modifs="4" nouveaux="54" pourcent="40.82">
 		<traducteur nom="gpl" lien="https://trad.spip.net/auteur/gpl" />
 	</langue>
-	<langue code="es" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=es" total="98" traduits="65" relire="0" modifs="10" nouveaux="23" pourcent="66.33">
+	<langue code="es" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=es" total="98" traduits="64" relire="0" modifs="11" nouveaux="23" pourcent="65.31">
 		<traducteur nom="ARNO*" lien="https://trad.spip.net/auteur/arno-7003" />
 		<traducteur nom="Raquel S. Bujaldón" lien="https://trad.spip.net/auteur/raquel-s-bujaldon" />
 		<traducteur nom="severo" lien="https://trad.spip.net/auteur/severo" />
 		<traducteur nom="speciale" lien="https://trad.spip.net/auteur/speciale-2899" />
 	</langue>
 	<langue code="fr" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr" total="98" traduits="98" relire="0" modifs="0" nouveaux="0" pourcent="100.00" />
-	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="98" traduits="86" relire="0" modifs="11" nouveaux="1" pourcent="87.76">
+	<langue code="fr_tu" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=fr_tu" total="98" traduits="85" relire="0" modifs="12" nouveaux="1" pourcent="86.73">
 		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="Cerf" lien="https://trad.spip.net/auteur/cerf" />
 		<traducteur nom="James" lien="https://trad.spip.net/auteur/james" />
 		<traducteur nom="RealET" lien="https://trad.spip.net/auteur/realet" />
 	</langue>
-	<langue code="it" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=it" total="98" traduits="70" relire="0" modifs="10" nouveaux="18" pourcent="71.43">
+	<langue code="it" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=it" total="98" traduits="69" relire="0" modifs="11" nouveaux="18" pourcent="70.41">
 		<traducteur nom="CDB_77" lien="https://trad.spip.net/auteur/cdb_77" />
 		<traducteur nom="cedric" lien="https://trad.spip.net/auteur/fil" />
 		<traducteur nom="kent1" lien="https://trad.spip.net/auteur/kent1" />
 	</langue>
-	<langue code="nl" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=nl" total="98" traduits="64" relire="0" modifs="10" nouveaux="24" pourcent="65.31">
+	<langue code="nl" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=nl" total="98" traduits="63" relire="0" modifs="11" nouveaux="24" pourcent="64.29">
 		<traducteur nom="ARNO*" lien="https://trad.spip.net/auteur/arno-7003" />
 		<traducteur nom="Hanjo" lien="https://trad.spip.net/auteur/hanjo" />
 		<traducteur nom="lapeg" lien="https://trad.spip.net/auteur/lapeg" />
 		<traducteur nom="Suske" lien="https://trad.spip.net/auteur/suske" />
 	</langue>
-	<langue code="no" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=no" total="98" traduits="61" relire="0" modifs="10" nouveaux="27" pourcent="62.24">
+	<langue code="no" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=no" total="98" traduits="60" relire="0" modifs="11" nouveaux="27" pourcent="61.22">
 		<traducteur nom="reka" lien="https://trad.spip.net/auteur/reka" />
 	</langue>
 </traduction>

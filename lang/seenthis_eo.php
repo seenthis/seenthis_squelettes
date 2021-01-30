@@ -76,6 +76,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'votre_message' => 'Via mesaĝo',
 	'votre_message_public' => 'Via publika mesaĝo al ',
 	'vous_connaissez' => 'Eble vi konas :',
-	'vous_suivent' => 'abonantoj',
+	'vous_suivent' => 'abonantoj', # MODIF
 	'vous_suivez' => 'abonoj'
 );
