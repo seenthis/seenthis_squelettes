@@ -15,15 +15,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// A
 	'accueil' => 'Startpagina',
 	'annuler' => 'Annuleren',
+	'aucun_message' => 'Geen bericht',
 	'auteur_block' => '@people@ blokkeren',
-	'auteur_block_you' => 'Deze auteur heeft u geblokkeerd. Op zijn berichten mag je geen commentaar schrijven.
+	'auteur_block_you' => 'Deze persoon heeft je geblokkeerd. Je mag geen commentaar onder zijn berichten schrijven.
 
-', # MODIF
+',
 	'auteur_ne_plus_block' => '@people@ toestaan',
 	'auteur_ne_plus_suivre' => '@people@ niet meer volgen',
 	'auteur_vous_block' => 'Je hebt @people@ geblokkeerd',
 	'auteur_vous_suivez' => 'Je volgt @people@',
-	'auteurs_vous_suivez' => 'De auteurs die je volgt', # MODIF
+	'auteurs_vous_suivez' => 'De mensen die je volgt',
 
 	// B
 	'beta_publique' => '<strong>Seenthis is in openbaar beta-ontwikkelingsphase.</strong><br />Je mag je inschrijven en medoen, wees al bedankt voor je geduld en goede wil tijdens dit phase.',
@@ -42,6 +43,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// F
 	'favori' => 'delen',
+	'flux_desactive_texte' => 'Hallo @nom@,
+De automatische import van uw RSS/ATOM-feed is uitgeschakeld omdat u al een tijdje niet meer bent ingelogd op de site.
+U kunt het opnieuw activeren vanaf uw voorkeurenpagina, door de ster te verwijderen die aan het begin van het adres is toegevoegd of door op de volgende link @url@ te klikken ',
+	'flux_desactive_titre' => 'De import van uw feed is uitgeschakeld op @nom_site@ ',
 
 	// I
 	'insecable_typo' => ' ',
@@ -51,25 +56,50 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'logout' => ' uitloggen',
 
 	// M
+	'masquer_messages' => 'berichten verbergen',
 	'me_suggerer_contacts' => 'Stel mij contacten voor',
 	'message_inscription' => '<strong>Gratis en onmiddelijke inschrijving</strong><br>Je passwoord wordt na je registratie rechstreeks per email opgestuurd.',
-	'message_suggerer' => '				<strong>Nieuw op Seenthis ? Eerst zou je  enkele auteurs kiezen om ze te volgen.</strong>
-				<p>Klik hiernaast op het knopje “Stel mij contacten voor” en bezoek de pagina’s van de auteurs. Wanner een auteur je interesseert, mag je in het top van de pagina op “Die auteur volgen” klikken.
-				Kom dan terug op huidige pagine om het een paar keer herbeginnen. Hoe meer je auteurs heeft geselecteerd, hoe beter de voorstellingen progressief zouden moeten worden.</p>
-				<p>Dit boodschap wordt geborgen op het moment je meer dans 5 auteurs hebt gekozen. 
-				Om meer suggesties van auteurs te krijgen, surf dan naar het tab “@auteurs”.</p>', # MODIF
+	'message_suggerer' => '				<strong>Nieuw bji Seenthis ? Je moet beginnen met mensen te volgen.</strong>
+				<p>Klik op de “Stel mij contacten voor” knop hiernaast, en bezoek de pagina’s van de voorgestelde mensen. Als een persoon je interesseert, volg zij of hem dan door bovenaan de pagina op "Volg deze persoon" te klikken.
+				Kom dan terug naar deze pagina, herhaal de handeling, de suggesties zullen verfijnd worden terwijl je zelfs een aantal mensen hebt geselecteert. </p>
+				<p>Dit bericht verdwijnt op het moment je meer dans 5 mensen volgt. Ga dan naar het tabblad "@people" om suggesties voor mensen te krijgen.
+</p>', # RELIRE
 	'modifier' => 'wijzigen ',
 	'montrer_messages' => 'Wijs de @total@ boodschappen',
 
+	// N
+	'notif_me_nouveau' => '@nom_auteur@ heeft een nieuw bericht geplaatst ',
+	'notif_me_reponse' => '@nom_auteur@ heeft op een van eigen biljet geantwoord',
+	'notif_me_reponse_a' => '@nom_auteur@ heeft op een biljet van @nom_auteur_init@ geantwoord',
+	'notif_message_footer' => '
+---------
+Om het ontvangen van meldingen van @seenthis@ te stoppen,
+kunt u uw voorkeuren in uw profiel instellen
+@url@
+
+',
+	'notif_partage_texte' => 'Bonjour @nom_dest@,
+
+@nom_aut_partage@ (@@login_aut_partage@) heeft een bericht van jou gedeeld op @seenthis@.',
+	'notif_partage_titre' => '@nom_aut_partage@ (@@login_aut_partage@) heeft een bericht van jou gedeeld op @seenthis@.',
+	'notif_suivremoi_texte' => 'Bonjour @nom_dest@,
+
+@nom_aut@ (@@login_aut@) volgt je op @seenthis@.',
+	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) volgt je op @seenthis@.',
+
 	// P
 	'pave_accueil' => '<strong>Short blogging</strong> zonder aantal caracters beperking. <strong>Links aanbeveling</strong>. <strong>Automatische behandelingen</strong> om je boodschappen makkelijk te schrijven. <strong>Forums</strong> onder ieder biljet. <strong>Opvolging van actualiteiten</strong>. Geavanceerde <strong>thematisering</strong>.',
-	'people' => 'auteurs', # MODIF
+	'people' => 'mensen',
 	'profil' => 'voorkeuren',
 	'profil_alerte_conversations' => '<b>gesprekken</b> / iemand beantwoord een biljet waarop ik ook geantwoord heb',
-	'profil_alerte_dubien' => '<b>een vriend die u ondersteunt</b> / iemand volgt mij', # MODIF
-	'profil_alerte_nolife' => '<b>nolife</b> / wanner een auteur die ik volg reageert op een of ander biljet', # MODIF
-	'profil_alerte_nouveaux_billets' => '<b>nieuwe biljetten</b> / een nieuwe biljet wordt gepubliceerd door een auteur die ik volg', # MODIF
+	'profil_alerte_dubien' => '<b>iemand die je ondersteunt</b> / iemand volgt mij',
+	'profil_alerte_mes_billets' => '<b>mijn berichten</b> / een kopie van mijn eigen berichten ontvangen',
+	'profil_alerte_nolife' => '<b>nolife</b> / iemand die ik volg reageert op een of ander biljet',
+	'profil_alerte_nouveaux_billets' => '<b>nieuwe biljetten</b> / een nieuwe biljet wordt gepubliceerd door iemand die ik volg',
+	'profil_alerte_partage' => '<b>share</b> / iemand heeft een van mijn berichten gedeeld ', # RELIRE
+	'profil_alerte_reponse_partage' => '<b>antwoord op een share</b> / iemand reageert op een bericht dat ik heb gedeeld ', # RELIRE
 	'profil_alerte_reponses' => '<b>antwoorden op mijn biljetten</b> / iemand antwoord op een uit mijn biljetten',
+	'profil_alerte_tag_suivi' => '<b>gevolgd tag</b> / een nieuw bericht bevat een tag die ik volg ',
 	'profil_alertes' => 'Kennisgevingen',
 	'profil_copyleft' => 'Copyright, copyleft',
 	'profil_copyright_classique' => 'Geen licentie aangeduid (gewoonlijke auteursrechten)',
@@ -80,8 +110,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_identite' => 'Identiteit',
 	'profil_langue' => 'Mijn taal',
 	'profil_licence' => 'Licentie van je berichten',
-	'profil_logo' => 'Auteur’s logo (vierkant)', # MODIF
+	'profil_liens_partage_fb' => 'Toon knoppen om te delen op Facebook ',
+	'profil_liens_partage_tw' => 'Toon knoppen om te delen op Twitter',
+	'profil_logo' => 'Persoon’s logo (vierkant)',
 	'profil_mexpedier' => 'Stuur mij een email op<br> wanneer...',
+	'profil_partage' => 'Share', # RELIRE
 	'profil_rss' => 'Een ATOM of RSS artikelenstroom   automatisch invoeren',
 
 	// R
@@ -92,17 +125,22 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => 'Schrijf je in, het is gratis en snel !',
-	'slogan_texte' => '<strong>Neem deel aan de discussie !</strong> Op Seenthis, kan je artikelen verwijzen, commentaren schrijven, boodschappen uiten, met vrienden discusseren, auteurs volgen die je interesseren...', # MODIF
+	'slogan_texte' => '<strong>Neem deel aan de discussie !</strong> Op Seenthis kan je artikelen verwijzen, commentaren schrijven, boodschappen uiten, met vrienden discusseren, mensen volgen die je interesseren...',
 	'suggestions' => 'Suggesties :',
 	'suivre_people' => '@people@ volgen',
 	'suivre_url' => 'De website volgen',
 	'suivre_url_stop' => 'Website niet meer volgen',
 	'suivre_url_you' => 'Je volgt dit website',
+	'supprimer_mon_profil' => 'Mijn profiel verwijderen',
+	'supprimer_mon_profil_au_revoir' => 'Verwijdering aan de gang... tot ziens! ',
+	'supprimer_mon_profil_irreversible' => 'Mijn profiel verwijderen (onomkeerbaar) ',
+	'supprimer_mon_profil_login' => 'Voer uw login in om de aanvraag te bevestigen ',
+	'supprimer_veuillez_saisir' => 'Controleer uw login ',
 
 	// T
 	'tags' => 'thema’s',
 	'theme_automatiquement' => 'Dit <b>thema</b> werd <b>automatisch</b> geselecteerd.',
-	'theme_manuellement' => 'Dit <b>thema</b> wordt <b>manueel</b> door de auteurs van de berichten toegekend.', # MODIF
+	'theme_manuellement' => 'Dit <b>thema</b> wordt <b>handmatig</b> toegewezen door de mensen in de berichten. ',
 	'themes_automatiques' => 'automatische thema’s',
 	'themes_vous_suivez' => 'Thema’s dat je volgt',
 	'tous_les_messages_de' => 'Alle boodschappen van @people@',
@@ -116,6 +154,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'votre_message' => 'Je boodschap',
 	'votre_message_public' => 'Je publieke boodschap naar',
 	'vous_connaissez' => 'Misschien ken je al :',
-	'vous_suivent' => 'abonnees', # MODIF
+	'vous_suivent' => 'abonnees',
 	'vous_suivez' => 'abonnementen'
 );
