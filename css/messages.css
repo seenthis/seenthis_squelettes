@@ -500,6 +500,7 @@ ul#messages, ul.messages {
 				img {
 					position: absolute;
 					width: 100%;
+					left: 0;
 				}
 				span.lien_court {
 					position: absolute;
