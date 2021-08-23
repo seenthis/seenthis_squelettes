@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// Fichier source, a modifier dans https://github.com/seenthis/seenthis_squelettes/trunk/lang
+// Fichier source, a modifier dans https://github.com/seenthis/seenthis_squelettes.git
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }

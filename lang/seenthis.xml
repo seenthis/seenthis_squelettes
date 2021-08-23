@@ -1,9 +1,9 @@
 <traduction
 	module="seenthis"
-	id="seenthis--seenthis_squelettes-00e1c"
+	id="seenthis--seenthis_squelettes-e4b42"
 	gestionnaire="salvatore"
 	url="https://trad.spip.net"
-	source="https://github.com/seenthis/seenthis_squelettes/trunk/lang"
+	source="https://github.com/seenthis/seenthis_squelettes.git"
 	reference="fr">
 	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="98" traduits="85" relire="0" modifs="12" nouveaux="1" pourcent="86.73">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
