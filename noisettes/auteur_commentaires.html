@@ -1,0 +1,51 @@
+#CACHE{0}
+<B_mes_commentaires>
+<div class="alertes">
+	<ul>
+	<BOUCLE_mes_commentaires(ME){id_auteur}{statut=publi}{id_parent>0}{!par date}{0,10}>
+		[(#SET{id_me,#ID_ME})]
+		[(#SET{texte,[(#TEXTE*|replace{"https?://(www\.)*?(\S{1,18}?)\S*?","$2…",UuimsS}|trim|couper{100}|typo)]})]
+		<BOUCLE_parent(ME){id_me = #ID_PARENT}>
+			[(#SET{id_me,#ID_ME})]
+			[(#SET{auteur_parent,#ID_AUTEUR})]
+			
+			<BOUCLE_auteur_parent(AUTEURS){id_auteur}{tout}>
+				[(#SET{nom_auteur_parent,[(#NOM|typo)]})]
+			</BOUCLE_auteur_parent>
+			
+		</BOUCLE_parent>
+
+		<li id="alerte#ID_ME">
+		<BOUCLE_auteur_me(AUTEURS){id_auteur}{tout}>
+		
+			[<div class="logo_auteur">(#GET{auteur_parent}|microcache{noisettes/logo_auteur/message_logo_auteur_small})</div>]
+			
+			<div class="texte_message">
+				<div class="date_message"><a href="#URL_ME"><time datetime="[(#DATE|date_iso)]" class="calcul_date">[(#DATE|date_seenthis)]</time></a></div>
+			
+				<b>[(#NOM|typo)]</b>
+				<a href="#URL_ME">
+				[(#ID_PARENT|=={0}|oui)
+					a posté un message
+				]
+				
+				[(#ID_PARENT|=={0}|non)
+					[(#ID_AUTEUR|=={#GET{auteur_parent}}|oui)
+						a commenté son propre message
+					]
+					[(#ID_AUTEUR|=={#GET{auteur_parent}}|non)
+						a répondu à [<b>(#GET{nom_auteur_parent})</b>]
+					]
+				]
+				</a>
+
+				[<div class="texte">(#GET{texte})</div>]
+			</div>
+		</BOUCLE_auteur_me>
+					
+		</li>
+	</BOUCLE_mes_commentaires>
+	</ul>
+</div>
+</B_mes_commentaires>
+#FILTRE{mini_html}

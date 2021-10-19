@@ -60,6 +60,7 @@
 
 		<aside id="droite">
 			[(#SESSION{id_auteur}|non)<div id="charger_pave_inscription"></div>]
+			<INCLURE{fond=noisettes/auteur_commentaires,id_auteur} />
 			[(#ID_AUTEUR|microcache{noisettes/auteur_follow_people})]
 			[(#ID_AUTEUR|microcache{noisettes/auteur_followed})]
 			<INCLURE{fond=noisettes/mots_lies/mots_lies_auteur}{id_auteur}{ajaxload}>

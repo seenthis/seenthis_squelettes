@@ -774,6 +774,8 @@ nav#entete {
 
 #alertes {
 	display: none;
+}
+.alertes {
 	font-size: 0.8em;
 
 	ul {
