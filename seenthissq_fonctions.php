@@ -199,13 +199,18 @@ function couleur_chroma ($coul, $num) {
 }
 
 function copie_locale_safe($source, $mode='auto') {
-	if (!copie_locale($source, 'test')
-	AND $u = parametre_url($source, 'var_hasard', rand(0,10000000), '&')
-	AND $a = copie_locale($u, $mode)) {
-		rename($a, _DIR_RACINE.fichier_copie_locale($source));
+	if (!cache_exists($source)) {
+		cache_set($source, 1);
+		if (!copie_locale($source, 'test')
+		AND $u = parametre_url($source, 'var_hasard', rand(0,10000000), '&')
+		AND $a = copie_locale($u, $mode)) {
+			rename($a, _DIR_RACINE.fichier_copie_locale($source));
+		}
+		cache_del($source);
+		return copie_locale($source, $mode);
+	} else {
+		return false;
 	}
-
-	return copie_locale($source, $mode);
 }
 
 function afficher_miniature($img, $maxw = 600, $maxh = 700) {
