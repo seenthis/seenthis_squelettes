@@ -14,6 +14,7 @@
 
 	<pipeline nom="post_insertion" inclure="seenthissq_pipelines.php" />
 	<pipeline nom="trig_auth_trace" inclure="seenthissq_pipelines.php" />
+	<pipeline nom="preparer_visiteur_session" inclure="seenthissq_pipelines.php" />
 	<pipeline nom="optimiser_base_disparus" inclure="seenthissq_pipelines.php" />
 
 	<necessite nom="seenthis" />

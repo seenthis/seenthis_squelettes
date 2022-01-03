@@ -47,6 +47,22 @@ function seenthissq_trig_auth_trace($flux){
 }
 
 /**
+ * Insertion dans le pipeline preparer_visiteur_session
+ * 
+ * Lors du login d'un auteur, passer la valeur du champ en_ligne à la date courante (même dans l'espace public)
+ * 
+ * @param array $flux
+ * 		Le contexte du pipeline
+ * @return array $flux
+ */
+function seenthissq_preparer_visiteur_session($flux){
+	if (!empty($flux['args']['row']['id_auteur'])) {
+		sql_updateq('spip_auteurs', array('en_ligne' => date('Y-m-d H:i:s')), 'id_auteur=' . $flux['args']['row']['id_auteur']);
+	}
+	return $flux;
+}
+
+/**
  * Optimiser la base de donnée en supprimant les liens orphelins
  *
  * @param array $flux
