@@ -218,7 +218,7 @@ $(function () {
 	if (auteur_connecte > 0) {
 		bodyElement.on("click", ".bouton_repondre a", function () {
 			var id = $(this).attr("rel");
-			switch_comments(id);
+			$('#repondre' + id).load('index.php?page=repondre_me&id_me=' + id + '&x=' + (new Date()).getTime(),switch_comments(id));
 			return false;
 		});
 		if (window.auteur_page !== undefined) {
