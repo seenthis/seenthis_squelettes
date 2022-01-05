@@ -18,14 +18,11 @@ var isCtrl = false;
 var blacklistlogo = new RegExp('^(https?:)?//(www\.)?(.\.ytimg\.com)/');
 
 function switch_comments(id_me) {
-	$('.yourmessage').show();
-
 	$('.repondre').stop().slideUp("fast");
 
 	var message = $('#repondre' + id_me);
 	if (!(message.is(':visible') && (message.height() > 10))) {
 		$('.formulaire_poster_message').removeClass('focus');
-		$('#yourmessage' + id_me).hide();
 		setTimeout(function () {
 			message.stop().slideDown("fast").find('.formulaire_poster_message').addClass('focus').find('textarea').show().focus();
 		}, 500);

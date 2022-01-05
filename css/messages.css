@@ -685,29 +685,6 @@ ul#messages, ul.messages {
 					color: #555;
 				}
 				
-				
-				
-				. .yourmessage {
-					padding: 5px;
-					background-color: #e4caa5;
-					
-					div {
-						font-size: 0.8em;
-						border: 1px solid #aaa;
-						background-color: white;
-						
-						a {
-							padding: 3px 10px 3px 10px;
-							display: block;
-							color: #999;
-							
-							. :hover {
-								text-decoration: none;
-							}
-						}
-					}
-				}
-				
 				. .masquer:not(:first-of-type) {
 					opacity: 0;
 					height: 0;
