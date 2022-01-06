@@ -26,7 +26,9 @@ function switch_comments(id_me) {
 	if (!(message.is(':visible') && (message.height() > 10))) {
 		$('.formulaire_poster_message').removeClass('focus');
 		$('#yourmessage' + id_me).hide();
-		message.stop().slideDown("fast").find('.formulaire_poster_message').addClass('focus').find('textarea').show().focus();
+		setTimeout(function () {
+			message.stop().slideDown("fast").find('.formulaire_poster_message').addClass('focus').find('textarea').show().focus();
+		}, 500);
 	}
 }
 
