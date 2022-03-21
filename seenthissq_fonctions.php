@@ -9,6 +9,14 @@ if (!defined('_SEENTHIS_REG_SPAM')) {
 	define('_SEENTHIS_REG_SPAM', "case|.*doll.*|pharmacy|laser|.*astrolo.*|iphone|batter.*|vpn|wedding|marriage|manager|management|seo|weed|dating|insurance|marketing|cleaning|vashikaran|jammer");
 }
 
+if (!defined('_SEENTHIS_SPAM_BINGO_MIN_ID')) {
+	define('_SEENTHIS_SPAM_BINGO_MIN_ID', 8604);
+}
+
+if (!defined('_SEENTHIS_SPAM_MUETS_MIN_ID')) {
+	define('_SEENTHIS_SPAM_MUETS_MIN_ID', 10648);
+}
+
 include_spip("php/traduire_texte");
 include_spip('inc/seenthis_data');
 
