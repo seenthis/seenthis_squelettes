@@ -13,7 +13,6 @@ else if (language.indexOf('ar') > -1) language = "ar";
 else language = "fr";
 
 var isShift = false;
-var isCtrl = false;
 
 var blacklistlogo = new RegExp('^(https?:)?//(www\.)?(.\.ytimg\.com)/');
 
@@ -273,9 +272,9 @@ $(function () {
 			var area = $(this);
 			var keyCode = e.keyCode || 0;
 
-			// (shift ou ctrl) + enter (valider)
-			if (keyCode == 13 && (isShift || isCtrl)) {
-				isShift = isCtrl = false;
+			// shift + enter (valider)
+			if (keyCode == 13 && isShift) {
+				isShift = false;
 				area.submit();
 				return false;
 			}
@@ -288,11 +287,9 @@ $(function () {
 
 			// detecter le shift
 			isShift = (keyCode == 16);
-			// detecter le ctrl
-			isCtrl = (keyCode == 17);
 		})
 		.on("keyup", 'textarea', function (e) {
-			isShift = isCtrl = false;
+			isShift = false;
 		})
 
 		.on("click", '.formulaire_poster_message  textarea', function () {
