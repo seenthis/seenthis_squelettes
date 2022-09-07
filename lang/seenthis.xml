@@ -5,7 +5,7 @@
 	url="https://trad.spip.net"
 	source="https://github.com/seenthis/seenthis_squelettes.git"
 	reference="fr">
-	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="98" traduits="85" relire="0" modifs="12" nouveaux="1" pourcent="86.73">
+	<langue code="ar" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=ar" total="98" traduits="98" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="George" lien="https://trad.spip.net/auteur/جورج-قندلفت" />
 	</langue>
 	<langue code="de" url="https://trad.spip.net/tradlang_module/seenthis?lang_cible=de" total="98" traduits="64" relire="0" modifs="11" nouveaux="23" pourcent="65.31">

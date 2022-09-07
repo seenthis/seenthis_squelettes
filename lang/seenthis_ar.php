@@ -17,12 +17,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'annuler' => 'إلغاء',
 	'aucun_message' => 'لا توجد اي رسالة',
 	'auteur_block' => 'حظر @people@',
-	'auteur_block_you' => 'هذا المشارك صدّك. لايمكنك لتعليق على رسائله.', # MODIF
+	'auteur_block_you' => 'هذا الشخص صدّك. لايمكنك التعليق على رسائله.',
 	'auteur_ne_plus_block' => 'إزالة حظر @people@',
 	'auteur_ne_plus_suivre' => 'التوقف عن متابعة @people@',
 	'auteur_vous_block' => 'قمت بحظر @people@',
 	'auteur_vous_suivez' => 'المتابَعون @people@',
-	'auteurs_vous_suivez' => 'المشاركون المتابَعون', # MODIF
+	'auteurs_vous_suivez' => 'الأشخاص المتابَعون',
 
 	// B
 	'beta_publique' => '<strong>Seenthis لا يزال في نسخة بيتا عمومية.</strong><br>يمكنكم التسجيل والمشاركة. نشكركم على صبركم خلال هذه المرحلة.',
@@ -54,13 +54,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'logout' => 'خروج',
 
 	// M
+	'masquer_messages' => 'إخفاء المداخلات',
 	'me_suggerer_contacts' => 'اقتراحات المتابعة',
 	'message_inscription' => '<strong>تسجيل مجاني وفوري</strong><br>حال التسجيل، سيتم إرسال كلمة السر الى بريدكم الإلكتروني.',
-	'message_suggerer' => '				<strong>مبتدؤون في Seenthis؟ ننصحكم بالبدء بتتبع بعض المشاركين.</strong>
-				<p>أنقروا على زر «اقتراحات المتابعة»،  وقوموا بزيارة صفحات المشاركين المقترحين. اذا لفت انتباهكم أحد المشاركين، قوموا بتتبعه بالنقر على «تتبع هذا المشارك»، في أعلى الصفحة. 
-							ثم عودوا الى هذه الصفحة وأعيدوا العملية، سيتم صقل الاقتراحات تباعاً كلما ازداد اختياركم لمشاركين.</p>
-				<p>ستختفي هذه الرسالة عندما يصل عدد المشاركين الذين تتبعونهم الى خمسة. 
-				سيظل زر «اقتراحات المتابعة» متوافراً في صفحة «@المشاركون».</p>', # MODIF
+	'message_suggerer' => '				<strong>مبتدؤون في Seenthis؟ ننصحكم بالبدء بتتبع بعض الأشخاص.</strong>
+				<p>أنقروا على زر «اقتراحات المتابعة»،  وقوموا بزيارة صفحات الأشخاص المقترحين. اذا لفت انتباهكم أحد الأشخاص، قوموا بتتبعه بالنقر على «تتبع هذا الشخص»، في أعلى الصفحة. 
+							ثم عودوا الى هذه الصفحة وأعيدوا العملية، سيتم صقل الاقتراحات تباعاً كلما ازداد اختياركم لأشخاص.</p>
+				<p>ستختفي هذه الرسالة عندما يصل عدد الأشخاص الذين تتبعونهم الى خمسة. 
+				سيظل زر «اقتراحات المتابعة» متوافراً في صفحة «@الأشخاص».</p>',
 	'modifier' => 'تعديل',
 	'montrer_messages' => 'عرض الـ@total@ رسالة',
 
@@ -75,9 +76,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 @url@
 
 ',
-	'notif_partage_texte' => 'أهلاً @nom_dest@,
+	'notif_partage_texte' => 'أهلاً @nom_dest@،
 
-@nom_aut_partage (@@login_aut_partage@) a partagé un de vos billets sur @seenthis@.', # MODIF
+@nom_aut_partage (@@login_aut_partage@) شارك احدى مداخلاتك على @seenthis@.',
 	'notif_partage_titre' => '@nom_aut_partage@ (@@login_aut_partage@) وزع احدى مداخلاتكم على @seenthis@.',
 	'notif_suivremoi_texte' => 'أهلاً @nom_dest@,
 
@@ -86,13 +87,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// P
 	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المشاركات. <strong>منتديات</strong> تحت كل مداخلة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.',
-	'people' => 'المشاركون', # MODIF
+	'people' => 'الأشخاص',
 	'profil' => 'التفضيلات',
 	'profil_alerte_conversations' => '<b>محادثات</b> / أحدهم ردّ على مداخلة كنت قد رددت عليها بنفسي.',
-	'profil_alerte_dubien' => '<b>الله يكثر الحبايب</b> / هناك من يتبعني', # MODIF
+	'profil_alerte_dubien' => '<b>كثر خير المحبين</b> / هناك من يتبعني',
 	'profil_alerte_mes_billets' => '<b>مداخلاتي</b> / الحصول على نسخة من رسائلي',
-	'profil_alerte_nolife' => '<b>هَوَس</b> / هناك مشترك اتبعه يرد على المداخلات اي كانت', # MODIF
-	'profil_alerte_nouveaux_billets' => '<b>مداخلات جديدة</b> / مؤلف اتبعه أدخل مشاركة جديدة', # MODIF
+	'profil_alerte_nolife' => '<b>هَوَس</b> / هناك شخص اتبعه يرد على المداخلات اي كانت',
+	'profil_alerte_nouveaux_billets' => '<b>مداخلات جديدة</b> / شخص اتبعه أدخل مشاركة جديدة',
 	'profil_alerte_partage' => '<b>مشاركة</b> / أحدهم وزع إحدى مداخلاتي',
 	'profil_alerte_reponse_partage' => '<b>ردود على مشاركة</b> / أحدهم رد على مداخلة وزغتها ',
 	'profil_alerte_reponses' => '<b>الردود على مداخلاتي</b> / أحدهم يرد على إحدى مداخلاتي',
@@ -109,7 +110,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'profil_licence' => 'رخصة رسائلك',
 	'profil_liens_partage_fb' => 'عرض أزرار المشارة مع فيسبوك',
 	'profil_liens_partage_tw' => 'عرض أزرار المشاركة مع تويتر',
-	'profil_logo' => 'رمز المؤلف (مربّع)', # MODIF
+	'profil_logo' => 'رمز الشخص (مربّع)',
 	'profil_mexpedier' => 'أريد تلقي رسالة<br> إلكترونية عندما...',
 	'profil_partage' => 'مشاركة',
 	'profil_rss' => 'جلب آلي لتدفق المقالات بتنسيق ATOM او RSS',
@@ -122,7 +123,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// S
 	'slogan_lien' => 'تسجلوا! التسجل سريع ومجاني!',
-	'slogan_texte' => '<strong>شاركوا في النقاش!</strong> في Seenthis، يمكنكم تبويب مقالات والتعليق عليها وكتابة مداخلات والنقاش مع الأصدقاء ومتابعة المؤلفين الذين يهمكم أمرهم...', # MODIF
+	'slogan_texte' => '<strong>شاركوا في النقاش!</strong> في Seenthis، يمكنكم تبويب مقالات والتعليق عليها وكتابة مداخلات والنقاش مع الأصدقاء ومتابعة الأشخاص الذين يهمكم أمرهم...',
 	'suggestions' => 'اقتراحات:',
 	'suivre_people' => 'متابعة @people@',
 	'suivre_url' => 'متابعة هذا الموقع',
@@ -137,7 +138,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// T
 	'tags' => 'المواضيع',
 	'theme_automatiquement' => 'تم إنشاء هذا <b>الموضوع</b> <b>آلياً</b>.',
-	'theme_manuellement' => 'تم تحديد هذا <b>الموضوع</b> <b>يدوياً</b> من مؤلفي الرسائل.', # MODIF
+	'theme_manuellement' => 'تم تحديد هذا <b>الموضوع</b> <b>يدوياً</b> من أصحاب الرسائل.',
 	'themes_automatiques' => 'المواضيع الآلية',
 	'themes_vous_suivez' => 'المواضيع المتابَعة',
 	'tous_les_messages_de' => 'كل راسائل @people@',
@@ -151,6 +152,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'votre_message' => 'رسالتك',
 	'votre_message_public' => 'رسالتك العمومية الى ',
 	'vous_connaissez' => 'قد تعرفون:',
-	'vous_suivent' => 'يتبعكم', # MODIF
+	'vous_suivent' => 'مشتركون/مشتركات',
 	'vous_suivez' => 'تتبعون'
 );
