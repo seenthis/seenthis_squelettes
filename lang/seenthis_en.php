@@ -66,6 +66,7 @@ You can enable it again in your preferences, by deleting the star which was adde
 	// N
 	'notif_me_nouveau' => '@nom_auteur@ added a new post',
 	'notif_me_reponse' => '@nom_auteur@ replied to one of their posts',
+	'notif_me_reponse_a' => '@nom_auteur@ replied to a post from @nom_auteur_init@',
 	'notif_message_footer' => '
 ---------
 To stop receiving notifications from @seenthis@,
@@ -73,6 +74,14 @@ you can set your preferences accordingly in your profile
 @url@
 
 ',
+	'notif_partage_texte' => 'Hello @nom_dest@,
+
+@nom_aut_partage@ (@@login_aut_partage@) shared one of your posts on @seenthis@.',
+	'notif_partage_titre' => '@nom_aut_partage@ (@@login_aut_partage@) shared one of your posts on @seenthis@.',
+	'notif_suivremoi_texte' => 'Hello @nom_dest@,
+
+@nom_aut@ (@@login_aut@) is following you on @seenthis@.',
+	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) is following you on @seenthis@.',
 
 	// P
 	'pave_accueil' => '<strong>Short-blogging</strong> with no text limit. <strong>Curation and web survey</strong>. Cool <strong>automatic</strong> text layout. <strong>Forums</strong> under each post. Advanced and automatic <strong>thematisation</strong>.',
@@ -86,6 +95,7 @@ you can set your preferences accordingly in your profile
 	'profil_alerte_partage' => '<b>share</b> / someone shared one of my posts',
 	'profil_alerte_reponse_partage' => '<b>replies to my share</b> / someone replies to a post I shared',
 	'profil_alerte_reponses' => '<b>replies to my posts</b> / someone replies to one of my initial posts',
+	'profil_alerte_tag_suivi' => '<b>tag followed</b> / anew post contains a tag that I follow',
 	'profil_alertes' => 'Notifications',
 	'profil_copyleft' => 'Copyright, copyleft',
 	'profil_copyright_classique' => 'No specific licence (exclusive copyright)',
