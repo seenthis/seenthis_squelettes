@@ -58,7 +58,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'montrer_messages' => 'mostrar los @total@ mensajes',
 
 	// P
-	'pave_accueil' => '<strong>Short-blogging</strong> sin límite de caracteres. <strong>Recomendación de enlaces</strong>. <strong>Automatismos</strong> para redactar fácilmente los mensajes. <strong>Foros</strong> en todas las notas. <strong>Agenda de actualidad</strong>. Una <strong>tematización</strong> avanzada.',
+	'pave_accueil' => '<strong>Short-blogging</strong> sin límite de caracteres. <strong>Recomendación de enlaces</strong>. <strong>Automatismos</strong> para redactar fácilmente los mensajes. <strong>Foros</strong> en todas las notas. <strong>Agenda de actualidad</strong>. Una <strong>tematización</strong> avanzada. <strong>This Machine Kills Fascists.</strong>',
 	'people' => 'autores', # MODIF
 	'profil' => 'preferencias',
 	'profil_alerte_conversations' => '<b>conversaciones</b> / alguien responde a una nota a la cual yo he respondido',

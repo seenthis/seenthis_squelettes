@@ -89,7 +89,7 @@ tu peux régler tes préférences dans ton profil
 	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) te suit sur @seenthis@.',
 
 	// P
-	'pave_accueil' => 'Du <strong>short-blogging</strong> sans limite de caractères. De la <strong>recommandation de liens</strong>. Des <strong>automatismes</strong> pour rédiger facilement tes messages. Des <strong>forums</strong> sous chaque billet. De la <strong>veille d’actualité</strong>. Une <strong>thématisation</strong> avancée.',
+	'pave_accueil' => 'Du <strong>short-blogging</strong> sans limite de caractères. De la <strong>recommandation de liens</strong>. Des <strong>automatismes</strong> pour rédiger facilement tes messages. Des <strong>forums</strong> sous chaque billet. De la <strong>veille d’actualité</strong>. Une <strong>thématisation</strong> avancée. <strong>This Machine Kills Fascists.</strong>',
 	'people' => 'personnes',
 	'profil' => 'préférences',
 	'profil_alerte_conversations' => '<b>conversations</b> / quelqu’un répond à un billet auquel j’ai moi-même répondu',

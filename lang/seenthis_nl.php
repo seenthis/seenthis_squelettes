@@ -88,7 +88,7 @@ kunt u uw voorkeuren in uw profiel instellen
 	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) volgt je op @seenthis@.',
 
 	// P
-	'pave_accueil' => '<strong>Short blogging</strong> zonder aantal caracters beperking. <strong>Links aanbeveling</strong>. <strong>Automatische behandelingen</strong> om je boodschappen makkelijk te schrijven. <strong>Forums</strong> onder ieder biljet. <strong>Opvolging van actualiteiten</strong>. Geavanceerde <strong>thematisering</strong>.',
+	'pave_accueil' => '<strong>Short blogging</strong> zonder aantal caracters beperking. <strong>Links aanbeveling</strong>. <strong>Automatische behandelingen</strong> om je boodschappen makkelijk te schrijven. <strong>Forums</strong> onder ieder biljet. <strong>Opvolging van actualiteiten</strong>. Geavanceerde <strong>thematisering</strong>. <strong>This Machine Kills Fascists.</strong>',
 	'people' => 'mensen',
 	'profil' => 'voorkeuren',
 	'profil_alerte_conversations' => '<b>gesprekken</b> / iemand beantwoord een biljet waarop ik ook geantwoord heb',

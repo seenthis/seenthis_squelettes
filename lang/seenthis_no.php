@@ -55,7 +55,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'montrer_messages' => 'vis alle @total@ innlegg',
 
 	// P
-	'pave_accueil' => '<strong> "Short-blogging" </ strong> ubegrenset antall tegn. <strong> Anbefalte lenker </ strong>. Automatiseringer <strong> </ strong> for å skrive innlegg enkelt. <strong> Forum </ strong> under hvert innlegg. <strong> Like før nyheten </ strong>. Avansert <strong>tema</ strong>.',
+	'pave_accueil' => '<strong> "Short-blogging" </ strong> ubegrenset antall tegn. <strong> Anbefalte lenker </ strong>. Automatiseringer <strong> </ strong> for å skrive innlegg enkelt. <strong> Forum </ strong> under hvert innlegg. <strong> Like før nyheten </ strong>. Avansert <strong>tema</ strong>. <strong>This Machine Kills Fascists.</strong>',
 	'people' => 'bidragsytere', # MODIF
 	'profil' => 'innstillinger',
 	'profil_alerte_conversations' => '<b> samtaler </ b> / noen svarer på et innlegg jeg har svart på',

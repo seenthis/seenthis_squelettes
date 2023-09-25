@@ -58,7 +58,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'montrer_messages' => '@total@ Beiträge anzeigen',
 
 	// P
-	'pave_accueil' => '<strong>Microblogging</strong> mit unbegrenzter Textlänge, <strong>Linkempfehlungen</strong> austauschen, Beiträge mit <strong>Weiterleitungsautomatik</strong> im Handumdrehen veröffentlichen, <strong>Foren</strong> zu jedem Beitrag, <strong>News-Monitoring</strong>, fortschrittliche <strong>Themenbildung und Verschlagwortung</strong>.',
+	'pave_accueil' => '<strong>Microblogging</strong> mit unbegrenzter Textlänge, <strong>Linkempfehlungen</strong> austauschen, Beiträge mit <strong>Weiterleitungsautomatik</strong> im Handumdrehen veröffentlichen, <strong>Foren</strong> zu jedem Beitrag, <strong>News-Monitoring</strong>, fortschrittliche <strong>Themenbildung und Verschlagwortung</strong>. <strong>This Machine Kills Fascists.</strong>',
 	'people' => 'Autoren', # MODIF
 	'profil' => 'Einstellungen',
 	'profil_alerte_conversations' => '<b>Diskussionen</b> /jemand antwortet auf einen Beitrag, den ich ebenfalls kommentiert habe',
