@@ -84,7 +84,7 @@ you can set your preferences accordingly in your profile
 	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) is following you on @seenthis@.',
 
 	// P
-	'pave_accueil' => '<strong>Short-blogging</strong> with no text limit. <strong>Curation and web survey</strong>. Cool <strong>automatic</strong> text layout. <strong>Forums</strong> under each post. Advanced and automatic <strong>thematisation</strong>.',
+	'pave_accueil' => '<strong>Short-blogging</strong> with no text limit. <strong>Curation and web survey</strong>. Cool <strong>automatic</strong> text layout. <strong>Forums</strong> under each post. Advanced and automatic <strong>thematisation</strong>. <strong>This Machine Kills Fascists.</strong>',
 	'people' => 'persons',
 	'profil' => 'settings',
 	'profil_alerte_conversations' => '<b>conversations</b> / someone is replying to a post I have already replied to',
