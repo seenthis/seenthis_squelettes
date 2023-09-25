@@ -86,7 +86,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'notif_suivremoi_titre' => '@nom_aut@ (@@login_aut@) يتبعكم على @seenthis@.',
 
 	// P
-	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المشاركات. <strong>منتديات</strong> تحت كل مداخلة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.',
+	'pave_accueil' => '<strong>تدوينات سريعة</strong> دون حدّ لعدد الحروف. <strong>اقتراح روابط</strong>. <strong>وظائف آلية</strong> لسهولة كتابة المشاركات. <strong>منتديات</strong> تحت كل مداخلة.  <strong>مراقبة الأحداث</strong> .<strong>تبويب مواضيع</strong> متطور.', # MODIF
 	'people' => 'الأشخاص',
 	'profil' => 'التفضيلات',
 	'profil_alerte_conversations' => '<b>محادثات</b> / أحدهم ردّ على مداخلة كنت قد رددت عليها بنفسي.',
