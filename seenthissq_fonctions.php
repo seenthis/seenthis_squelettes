@@ -28,7 +28,7 @@ function unichr($u) {
 
 
 function decodeUchar($text) {
-	return preg_replace('/%u([a-fA-F0-9]{4})/e', "unichr('\\1')", $text);
+	return preg_replace_callback('/%u([a-fA-F0-9]{4})/', fn($matches) => unichr($matches[1]), $text);
 }
 
 
@@ -221,7 +221,7 @@ function copie_locale_safe($source, $mode = 'auto') {
 		cache_set($source, 1);
 		if (
 			!copie_locale($source, 'test')
-			and $u = parametre_url($source, 'var_hasard', rand(0, 10000000), '&')
+			and $u = parametre_url($source, 'var_hasard', random_int(0, 10000000), '&')
 			and $a = copie_locale($u, $mode)
 		) {
 			rename($a, _DIR_RACINE . fichier_copie_locale($source));
@@ -676,7 +676,7 @@ function liste_me_follow($quoi, $env_follow) {
 	if (!$quoi) {
 		$quoi = $env_follow;
 	}
-	$me = isset($GLOBALS['visiteur_session']['id_auteur']) ? $GLOBALS['visiteur_session']['id_auteur'] : 0;
+	$me = $GLOBALS['visiteur_session']['id_auteur'] ?? 0;
 
 	// critère {follow #ID_AUTEUR}
 	if (is_numeric($quoi)) {
@@ -698,7 +698,7 @@ function liste_me_follow($quoi, $env_follow) {
 			}
 		case 'follow':
 		case '':
-			$id_auteur = isset($GLOBALS['visiteur_session']['id_auteur']) ? $GLOBALS['visiteur_session']['id_auteur'] : 0;
+			$id_auteur = $GLOBALS['visiteur_session']['id_auteur'] ?? 0;
 			if ($id_auteur > 0) {
 				$suivi = liste_follow($id_auteur);
 				$suivi[] = $id_auteur;
@@ -759,7 +759,7 @@ function filtre_cdata($t) {
 	if (preg_match(',[<>&\x0-\x8\xb-\xc\xe-\x1f],u', $t)) {
 		$t = preg_replace_callback(
 			'/[\x0-\x8\xb-\xc\xe-\x1f]/u',
-			create_function('$x', 'return "&#x".bin2hex(\'$x[0]\').";";'),
+			fn($x) => "&#x" . bin2hex('$x[0]') . ";",
 			$t
 		);
 		return '<![CDATA[' . str_replace(']]>', ']]]]><![CDATA[>', $t) . ']]>';

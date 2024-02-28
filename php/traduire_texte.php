@@ -12,7 +12,7 @@ function translate_requestCurl($parameters) {
 	curl_setopt($ch, CURLOPT_URL, $url_page);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_REFERER, !empty($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '');
-	curl_setopt($ch, CURLOPT_POST, nombre_param);
+	curl_setopt($ch, CURLOPT_POST, $nombre_param);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $parameters);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, ['X-HTTP-Method-Override: GET']);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
