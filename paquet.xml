@@ -1,9 +1,9 @@
 <paquet
 	prefix="seenthissq"
 	categorie="squelette"
-	version="2.2.0"
+	version="3.0.0"
 	etat="stable"
-	compatibilite="[3.0.0;["
+	compatibilite="[4.1.0;4.1.*]"
 	logo="prive/logo/logo_seenthis_squelettes.png"
 >	
 
