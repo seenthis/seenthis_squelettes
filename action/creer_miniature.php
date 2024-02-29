@@ -10,7 +10,7 @@ function action_creer_miniature_dist() {
 		and $sec = _request('sec')
 		and verifier_low_sec(1, $sec, "miniature $maxw $maxh $img")
 	) {
-		include_spip('seenthis_fonctions');
+		include_spip('seenthissq_fonctions');
 		include_spip('inc/distant');
 		spip_log('debut copie locale ' . $img, 'distant');
 		if (
