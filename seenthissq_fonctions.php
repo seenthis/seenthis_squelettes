@@ -269,7 +269,7 @@ function afficher_miniature($img, $maxw = 600, $maxh = 700) {
 
 		$selecteur = md5($img);
 
-		$vignette = "<span class='$selecteur'><img src='" . find_in_path('imgs/image-loading.gif') . "' alt=\"" . attribut_html($img) . "\" style=\"max-width:${maxw}px; max-height:${maxh}px;\" />"
+		$vignette = "<span class='$selecteur'><img src='" . find_in_path('imgs/image-loading.gif') . "' alt=\"" . attribut_html($img) . "\" style=\"max-width:{$maxw}px; max-height:{$maxh}px;\" />"
 		. "<script>\$.get('" . $url . "', function(data){\$('." . $selecteur . "').replaceWith(data);calculer_portfolio_ligne();})
 		</script></span>";
 
@@ -606,7 +606,7 @@ function successeurs($mot) {
 
 	$s = sql_query("SELECT DISTINCT(tag)
 	FROM spip_me_tags
-	WHERE class='#' AND tag LIKE '${motq}_%'
+	WHERE class='#' AND tag LIKE '{$motq}_%'
 	ORDER BY CHAR_LENGTH(tag)
 	LIMIT 200");
 	$tous = [];
