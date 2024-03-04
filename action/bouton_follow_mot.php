@@ -52,7 +52,7 @@ function action_bouton_follow_mot() {
 
 	if ($f) {
 		echo '<div>' . _T('seenthis:auteur_vous_suivez', ['people' => htmlspecialchars($tag)]) . '</div>';
-		echo "<a href='#' class='no' onclick=\"$('#follow_mot').load('index.php?action=bouton_follow_mot&follow=non&tag=" . urlencode($tag) . "'); return false;\">" . _T('seenthis:auteur_ne_plus_suivre', ['people' => "<strong>$titre</strong>"]) . '</a>';
+		echo "<a href='#' class='no' onclick=\"$('#follow_mot').load('index.php?action=bouton_follow_mot&follow=non&tag=" . urlencode($tag) . "'); return false;\">" . _T('seenthis:auteur_ne_plus_suivre', ['people' => '<strong>' . htmlspecialchars($tag) . '</strong>']) . '</a>';
 	} else {
 		echo "<a href='#' class='yes' onclick=\"$('#follow_mot').load('index.php?action=bouton_follow_mot&follow=oui&tag=" . urlencode($tag) . "'); return false;\">" . _T('seenthis:suivre_people', ['people' => '<strong>' . htmlspecialchars($tag) . '</strong>']) . '</a>';
 	}
