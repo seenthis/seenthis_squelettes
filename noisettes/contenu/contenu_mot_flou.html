@@ -39,7 +39,7 @@
 
 
 <B_messages>
-	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+	[<div class="pagination" id="pagination_haut">(#PAGINATION{legacy})</div>]
 	<ul id="messages">
 <BOUCLE_messages(ME){id_me IN #GET{parents}}{statut=publi}{follow #ENV{follow}}{!par date}{pagination 25}>
 		<li id="message#ID_ME">
@@ -47,6 +47,6 @@
 		</li>
 </BOUCLE_messages>
 	</ul>
-	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+	[<div class="pagination" id="pagination_bas">(#PAGINATION{legacy})</div>]
 </B_messages>
 #FILTRE{mini_html}

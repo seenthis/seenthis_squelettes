@@ -1,7 +1,7 @@
 #CACHE{0}
 <BOUCLE_principale(AUTEURS){id_auteur=#ENV{id}}{tout}>
 	<B_messages>
-		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+		[<div class="pagination" id="pagination_haut">(#PAGINATION{legacy})</div>]
 		<ul id="messages">
 	<BOUCLE_messages(DATA){source seenthisaccueil,#ENV**,auteur}{pagination 25}>
 			<li id="message#VALEUR">
@@ -9,7 +9,7 @@
 			</li>
 	</BOUCLE_messages>
 		</ul>
-		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+		[<div class="pagination" id="pagination_bas">(#PAGINATION{legacy})</div>]
 	</B_messages>
 		<ul id="messages">
 			<li><:seenthis:aucun_message:></li>

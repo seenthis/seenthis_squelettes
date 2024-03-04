@@ -22,7 +22,7 @@
 	{0,300}>[(#ID_AUTEUR**|unique|?{[(#SET{messages, [(#GET{messages}|push{#ID_ME})]})]})]</BOUCLE_share>
 
 <B_messages>
-	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+	[<div class="pagination" id="pagination_haut">(#PAGINATION{legacy})</div>]
 	<ul id="messages">
 <BOUCLE_messages(ME){id_me IN #GET{messages}}{pagination 25}{statut=publi}{!par date}>
 		<li id="message#ID_ME">
@@ -30,7 +30,7 @@
 		</li>
 </BOUCLE_messages>
 	</ul>
-	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+	[<div class="pagination" id="pagination_bas">(#PAGINATION{legacy})</div>]
 </B_messages>
 	<ul id="messages">
 		<li><:seenthis:aucun_message:></li>

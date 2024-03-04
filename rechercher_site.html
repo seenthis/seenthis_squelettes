@@ -4,14 +4,14 @@
 	<BOUCLE_egal(SYNDIC){url_site==#ENV{recherche}$}{doublons}>
 		<li><strong>
 			[(#TITRE)<br>]
-			<span class="lien_lien"><span class="lien_lien_total"><a href="[(#ID_SYNDIC|generer_url_entite{site})]">►</a></span><a href="[(#ID_SYNDIC|generer_url_entite{site})]">[(#URL_SITE|lien_court)]</a></span>
+			<span class="lien_lien"><span class="lien_lien_total"><a href="[(#ID_SYNDIC|generer_objet_url{site})]">►</a></span><a href="[(#ID_SYNDIC|generer_objet_url{site})]">[(#URL_SITE|lien_court)]</a></span>
 		</strong></li>
 	</BOUCLE_egal>
 
 	<BOUCLE_tous(SYNDIC){recherche}{par points}{inverse}{doublons}{0,40}>
 		<li>
 			[(#TITRE)<br>]
-			<span class="lien_lien"><span class="lien_lien_total"><a href="[(#ID_SYNDIC|generer_url_entite{site})]">►</a></span><a href="[(#ID_SYNDIC|generer_url_entite{site})]">[(#URL_SITE|lien_court)]</a></span>
+			<span class="lien_lien"><span class="lien_lien_total"><a href="[(#ID_SYNDIC|generer_objet_url{site})]">►</a></span><a href="[(#ID_SYNDIC|generer_objet_url{site})]">[(#URL_SITE|lien_court)]</a></span>
 		</li>
 	</BOUCLE_tous>
 </ul>

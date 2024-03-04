@@ -18,7 +18,7 @@
 	</BOUCLE_tous_liens>
 
 	<B_messages>
-		[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+		[<div class="pagination" id="pagination_haut">(#PAGINATION{legacy})</div>]
 		<ul id="messages">
 	<BOUCLE_messages(ME){id_me IN #GET{messages}}{par date}{follow #GET{follow}}{inverse}{id_parent=0}{pagination 20}{statut=publi}>
 			<li id="message#ID_ME">
@@ -26,7 +26,7 @@
 			</li>
 	</BOUCLE_messages>
 		</ul>
-		[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+		[<div class="pagination" id="pagination_bas">(#PAGINATION{legacy})</div>]
 	</B_messages>
 </BOUCLE_principale>
 #FILTRE{mini_html}
