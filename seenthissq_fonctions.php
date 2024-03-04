@@ -387,6 +387,7 @@ function retour_id_me_date($rien) {
 $GLOBALS['mots_lies'] = [];
 $GLOBALS['mots_lies_titre'] = [];
 function compter_mots_lies($id_mot) {
+	$GLOBALS['mots_lies']["$id_mot"] = isset($GLOBALS['mots_lies']["$id_mot"]) ? $GLOBALS['mots_lies']["$id_mot"] : 0;
 	$GLOBALS['mots_lies']["$id_mot"]++;
 }
 function compter_mots_titre($id_mot, $titre) {
@@ -419,6 +420,7 @@ function sortir_type($rem, $type) {
 
 $GLOBALS['compter_auteurs'] = [];
 function compter_auteurs($id_auteur) {
+	$GLOBALS['compter_auteurs']["$id_auteur"] = isset($GLOBALS['compter_auteurs']["$id_auteur"]) ? $GLOBALS['compter_auteurs']["$id_auteur"] : 0;
 	$GLOBALS['compter_auteurs']["$id_auteur"]++;
 }
 
