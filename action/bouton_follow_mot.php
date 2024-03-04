@@ -41,10 +41,6 @@ function action_bouton_follow_mot() {
 		supprimer_microcache($id_follow, 'noisettes/auteur_followed');
 		cache_auteur($id_follow);
 
-		supprimer_microcache($id_auteur, 'noisettes/auteur_follow_people');
-		supprimer_microcache($id_auteur, 'noisettes/auteur_follow_people_big');
-		supprimer_microcache($id_auteur, 'noisettes/auteur_followed');
-		cache_auteur($id_auteur);
 	}
 
 
