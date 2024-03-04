@@ -102,7 +102,7 @@ parameters:
 
 		-
 			message: "#^Function cache_auteur not found\\.$#"
-			count: 2
+			count: 1
 			path: action/bouton_follow_mot.php
 
 		-
@@ -142,7 +142,7 @@ parameters:
 
 		-
 			message: "#^Function supprimer_microcache not found\\.$#"
-			count: 6
+			count: 3
 			path: action/bouton_follow_mot.php
 
 		-
@@ -217,7 +217,7 @@ parameters:
 
 		-
 			message: "#^Function cache_auteur not found\\.$#"
-			count: 2
+			count: 1
 			path: action/bouton_follow_url.php
 
 		-
@@ -252,7 +252,7 @@ parameters:
 
 		-
 			message: "#^Function supprimer_microcache not found\\.$#"
-			count: 6
+			count: 3
 			path: action/bouton_follow_url.php
 
 		-
@@ -686,12 +686,12 @@ parameters:
 			path: seenthissq_fonctions.php
 
 		-
-			message: "#^Function generer_url_action not found\\.$#"
+			message: "#^Function generer_objet_url not found\\.$#"
 			count: 1
 			path: seenthissq_fonctions.php
 
 		-
-			message: "#^Function generer_objet_url not found\\.$#"
+			message: "#^Function generer_url_action not found\\.$#"
 			count: 1
 			path: seenthissq_fonctions.php
 
