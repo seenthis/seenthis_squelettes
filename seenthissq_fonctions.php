@@ -52,7 +52,7 @@ function calculer_enfants_syndic($id_syndic, $url_racine = '', $afficher_url = '
 
 	if ($afficher_url) {
 		include_spip('inc/urls');
-		$u = generer_url_entite($id_syndic, 'site');
+		$u = generer_objet_url($id_syndic, 'site');
 		if ($total > 0) {
 			$GLOBALS['afficher_enfants_syndic'] .= "<li><span class='lien_lien'><span class='lien_lien_total'><a href='$u'>►</a></span><a href='$u'><strong>$afficher_url</strong></a></span>";
 		} else {

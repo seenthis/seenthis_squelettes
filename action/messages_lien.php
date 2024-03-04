@@ -20,7 +20,7 @@ function action_messages_lien() {
 		["statut = 'publi'", sql_in('id_me', array_map('array_pop', $id_possibles))]
 	);
 	foreach ($id_publies as $k => $row) {
-		$url_messages[] = url_absolue(generer_url_entite($row['id_me'], 'me', '', '', true));
+		$url_messages[] = url_absolue(generer_objet_url($row['id_me'], 'me', '', '', true));
 	}
 	header('Content-Type: text/json; charset=utf-8');
 	header('Cache-Control: public, max-age=60');
