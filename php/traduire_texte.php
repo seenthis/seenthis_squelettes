@@ -54,6 +54,7 @@ function traduire_texte($text, $destLang = 'fr', $srcLang = 'en') {
 	//$text = rawurlencode( $text );
 	$destLang = urlencode($destLang);
 	$srcLang = urlencode($srcLang);
+	$trans = '';
 
 	if (defined('_BING_APIKEY')) {
 		//echo "BING";
@@ -129,6 +130,7 @@ function translate_line($l, $destLang) {
 	];
 	$cmd = _TRANSLATESHELL_CMD . ' -b ' . ':' . escapeshellarg($destLang);
 	$cmdr = proc_open($cmd, $descriptorspec, $pipes);
+	$trad = '';
 	if (is_resource($cmdr)) {
 		fwrite($pipes[0], $l) && fclose($pipes[0]);
 		$trad = stream_get_contents($pipes[1]);
