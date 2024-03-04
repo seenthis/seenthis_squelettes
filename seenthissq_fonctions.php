@@ -505,9 +505,7 @@ function langue_visiteur($id_auteur) {
 }
 function detecter_langue_visiteur($rien) {
 
-	if (isset($HTTP_ACCEPT_LANGUAGE)) {
-		$langues = $HTTP_ACCEPT_LANGUAGE;
-	} elseif (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+	if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
 		$langues = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 	} else {
 		return;
