@@ -133,7 +133,7 @@ function formulaires_profil_traiter() {
 		$profil['htpass'] = generer_htpass($pass);
 		$profil['alea_actuel'] = creer_uniqid();
 		$profil['alea_futur'] = creer_uniqid();
-		$profil['pass'] = _nano_sha256($profil['alea_actuel'] . $pass);
+		$profil['pass'] = spip_sha256($profil['alea_actuel'] . $pass);
 	};
 
 	include_spip('action/editer_auteur');
