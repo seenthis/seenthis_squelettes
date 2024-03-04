@@ -399,6 +399,7 @@ function compter_mots_titre($id_mot, $titre) {
 
 function retour_mots_lies($rien) {
 	arsort($GLOBALS['mots_lies']);
+	$ret = [];
 	foreach ($GLOBALS['mots_lies'] as $id_mot => $k) {
 		if ($k > 1) {
 			$ret[] = $id_mot;
