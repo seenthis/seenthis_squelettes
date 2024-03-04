@@ -3,6 +3,7 @@
 function action_api_dist() {
 
 	$xml = false;
+	$id_me = 0;
 
 	// forcer le https sauf si on a define('_API_HTTPS', false)
 	if (
@@ -91,10 +92,9 @@ function action_api_dist() {
 		// creer ou modifier un message ?
 		// si on passe id = message:1234 remplacer ce message
 		// si on passe id = "uuid:azertyu" pour creer OU remplacer
-		$id_me = 0;
+		$uuid = null;
 		if (preg_match('/^message\:(\d+)/', $id, $regs)) {
 			$id_me = $regs[1];
-			$uuid = null;
 		} elseif (preg_match('/^uuid\:(.+)/', $id, $regs)) {
 			include_spip('inc/uuid');
 			$uuid = $regs[1];
