@@ -109,6 +109,7 @@ function filtrer_rediriger_css($reg) {
 
 	$lien = $reg[2];
 	$media = $reg[1];
+	$ret = '';
 
 	$lien_ar = direction_css($lien, 'rtl');
 
@@ -361,6 +362,7 @@ function stocker_id_me_date($id_me, $date) {
 
 function retour_id_me_date($rien) {
 	if ($ret = $GLOBALS['liste_id_me']) {
+		$liste = $l = [];
 		// Un peu complexe, car plusieurs messages peuvent avoir exactement la meme date
 
 		// 1. On partout le tableau pour refaire une liste inversée, avec potentiellement plusieurs id_me par date
@@ -426,6 +428,7 @@ function compter_auteurs($id_auteur) {
 
 function retour_compteur_auteurs($rien) {
 	arsort($GLOBALS['compter_auteurs']);
+	$ret = [];
 	foreach ($GLOBALS['compter_auteurs'] as $id_auteur => $k) {
 		if ($k > 0) {
 			$ret[] = $id_auteur;
@@ -486,6 +489,7 @@ function afficher_cc($cc) {
 }
 
 function langue_visiteur($id_auteur) {
+	$lang = '';
 	$query = sql_select('lang', 'spip_auteurs', "id_auteur=$id_auteur");
 	if ($row = sql_fetch($query)) {
 		$lang = $row['lang'];
