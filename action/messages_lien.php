@@ -17,7 +17,7 @@ function action_messages_lien() {
 	$id_publies = sql_allfetsel(
 		'id_me',
 		'spip_me',
-		["statut = 'publi'", sql_in('id_me', array_map('array_pop', $id_possibles))]
+		["statut = 'publi'", sql_in('id_me', array_column($id_possibles, 'id_me'))]
 	);
 	foreach ($id_publies as $k => $row) {
 		$url_messages[] = url_absolue(generer_objet_url($row['id_me'], 'me', '', '', true));

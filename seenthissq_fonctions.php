@@ -635,10 +635,10 @@ function successeurs($mot) {
 function liste_me_follow_sites($quoi, $env_follow) {
 	$me = $GLOBALS['visiteur_session']['id_auteur'];
 	if ($me > 0) {
-		$sites = array_map('array_pop', sql_allfetsel('id_syndic', 'spip_me_follow_url', 'id_follow=' . $me));
+		$sites = array_column(sql_allfetsel('id_syndic', 'spip_me_follow_url', 'id_follow=' . $me), 'id_syndic');
 
 		$parents = $sites;
-		while ($enfants = array_map('array_pop', sql_allfetsel('id_syndic', 'spip_syndic', sql_in('id_parent', $parents)))) {
+		while ($enfants = array_column(sql_allfetsel('id_syndic', 'spip_syndic', sql_in('id_parent', $parents)), 'id_syndic')) {
 			$parents = $enfants;
 			$sites = array_merge($sites, $enfants);
 		}
@@ -692,7 +692,7 @@ function liste_me_follow($quoi, $env_follow) {
 			return;
 		case 'me':
 			if ($me > 0) {
-				return '(id_auteur=' . $me . ' OR ' . sql_in('id_me', array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', 'id_auteur=' . $me))) . ')';
+				return '(id_auteur=' . $me . ' OR ' . sql_in('id_me', array_column(sql_allfetsel('id_me', 'spip_me_share', 'id_auteur=' . $me), 'id_me')) . ')';
 			} else {
 				return '0=1';
 			}
@@ -705,13 +705,13 @@ function liste_me_follow($quoi, $env_follow) {
 
 				# optimisation:
 				# ne retenir que les auteurs ayant poste au moins un message
-				$suivi = array_map(
-					'array_pop',
+				$suivi = array_column(
 					sql_allfetsel(
 						'DISTINCT(id_auteur)',
 						'spip_me',
 						'statut="publi" AND ' . sql_in('id_auteur', $suivi)
-					)
+					),
+					'id_auteur'
 				);
 
 				$auteurs = sql_in('id_auteur', $suivi);
@@ -719,7 +719,7 @@ function liste_me_follow($quoi, $env_follow) {
 				return '(' . $auteurs
 					. ' OR ' . sql_in(
 						'id_me',
-						array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', $auteurs))
+						array_column(sql_allfetsel('id_me', 'spip_me_share', $auteurs), 'id_me')
 					) . ')';
 			} else {
 				return '0=1';
@@ -727,7 +727,7 @@ function liste_me_follow($quoi, $env_follow) {
 		default:
 			if ($auteur = sql_fetsel('id_auteur', 'spip_auteurs', 'login=' . sql_quote($quoi))) {
 				$me = $auteur['id_auteur'];
-				return '(id_auteur=' . $me . ' OR ' . sql_in('id_me', array_map('array_pop', sql_allfetsel('id_me', 'spip_me_share', 'id_auteur=' . $me))) . ')';
+				return '(id_auteur=' . $me . ' OR ' . sql_in('id_me', array_column(sql_allfetsel('id_me', 'spip_me_share', 'id_auteur=' . $me), 'id_me')) . ')';
 			} else {
 				return '0=1';
 			}
@@ -742,7 +742,7 @@ function liste_follow($id_auteur) {
 	if (!isset($cache[$id_auteur])) {
 		$suivi = sql_allfetsel('id_auteur', 'spip_me_follow', 'id_follow=' . $id_auteur);
 		if (is_array($suivi)) {
-			$suivi = array_map('array_pop', $suivi);
+			$suivi = array_column($suivi, 'id_auteur');
 		} else {
 			$suivi = [];
 		}
