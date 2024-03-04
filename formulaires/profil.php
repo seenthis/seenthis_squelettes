@@ -5,6 +5,7 @@
 function formulaires_profil_charger() {
 
 	$id_auteur = $GLOBALS['auteur_session']['id_auteur'];
+	$valeurs = [];
 
 	if ($id_auteur > 0) {
 		$row = sql_fetsel('*', 'spip_auteurs', "id_auteur=$id_auteur");
@@ -58,6 +59,7 @@ function formulaires_profil_verifier() {
 
 function formulaires_profil_traiter() {
 	$id_auteur = $GLOBALS['auteur_session']['id_auteur'];
+	$nom_ancien = $email_ancien = $lang_ancien = $bio_ancien = $couleur_ancien = $url_site_ancien= $copyright_ancien = '';
 
 
 	$query = sql_select('*', 'spip_auteurs', "id_auteur=$id_auteur");
@@ -189,6 +191,7 @@ function formulaires_profil_traiter() {
 
 
 	$nom_bandeau = $_FILES['image_bandeau']['name'];
+	$term = '';
 	if (strlen($nom_bandeau) > 0) {
 		$size = getimagesize($_FILES['image_bandeau']['tmp_name']);
 
@@ -205,7 +208,7 @@ function formulaires_profil_traiter() {
 		}
 
 		if ($f = fichier_bandeau($id_auteur)) {
-		@unlink($f);
+			@unlink($f);
 		}
 
 		nettoyer_graphisme_auteur($id_auteur);
