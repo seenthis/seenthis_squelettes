@@ -431,11 +431,6 @@ parameters:
 			path: formulaires/profil.php
 
 		-
-			message: "#^Function _nano_sha256 not found\\.$#"
-			count: 1
-			path: formulaires/profil.php
-
-		-
 			message: "#^Function _request not found\\.$#"
 			count: 27
 			path: formulaires/profil.php
@@ -512,6 +507,11 @@ parameters:
 
 		-
 			message: "#^Function session_set not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function spip_sha256 not found\\.$#"
 			count: 1
 			path: formulaires/profil.php
 
