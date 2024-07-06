@@ -1,5 +1,5 @@
 <B_messages>
-	[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+	[<div class="pagination" id="pagination_haut">(#PAGINATION{legacy})</div>]
 	<ul id="messages">
 <BOUCLE_messages(DATA){source seenthisrecherche, #ENV**}{pagination 20}>
 		<li id="message#VALEUR{id}" class="tseg#VALEUR{tseg}"><a name="message#VALEUR{id}"></a>
@@ -7,7 +7,7 @@
 		</li>
 </BOUCLE_messages>
 	</ul>
-	[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+	[<div class="pagination" id="pagination_bas">(#PAGINATION{legacy})</div>]
 </B_messages>
 	<ul id="messages">
 		<li>no result</li>

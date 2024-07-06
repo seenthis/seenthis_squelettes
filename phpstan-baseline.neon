@@ -1,0 +1,846 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to static method Valid\\(\\) on an unknown class UUID\\.$#"
+			count: 1
+			path: action/api.php
+
+		-
+			message: "#^Function cache_message not found\\.$#"
+			count: 1
+			path: action/api.php
+
+		-
+			message: "#^Function erreur_405 not found\\.$#"
+			count: 7
+			path: action/api.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 2
+			path: action/api.php
+
+		-
+			message: "#^Function instance_me not found\\.$#"
+			count: 1
+			path: action/api.php
+
+		-
+			message: "#^Function microcache not found\\.$#"
+			count: 1
+			path: action/api.php
+
+		-
+			message: "#^Function session_get not found\\.$#"
+			count: 1
+			path: action/api.php
+
+		-
+			message: "#^Function erreur_405 not found\\.$#"
+			count: 5
+			path: action/api_auteur.php
+
+		-
+			message: "#^Function microcache not found\\.$#"
+			count: 1
+			path: action/api_auteur.php
+
+		-
+			message: "#^Function recuperer_fond not found\\.$#"
+			count: 1
+			path: action/api_auteur.php
+
+		-
+			message: "#^Function sql_fetch not found\\.$#"
+			count: 1
+			path: action/api_auteur.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 1
+			path: action/api_auteur.php
+
+		-
+			message: "#^Function _q not found\\.$#"
+			count: 2
+			path: action/api_url.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 1
+			path: action/api_url.php
+
+		-
+			message: "#^Function sql_allfetsel not found\\.$#"
+			count: 2
+			path: action/api_url.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 1
+			path: action/auteur_existe.php
+
+		-
+			message: "#^Function sql_getfetsel not found\\.$#"
+			count: 1
+			path: action/auteur_existe.php
+
+		-
+			message: "#^Function sql_quote not found\\.$#"
+			count: 1
+			path: action/auteur_existe.php
+
+		-
+			message: "#^Function _T not found\\.$#"
+			count: 3
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 2
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function cache_auteur not found\\.$#"
+			count: 1
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function lang_select not found\\.$#"
+			count: 1
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function sql_fetch not found\\.$#"
+			count: 1
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function sql_fetsel not found\\.$#"
+			count: 1
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function sql_insertq not found\\.$#"
+			count: 1
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function sql_query not found\\.$#"
+			count: 1
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function sql_quote not found\\.$#"
+			count: 2
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 1
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function supprimer_microcache not found\\.$#"
+			count: 3
+			path: action/bouton_follow_mot.php
+
+		-
+			message: "#^Function _T not found\\.$#"
+			count: 6
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 5
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function cache_auteur not found\\.$#"
+			count: 4
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 1
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function job_queue_add not found\\.$#"
+			count: 3
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function lang_select not found\\.$#"
+			count: 1
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function sql_fetch not found\\.$#"
+			count: 4
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function sql_insertq not found\\.$#"
+			count: 2
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function sql_query not found\\.$#"
+			count: 4
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 4
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function supprimer_microcache not found\\.$#"
+			count: 12
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function typo not found\\.$#"
+			count: 1
+			path: action/bouton_follow_people.php
+
+		-
+			message: "#^Function _T not found\\.$#"
+			count: 3
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 2
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function cache_auteur not found\\.$#"
+			count: 1
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function lang_select not found\\.$#"
+			count: 1
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function sql_fetch not found\\.$#"
+			count: 3
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function sql_insertq not found\\.$#"
+			count: 2
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function sql_query not found\\.$#"
+			count: 2
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function sql_quote not found\\.$#"
+			count: 2
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 3
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function supprimer_microcache not found\\.$#"
+			count: 3
+			path: action/bouton_follow_url.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 4
+			path: action/creer_miniature.php
+
+		-
+			message: "#^Function extraire_balise not found\\.$#"
+			count: 1
+			path: action/creer_miniature.php
+
+		-
+			message: "#^Function find_in_path not found\\.$#"
+			count: 1
+			path: action/creer_miniature.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 4
+			path: action/creer_miniature.php
+
+		-
+			message: "#^Function inserer_attribut not found\\.$#"
+			count: 1
+			path: action/creer_miniature.php
+
+		-
+			message: "#^Function spip_log not found\\.$#"
+			count: 4
+			path: action/creer_miniature.php
+
+		-
+			message: "#^Function verifier_low_sec not found\\.$#"
+			count: 1
+			path: action/creer_miniature.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 1
+			path: action/delete.php
+
+		-
+			message: "#^Function autoriser not found\\.$#"
+			count: 1
+			path: action/delete.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 1
+			path: action/delete.php
+
+		-
+			message: "#^Function supprimer_me not found\\.$#"
+			count: 1
+			path: action/delete.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 2
+			path: action/favori.php
+
+		-
+			message: "#^Function cache_message not found\\.$#"
+			count: 1
+			path: action/favori.php
+
+		-
+			message: "#^Function job_queue_add not found\\.$#"
+			count: 1
+			path: action/favori.php
+
+		-
+			message: "#^Function recuperer_fond not found\\.$#"
+			count: 1
+			path: action/favori.php
+
+		-
+			message: "#^Function sql_allfetsel not found\\.$#"
+			count: 2
+			path: action/favori.php
+
+		-
+			message: "#^Function sql_insertq not found\\.$#"
+			count: 1
+			path: action/favori.php
+
+		-
+			message: "#^Function sql_query not found\\.$#"
+			count: 1
+			path: action/favori.php
+
+		-
+			message: "#^Function sql_quote not found\\.$#"
+			count: 1
+			path: action/favori.php
+
+		-
+			message: "#^Function sql_allfetsel not found\\.$#"
+			count: 1
+			path: action/liste_amis.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 1
+			path: action/messages_lien.php
+
+		-
+			message: "#^Function generer_objet_url not found\\.$#"
+			count: 1
+			path: action/messages_lien.php
+
+		-
+			message: "#^Function sql_allfetsel not found\\.$#"
+			count: 2
+			path: action/messages_lien.php
+
+		-
+			message: "#^Function sql_in not found\\.$#"
+			count: 1
+			path: action/messages_lien.php
+
+		-
+			message: "#^Function sql_quote not found\\.$#"
+			count: 3
+			path: action/messages_lien.php
+
+		-
+			message: "#^Function url_absolue not found\\.$#"
+			count: 1
+			path: action/messages_lien.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 1
+			path: action/seenli.php
+
+		-
+			message: "#^Function _T not found\\.$#"
+			count: 1
+			path: formulaires/poster_message.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 2
+			path: formulaires/poster_message.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 1
+			path: formulaires/poster_message.php
+
+		-
+			message: "#^Function instance_me not found\\.$#"
+			count: 1
+			path: formulaires/poster_message.php
+
+		-
+			message: "#^Function sql_fetch not found\\.$#"
+			count: 3
+			path: formulaires/poster_message.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 3
+			path: formulaires/poster_message.php
+
+		-
+			message: "#^Function url_de_base not found\\.$#"
+			count: 1
+			path: formulaires/poster_message.php
+
+		-
+			message: "#^Function _T not found\\.$#"
+			count: 3
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 27
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function actualiser_sessions not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function auteur_modifier not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function charger_fonction not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function creer_uniqid not found\\.$#"
+			count: 2
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function fichier_bandeau not found\\.$#"
+			count: 2
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function fichier_fond not found\\.$#"
+			count: 2
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function fichier_logo_auteur not found\\.$#"
+			count: 2
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function generer_htpass not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 4
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function nettoyer_graphisme_auteur not found\\.$#"
+			count: 7
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function nettoyer_logo_auteur not found\\.$#"
+			count: 3
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function nettoyer_nom_auteur not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function racine_bandeau not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function racine_fond not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function session_set not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function spip_sha256 not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function sql_fetch not found\\.$#"
+			count: 2
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function sql_fetsel not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function sql_query not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function sql_quote not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function supprimer_microcache not found\\.$#"
+			count: 10
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function unicode2charset not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function utf_8_to_unicode not found\\.$#"
+			count: 1
+			path: formulaires/profil.php
+
+		-
+			message: "#^Function html2unicode not found\\.$#"
+			count: 1
+			path: php/traduire_texte.php
+
+		-
+			message: "#^Function lang_dir not found\\.$#"
+			count: 1
+			path: php/traduire_texte.php
+
+		-
+			message: "#^Function spip_log not found\\.$#"
+			count: 4
+			path: php/traduire_texte.php
+
+		-
+			message: "#^Function sql_fetch not found\\.$#"
+			count: 1
+			path: php/traduire_texte.php
+
+		-
+			message: "#^Function sql_insertq not found\\.$#"
+			count: 1
+			path: php/traduire_texte.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 1
+			path: php/traduire_texte.php
+
+		-
+			message: "#^Function _couleur_dec_to_hex not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function _couleur_hex_to_dec not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function _couleur_hsv2rgb not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function _couleur_rgb2hsv not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 2
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function afficher_low_sec not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function annee not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function attribut_html not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function cache_del not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function cache_exists not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function cache_set not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function calculer_argument_precedent not found\\.$#"
+			count: 2
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function calculer_liste not found\\.$#"
+			count: 2
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function champ_sql not found\\.$#"
+			count: 2
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function copie_locale not found\\.$#"
+			count: 3
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function couleur_luminance not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function direction_css not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function extraire_attribut not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function fichier_copie_locale not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function find_in_path not found\\.$#"
+			count: 2
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function generer_objet_url not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function generer_url_action not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function image_aplatir not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function image_graver not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function image_reduire not found\\.$#"
+			count: 2
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function image_sepia not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 11
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function inserer_attribut not found\\.$#"
+			count: 4
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function journum not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function mois not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function parametre_url not found\\.$#"
+			count: 8
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function proteger_amp not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function session_get not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_allfetsel not found\\.$#"
+			count: 7
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_count not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_fetch not found\\.$#"
+			count: 4
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_fetsel not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_getfetsel not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_in not found\\.$#"
+			count: 7
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_query not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_quote not found\\.$#"
+			count: 3
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 3
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function sql_updateq not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function urlencode_1738_plus not found\\.$#"
+			count: 1
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function vider_attribut not found\\.$#"
+			count: 3
+			path: seenthissq_fonctions.php
+
+		-
+			message: "#^Function _request not found\\.$#"
+			count: 1
+			path: seenthissq_pipelines.php
+
+		-
+			message: "#^Function include_spip not found\\.$#"
+			count: 1
+			path: seenthissq_pipelines.php
+
+		-
+			message: "#^Function optimiser_sansref not found\\.$#"
+			count: 1
+			path: seenthissq_pipelines.php
+
+		-
+			message: "#^Function session_get not found\\.$#"
+			count: 2
+			path: seenthissq_pipelines.php
+
+		-
+			message: "#^Function sql_insertq not found\\.$#"
+			count: 1
+			path: seenthissq_pipelines.php
+
+		-
+			message: "#^Function sql_select not found\\.$#"
+			count: 1
+			path: seenthissq_pipelines.php
+
+		-
+			message: "#^Function sql_updateq not found\\.$#"
+			count: 2
+			path: seenthissq_pipelines.php

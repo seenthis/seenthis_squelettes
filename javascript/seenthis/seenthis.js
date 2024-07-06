@@ -32,7 +32,7 @@ $.fn.soundmanager = function () {
 	return $(this)
 		.each(function () {
 			var url_son = $(this).find('source').attr('src');
-			$(this).html('<div class="lecture"><button class="play">play</button></div><div class="controles"><div class="track sans_titre"><a title="Ecouter" rel="enclosure" href="' + url_son + '"><span class="fn"> </span></a></div><div class="progress_bar"><div class="position"></div><div class="loading"></div></div><div class="lesinfos"><div class="time"></div><div class="duration"></div></div></div><br style="clear:both;">');
+			$(this).html('<div class="lecture"><button class="play" title="Lancer la lecture" data-statut="play" data-lecture="Lancer la lecture" data-pause="Mettre la lecture en pause"><svg id="btn-play" viewBox="0 0 50 49.5"><polygon points="0,49.5 0,0 50,24.7 "/></svg><svg id="btn-pause" viewBox="0 0 50 49.5"><rect x="8.1" y="1.3" width="11.3" height="45.4"/><rect x="28.5" y="1.3" width="11.3" height="45.4"/></svg></button></div><div class="controles"><div class="track sans_titre"><a title="Ecouter" rel="enclosure" href="' + url_son + '"><span class="fn"> </span></a><div class="progress_container"><div class="progress_bar"><div class="position"></div><div class="loading"></div></div><div class="lesinfos"><div class="time"></div><div class="duration"></div></div></div><br style="clear:both;">');
 			sound_manager_init();
 		});
 };
