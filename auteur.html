@@ -43,7 +43,7 @@
 					</div>
 
 					<div id="messages_perso" style="display: none;">
-						[<div class="pagination" id="pagination_haut">(#PAGINATION)</div>]
+						[<div class="pagination" id="pagination_haut">(#PAGINATION{legacy})</div>]
 						<ul class="messages">
 				<BOUCLE_messages(ME){id_me IN #GET{messages_perso}}{par date}{inverse}{id_parent=0}{pagination 25}{statut=publi}>
 							<li id="message#ID_ME"><a name="message#ID_ME"></a>
@@ -51,7 +51,7 @@
 							</li>
 				</BOUCLE_messages>
 						</ul>
-						[<div class="pagination" id="pagination_bas">(#PAGINATION)</div>]
+						[<div class="pagination" id="pagination_bas">(#PAGINATION{legacy})</div>]
 					</div>
 				</B_messages>
 			<INCLURE{fond=noisettes/contenu/contenu_auteur}{id=#ID_AUTEUR}{env}/>

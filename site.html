@@ -6,7 +6,7 @@
 	<title>[(#TITRE|sinon{#URL_SITE}|textebrut)]</title>
 
 	<meta charset="#CHARSET">
-	<link rel="canonical" href="[(#ID_SYNDIC|generer_url_entite{site}|url_absolue)]">
+	<link rel="canonical" href="[(#ID_SYNDIC|generer_objet_url{site}|url_absolue)]">
 	[(#SESSION{id_auteur}|sinon{0}|microcache{inc/head_langue})]
 	<INCLURE{fond=inc/head}{lang=fr}>
 
@@ -63,7 +63,7 @@
 					<BOUCLE_parent2(BOUCLE_parent) />
 					<li>
 						<!-- #ID_PARENT -->
-							<a href="[(#ID_SYNDIC|generer_url_entite{site})]">[(#URL_SITE|replace{#GET{url_racine}})]</a>
+							<a href="[(#ID_SYNDIC|generer_objet_url{site})]">[(#URL_SITE|replace{#GET{url_racine}})]</a>
 						[(#SET{url_racine,#URL_SITE})]
 					</li>
 				</BOUCLE_parent>
@@ -100,7 +100,7 @@
 					|
 					<a href="sites/[(#ID_SYNDIC|parametre_url{follow,follow})]"[(#GET{follow}|=={follow}|oui)class="actif"]>Messages de mon r&#233;seau</a>
 					|
-					<a href="[(#ID_SYNDIC|generer_url_entite{site})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
+					<a href="[(#ID_SYNDIC|generer_objet_url{site})]"[(#GET{follow}|=={all}|oui)class="actif"]>Tous les messages</a>
 				</div>
 			]
 
